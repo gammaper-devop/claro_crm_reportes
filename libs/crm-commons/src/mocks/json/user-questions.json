@@ -1,0 +1,71 @@
+[
+  {
+    "questionNumber": "1",
+    "question": "¿Cuál es el nombre de tu papá?",
+    "answer": "1",
+    "listOption": [
+      {
+        "optionNumber": "1",
+        "option": "Juan"
+      },
+      {
+        "optionNumber": "2",
+        "option": "Cesar"
+      },
+      {
+        "optionNumber": "3",
+        "option": "Pedro"
+      },
+      {
+        "optionNumber": "4",
+        "option": "Luis"
+      }
+    ]
+  },
+  {
+    "questionNumber": "2",
+    "question": "¿Cuál es el nombre de tu mamá?",
+    "answer": "2",
+    "listOption": [
+      {
+        "optionNumber": "1",
+        "option": "Ana"
+      },
+      {
+        "optionNumber": "2",
+        "option": "Josefina"
+      },
+      {
+        "optionNumber": "3",
+        "option": "Alba"
+      },
+      {
+        "optionNumber": "4",
+        "option": "Maria"
+      }
+    ]
+  },
+  {
+    "questionNumber": "3",
+    "question": "¿Cuál es tu lugar de nacimiento?",
+    "answer": "3",
+    "listOption": [
+      {
+        "optionNumber": "1",
+        "option": "Puno"
+      },
+      {
+        "optionNumber": "2",
+        "option": "Ica"
+      },
+      {
+        "optionNumber": "3",
+        "option": "Lima"
+      },
+      {
+        "optionNumber": "4",
+        "option": "Cuzco"
+      }
+    ]
+  }
+]

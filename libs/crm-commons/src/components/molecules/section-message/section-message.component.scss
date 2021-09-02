@@ -1,0 +1,65 @@
+@import '../../../scss/breakpoints';
+
+:host {
+  display: block;
+  width: 100%;
+
+  .row {
+    margin: 0;
+  }
+
+  .claro-section-message {
+    // display: grid;
+    // grid-row-gap: 10px;
+    // grid-template-rows: 100px 1fr;
+    // justify-items: flex-start;
+    // margin: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .message-icon {
+      margin: 0 1em;
+    }
+
+    .message-content {
+      width: 100%;
+      padding-left: 5%;
+      text-align: center;
+
+      &__title {
+        font-size: 18px;
+        font-weight: 500;
+        &.success {
+          color: #0fd299;
+        }
+        &.wrong {
+          color: #da272c;
+        }
+      }
+
+      &__description, &__id {
+        margin-top: 0.8em;
+        color: #444;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm) {
+  :host {
+    .claro-section-message {
+      .message-icon {
+        margin: 0;
+      }
+
+      .message-content {
+        width: 100%;
+        padding-left: 6%;
+        text-align: left;
+        margin: 0;
+      }
+    }
+  }
+}

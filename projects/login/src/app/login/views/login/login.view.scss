@@ -1,0 +1,73 @@
+@import 'breakpoints';
+@import 'environment';
+
+.login-container {
+  background-color: #fff;
+  display: flex;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  .login-content {
+    padding: 28px;
+    width: 100%;
+    box-sizing: border-box;
+    .container-hidden {
+      display: none;
+    }
+    .container-visible {
+      display: block;
+    }
+    .slogan-responsive {
+      display: none;
+      text-align: center;
+      h3 {
+        text-transform: uppercase;
+      }
+    }
+  }
+  .banner-content {
+    width: 100%;
+    background: url($cdn + '/img/login/bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-flow: column nowrap;
+    .logo {
+      margin: 50px;
+    }
+    .slogan {
+      img {
+        margin-top: 35%;
+        max-width: 343px;
+        width: 75%;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm) {
+  .login-container {
+    .login-content {
+      overflow-y: scroll;
+      .slogan-responsive {
+        display: block;
+      }
+    }
+  }
+  .login-container {
+    flex-flow: column;
+    .banner-content {
+      background: #da272c;
+      justify-content: center;
+      align-items: center;
+      .logo {
+        margin: 10px;
+      }
+      .slogan {
+        display: none;
+      }
+    }
+  }
+}

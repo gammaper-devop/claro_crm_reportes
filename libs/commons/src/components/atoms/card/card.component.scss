@@ -1,0 +1,12 @@
+.card {
+  background-color: #ffffff;
+  transition: .3s ease-out;
+  border-color: transparent;
+  border-radius: 8px;
+  box-shadow: none;
+  width: 100%;
+  padding: 2em;
+  &:hover {
+    box-shadow: 0 6px 15px 0 #d7dae3;
+  }
+}

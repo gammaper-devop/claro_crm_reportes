@@ -1,0 +1,23 @@
+.app-sidebar {
+  width: 30%;
+  max-width: 250px;
+  min-width: 250px;
+  transition: all 0.5s ease;
+}
+
+@media (max-width: 700px) {
+  .app-sidebar {
+    position: absolute;
+    z-index: 999;
+    width: 250px !important;
+    margin-left: -265px !important;
+    transition: all 0.5s ease;
+  }
+  .isHiddenActive {
+    margin-left: -15px !important;
+    transition: all 0.5s ease;
+  }
+  .container-fluid {
+    padding: 0 !important;
+  }
+}

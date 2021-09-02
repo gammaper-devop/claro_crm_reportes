@@ -1,0 +1,18 @@
+<div class="container-fluid mb-5" *ngIf="!isLoading">
+  <claro-collapse
+      class="my-3"
+      text="Validación de Cliente"
+      [expanded]="true"
+    >
+
+    <crm-biometric-validation
+      [body]="body"
+      [biometricConfig]="presenter.biometricConfig"
+      [biometricType]="biometricType"
+      
+    >
+    </crm-biometric-validation>
+
+  </claro-collapse>
+</div>
+

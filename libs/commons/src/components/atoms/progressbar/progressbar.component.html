@@ -1,0 +1,14 @@
+<div *ngIf="!value" [class.loader-hidden]="!show">
+  <div *ngIf="show" class="isSubmitting loader-overlay"></div>
+  <mat-progress-bar
+    *ngIf="show"
+    class="isSubmitting"
+    mode="indeterminate"
+  ></mat-progress-bar>
+</div>
+<div *ngIf="value">
+  <mat-progress-bar
+    mode="determinate"
+    [value]="value"
+  ></mat-progress-bar>
+</div>

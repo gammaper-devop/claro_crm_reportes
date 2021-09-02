@@ -1,0 +1,59 @@
+[
+  {
+    "onlinePayments": [
+      {
+        "code": "1",
+        "description": "Tarjeta Visa",
+        "digitCount" : "3"
+      },
+      {
+        "code": "2",
+        "description": "Tarjeta Mastercard",
+        "digitCount" : "4"
+      },
+      {
+        "code": "3",
+        "description": "Tarjeta Amex",
+        "digitCount" : "2"
+      }
+    ]
+  },
+  {
+    "accountChargePayments": [
+      {
+        "code": "1",
+        "description": "Cargo en recibo 1",
+        "digitCount" : "5"
+      },
+      {
+        "code": "2",
+        "description": "Cargo en recibo 2",
+        "digitCount" : "6"
+      },
+      {
+        "code": "3",
+        "description": "Cargo en recibo 3",
+        "digitCount" : "7"
+      }
+    ]
+  },
+  {
+    "onSitePayments": [
+      {
+        "code": "1",
+        "description": "Contra entrega 1",
+        "digitCount" : "3"
+      },
+      {
+        "code": "2",
+        "description": "Contra entrega 2",
+        "digitCount" : "4"
+      },
+      {
+        "code": "3",
+        "description": "Contra entrega 3",
+        "digitCount" : "5"
+      }
+    ]
+  }
+]

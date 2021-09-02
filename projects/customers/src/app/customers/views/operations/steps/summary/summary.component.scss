@@ -1,0 +1,137 @@
+.summary-container {
+  width: 100%;
+  .detail-content {
+    width: 100%;
+    position: relative;
+    .detail-title {
+      height: 50px;
+      width: 100%;
+      .title-container {
+        display: flex;
+        justify-content: flex-end;
+        height: 100%;
+        // min-height: 50px;
+        .product-price {
+          align-items: center;
+          display: flex;
+          flex-flow: row nowrap;
+          font-weight: 500;
+          justify-content: space-between;
+          width: 60%;
+        }
+      }
+    }
+    .item-section {
+      padding: 15px 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: row nowrap;
+      .description {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        width: 40%;
+        .title-item {
+          padding: 5px 15px;
+          background: rgb(204, 246, 255);
+          border-radius: 3px;
+        }
+        .dec-content {
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+          align-items: center;
+          span {
+            padding: 1px 5px;
+          }
+        }
+      }
+      .product-price {
+        width: 60%;
+        display: flex;
+        flex-flow: column nowrap;
+        border-left: 1px solid #e1e1e1;
+        .is-equipment,
+        .is-chip {
+          margin: 0.6em 0;
+          .item {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            .item-price {
+              text-align: right;
+              width: 200px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .summary-total {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    .summary-total-content {
+      width: 60%;
+      display: flex;
+      flex-flow: column nowrap;
+      .detal-total-prices {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        .price-item {
+          width: 100%;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+        }
+      }
+      .finaly-price {
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        padding: 20px 0;
+        border-top: solid 1px #6c757d2e;
+      }
+    }
+  }
+}
+.persist {
+  display: flex !important;
+}
+.collapse {
+  display: none !important;
+}
+.collapsible {
+  max-height: 90px;
+  overflow: hidden;
+}
+
+@media (max-width: 890px) {
+  .detail-title {
+    display: none !important;
+  }
+  .item-section {
+    flex-flow: column !important;
+    .description,
+    .product-price {
+      width: 100% !important;
+      padding: 10px 0 !important;
+    }
+    .title-item {
+      width: 100% !important;
+    }
+    .dec-content {
+      width: 100%;
+      flex-flow: row nowrap !important;
+      justify-content: space-around !important;
+    }
+  }
+  .summary-total-content {
+    width: 100% !important;
+    padding: 15px;
+  }
+}

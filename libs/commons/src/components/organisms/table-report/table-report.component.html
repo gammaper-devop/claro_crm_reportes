@@ -1,0 +1,23 @@
+<div class="container-table-list" style="padding: 0;">
+  <div class="thead-container">
+    <div class="p-row p-row--header">
+      <div *ngFor="let hItem of thead; index as i" class="p-col head-col">
+        {{ hItem.label }}
+      </div>
+    </div>
+  </div>
+  <div class="tbody-container">
+    <div class="p-row p-row--body" *ngFor="let bItem of tbody; index as i">
+      <mat-card class="card-item py-4">
+        <div class="content-card">
+          <div class="item-row-content">
+            <div class="p-col p-col-copy" *ngFor="let hItem of thead; index as y">
+              <span class="hidden-name-item">{{ hItem.label }}</span>
+              <span [ngClass]="{ 'value-item': isIE }" [title]="returnRowItem(bItem, y)">{{ returnRowItem(bItem, y) }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

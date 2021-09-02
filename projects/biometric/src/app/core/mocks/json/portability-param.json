@@ -1,0 +1,32 @@
+[
+  {
+    "parameterCode": "movil",
+    "description": "Móvil",
+    "keyCombo": "CBO_SERVICES",
+    "paramRequired": ""
+  },
+  {
+    "parameterCode": "movistar",
+    "description": "Movistar",
+    "keyCombo": "CBO_OPERATOR",
+    "paramRequired": "movil"
+  },
+  {
+    "parameterCode": "entel",
+    "description": "Entel",
+    "keyCombo": "CBO_OPERATOR",
+    "paramRequired": "movil"
+  },
+  {
+    "parameterCode": "bitel",
+    "description": "Bitel",
+    "keyCombo": "CBO_OPERATOR",
+    "paramRequired": "movil"
+  },
+  {
+    "parameterCode": "prepago",
+    "description": "Prepago",
+    "keyCombo": "CBO_MOD_ORIGIN",
+    "paramRequired": ""
+  }
+]

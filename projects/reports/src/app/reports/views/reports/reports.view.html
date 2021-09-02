@@ -1,0 +1,219 @@
+<div class="pt-4">
+  <crm-page-title [label]="'Búsqueda Personalizada'"></crm-page-title>
+</div>
+<div class="form-card-content">
+  <claro-card class="card-content">
+    <div class="form-container">
+      <form [formGroup]="reportsForm" autocomplete="off">
+        <div class="form-content">
+          <div class="form-actions-reports" *ngIf="enableReport">
+            <claro-button
+            styl="flat"
+            text="Descargar reporte"
+            (clicked)="onSubmit()"
+          ></claro-button>
+          </div>
+          <div class="form-section sectin-personal-info">
+            <div class="form-section-content">
+              <div class="formElemet">
+                <label>Tipo de documento:</label><br />
+                <claro-select
+                    placeholder="Selecciona"
+                    [options]="presenter.documentTypes$ | async"
+                    (valueChanged)="changeDocType($event)"
+                    formControlName="documentType"
+                    [value]="reportsForm.get('documentType').value"
+                    [disabled]="selectValue.length > 0"
+                    claroReactiveForm>
+                  </claro-select>
+              </div>
+
+              <div class="formElemet">
+                <label>Fecha registro inicio:</label><br />
+                <claro-datepicker
+                  placeholder="dd/mm/yyyy"
+                  formControlName="startDate"
+                  [minDate]="minDate"
+                  [maxDate]="maxDate"
+                  [disabled]="false"
+                  (valueChanged)="valueChanged($event)"
+                  claroReactiveForm
+                ></claro-datepicker>
+              </div>
+
+              <div class="formElemet">
+                <label>Número de Documento:</label><br />
+                <claro-input
+                  placeholder="Ingrese documento"
+                  formControlName="documentNumber"
+                  [maxLength]="maxLength"
+                  [inputValidation]="inputType"
+                  [disabled]="selectValue.length > 0"
+                  claroReactiveForm
+                ></claro-input>
+              </div>
+
+              <div class="formElemet">
+                <label>Fecha registro fin:</label><br />
+                <claro-datepicker
+                  placeholder="dd/mm/yyyy"
+                  formControlName="endDate"
+                  [minDate]="minDate"
+                  [maxDate]="maxDate"
+                  [disabled]="false"
+                  (valueChanged)="valueChanged($event)"
+                  claroReactiveForm
+                ></claro-datepicker>
+              </div>
+
+              <div class="formElemet">
+                <label>Estado:</label><br />
+                <claro-select
+                    placeholder="Selecciona"
+                    [options]="optionsStatus"
+                    (valueChanged)="changeState($event)"
+                    formControlName="status"
+                    [value]="reportsForm.get('status').value"
+                    [disabled]="selectValue.length > 0"
+                    claroReactiveForm>
+                  </claro-select>
+              </div>
+
+              <div class="formElemet">
+                <label>Distribuidor:</label><br />
+                <claro-select
+                    placeholder="Selecciona"
+                    [options]=""
+                    (valueChanged)="changeSeller($event)"
+                    formControlName="seller"
+                    [value]="selectValue"
+                    [disabled]="selectValue.length > 0"
+                    claroReactiveForm>
+                  </claro-select>
+              </div>
+
+              <div class="formElemet">
+                <label>Región:</label><br />
+                <claro-select
+                    placeholder="Selecciona"
+                    [options]=""
+                    (valueChanged)="changeRegion($event)"
+                    formControlName="region"
+                    [value]="selectValue"
+                    [disabled]="selectValue.length > 0"
+                    claroReactiveForm>
+                  </claro-select>
+              </div>
+
+              <div class="formElemet">
+                <label>Descripción del PDV:</label><br />
+                <claro-input
+                  placeholder="Ingrese descripción"
+                  formControlName="descriptionPdv"
+                  [maxLength]="maxLength"
+                  [inputValidation]="inputType"
+                  [disabled]="selectValue.length > 0"
+                  claroReactiveForm
+                ></claro-input>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <claro-button
+          styl="flat"
+          text="Consultar"
+          (clicked)="onSearch()"
+        ></claro-button>
+        </div>
+      </form>
+    </div>
+  </claro-card>
+</div>
+<claro-card class="card-content" *ngIf="enableReport">
+  <div class="table-container mat-elevation-z8">
+    <table mat-table [dataSource]="dataSourceSellers">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="position" sticky>
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element; index as i"> {{ i+1 }} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="tipo_doc">
+        <th mat-header-cell *matHeaderCellDef> TIPO DOC. </th>
+        <td mat-cell *matCellDef="let element"> {{element.documentType}} </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="num_doc">
+        <th mat-header-cell *matHeaderCellDef> N° DOC. </th>
+        <td mat-cell *matCellDef="let element"> {{element.documentNumber}} </td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="nombres">
+        <th mat-header-cell *matHeaderCellDef> NOMBRES </th>
+        <td mat-cell *matCellDef="let element"> {{ element.names | uppercase }} {{ element.lastname | uppercase }} {{ element.firstname | uppercase }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="id_vendedor">
+        <th mat-header-cell *matHeaderCellDef> VENDEDOR </th>
+        <td mat-cell *matCellDef="let element"> {{element.employeeId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="tel_vendedor">
+        <th mat-header-cell *matHeaderCellDef> TELF. VEND. </th>
+        <td mat-cell *matCellDef="let element"> {{element.employeePhone}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="desc_pdv">
+        <th mat-header-cell *matHeaderCellDef> DESC. PDV </th>
+        <td mat-cell *matCellDef="let element"> {{element.pointSaleCode}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef> ESTADO </th>
+        <td mat-cell *matCellDef="let element"> {{element.employeeStatus}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="empadronador">
+        <th mat-header-cell *matHeaderCellDef> EMPADRONADOR </th>
+        <td mat-cell *matCellDef="let element"> {{element.registerUser | uppercase }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="tipo_validacion">
+        <th mat-header-cell *matHeaderCellDef> TIP. VAL. </th>
+        <td mat-cell *matCellDef="let element"> {{element.authentication }} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</claro-card>
+<!-- <div>
+  <claro-table-report
+    [thead] = "tableHeader"
+    [tbody] = ""
+  >
+
+  </claro-table-report>
+</div> -->
+<!-- <div>
+    <claro-table
+      (selected)="tSelectValue($event)"
+      [thead]="tableHeader"
+      [tbody]="presenter.contracts"
+      [user]="presenter.user"
+      [btnPayment]="indexTab"
+      [showActionBar]="showActionBar"
+      #claroTable
+    ></claro-table>
+</div> -->

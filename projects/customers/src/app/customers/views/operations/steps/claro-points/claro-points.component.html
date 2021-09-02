@@ -1,0 +1,169 @@
+<div class="container-detail-pints" *ngIf="!presenter.error; else error">
+  <div class="header-point">
+    <div class="subtitle">
+      <p>
+        Informa a tu cliente la opción de descuento a través de Claro puntos
+      </p>
+    </div>
+  </div>
+  <div class="point-content d-lg-flex d-block">
+    <div class="line-right col-12 col-lg-5 mb-4 mb-lg-2 pl-0">
+      <div class="formElemet el-full mr-0 mr-lg-2">
+        <div class="title">
+          <strong>Puntos de Cliente</strong>
+        </div>
+        <div class="points-values">
+          <p>
+            Total de Puntos:
+            <strong>{{
+              myPoints.value <= presenter.initialPoints
+                ? presenter.remainingPoints
+                : 0
+            }}</strong>
+          </p>
+          <p>
+            Valor de Puntos:
+            <strong
+              >S/
+              {{
+                myPoints.value <= presenter.initialPoints
+                  ? presenter.remainingCoins
+                  : 0
+              }}</strong
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="d-block col-12 col-lg-7 mb-4 mb-lg-0">
+      <div class="content-btn pr-0 pr-md-4 pr-0">
+        <div class="p-col">
+          <div class="btn-actions">
+            <claro-icon-button
+              styl="fab"
+              size="sm"
+              name="delete"
+              title="Eliminar"
+              (click)="reset()"
+              [disabled]="buttonsDisabled"
+            >
+            </claro-icon-button>
+          </div>
+        </div>
+        <div class="p-col ml-2">
+          <div class="btn-actions">
+            <claro-icon-button
+              styl="fab"
+              size="sm"
+              name="edit"
+              title="Editar"
+              (click)="edit()"
+              [disabled]="buttonsDisabled"
+            >
+            </claro-icon-button>
+          </div>
+        </div>        
+      </div>
+      <div *ngIf="changeViews === 0" class="poitns-form-container ml-0 ml-lg-2">
+        <label class="ml-2">Puntos a Canjear</label><br />
+        <form
+          [formGroup]="pointsForm"
+          (ngSubmit)="changePoints()"
+          autocomplete="off"
+          class="d-flex col-md-11 col-xl-7 col-12 pl-0"
+        >
+          <div class="formElemet form-point">
+            <claro-input
+              placeholder="Ingresa puntos"
+              (valueChanged)="presenter.onChangeInput(myPoints)"
+              inputValidation="number"
+              formControlName="myPoints"
+              [value]="inputValue || null"
+              [maxLength]="
+                presenter.claroPoints?.currentPoints.toString().length
+              "
+              claroReactiveForm
+            ></claro-input>
+            <label *ngIf="presenter.flagValidateClaroPointers" class="error-message error-message--visible pt-4">
+              <claro-icon name="info" class="icon-error"></claro-icon>Los ClaroPuntos no pueden superar al precio total
+            </label>
+            <label *ngIf="presenter.flagValidateClaroPointersUsed" class="error-message error-message--visible pt-4">
+              <claro-icon name="info" class="icon-error"></claro-icon>Cliente ha superado el limite de claro puntos a canjear
+            </label>
+          </div>
+          <div class="form-actions mt-1 ml-2">
+            <div class="action-item">
+              <claro-button
+                styl="flat"
+                size="sm"
+                text="Canjear"
+                type="submit"
+                [disabled]="
+                  myPoints.value < presenter.minPoints ||
+                  myPoints.value > presenter.claroPoints.currentPoints ||
+                  presenter.flagValidateClaroPointersUsed
+                "
+              ></claro-button>
+            </div>
+          </div>
+        </form>
+        <div
+          [ngStyle]="{
+            color:
+              myPoints.value >= presenter.minPoints ? 'rgba(0, 0, 0, 0.87)' : 'rgba(0, 0, 0, 0)'
+          }"
+        >
+          <label class="ml-2 mb-0" *ngIf="!presenter.flagValidateClaroPointersUsed && presenter.flagValidateShow"
+            >El valor es de S/ {{ presenter.changedCoins || 0 }}. </label
+          >
+        </div>
+      </div>
+      <div
+        *ngIf="moneyReceived !== null && changeViews === 1"
+        class="poitns-form-container ml-0 ml-lg-2 mt-4"
+      >
+        <div class="ml-2">
+          <p class="change">
+            ¡Canjeaste {{ presenter.inputValue }} pts por S/
+            {{ presenter.changedCoins }}!
+          </p>
+        </div>
+      </div>
+      <div
+        *ngIf="changeViews === 2"
+        class="poitns-form-container ml-0 ml-lg-2 mt-3"
+      >
+        <div class="ml-2">
+          <label>Puntos a Canjear</label><br />
+          <strong>{{ presenter.inputValue }} pts</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sider-point mt-2">
+    <div class="text-muted">
+      <p class="mb-1">
+        *El mínimo de puntos para canjear es {{ presenter.minPoints }} pts.
+      </p>
+      <p>*El cliente debe pagar mínimo s/{{ presenter.minPayment }}.</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #error>
+  <claro-collapse class="my-3" expanded="true">
+    <label class="error-message" *ngIf="presenter.functionalError">
+      <claro-icon
+        name="info"
+        class="icon-error"
+      ></claro-icon>
+      {{ presenter.error.description }}
+    </label>
+    <app-sale-error
+      *ngIf="!presenter.functionalError"
+      [error]="presenter.error"
+      (clicked)="again()"
+    >
+    </app-sale-error>
+  </claro-collapse>
+</ng-template>

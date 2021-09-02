@@ -1,0 +1,22 @@
+[
+  {
+    "documentType": "2",
+    "documentDescription": "DNI"
+  },
+  {
+    "documentType": "5",
+    "documentDescription": "CIP"
+  },
+  {
+    "documentType": "4",
+    "documentDescription": "CE"
+  },
+  {
+    "documentType": "1",
+    "documentDescription": "PASAPORTE"
+  },
+  {
+    "documentType": "9",
+    "documentDescription": "CPP"
+  }
+]

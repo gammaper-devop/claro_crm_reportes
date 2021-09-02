@@ -1,0 +1,37 @@
+<form [formGroup]="contractsForm" autocomplete="off">
+  <div class="col-12 mt-4">
+    <claro-tabs
+      [labelOne]="headerOne"
+      [labelTwo]="headerTwo"
+      (clickedTabs)="clickContracts($event); claroTable.showActionBar = false"
+    >
+    </claro-tabs>
+  </div>
+  <div class="col-12 row d-flex justify-content-end">
+    <div class="formElemet mt-5 px-0">
+      <claro-datepicker
+        placeholder="dd/mm/yyyy"
+        formControlName="datepicker"
+        [minDate]="presenter.minDate"
+        [maxDate]="presenter.maxDate"
+        [value]="valueDate"
+        [disabled]="true"
+        (valueChanged)="
+          clickDatePicker($event); claroTable.showActionBar = false
+        "
+        claroReactiveForm
+      ></claro-datepicker>
+    </div>
+  </div>
+  <div>
+    <claro-table
+      (selected)="tSelectValue($event)"
+      [thead]="tableHeader"
+      [tbody]="presenter.contracts"
+      [user]="presenter.user"
+      [btnPayment]="indexTab"
+      [showActionBar]="showActionBar"
+      #claroTable
+    ></claro-table>
+  </div>
+</form>

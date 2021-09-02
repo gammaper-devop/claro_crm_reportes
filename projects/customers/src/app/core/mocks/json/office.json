@@ -1,0 +1,14 @@
+{
+  "channel": "02",
+  "officeSalecode": "officeSalecode",
+  "officeDescription": "officeDescription",
+  "productCodeType": "productCodeType",
+  "officeType": "officeType",
+  "deparmentCode": "01",
+  "region": "region",
+  "orgSale": "orgSale",
+  "warehouseCode": "warehouseCode",
+  "centerCode": "centerCode",
+  "interlocutorCode": "interlocutorCode",
+  "interlocutorCodeFather": "interlocutorCodeFather"
+}

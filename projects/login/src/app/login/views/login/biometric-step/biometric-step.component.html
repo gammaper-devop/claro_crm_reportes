@@ -1,0 +1,78 @@
+<div class="form-login-biometric-auth-container">
+  <div class="biometric-auth">
+    <div class="icon">
+      <img src="{{ cdn }}/img/login/document.png" alt="" />
+    </div>
+    <div class="title">Identifícate</div>
+    <div class="description">
+      {{ user && user.name ? user.name + ', p' : 'P' }}ara continuar validaremos
+      tu huella dactilar.
+    </div>
+    <div class="form-container">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="form-content">
+          <div class="formElemet">
+            <div class="biometric-reader">
+              <div class="biometric-border biometric-border__left"></div>
+              <div class="biometric-hands" *ngIf="!isScanning; else loading">
+                <div
+                  class="biometric-hand biometric-hand__left"
+                  [ngStyle]="{ 'background-image': leftHand }"
+                >
+                  <claro-icon
+                    *ngIf="!isFirstTime"
+                    [name]="scanIcon"
+                    class="biometric-hand__status"
+                    [ngClass]="'biometric-hand__status-' + scanIcon"
+                  >
+                  </claro-icon>
+                </div>
+                <div
+                  class="biometric-hand biometric-hand__right"
+                  [ngStyle]="{ 'background-image': rightHand }"
+                >
+                  <claro-icon
+                    *ngIf="!isFirstTime"
+                    [name]="scanIcon"
+                    class="biometric-hand__status"
+                    [ngClass]="'biometric-hand__status-' + scanIcon"
+                  >
+                  </claro-icon>
+                </div>
+              </div>
+              <ng-template #loading>
+                <claro-loading></claro-loading>
+              </ng-template>
+              <div class="biometric-border biometric-border__right"></div>
+            </div>
+          </div>
+          <label class="fingerprint-message"> {{ scanMessage }} </label>
+          <a
+            (click)="scanFingerprint()"
+            class="scan-fingerprint"
+            [class.scan-fingerprint--visible]="!scanStatus && !isScanning"
+          >
+            <span *ngIf="isFirstTime; else scanAgain">Escanear</span>
+            <ng-template #scanAgain>
+              <claro-icon name="refresh" class="icon-scan"></claro-icon>
+              Escanear de nuevo
+            </ng-template>
+          </a>
+          <label class="error-message" [class.error-message--visible]="error">
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ error?.description }}
+          </label>
+          <div class="form-actions">
+            <button [disabled]="!scanStatus">
+              Validar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="info">
+      Al iniciar sesión estás de acuerdo con los Términos y Condiciones y
+      Políticas de privacidad.
+    </div>
+  </div>
+</div>

@@ -1,0 +1,258 @@
+@import 'breakpoints';
+@import 'environment';
+
+.form-login-biometric-auth-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  .biometric-auth {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 280px;
+    width: 100%;
+
+    @media (max-width: $screen-sm) {
+      margin: 25px auto 0;
+    }
+
+    > div {
+      margin-bottom: 20px;
+    }
+
+    .title {
+      font-family: Roboto;
+      font-size: 36px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #444444;
+      margin-bottom: 5px;
+    }
+
+    .description {
+      font-family: Roboto;
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      text-align: center;
+      color: #444444;
+    }
+
+    .form-container {
+      width: 100%;
+
+      .form-content {
+        align-items: center;
+        display: flex;
+        flex-flow: column nowrap;
+        width: 100%;
+
+        .formElemet {
+          padding: 10px 0 0;
+          width: 100%;
+
+          .biometric-reader {
+            align-items: center;
+            display: flex;
+            flex-flow: row nowrap;
+            height: 132px;
+            justify-content: space-between;
+            margin: auto;
+            width: 258px;
+
+            .biometric-border {
+              height: 132px;
+              width: 16px;
+
+              &__left {
+                background-image: url($cdn + '/img/login/biometric-border.svg');
+                transform: rotateY(180deg);
+              }
+
+              &__right {
+                background-image: url($cdn + '/img/login/biometric-border.svg');
+              }
+            }
+
+            .biometric-hands {
+              display: flex;
+            }
+
+            .biometric-hand {
+              align-items: center;
+              display: flex;
+              justify-content: center;
+              height: 117px;
+              margin: 0 6px;
+              width: 101px;
+
+              &__status {
+                margin: 40px 0 0 12px;
+                zoom: 1.2;
+
+                &-done {
+                  color: #00aacf;
+                }
+
+                &-close {
+                  color: #da272c;
+                }
+              }
+
+              &__left {
+                background-image: url($cdn + '/img/login/biometric-hand.svg');
+                transform: rotateY(180deg);
+
+                .biometric-hand__status {
+                  transform: rotateY(180deg);
+                }
+              }
+
+              &__right {
+                background-image: url($cdn + '/img/login/biometric-hand.svg');
+              }
+            }
+          }
+        }
+
+        .fingerprint-message {
+          margin-top: 20px;
+          text-align: center;
+          font-family: Roboto;
+          font-size: 14px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.43;
+          letter-spacing: normal;
+          text-align: center;
+          color: #a5a6a7;
+        }
+
+        .scan-fingerprint {
+          cursor: pointer;
+          text-decoration: none;
+          font-family: Roboto;
+          font-size: 14px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: 0.5px;
+          text-align: right;
+          color: #00aacf;
+          margin: 10px 0;
+          visibility: hidden;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: flex-start;
+
+          &--visible {
+            visibility: visible;
+          }
+
+          .icon-scan {
+            margin-right: 5px;
+            vertical-align: middle;
+            zoom: 0.75;
+          }
+        }
+
+        .error-message {
+          color: #da272c;
+          display: block;
+          font-family: Roboto;
+          font-size: 12px;
+          font-stretch: normal;
+          font-style: normal;
+          font-weight: normal;
+          min-height: 50px;
+          letter-spacing: normal;
+          line-height: normal;
+          padding: 5px;
+          text-align: center;
+          visibility: hidden;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: flex-start;
+
+          &--visible {
+            visibility: visible;
+          }
+
+          .icon-error {
+            margin-right: 5px;
+            vertical-align: middle;
+            zoom: 0.75;
+          }
+        }
+
+        .form-actions {
+          width: 100%;
+
+          button {
+            height: 46px;
+            border-radius: 38px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            outline: none;
+            border-style: none;
+            background-color: #00aacf;
+            color: #ffffff;
+
+            &:disabled {
+              background-color: #d2d9e1;
+              color: #b8c0ca;
+
+              &:hover {
+                background-color: #d2d9e1;
+                color: #b8c0ca;
+                border: solid 2px #b8c0ca;
+              }
+            }
+
+            &:hover {
+              border: solid 2px #00aacf;
+              background-color: #ffffff;
+              color: #00aacf;
+            }
+
+            &:active {
+              color: #ffffff;
+              background-color: #007a92;
+            }
+          }
+        }
+      }
+    }
+
+    .info {
+      color: #a5a6a7;
+      font-family: Roboto;
+      font-size: 14px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      padding: 0 24px;
+      text-align: center;
+    }
+  }
+}

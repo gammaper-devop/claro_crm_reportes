@@ -1,0 +1,29 @@
+{
+  "operations": [
+    {
+      "idOperationType": "01",
+      "operationName": "Portabilidad",
+      "isNewProduct": false,
+      "isEnabled": true
+    },
+    {
+      "idOperationType": "02",
+      "operationName": "Linea Nueva",
+      "isNewProduct": true,
+      "isEnabled": true
+    },
+    {
+      "idOperationType": "03",
+      "operationName": "Renovación",
+      "isNewProduct": false,
+      "isEnabled": true
+    },
+    {
+      "idOperationType": "04",
+      "operationName": "Reposición",
+      "isNewProduct": false,
+      "isEnabled": true
+    }
+  ],
+  "warningMessage": "El cliente ha excedido las 10 líneas permitidas, recuerda que debe firmar la Declaración Jurada"
+}

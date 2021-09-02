@@ -1,0 +1,546 @@
+<div *ngIf="!presenter.error || (presenter.error && availableDateError); else error">
+  <p>Completa la información del contacto delivery</p>
+  <div class="container-fluid pb-3">
+    <form [formGroup]="deliveryForm" autocomplete="off">
+      <div class="row mt-4">
+        <div class="col-12">
+          <h3 class="subtitle">Contacto</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for="name">Nombre</label><br />
+          <claro-input
+            placeholder="Ingresa nombre de contacto"
+            [value]="deliveryForm.get('name').value"
+            formControlName="name"
+            inputValidation="text"
+            claroReactiveForm
+          >
+          </claro-input>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.name.valid &&
+              deliveryForm.controls.name.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="contactNumber">Teléfono referencia</label>
+          <claro-input
+            placeholder="Ingresa celular"
+            [value]="deliveryForm.get('contactNumber').value"
+            maxLength="9"
+            formControlName="contactNumber"
+            inputValidation="number"
+            claroReactiveForm
+          >
+          </claro-input>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.contactNumber.valid &&
+              deliveryForm.controls.contactNumber.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="email">Correo</label><br />
+          <claro-input
+            placeholder="Ingrese correo"
+            [value]="deliveryForm.get('email').value"
+            formControlName="email"
+            [paste]="false"
+            claroReactiveForm
+          >
+          </claro-input>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.email.valid &&
+              deliveryForm.controls.email.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredEmail }}
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subtitle">Dirección</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for="addressIdentifier">Av/Calle/Jr</label><br />
+          <claro-select
+            placeholder="Selecciona"
+            [value]="deliveryForm.get('addressIdentifier').value"
+            [options]="presenter.addressIdentifiers"
+            formControlName="addressIdentifier"
+            [isObject]="true"
+            claroReactiveForm
+          >
+          </claro-select>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.addressIdentifier.valid &&
+              deliveryForm.controls.addressIdentifier.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+        <div class="col-12 col-md-8">
+          <label for="addressName">Nombre de Av/Calle/Jr</label><br />
+          <claro-input
+            placeholder="Ingresa el domicilio"
+            [value]="deliveryForm.get('addressName').value"
+            formControlName="addressName"
+            claroReactiveForm
+          >
+          </claro-input>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.addressName.valid &&
+              deliveryForm.controls.addressName.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for="addressNumber">Número</label><br />
+          <claro-input
+            placeholder="Ingresa celular"
+            [value]="deliveryForm.get('addressNumber').value"
+            inputValidation="number"
+            formControlName="addressNumber"
+            maxLength="5"
+            inputValidation="number"
+            [disabled]="addressNumberInputDisable"
+            claroReactiveForm
+          >
+          </claro-input>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.addressNumber.valid &&
+              deliveryForm.controls.addressNumber.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+        <div class="col-12 col-md-8 mb-4 mt-0 mb-md-0">
+          <label class="label-check ldr-form_size d-block">
+            <input
+              type="checkbox"
+              formControlName="addressWithoutNumberCheck"
+              (change)="changeCheck($event.target)"
+            />
+            <span class="checkmark"></span>
+            Dirección sin número
+          </label>
+        </div>
+      </div>
+      <div class="row pb-3" *ngIf="addressExtraInfo">
+        <div class="col-12 col-md-4">
+          <label for="addressType">Mz/Bloque/Edif.</label><br />
+          <claro-select
+            placeholder="Selecciona"
+            [value]="deliveryForm.get('addressType').value"
+            [options]="presenter.addressTypes$ | async"
+            formControlName="addressType"
+            [isObject]="true"
+            claroReactiveForm
+          >
+          </claro-select>
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="addressTypeName">Número/Mz/Bq.</label><br />
+          <claro-input
+            placeholder="Ingresa"
+            [value]="deliveryForm.get('addressTypeName').value"
+            formControlName="addressTypeName"
+            maxLength="5"
+            claroReactiveForm
+          >
+          </claro-input>
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="addressLt">Lote</label><br />
+          <claro-input
+            placeholder="Ingresa"
+            [value]="deliveryForm.get('addressLt').value"
+            formControlName="addressLt"
+            maxLength="5"
+            inputValidation="number"
+            claroReactiveForm
+          >
+          </claro-input>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label for="addressFull">Dirección de entrega</label><br />
+          <claro-input
+            placeholder="Ingresa domicilio exacto"
+            [value]="deliveryForm.get('addressFull').value"
+            formControlName="addressFull"
+            claroReactiveForm
+          >
+          </claro-input>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.addressFull.valid &&
+              deliveryForm.controls.addressFull.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label for="addressReference">Referencia</label><br />
+          <claro-input
+            placeholder="Ingresa referencia"
+            [value]="deliveryForm.get('addressReference').value"
+            formControlName="addressReference"
+            claroReactiveForm
+          >
+          </claro-input>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for="department">Departamento</label><br />
+          <claro-select
+            placeholder="Selecciona"
+            [value]="deliveryForm.get('department').value"
+            [options]="presenter.departments"
+            (valueChanged)="changeDepartment($event)"
+            [isObject]="true"
+            formControlName="department"
+            claroReactiveForm
+          >
+          </claro-select>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.department.valid &&
+              deliveryForm.controls.department.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="province">Provincia</label><br />
+          <claro-select
+            placeholder="Selecciona"
+            [value]="deliveryForm.get('province').value"
+            [options]="presenter.provinces"
+            (valueChanged)="changeProvince($event)"
+            [isObject]="true"
+            formControlName="province"
+            claroReactiveForm
+          >
+          </claro-select>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.province.valid &&
+              deliveryForm.controls.province.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="district">Distrito</label><br />
+          <claro-select
+            placeholder="Selecciona"
+            [value]="deliveryForm.get('district').value"
+            [options]="presenter.districts$ | async"
+            formControlName="district"
+            [isObject]="true"
+            claroReactiveForm
+          >
+          </claro-select>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.district.valid &&
+              deliveryForm.controls.district.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subtitle">Fecha</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for="deliveryDate">Fecha de Entrega</label><br />
+          <mat-form-field floatLabel="never" [ngClass]="classes">
+            <input
+              formControlName="deliveryDate"
+              matInput
+              (dateChange)="changeAvailableDate($event)"
+              [value]="deliveryDate || presenter.firstAvailableDate"
+              placeholder="dd/mm/yyyy"
+              [disabled]="true"
+              [matDatepicker]="picker"
+              [min]="minDate"
+              [max]="maxDate"
+            />
+            <mat-datepicker-toggle matSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon>today</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker disabled="false"></mat-datepicker>
+          </mat-form-field>
+          <label
+            class="error-message"
+            [class.error-message--visible]="presenter.error"
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ presenter.error?.description }}
+          </label>
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="suggestedDate">Fechas sugeridas</label><br />
+          <claro-select
+            placeholder="Selecciona"
+            [value]="suggestedDate"
+            [options]="presenter.suggestedDates"
+            formControlName="suggestedDate"
+            (valueChanged)="changeSuggestedDate($event)"
+            claroReactiveForm
+          >
+          </claro-select>
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="documentNumber">Rango de entrega</label><br />
+          <claro-select
+            placeholder="Selecciona"
+            [value]="deliveryForm.get('deliveryTimeRange').value"
+            [options]="presenter.deliveryTimesRange"
+            formControlName="deliveryTimeRange"
+            [isObject]="true"
+            claroReactiveForm
+          >
+          </claro-select>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.deliveryTimeRange.valid &&
+              deliveryForm.controls.deliveryTimeRange.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subtitle">Pago</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for="documentNumber">Tipo de pago</label><br />
+          <claro-select
+            placeholder="Selecciona"
+            [value]="deliveryForm.get('paymentType').value"
+            [options]="presenter.paymentType"
+            formControlName="paymentType"
+            [isObject]="true"
+            (valueChanged)="changePaymentType($event)"
+            claroReactiveForm
+          >
+          </claro-select>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.paymentType.valid &&
+              deliveryForm.controls.paymentType.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+        <div class="col-12 col-md-4" *ngIf="!hidePaymentMode">
+          <label for="documentNumber">Medio de pago</label><br />
+          <claro-select
+            placeholder="Selecciona"
+            [value]="deliveryForm.get('paymentMode').value"
+            [options]="presenter.paymentMethods$ | async"
+            formControlName="paymentMode"
+            [isObject]="true"
+            (valueChanged)="changePaymentMethods($event)"
+            claroReactiveForm
+          >
+          </claro-select>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.paymentMode.valid &&
+              deliveryForm.controls.paymentMode.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+        <div class="col-12 col-md-4" *ngIf="!hidePaymentId">
+          <label for="paymentId">ID único</label><br />
+          <claro-input
+            placeholder="Ingresa ID"
+            [value]="deliveryForm.get('paymentId').value"
+            [maxLength]="idMaxlength"
+            formControlName="paymentId"
+            inputValidation="number"
+            [disabled]="!deliveryForm.controls.paymentMode.valid"
+            claroReactiveForm
+          >
+          </claro-input>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.paymentId.valid &&
+              deliveryForm.controls.paymentId.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subtitle">Sede</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for="placementCall">Call</label><br />
+          <claro-select
+            placeholder="Selecciona"
+            [value]="deliveryForm.get('placementCall').value"
+            [options]="presenter.providers"
+            formControlName="placementCall"
+            [isObject]="true"
+            claroReactiveForm
+          >
+          </claro-select>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.placementCall.valid &&
+              deliveryForm.controls.placementCall.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="documentNumber">In/Out</label><br />
+          <claro-select
+            placeholder="Selecciona"
+            [value]="deliveryForm.get('placementInOut').value"
+            [options]="presenter.placementsInOut"
+            formControlName="placementInOut"
+            [isObject]="true"
+            claroReactiveForm
+          >
+          </claro-select>
+          <label
+            class="error-message"
+            [class.error-message--visible]="
+              !deliveryForm.controls.placementInOut.valid &&
+              deliveryForm.controls.placementInOut.touched
+            "
+          >
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ messageRequiredItem }}
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subtitle">Indicaciones</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <label for="deliveryDetails">Detalles de entrega</label><br />
+          <textarea
+            class="text-area"
+            placeholder="Ingresa detalles de entrega"
+            rows="5"
+            maxLength="500"
+            formControlName="deliveryDetails"
+          >
+          </textarea>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12 d-flex justify-content-end">
+          <div class="mr-1">
+            <claro-button
+              text="Limpiar"
+              size="sm"
+              color="outline"
+              (clicked)="resetForm()"
+            >
+            </claro-button>
+          </div>
+          <div class="ml-1">
+            <claro-button 
+              text="Grabar" 
+              size="sm" 
+              (clicked)="saveForm()">
+            </claro-button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<ng-template #error>
+  <claro-collapse class="my-3" expanded="true">
+    <app-sale-error
+      [error]="presenter.error"
+      (clicked)="retry()">
+    </app-sale-error>
+  </claro-collapse>
+</ng-template>

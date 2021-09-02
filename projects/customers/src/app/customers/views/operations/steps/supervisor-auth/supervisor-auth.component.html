@@ -1,0 +1,122 @@
+<div class="crm-dialog container-fluid"
+  [ngClass]="data.option === eAuthSupervisorPinOmission
+      ? 'modal-width-lg'
+      : 'modal-width'">
+  <h2 mat-dialog-title class="crm-dialog__title">{{ title }}</h2>
+  <p class="crm-dialog__subtitle">
+    Introduce tu cuenta de supervisor
+  </p>
+  <mat-dialog-content class="crm-dialog__dialog-body">
+    <form [formGroup]="form" class="form-content" autocomplete="off">
+      <ng-container
+        *ngIf="data.option === eAuthSupervisorReason ||
+          data.option === eAuthSupervisorLoyalty">
+        <div class="row">
+          <div class="col 12">
+            <label for="supervisorUser" class="crm-dialog__label">
+              Usuario
+            </label><br>
+            <claro-input
+              placeholder="Ingresa usuario"
+              formControlName="supervisorUser"
+              [value]="form.get('supervisorUser').value"
+              (valueChanged)="onChangeSupervisor($event)"
+              inputValidation="alphanumeric"
+              claroReactiveForm>
+            </claro-input>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <label for="password" class="crm-dialog__label">
+              Contraseña
+            </label><br>
+            <claro-input
+              type="password"
+              placeholder="Ingresa contraseña"
+              formControlName="supervisorPassword"
+              (valueChanged)="onChangePassword($event)"
+              [value]="form.get('supervisorPassword').value"
+              claroReactiveForm>
+            </claro-input>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="data.option === eAuthSupervisorPinOmission">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <label for="supervisorUser" class="crm-dialog__label">
+              Usuario
+              </label><br>
+            <claro-input
+              placeholder="Ingresa usuario"
+              formControlName="supervisorUser"
+              [value]="form.get('supervisorUser').value"
+              (valueChanged)="onChangeSupervisor($event)"
+              inputValidation="alphanumeric"
+              claroReactiveForm>
+            </claro-input>
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="password" class="crm-dialog__label">
+              Contraseña
+              </label><br>
+            <claro-input
+              type="password"
+              placeholder="Ingresa contraseña"
+              formControlName="supervisorPassword"
+              (valueChanged)="onChangePassword($event)"
+              [value]="form.get('supervisorPassword').value"
+              claroReactiveForm>
+            </claro-input>
+          </div>
+        </div>
+      </ng-container>
+      <div class="row">
+        <div class="col-12">
+          <label class="error-message" [class.error-message--visible]="error">
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ error?.description }}
+          </label>
+        </div>
+      </div>
+      <div class="row mb-5" *ngIf="data.option === eAuthSupervisorPinOmission">
+        <div class="col-12">
+          <b>{{ data.titleOmision }}:</b>
+        </div>
+        <div *ngFor="let cause of data.causesOmission; let i = index " class="col-12 mt-3">
+          <mat-radio-button
+            [value]="form.get('pinOmission').value"
+            formControlName="pinOmission"
+            color="primary"
+            (change)="onRadioChange(i)"
+            claroReactiveForm>
+          </mat-radio-button>
+          <label class="crm-dialog__radio-label" for="one">
+            {{ cause }}
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <div class="mr-1">
+            <claro-button
+              text="Aceptar"
+              size="sm"
+              [disabled]="!form.valid"
+              (clicked)="validateSupervisorAuth()">
+            </claro-button>
+          </div>
+          <div class="ml-1">
+            <claro-button
+              text="Cancelar"
+              size="sm"
+              color="outline"
+              (clicked)="closeDialog()">
+            </claro-button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-dialog-content>
+</div>

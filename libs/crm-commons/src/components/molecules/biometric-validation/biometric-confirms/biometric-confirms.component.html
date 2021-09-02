@@ -1,0 +1,25 @@
+<div class="crm-confirm">
+  <mat-dialog-content class="crm-confirm__content">
+    <h4 class="crm-confirm__title">{{ data.title }}</h4>
+    <p class="crm-confirm__subtitle d-table-row m-0 p-0">
+      {{data.description}}
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions class="crm-confirm__actions">
+    <claro-button
+    id="crm-confirm__submit"
+    [text]="data.aggree"
+    size="sm"
+    (click)="submit()"
+    >
+  </claro-button>
+  <claro-button *ngIf="data.cancel"
+    id="crm-confirm__cancel"
+    [text]="data.disagree"
+    size="sm"
+    color="outline"
+    (click)="close()"
+  >
+  </claro-button>
+  </mat-dialog-actions>
+</div>

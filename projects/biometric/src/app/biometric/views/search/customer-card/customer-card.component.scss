@@ -1,0 +1,14 @@
+@import 'breakpoints';
+
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+@media (min-width: $screen-sm) {
+  :host {
+
+  }
+}

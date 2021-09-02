@@ -1,0 +1,258 @@
+<div class="summary-container" *ngIf="flowType === 'NEW_FLOW'; else existFlow">
+  <h4 style="font-weight: 400;">Aquí se muestra el detalle de la solicitud.</h4>
+  <div class="detail-content">
+    <div class="detail-title">
+      <div class="title-container">
+        <div class="product-price">
+          <span>Producto:</span><span>Precio Unitario:</span>
+        </div>
+      </div>
+    </div>
+    <div class="item-section" *ngFor="let line of lines; index as i">
+      <div class="description">
+        <h5 class="title-item">
+          {{ lineName }} {{ isRenoRepo ? '' : i + 1 }} - Prepago
+          {{ line.phone && line.phone !== '0' && !isAlt ? line.phone : '' }}
+        </h5>
+        <div class="dec-content">
+          <span
+          >Servicio: {{
+            !isNewLine && !isRenoRepo
+            ? line.service?.label :(
+              isRenoRepo
+                ? lines[i].service?.label
+                : line.option?.label + '-' + isNewLine
+                ? line.productType?.label
+                : line.service?.label)
+            }}
+          </span>
+          <span>
+              Plan: {{ line.plan?.label }}
+          </span>
+        </div>
+      </div>
+      <div class="product-price">
+        <div class="is-equipment" *ngIf="line.imei">
+          <div class="item pl-4">
+            <span>
+              <span class="pr-2" style="color: #a5a6a7;"> Equipo: </span>
+              {{ line.imei.description }}
+            </span>
+            <span class="item-price">
+              S/ {{ line.price.equipmentTotalPrice }}
+            </span>
+          </div>
+          <div class="item pl-4" *ngIf="!flagPicking">
+            <span>
+              <span class="pr-2" style="color: #a5a6a7;"> Serie: </span>
+              {{ line.imei.serie }}
+            </span>
+          </div>
+          <div class="item pl-4" *ngIf="isCAD">
+            <span>
+              <span class="pr-2" style="color: #a5a6a7;"> Cod. SKU: </span>
+              {{ line.price.equipmentSku }}
+            </span>
+          </div>
+        </div>
+
+        <div class="is-equipment" *ngIf="line.imei && isRenoRepo && !isCAD">
+          <div *ngIf="claropoints" class="item pl-4">
+            <span>
+              <span class="pr-2 item-price" style="color: #000000;">
+                Claro Puntos
+              </span>
+            </span>
+            <span class="item-price"> - S/ {{ claropoints }} </span>
+          </div>
+          <div *ngIf="loyalty" class="item pl-4">
+            <span>
+              <span class="pr-2 item-price" style="color: #000000;">
+                Fidelización
+              </span>
+            </span>
+            <span class="item-price"> - S/ {{ loyalty }} </span>
+          </div>
+        </div>
+
+        <div class="is-chip" *ngIf="line.iccid && line.iccid.serie.length">
+          <div class="item pl-4">
+            <span>
+              <span class="pr-2" style="color: #a5a6a7;"> Chip: </span>
+              {{ line.iccid.description }}
+            </span>
+            <span class="item-price"> S/ {{ line.price.chipTotalPrice }} </span>
+          </div>
+          <div class="item pl-4" *ngIf="!flagPicking">
+            <span>
+              <span class="pr-2" style="color: #a5a6a7;"> Serie: </span>
+              {{ line.iccid.serie }}
+            </span>
+          </div>
+          <div class="item pl-4" *ngIf="isCAD">
+            <span>
+              <span class="pr-2" style="color: #a5a6a7;"> Cod. SKU: </span>
+              {{ line.price.chipSku }}
+            </span>
+          </div>
+        </div>
+
+        <div
+          class="is-equipment"
+          *ngIf="
+            !line.imei &&
+            line.iccid &&
+            line.iccid.serie.length &&
+            isRenoRepo &&
+            echannelCAC
+          "
+        >
+          <div *ngIf="loyalty" class="item pl-4">
+            <span>
+              <span class="pr-2 item-price" style="color: #000000;">
+                Fidelización
+              </span>
+            </span>
+            <span class="item-price"> - S/ {{ loyalty }} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item-section" *ngIf="!isCAD && !isRenoRepo">
+      <div class="description" *ngIf="claropoints || loyalty">
+        <span class="pt-2" style="font-weight: 500">
+          Descuentos
+        </span>
+      </div>
+      <div class="product-price">
+        <div class="is-equipment">
+          <div *ngIf="claropoints" class="item pl-4">
+            <span>
+              <span class="pr-2 item-price" style="color: #000000;">
+                Claro Puntos
+              </span>
+            </span>
+            <span class="item-price"> - S/ {{ claropoints }} </span>
+          </div>
+          <div *ngIf="loyalty" class="item pl-4">
+            <span>
+              <span class="pr-2 item-price" style="color: #000000;">
+                Fidelización
+              </span>
+            </span>
+            <span class="item-price"> - S/ {{ loyalty }} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="summary-total">
+    <div class="summary-total-content">
+      <div class="finaly-price">
+        <span>Precio Total con IGV</span><span>S/ {{ total }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #existFlow>
+  <div class="summary-container">
+    <h4 style="font-weight: 400;">
+      Aquí se muestra el detalle de la solicitud.
+    </h4>
+    <div class="detail-content">
+      <div class="detail-title">
+        <div class="title-container">
+          <div class="product-price">
+            <span>Producto:</span><span>Precio Unitario:</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="item-section"
+        *ngFor="let line of linesAdditional; index as i"
+      >
+        <div
+          class="description"
+          *ngIf="line.type === 'Equipo' || line.itemType === 'Chip'"
+        >
+          <h5 class="title-item">
+            {{ lineName }} {{ isRenoRepo ? '' : line.secuential }} - Prepago
+            {{ line.line && line.line !== '0' && !isAlt ? line.line : '' }}
+          </h5>
+          <div class="dec-content">
+            <span
+            >Servicio: {{
+                isRenoRepo
+                  ? line.prepaidProduct
+                  : line.type + '-' + !isNewLine
+                  ? line.prepaidProduct
+                  : line.itemType
+              }}
+            </span>
+            <span>
+              Plan: {{ line.plan }}
+            </span>
+          </div>
+        </div>
+        <div
+          class="product-price"
+          *ngIf="line.type === 'Equipo' || line.itemType === 'Chip' "
+        >
+          <div *ngFor="let lineAdditional of linesAdditional">
+            <div
+              class="item pl-4 d-flex justify-content-between"
+              *ngIf="line.secuential === lineAdditional.secuential"
+            >
+              <div class="is-equipment">
+                <span class="pr-2" style="color: #a5a6a7;">{{ lineAdditional.itemType }}: </span> {{ lineAdditional.materialDescrip }}
+                <div>
+                  <span class="pr-2" style="color: #787b7e;">Serie:</span> {{lineAdditional.iccid}}
+                </div>
+                <div *ngIf="isCAD && line.secuential === lineAdditional.secuential">
+                  <span>
+                   <span class="pr-2" style="color: #a5a6a7;"> Cod. SKU: </span>
+                    {{ lineAdditional.sku }}
+                  </span>
+                </div>
+                <div *ngIf="claropoints && lineAdditional.itemType==='Equipo' && !isCAD" >
+                  <span>
+                    <span class="pr-2" style="color: #000000;">
+                      Claro Puntos
+                    </span>
+                    <span> - S/ {{ claropoints }} </span>
+                  </span>
+                 
+                </div>
+                
+              </div> 
+              <div class="item-price">
+                S/ {{ lineAdditional.salesPrice }}
+                <div><span> &nbsp; </span></div>
+               
+                <!-- <div *ngIf="isCAD && line.secuential === lineAdditional.secuential"></div> -->
+                <!-- <div *ngIf="claropoints && lineAdditional.itemType==='Equipo'" >
+                  
+                  <span> - S/ {{ claropoints }} </span>
+                </div> -->
+              </div>
+            
+            </div>
+            
+          </div>
+         
+        </div>
+       
+         
+      </div>
+    </div>
+    <div class="summary-total">
+      <div class="summary-total-content">
+        <div class="finaly-price">
+          <span>Precio Total con IGV</span><span>S/ {{ total }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

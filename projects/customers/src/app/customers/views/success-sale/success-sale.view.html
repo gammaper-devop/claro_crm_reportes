@@ -1,0 +1,40 @@
+<div *ngIf="isInitRoute === false" class="success-notification-container">
+  <div class="success-notification-contet">
+    <div class="success-notification">
+      <div class="image-notification">
+        <div class="img-icon">
+          <crm-svg-image name="success-sale-img"></crm-svg-image>
+        </div>
+      </div>
+      <div class="message-notifications">
+        <div class="message-notification-content">
+          <h2 class="mb-2">
+            {{ data?.name ? data?.name + ',' : '' }}<br />
+            {{ message.main }}
+          </h2>
+          <p>
+            {{ message?.secondaryFirst }}
+            <br />
+            {{ message?.secondarySecond }}
+          </p>
+          <p *ngIf="data?.email" class="mt-2">
+            <span>Recuerda</span><br />
+            La documentación se enviará al correo:<br />
+            <span> {{ data?.email }} </span>
+          </p>
+          <div class="success-actions">
+            <div class="content-button mt-3">
+              <claro-button
+                styl="flat"
+                size="lg"
+                text="Finalizar"
+                (clicked)="finishAttention()"
+              >
+              </claro-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

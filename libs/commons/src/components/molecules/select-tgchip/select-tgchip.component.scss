@@ -1,0 +1,84 @@
+@import '../../../scss/mixins/forms';
+
+/* Select */
+::ng-deep .mat-form-field-type-mat-select {
+  @include base-form-field;
+
+  .mat-form-field-infix {
+    border-top: none;
+    .mat-select-trigger {
+      height: inherit;
+    }
+    .mat-select-value {
+      font-size: 14px;
+      font-weight: bold;
+      padding: 0 15px;
+    }
+    .mat-form-field-label {
+      color: #e1e1e1;
+      padding: 0 15px;
+    }
+    .mat-select-arrow {
+      border: 3px solid #00aacf;
+      border-radius: 2px;
+      border-right: 0;
+      border-top: 0;
+      content: ' ';
+      display: block;
+      height: 0.9em;
+      margin-top: -0.4375em;
+      pointer-events: none;
+      transform: rotate(-45deg);
+      transform-origin: center;
+      width: 0.9em;
+    }
+  }
+}
+
+/* Sizes */
+::ng-deep .mat-form-field-type-mat-select {
+  &.size-md{
+    .mat-form-field-flex {
+      height: 40px;
+    }
+  }
+  &.size-sm {
+    .mat-form-field-flex {
+      height: 32px;
+    }
+  }
+  &.mat-form-field-disabled {
+    .mat-form-field-flex {
+      border: dotted 2px #ececec;
+    }
+  }
+}
+
+/* Options */
+::ng-deep .mat-select-panel-wrap {
+  margin-top: 40px;
+  .mat-select-panel {
+    border-radius: 20px;
+    border: solid 2px #ececec;
+    box-shadow: none;
+    .mat-option {
+      color: inherit;
+      height: 2.5em;
+      line-height: 1.5;
+      padding: 0 30px;
+
+      &.mat-selected:not(.mat-option-disabled) {
+        color: inherit;
+      }
+
+      &.mat-active {
+        background: #ccf6ff;
+      }
+
+      .mat-option-text {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+  }
+}

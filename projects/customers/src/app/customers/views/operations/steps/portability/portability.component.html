@@ -1,0 +1,77 @@
+<div *ngIf="maxLines > 0">
+  <p *ngIf="!secValid">
+    Ingresa los datos solicitados para iniciar la consulta:
+  </p>
+  <div
+    *ngIf="isCAC && showHeadOmission && !virtualOfficeTypeFlag"
+    class="omission d-flex justify-content-end align-items-baseline mr-4 mb-3"
+  >
+    <p class="lines-selected mr-3">
+      Han sido seleccionadas {{ quantityPhones }} líneas para hacer la consulta
+    </p>
+    <claro-button
+      text="Omisión de PIN"
+      size="sm"
+      [disabled]="quantityPhones <= 0"
+      (clicked)="omissionModal()"
+    ></claro-button>
+  </div>
+  <p *ngIf="secValid">Verifica los resultados.</p>
+  <div [formGroup]="portabilityForm">
+    <app-add-line
+      *ngFor="let form of lines.controls; let i = index"
+      [user]="user"
+      [isCAC]="isCAC"
+      [saleOperationType]="saleOperationType"
+      [selectOptions]="selectOptions"
+      [selectValues]="selectValues"
+      [secValid]="secValid"
+      [customer]="customer"
+      [parentForm]="lines"
+      [formLine]="form"
+      [index]="i"
+      [linesOmitted]="linesOmitted"
+      [validatePortabilityFlag]="validatePortabilityFlag"
+      [virtualOfficeTypeFlag]="virtualOfficeTypeFlag"
+      (lineRemoved)="lineRemoved($event)"
+      (deleteEvent)="deleteChange($event)"
+      (checkEmit)="setChecked()"
+      (checkAllEmit)="setAllChecked($event)"
+      [showHeadOmission]="showHeadOmission"
+      (formsInvalidsEmit)="invalidsForms()"
+      [totalFormsMinLength]="totalFormsMinLength"
+      [showCheckparent]="showCheckparent"
+      #addLineComponent
+    >
+    </app-add-line>
+  </div>
+  <div *ngIf="maxLines > lines.length">
+    <p class="button-content" *ngIf="!secValid">
+      <claro-icon-button
+        class="btn-add-line"
+        size="sm"
+        styl="basic"
+        name="add_circle_outline"
+        text="Agregar una línea"
+        (click)="addLine()"
+      >
+      </claro-icon-button>
+    </p>
+  </div>
+
+  <p class="error-container ml-3" *ngIf="presenter.error">
+    <label
+      class="error-message"
+      [class.error-message--visible]="presenter.error"
+    >
+      <claro-icon name="info" class="icon-error"></claro-icon>
+      {{ presenter.error.description }}
+    </label>
+  </p>
+</div>
+
+<app-sale-error
+  *ngIf="error"
+  [error]="error"
+  (clicked)="again()"
+></app-sale-error>

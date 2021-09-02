@@ -1,0 +1,75 @@
+<form [formGroup]="loyaltyForm" autocomplete="off">
+  <div class="loyalty-container">
+    <p>Ingresa el monto a descontar</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="d-flex justify-content-start">
+            <div class="mr-1" *ngIf="!showFinalDiscountAmount">
+              <label for="amount" class="loyalty-container__label"
+                >Monto de descuento</label
+              ><br />
+              <claro-input
+                placeholder="Ingresa S/"
+                formControlName="amount"
+                [value]="loyaltyForm.get('amount').value"
+                (valueChanged)="amountChange($event)"
+                inputValidation="number"
+                claroReactiveForm
+              >
+              </claro-input>
+            </div>
+            <div *ngIf="showFinalDiscountAmount">
+              <label for="amount" class="loyalty-container__label"
+                >Monto de descuento</label
+              ><br />
+              <p>
+                <strong>S/ {{ discountAmount }}</strong>
+              </p>
+            </div>
+            <div class="ml-1 loyalty-container__button-container">
+              <claro-button
+                *ngIf="!showFinalDiscountAmount"
+                class="btn-action"
+                text="Validar"
+                size="sm"
+                styl="flat"
+                [disabled]="!loyaltyForm.valid"
+                (clicked)="validateLoyaltyDiscount()"
+              >
+              </claro-button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div
+            class="d-flex justify-content-center justify-content-md-end pr-4"
+          >
+            <div class="mr-1">
+              <claro-icon-button
+                styl="fab"
+                size="sm"
+                name="edit"
+                title="Editar"
+                (click)="edit()"
+                [disabled]="!loyaltyForm.valid"
+              >
+              </claro-icon-button>
+            </div>
+            <div class="ml-1">
+              <claro-icon-button
+                styl="fab"
+                size="sm"
+                name="delete"
+                title="Eliminar"
+                (click)="reset()"
+                [disabled]="!loyaltyForm.valid"
+              >
+              </claro-icon-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

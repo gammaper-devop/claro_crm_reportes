@@ -1,0 +1,59 @@
+<div class="login-container">
+  <div class="banner-content">
+    <div class="logo">
+      <img src="{{ cdn }}/img/logo-white.png" alt="" />
+    </div>
+    <div class="slogan">
+      <img src="{{ cdn }}/img/login/title.png" alt="" />
+    </div>
+  </div>
+  <div class="login-content">
+    <div class="slogan-responsive">
+      <h3>Oficina digital de ventas</h3>
+      <span>Más fácil para ti</span>
+    </div>
+    <app-account-step
+      *ngIf="presenter.currentStep === presenter.loginStep.account"
+      [error]="presenter.error"
+      (submitted)="presenter.submitAccount($event)"
+    >
+    </app-account-step>
+    <app-identification-step
+      *ngIf="presenter.currentStep === presenter.loginStep.identification"
+      [error]="presenter.error"
+      [user]="presenter.user"
+      [documentTypes]="presenter.documentTypes$ | async"
+      (submitted)="presenter.submitIdentification($event)"
+    >
+    </app-identification-step>
+    <app-biometric-step
+      *ngIf="presenter.currentStep === presenter.loginStep.biometric"
+      [user]="presenter.user"
+      [biometric]="presenter.biometric"
+      [scanStatus]="presenter.scanStatus"
+      [error]="presenter.error"
+      (scanned)="presenter.scanBiometric()"
+      (submitted)="presenter.submitBiometric($event)"
+    >
+    </app-biometric-step>
+    <app-pin-step
+      *ngIf="presenter.currentStep === presenter.loginStep.pin"
+      [user]="presenter.user"
+      [pin]="presenter.pin"
+      [pinStatus]="presenter.pinStatus"
+      [maxValidations]="presenter.maxValidations"
+      [error]="presenter.error"
+      (sent)="presenter.sendPin()"
+      (submitted)="presenter.submitPin($event)"
+    >
+    </app-pin-step>
+    <app-success-step
+      *ngIf="presenter.currentStep === presenter.loginStep.success"
+    ></app-success-step>
+    <app-error-step
+      *ngIf="presenter.currentStep === presenter.loginStep.error"
+      [user]="presenter.user"
+      [error]="presenter.error"
+    ></app-error-step>
+  </div>
+</div>

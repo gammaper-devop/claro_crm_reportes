@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="col">
+    <div class="info-group">
+      Número de pedido:
+      <div class="info">{{ orderNumber }}</div>
+    </div>
+  </div>
+  <div *ngIf="secNumber" class="col">
+    <div class="info-group">
+      Número de SEC:
+      <div class="info">{{ secNumber }}</div>
+    </div>
+  </div>
+  <div class="col col-min-width">
+    <div class="info-group">
+      Fecha:
+      <div class="info">{{ orderDate | date: 'dd/MM/yyyy' }}</div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12 mt-4 mb-2 text-right">
+    <div class="total">
+      Total con IGV: <span>S/ {{ totalPrice }}</span>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12 my-2">
+    Recuerda incluir los siguientes datos:
+  </div>
+</div>
+<form [formGroup]="form" autocomplete="off">
+  <div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-7 col-sm-6 col-12">
+      <label>Tipo de Comprobante de Pago:</label>
+      <claro-select
+        size="sm"
+        [options]="presenter.options$ | async"
+        formControlName="paymentTicket"
+        [value]="form.get('paymentTicket').value"
+        claroReactiveForm
+      ></claro-select>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6 col-12">
+      <label>Número de referencia:</label>
+      <claro-input
+        id="inputNumRef"
+        size="sm"
+        [maxLength]="maxReference"
+        placeholder="# Comprobante de Pago"
+        formControlName="referenceNumber"
+        [value]="form.get('referenceNumber').value"
+        inputValidation="alphanumeric"
+        claroReactiveForm
+      ></claro-input>
+    </div>
+    <div class="col col-min-width">
+      <label>Número ref. {{ channel }}:</label>
+      <div class="row custom-dac-group">
+        <div class="col-3 pr-0">
+          <claro-input
+            size="sm"
+            maxLength="2"
+            formControlName="storeCode"
+            [value]="form.get('storeCode').value"
+            inputValidation="alphanumeric"
+            claroReactiveForm
+          ></claro-input>
+        </div>
+        <div class="col-3 pr-0">
+          <claro-input
+            size="sm"
+            maxLength="3"
+            formControlName="boxCode"
+            [value]="form.get('boxCode').value"
+            inputValidation="alphanumeric"
+            claroReactiveForm
+          ></claro-input>
+        </div>
+        <div class="col-6">
+          <claro-input
+            size="sm"
+            maxLength="10"
+            formControlName="ballotCode"
+            [value]="form.get('ballotCode').value"
+            inputValidation="alphanumeric"
+            claroReactiveForm
+          ></claro-input>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

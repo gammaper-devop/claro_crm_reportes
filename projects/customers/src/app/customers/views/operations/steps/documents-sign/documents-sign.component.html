@@ -1,0 +1,66 @@
+<div
+  class="row documents-sign-container"
+  [class.justify-content-center]="presenter.options.length === 1">
+  <!-- <ng-container *ngIf="!this.flagDelivery || (!isRenoRepo && !flagPicking)">
+    <div
+      *ngIf="presenter.options.length > 1"
+      class="col-12 col-md-5 d-flex align-items-center justify-content-center">
+      <p class="mb-3 mb-md-0">
+        Elije el tipo de firma deseado:
+      </p>
+    </div>
+    <crm-radio-group-card
+      [options]="presenter.options"
+      (valueChanged)="valueChanged($event)">
+    </crm-radio-group-card>
+  </ng-container> -->
+  <!-- <div class="col-12" *ngIf="(valueSelected === presenter.digitalSignature || flagPicking) && showEmail"> -->
+  <div class="col-12" *ngIf="showEmail">
+    <!-- <hr *ngIf="!this.flagDelivery || (!isRenoRepo && !flagPicking)"> -->
+    <div class="row">
+      <div class="col-12 col-md-4 text-center box-img-msg py-3">
+        <img src="{{ cdn }}/img/customers/mensaje.png" alt="Email">
+      </div>
+      <form
+        [formGroup]="documentSignForm"
+        autocomplete="off"
+        class="col-12 col-md-8 py-3">
+        <p class="font-16 color-dark">
+          Ingresa el correo actualizado para enviar la documentación:
+        </p>
+        <span class="font-14 color-dark d-inline-block pl-4 pb-1">
+          Correo electrónico
+        </span>
+        <claro-input
+          type="email"
+          size="sm"
+          placeholder="Ingresa correo electrónico"
+          formControlName="email"
+          [value]="documentSignForm.value.email"
+          [paste]="false"
+          [disabled]="disabled"
+          claroReactiveForm
+          (blurred)="onBlurred()"
+          (enter)="handleEnterForInput()">
+        </claro-input>
+        <label
+          class="error-message d-flex align-items-center"
+          *ngIf="formControlEmail.errors">
+          <claro-icon name="info" class="icon-error"></claro-icon>
+          Ingrese un correo electrónico correcto
+        </label>
+        <!-- <label class="label-check ldr-form_size d-block" *ngIf="user.channel === echannelCAC"> -->
+        <p class="ldr-form_size color-dark">
+          Al ingresar el correo se debe dar ENTER para continuar
+        </p>
+        <label class="label-check ldr-form_size d-block" >
+          <input
+            type="checkbox"
+            (change)="handleNoEmailCheck($event)">
+          <span class="checkmark"></span>
+          El cliente no cuenta con correo electrónico
+        </label>
+      </form>
+    </div>
+  </div>
+</div>

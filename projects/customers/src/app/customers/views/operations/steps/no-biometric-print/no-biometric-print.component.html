@@ -1,0 +1,161 @@
+<div class="no-biometric-container">
+  <div class="dis-flex jus-content-center">
+    <div class="buttons-content">
+      <button (click)="print()">Imprimir</button>
+    </div>
+  </div>
+  <div class="print-section">
+    <div class="title-section">
+      <h4>
+        DECLARACIÓN JURADA DE IMPOSIBILIDAD DE VERIFICACIÓN DE IDENTIDAD
+        BIOMETRICA
+      </h4>
+    </div>
+    <div>
+      <ol type="I">
+        <li>
+          <h4>DATOS PERSONALES DEL CLIENTE</h4>
+          <table>
+            <tr>
+              <td>Persona Natural</td>
+              <td class="pad-left-50">
+                <input type="checkbox" [checked]="person" disabled />
+              </td>
+              <td class="pad-left-50">Persona Jurídica</td>
+              <td class="pad-left-50">
+                <input type="checkbox" [checked]="!person" disabled />
+              </td>
+            </tr>
+          </table>
+
+          <table>
+            <tr>
+              <td>Apellidos y Nombres / Razón Social:</td>
+              <td class="pad-left-30">{{ fullName }}</td>
+            </tr>
+          </table>
+
+          <table class="mar-top-30">
+            <tr>
+              <td colspan="6">Documento Legal de Identificación:</td>
+            </tr>
+            <tr>
+              <td>DNI:</td>
+              <td class="pad-left-50">
+                <input type="checkbox" [checked]="person" disabled />
+              </td>
+              <td class="pad-left-50">
+                <span *ngIf="person">{{ documentNumber }}</span>
+              </td>
+              <td class="pad-left-50">RUC:</td>
+              <td class="pad-left-50">
+                <input type="checkbox" [checked]="!person" disabled />
+              </td>
+              <td class="pad-left-50">
+                <span *ngIf="!person">{{ documentNumber }}</span>
+              </td>
+            </tr>
+          </table>
+        </li>
+        <li>
+          <h4>CAUSAL INDICADA POR LA EMPRESA OPERADORA</h4>
+          <div>
+            <table>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    [checked]="disabilityReason"
+                    disabled
+                  />
+                </td>
+                <td class="pad-left-50">
+                  Discapacidad física que me impide someterme a la verificación
+                  biométrica de huella dactilar.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    [checked]="wornFingerprintReason"
+                    disabled
+                  />
+                </td>
+                <td class="pad-left-50">
+                  Huella dactilar desgastada que me imposibilita realizar la
+                  verificación biométrica.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    [checked]="reniecIssueReason"
+                    disabled
+                  />
+                </td>
+                <td class="pad-left-50">
+                  Fallas en la conectividad con la base de datos RENIEC.
+                </td>
+              </tr>
+            </table>
+          </div>
+        </li>
+        <li>
+          <h4>INFORMACIÓN OBLIGATORIA</h4>
+          <div>
+            <table>
+              <tr *ngFor="let question of questions">
+                <td>{{ question.question }}</td>
+                <td class="pad-left-50">{{ question.option }}</td>
+              </tr>
+            </table>
+          </div>
+        </li>
+        <li>
+          <h4>SERVICIOS MÓVILES CONTRATADOS</h4>
+          <div class="dis-flex jus-content-center">
+            <table class="border-2">
+              <tr>
+                <td class="border-1 pad-left-right-50 text-center">N°</td>
+                <td class="border-1 pad-left-right-50 text-center">
+                  <span *ngIf="isRenoRepo">Número(s) de servicio(s)</span>
+                  <span *ngIf="!isRenoRepo">Número(s) de servicio(s) / ICCD</span>
+                </td>
+              </tr>
+              <tr *ngFor="let service of services; let i = index">
+                <td class="border-1 pad-left-right-50 text-center">
+                  {{ i + 1 }}
+                </td>
+                <td class="border-1 pad-left-right-50 text-center">
+                  {{ service }}
+                </td>
+              </tr>
+            </table>
+          </div>
+        </li>
+        <li>
+          <h4>
+            DECLARO BAJO JURAMENTO QUE, EN LA CONTRATACIÓN DE LOS SERVICIOS
+            ANTES MENCIONADOS NO HA PODIDO REALIZARSE LA VERIFICACIÓN
+            BIOMÉTRICA.
+          </h4>
+          <div class="mar-top-80 pad-left-50">
+            <span>{{ date | date: "dd 'd'e MMMM 'd'el yyyy" }}</span>
+          </div>
+        </li>
+      </ol>
+
+      <div class="dis-flex jus-content-center mar-top-80">
+        <table>
+          <tr>
+            <td class="border-top-1 pad-left-right-100">
+              FIRMA
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

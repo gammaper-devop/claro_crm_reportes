@@ -1,0 +1,129 @@
+<div *ngIf="!valid; else lineChecked">
+  <div class="p-row p-row--header">
+    <div class="p-col">Servicio</div>
+    <div class="p-col">Tipo de Venta</div>
+    <div class="p-col">T. Reposición</div>
+    <div class="p-col">Número</div>
+  </div>
+  <form
+    class="add-line-form"
+    [formGroup]="formLine"
+    (ngSubmit)="validateReplacementNumber()"
+    autocomplete="off"
+  >
+    <div class="p-row p-row--line">
+      <div class="form-content">
+        <div class="p-col">
+          <span class="hiden-title-control">Servicio</span>
+          <claro-select
+            size="sm"
+            [options]="selectOptions?.cboServices"
+            [value]="selectValues?.cboService"
+            (valueChanged)="onChangeService($event)"
+            formControlName="cboService"
+            [isObject]="true"
+            [disabled]="replacementValid"
+            claroReactiveForm
+          >
+          </claro-select>
+        </div>
+        <div class="p-col">
+          <span class="hiden-title-control">Tipo de Venta</span>
+          <claro-select
+            size="sm"
+            [options]="selectOptions.cboModOrigins"
+            [value]="formLine.get('cboModOrigin').value"
+            formControlName="cboModOrigin"
+            [isObject]="true"
+            [disabled]="replacementValid"
+            claroReactiveForm
+          >
+          </claro-select>
+        </div>
+        <div class="p-col">
+          <span class="hiden-title-control">T. Reposición</span>
+          <claro-select
+            size="sm"
+            [options]="selectOptions.cboRepTypes"
+            [value]="formLine.get('cboRepType').value"
+            formControlName="cboRepType"
+            [isObject]="true"
+            [disabled]="replacementValid"
+            (valueChanged)="onChangeType($event)"
+            claroReactiveForm
+          >
+          </claro-select>
+        </div>
+        <div class="p-col">
+          <span class="hiden-title-control">Número</span>
+          <claro-input
+            size="sm"
+            [value]="formLine.get('phoneNumber').value"
+            formControlName="phoneNumber"
+            (valueChanged)="onChangeNumber()"
+            inputValidation="number"
+            [disabled]="replacementValid"
+            maxLength="9"
+            claroReactiveForm
+          >
+          </claro-input>
+        </div>
+      </div>
+    </div>
+    <div class="p-row p-row--line pt-0 pb-1">
+      <div class="p-col"></div>
+      <div class="p-col-3"></div>
+      <div class="p-col">
+        <claro-button
+          type="submit"
+          [disabled]="formLine.invalid && formLine.get('phoneNumber').errors?.phoneNumberMatch"
+          text="Validar"
+          size="sm"
+        >
+        </claro-button>
+      </div>
+    </div>
+  </form>
+</div>
+<ng-template #lineChecked>
+  <div class="p-row p-row--line">
+    <div class="p-col"></div>
+    <div class="p-col align-items-center">
+      <crm-svg-image *ngIf="formLine.value.ready" name="line-checked">
+      </crm-svg-image>
+      <crm-svg-image *ngIf="!formLine.value.ready" name="robot-error">
+      </crm-svg-image>
+    </div>
+    <div class="p-col-3 justify-content-start">
+      <div class="result-container">
+        <p>
+          {{ formLine.value.cboService.label }}
+          {{ formLine.value.cboRepType.label }}
+          <strong> {{ formLine.value.phoneNumber }}</strong>
+        </p>
+        <ng-container *ngIf="formLine.value.ready; else replacementError">
+          <p class="ready-text">
+            Validación exitosa
+          </p>
+          <p class="reason-text">{{ formLine.value.due }}</p>
+        </ng-container>
+        <ng-template #replacementError>
+          <p class="error-title">{{ presenter.error.title }}</p>
+          <p>{{ presenter.error.description }}</p>
+        </ng-template>
+      </div>
+    </div>
+    <div class="p-col">
+      <div class="btn-actions">
+        <claro-icon-button
+          styl="fab"
+          size="sm"
+          name="edit"
+          title="Editar"
+          (clicked)="resetLine()"
+        >
+        </claro-icon-button>
+      </div>
+    </div>
+  </div>
+</ng-template>

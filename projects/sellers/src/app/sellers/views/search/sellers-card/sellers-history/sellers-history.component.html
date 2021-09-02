@@ -1,0 +1,62 @@
+<div class="col-12">
+  <h4>Historial</h4>
+</div>
+<ng-container *ngIf="!isAccountNetwork">
+  <div *ngFor="let item of itemHistory; let i = index">
+    <div class="count-history col-12">
+      <div class="d-block d-lg-flex mt-4">
+        <div class="info-label col-2">
+          Estado
+          <p>{{ item.statusDescription }}</p>
+        </div>
+        <div class="info-label col-2">
+          Código
+          <p>{{ item.id }}</p>
+        </div>
+        <div class="info-label col-4">
+          Punto venta
+          <p>{{ item.pointSale }}</p>
+        </div>
+        <div class="info-label col-2">
+          Fecha ingreso
+          <p>{{ registerDate[i] }}</p>
+        </div>
+        <div class="info-label col-2">
+          Fecha baja
+          <p>{{ unregisterDate[i] }}</p>
+        </div>
+      </div>
+      <hr/>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isAccountNetwork" >
+  <div *ngFor="let item of itemHistory[0].records; let i = index">
+    <div class="count-history col-12">
+      <div class="d-block d-lg-flex mt-4">
+        <div class="info-label col-2">
+          Estado
+          <p>{{ item.statusDescription }}</p>
+        </div>
+        <div class="info-label col-2">
+          Código
+          <p>{{ item.id }}</p>
+        </div>
+        <div class="info-label col-4">
+          Punto venta
+          <p>{{ item.pointSale }}</p>
+        </div>
+        <div class="info-label col-2">
+          Fecha ingreso
+          <p>{{ registerDate[i] }}</p>
+        </div>
+        <div class="info-label col-2">
+          Fecha baja
+          <p>{{ unregisterDate[i] }}</p>
+        </div>
+      </div>
+      <hr/>
+    </div>
+  </div>
+</ng-container>

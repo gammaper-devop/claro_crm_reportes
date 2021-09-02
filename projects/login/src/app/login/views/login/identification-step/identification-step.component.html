@@ -1,0 +1,65 @@
+<div class="form-login-user-auth-container">
+  <div class="user-auth">
+    <div class="icon">
+      <img src="{{ cdn }}/img/login/document.png" alt="" />
+    </div>
+    <div class="title">Identifícate</div>
+    <div class="description">
+      Para mayor seguridad, identifícate antes de ingresar.
+    </div>
+    <div class="form-container">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="form-content">
+          <div class="formElemet">
+            <label for="documentType">Tipo de Documento:</label><br />
+            <claro-select
+              placeholder="Seleccione"
+              [options]="documentTypes"
+              (valueChanged)="onChangeTypeDoc($event)"
+              formControlName="documentType"
+              claroReactiveForm
+            ></claro-select>
+          </div>
+          <div class="formElemet">
+            <label for="documentNumber">Número de Documento:</label><br />
+            <claro-input
+              placeholder="Ingrese el número"
+              formControlName="documentNumber"
+              [value]="form.get('documentNumber').value"
+              [maxLength]="maxLength"
+              [inputValidation]="inputType"
+              (valueChanged)="onChangeInput()"
+              [paste]="false"
+              claroReactiveForm
+            ></claro-input>
+          </div>
+          <div *ngIf="showPin" class="formElemet">
+            <label for="pin">Clave de Acceso:</label><br />
+            <claro-input
+              type="password"
+              placeholder="Ingrese la clave"
+              (valueChanged)="onChangeInput()"
+              formControlName="pin"
+              maxLength="2"
+              [paste]="false"
+              claroReactiveForm
+            ></claro-input>
+          </div>
+          <label class="error-message" [class.error-message--visible]="error">
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ error?.description }}
+          </label>
+          <div class="form-actions">
+            <button type="submit" [disabled]="!form.valid">
+              Continuar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="info">
+      Al iniciar sesión estás de acuerdo con los Términos y Condiciones y
+      Políticas de privacidad.
+    </div>
+  </div>
+</div>

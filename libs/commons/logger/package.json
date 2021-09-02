@@ -1,0 +1,9 @@
+{
+  "ngPackage": {
+    "lib": {
+      "umdModuleIds": {
+        "@claro/core": "@claro/core"
+      }
+    }
+  }
+}

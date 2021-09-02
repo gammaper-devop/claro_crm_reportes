@@ -1,0 +1,78 @@
+<div class="crm-dialog" *ngIf="presenter.options; else loading">
+  <h2 mat-dialog-title class="crm-dialog__title">
+    Declaración de Conocimiento
+  </h2>
+  <mat-dialog-content class="crm-dialog__content">
+    <div class="declarations-content">
+      <div class="text-center mb-3">
+        <strong>Recuerda:</strong> Confirmar con el cliente los puntos de la
+        declaración de conocimiento.
+      </div>
+      <div class="declarations-content__scroll">
+        <form *ngIf="presenter.options" [formGroup]="presenter.form">
+          <div *ngFor="let elm of presenter.options; let index = index">
+            <div
+              formArrayName="declarationList"
+              class="d-flex"
+              [ngClass]="{ disabled: elm.flagMandatory }"
+            >
+              <label
+                [formGroupName]="index"
+                class="label-check ldr-form_size d-block"
+              >
+                <strong>{{ elm.orderNumber | number: '2.0' }}.- </strong>
+                <span>{{ elm.label }}</span>
+                <input
+                  type="checkbox"
+                  formControlName="idValue"
+                  (change)="checkValue($event, index)"
+                />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="btn-content mt-3">
+        <claro-button
+          size="sm"
+          styl="basic"
+          text="Limpiar"
+          (clicked)="resetForm()"
+        ></claro-button>
+        <claro-button
+          class="btn-action"
+          size="sm"
+          styl="basic"
+          text="Seleccionar Todo"
+          (clicked)="acceptAll()"
+        ></claro-button>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="crm-dialog__actions">
+    <div class="text-center crm-dialog__footer-text">
+      El cliente está conforme con los puntos seleccionados en la declaración de
+      conocimiento.
+    </div>
+    <claro-button
+      id="crm-dialog__submit"
+      text="Acepto"
+      size="sm"
+      (clicked)="submit()"
+      [disabled]="!isValidForm"
+    >
+    </claro-button>
+  </mat-dialog-actions>
+  <claro-icon-button
+    id="crm-dialog__close"
+    class="crm-dialog__close"
+    name="highlight_off"
+    color="gray"
+    (click)="close()"
+  >
+  </claro-icon-button>
+</div>
+<ng-template #loading>
+  <claro-loading></claro-loading>
+</ng-template>

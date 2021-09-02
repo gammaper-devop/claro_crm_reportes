@@ -1,0 +1,51 @@
+<div class="form-login-net-auth-container">
+  <div class="network-auth">
+    <div class="icon">
+      <img src="{{ cdn }}/img/login/red.png" alt="" />
+    </div>
+    <div class="title">¡Hola!</div>
+    <div class="description">
+      Estás conectado a una red externa, por favor, ingresa tu cuenta.
+    </div>
+    <div class="form-container">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="form-content">
+          <div class="formElemet">
+            <label for="userAccount">Cuenta de red</label><br />
+            <claro-input
+              placeholder="Ingrese el número"
+              formControlName="userAccount"
+              (valueChanged)="accountChange($event)"
+              inputValidation="alphanumeric"
+              claroReactiveForm
+            ></claro-input>
+          </div>
+          <div class="formElemet">
+            <label for="userAccount">Contraseña</label><br />
+            <claro-input
+              type="password"
+              placeholder="Ingrese la contraseña"
+              formControlName="password"
+              (valueChanged)="onChangeInput()"
+              [value]="form.value.password"
+              claroReactiveForm
+            ></claro-input>
+          </div>
+          <label class="error-message" [class.error-message--visible]="error">
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ error?.description }}
+          </label>
+          <div class="form-actions">
+            <button type="submit" [disabled]="!form.valid">
+              Continuar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="info">
+      Al iniciar sesión estás de acuerdo con los Términos y Condiciones y
+      Políticas de privacidad.
+    </div>
+  </div>
+</div>

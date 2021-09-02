@@ -1,0 +1,38 @@
+[
+  {
+    "idText": "01",
+    "text": "En el caso de persona natural se deberá adjuntar poder con firma legalizada ante notario público. En el caso de persona jurídica se deberá adjuntar el certificado de vigencia de poderes donde conste el poder otorgado.",
+    "orderNumber": 1,
+    "flagMandatory": false
+  },
+  {
+    "idText": "02",
+    "text": "Modalidad: Prepago (sin recibo) o Post pago (con recibo) .Con la portabilidad doy por concluido mi contrato con mi actual empresa operadora del servicio de telefonía fija o móvil, por lo que dejo efecto las tarifas y condiciones contratadas con dicha empresa; y contrato a una nueva empresa operadora con nuevas condiciones (precio , minutos incluidos, etc.), manteniendo los mismos números telefónicos señalados anteriormente.",
+    "orderNumber": 2,
+    "flagMandatory": false
+  },
+  {
+    "idText": "03",
+    "text": "El trámite de portabilidad es gratuito y demora 24 horas desde la presentación de esta solicitud (excepto los días domingos o feriados o el día previo a estos; o cuando voy a portar más de 10 números). La portación de números del servicio de telefonía fija esta sujeta a instalación previa del nuevo servicio.",
+    "orderNumber": 3,
+    "flagMandatory": false
+  },
+  {
+    "idText": "04",
+    "text": "Si voy a portar mi número del servicio de telefonía fija, mi nueva operadora debe confirmarme que tiene facilidades técnicas para darme el servicio.\n\nPuedo utilizar mi equipo terminar (equipo telefónico), a menos que este no sea compatible con la red de la nueva empresa operadora.\n\nSi estoy portando números del servicio móvil, el cambio de empresa operadora se efectuara asi no haya recogido el chip y/o equipo de mi nueva empresa. Mi nueva empresa operadora tiene la obligación de darme el chip en el momento de la firma de mi nuevo contrato. (hasta 10 números portados)\n\nSi he contratado el servicio con mi actual empresa operadora a un plazo forzoso que todavía no acaba, y decido portar mi numero, dicha empresa podría cobrarme penalidades derivadas a terminar mi contrato antes del vencimiento de dicho plazo forzoso. La penalidad debe estar incluida en mi contrato. En caso de falta de pago, tomo conocimiento de que el Concesionario Cedente podrá solicitar al Concesionario Receptor la suspensión del servicio respecto de los) número(s) móvil(es) portado(s) al (los) que corresponde el monto adeudado.",
+    "orderNumber": 4,
+    "flagMandatory": false
+  },
+  {
+    "idText": "05",
+    "text": "Mi servicio telefónico puede verse afectado por un plazo máximo de 3 horas mientras dure el cambio de mi actual empresa a mi nueva empresa. (entre las 0:00 am y 6:00 am)\nDejo constancia con la firma de esta solicitud que se me hizo entrega de una copia de la misma y que los datos asentados en la presente solicitud y, en su caso, los documentos que la acompañan son verdaderos.",
+    "orderNumber": 5,
+    "flagMandatory": false
+  },
+  {
+    "idText": "06",
+    "text": "Que se me ha informado que al momento de presentar la solicitud de portabilidad la empresa operadora ha realizado una evaluación de factibilidad técnica; no obstante, la procedencia de la portabilidad se encuentra sujeta a la instalación efectiva del servicio en el domicilio señalado, siendo que ante factores externos ajenos al control de la empresa operadora ésta no será responsable por la falta de instalación, quedando sin efecto la presente solicitud. Fecha de instalación del servicio.",
+    "orderNumber": 6,
+    "flagMandatory": false
+  }
+]

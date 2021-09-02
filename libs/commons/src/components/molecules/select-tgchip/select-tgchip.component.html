@@ -1,0 +1,18 @@
+<mat-form-field [ngClass]="classes" floatLabel="never">
+  <mat-label>{{ placeholder }}</mat-label>
+  <mat-select
+    disableOptionCentering
+    [disabled]="disabled"
+    [value]="value"
+    [placeholder]="placeholder"
+    (selectionChange)="onChange($event)"
+    (blur)="onTouched()"
+  >
+    <mat-option
+      *ngFor="let option of options"
+      [value]="isObject ? option : option.value"
+    >
+      {{ option.label }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

@@ -1,0 +1,86 @@
+{
+  "cdn": "http://localhost:4200",
+  "microApps": [
+    {
+      "path": "assets/microapps/crm-login.bundle.js",
+      "tag": "crm-login",
+      "async": true,
+      "preload": false,
+      "clearContent": true,
+      "wrapperTag": "crm-microapp-outlet"
+    },
+    {
+      "path": "assets/microapps/crm-dashboard.bundle.js",
+      "tag": "crm-dashboard",
+      "async": true,
+      "preload": false,
+      "clearContent": true,
+      "wrapperTag": "crm-microapp-outlet"
+    },
+    {
+      "path": "assets/microapps/crm-customers.bundle.js",
+      "tag": "crm-customers",
+      "async": true,
+      "preload": false,
+      "clearContent": true,
+      "wrapperTag": "crm-microapp-outlet"
+    },
+    {
+      "path": "assets/microapps/crm-contracts.bundle.js",
+      "tag": "crm-contracts",
+      "async": true,
+      "preload": false,
+      "clearContent": true,
+      "wrapperTag": "crm-microapp-outlet"
+    },
+    {
+      "path": "assets/microapps/crm-biometric.bundle.js",
+      "tag": "crm-biometric",
+      "async": true,
+      "preload": false,
+      "clearContent": true,
+      "wrapperTag": "crm-microapp-outlet"
+    },
+    {
+      "path": "assets/microapps/crm-reports.bundle.js",
+      "tag": "crm-reports",
+      "async": true,
+      "preload": false,
+      "clearContent": true,
+      "wrapperTag": "crm-microapp-outlet"
+    },
+    {
+      "path": "assets/microapps/crm-sellers.bundle.js",
+      "tag": "crm-sellers",
+      "async": true,
+      "preload": false,
+      "clearContent": true,
+      "wrapperTag": "crm-microapp-outlet"
+    }
+  ],
+  "headers": {
+    "idTransaccion": "idTransaccion",
+    "userId": "userId",
+    "msgid": "msgid",
+    "access_token": "access_token",
+    "Request-ID": "Request-ID",
+    "app-code": "227",
+    "request-date": "request-date",
+    "caller-name": "WebPrepago",
+    "Content-Type": "application/json",
+    "ip": "127.0.0.1",
+    "app-name": "WebPrepago"
+  },
+  "biometric": {
+    "api": "https://localhost:2222/biomatch",
+    "mock": true
+  },
+  "stateAuth": "claro-auth",
+  "stateGenerics": "claro-generics",
+  "stateIP": "claro-ip",
+  "tracing": {
+    "technical": true,
+    "functional": false
+  },
+  "consoleSecurity": false
+}

@@ -1,0 +1,302 @@
+[
+  {
+    "mensajeGeneral": "Realizar solicitud",
+    "codeResponse": "NOENVIADO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "El proceso de venta ha sido bloqueado por 24 horas",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "Realizar solicitud",
+    "codeResponse": "NOENVIADO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "El proceso de venta ha sido bloqueado por 24 horas",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "Envio de solicutd de portabilidad exitoso",
+    "codeResponse": "REINTENTO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "El proceso de venta ha sido bloqueado por 24 horas",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "Pendiente de validacion de portabilidad. Reintentar",
+    "codeResponse": "REINTENTO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "El proceso de venta ha sido bloqueado por 24 horas",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "El cliente presenta deuda. Reintentar luego de acreditar",
+    "codeResponse": "REINTENTO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "El proceso de venta ha sido bloqueado por 24 horas",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "No se encontraron registro para realizar la validacion",
+    "codeResponse": "REINTENTO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "El proceso de venta ha sido bloqueado por 24 horas",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "Esperando mensajes finales de solicitud de portabilidad",
+    "codeResponse": "REINTENTO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "la linea ha sido portada recientemente",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "Envio de solicutd de portabilidad exitoso",
+    "codeResponse": "REINTENTO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "El proceso de venta ha sido bloqueado por 24 horas",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "Pendiente de validacion de portabilidad. Reintentar",
+    "codeResponse": "REINTENTO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "El proceso de venta ha sido bloqueado por 24 horas",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "El cliente presenta deuda. Reintentar luego de acreditar",
+    "codeResponse": "REINTENTO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "El proceso de venta ha sido bloqueado por 24 horas",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "No se encontraron registro para realizar la validacion",
+    "codeResponse": "REINTENTO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "El proceso de venta ha sido bloqueado por 24 horas",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "Esperando mensajes finales de solicitud de portabilidad",
+    "codeResponse": "REINTENTO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "la linea ha sido portada recientemente",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "Primero pague su deuda.",
+    "codeResponse": "DEUDA",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "debe saldar deudas para continuar con el proceso",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "Solicitud portabilidad rechazada",
+    "codeResponse": "RECHAZADO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "No puede pasar el proceso",
+        "type": "ERROR",
+        "motive": "debe saldar deudas para continuar con el proceso",
+        "days": "250"
+      }
+    ]
+  },
+  {
+    "mensajeGeneral": "Solicitud portabilidad procedente",
+    "codeResponse": "APROBADO",
+    "phoneNumbers": [
+      {
+        "phoneNumber": "992992992",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      },
+      {
+        "phoneNumber": "996969696",
+        "message": "Si puede pasar el proceso",
+        "type": "OK",
+        "motive": "",
+        "days": "250"
+      }
+    ]
+  }
+]

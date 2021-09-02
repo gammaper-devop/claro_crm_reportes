@@ -1,0 +1,37 @@
+<form
+  [formGroup]="searchCustomerForm"
+  (ngSubmit)="onSubmit()"
+  autocomplete="off"
+>
+  <div class="search-bar">
+    <claro-select-bar
+      class="search-bar__criteria"
+      [value]="searchCustomerForm.get('criteriaId').value"
+      placeholder="Criterio"
+      [options]="options"
+      (valueChanged)="onValueChanged($event)"
+      formControlName="criteriaId"
+      [isObject]="true"
+      claroReactiveForm
+    ></claro-select-bar>
+
+    <claro-input
+      class="search-bar__input"
+      [placeholder]="placeholder"
+      formControlName="searchText"
+      [maxLength]="maxLength"
+      [inputValidation]="inputType"
+      [value]="searchCustomerForm.get('searchText').value"
+      (valueChanged)="onSearchTextChange($event)"
+      claroReactiveForm
+    ></claro-input>
+
+    <button
+      type="submit"
+      class="search-bar__button"
+      [disabled]="!searchCustomerForm.valid"
+    >
+      <claro-icon name="search"></claro-icon>
+    </button>
+  </div>
+</form>

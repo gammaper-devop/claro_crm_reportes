@@ -1,0 +1,16 @@
+{
+  "operationType": "01",
+  "operationDescription": "VENTA PREPAGO - PORTABILIDAD",
+  "biometricFlag": true,
+  "footprintFlag": false,
+  "inabilityFlag": true,
+  "verificationBiometricType": 2,
+  "noBiometricFlag": true,
+  "noBiometricMaxAttemptsNumber": "3",
+  "inabilityButton": "No Biometría",
+  "inabilityMessage": "La No Biometría es cuando el cliente se encuentra imposibilitado para validar sus huellas",
+  "omissionFlag": true,
+  "omissionButton": "Omitir",
+  "omissionConfirm": "Omisión de validación del cliente",
+  "lastAttemptMessage": "Este es el último intento, de fallar comuníquese con el área especializada."
+}

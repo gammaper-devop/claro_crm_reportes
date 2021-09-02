@@ -1,0 +1,17 @@
+<section *ngIf="isInitRoute === false" class="d-flex h-100">
+  <app-sidebar
+    [customer]="presenter.customer"
+    (handleBack)="goBack()"
+    (hiddenActive)="hiddenActive()"
+    class="app-sidebar"
+    [class.isHiddenActive]="isHiddenActive"
+    [summary]="summary"
+  ></app-sidebar>
+  <app-steps
+    class="container-fluid"
+    [user]="user"
+    [customer]="presenter.customer"
+    (summaryEmitter)="emitterSummary($event)"
+    (sendExitPermission)="setExitPermission($event)"
+  ></app-steps>
+</section>

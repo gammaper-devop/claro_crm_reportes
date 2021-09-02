@@ -1,0 +1,55 @@
+<claro-card *ngIf="showProfile">
+  <div class="profile" *ngIf="customer; else loading">
+    <div class="profile-head">
+      <div class="profile-head__photo">
+        <div class="photo-border">
+          <crm-svg-image *ngIf="!isCompany" name="user"></crm-svg-image>
+          <crm-svg-image *ngIf="isCompany" name="company"></crm-svg-image>
+        </div>
+      </div>
+      <div class="profile-head__name">
+        {{ customer.fullName }}
+      </div>
+    </div>
+    <div class="profile-info">
+      <div class="profile-info__group">
+        <p class="control-info">
+          Tipo de Doc. <span>{{ customer.documentTypeDescription }}</span>
+        </p>
+      </div>
+      <div *ngIf="!isCompany" class="profile-info__group">
+        <p class="control-info">
+          Nacionalidad <span>{{ customer.nationalityDescription }}</span>
+        </p>
+      </div>
+      <div class="profile-info__group">
+        <p class="control-info">
+          N° de Doc. <span>{{ customer.documentNumber }}</span>
+        </p>
+      </div>
+      <div *ngIf="showAddress" class="profile-info__group">
+        <p class="control-info d-block">
+          Dirección Legal
+          <br>
+          <span>{{ customer.legalDirection }}</span>
+        </p>
+      </div>
+    </div>
+    <hr *ngIf="showEmail || showPhone" />
+    <div class="profile-more">
+      <div *ngIf="showEmail" class="profile-info__group">
+        <p class="control-info">
+          E-mail <span>{{ customer.email }}</span>
+        </p>
+      </div>
+      <div *ngIf="showPhone" class="profile-info__group">
+        <p class="control-info">
+          Teléfono Contacto <span>{{ customer.phoneNumber }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>
+    <claro-loading></claro-loading>
+  </ng-template>
+</claro-card>

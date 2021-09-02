@@ -1,0 +1,7 @@
+{
+  "title": "Causas de omisión de PIN",
+  "causes": [
+        "Linea a portar se encuentra bloqueada por perdida o robo y no cuenta SIM para recibir SMS",
+        "Línea a portar se encuentra desactivada a solicitud de su operador actual y no puede recibir SMS"
+  ]
+}

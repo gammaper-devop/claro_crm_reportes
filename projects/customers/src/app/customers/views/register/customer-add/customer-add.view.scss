@@ -1,0 +1,93 @@
+.form-card-content {
+  width: 100%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  .form-title-container {
+    width: 100%;
+    h2 {
+      font-family: Roboto;
+      font-size: 24px !important;
+      font-weight: normal !important;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      color: #444444;
+    }
+  }
+  .card-content {
+    width: 100%;
+    .form-content {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      .form-section {
+        width: 100%;
+        .form-section-title {
+          padding: 15px 0;
+        }
+        .form-section-content {
+          display: flex;
+          flex-flow: row wrap;
+          .formElemet {
+            width: 33.333%;
+            padding: 0 10px;
+            box-sizing: border-box;
+            &.el-x2 {
+              width: 66.6666666667%;
+            }
+          }
+          .error-message {
+            display: flex;
+            align-items: center;
+            margin-top: -3.25em;
+            color: #da272c;
+            font-family: Roboto;
+            font-size: 12px;
+            font-stretch: normal;
+            font-style: normal;
+            font-weight: normal;
+            letter-spacing: normal;
+            line-height: normal;
+            margin-top: -1.25em;
+            padding: 5px 15px;
+            visibility: hidden;
+            margin-bottom: 10px;
+            &--visible {
+              visibility: visible;
+            }
+            .icon-error {
+              margin-right: 5px;
+              vertical-align: middle;
+              zoom: 0.75;
+            }
+          }
+        }
+      }
+    }
+    .form-actions {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  .notification-response {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .formElemet {
+    width: 50% !important;
+    &.el-x2 {
+      width: 100% !important;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .formElemet {
+    width: 100% !important;
+  }
+}

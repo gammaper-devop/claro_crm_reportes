@@ -1,0 +1,809 @@
+<div class="container-detail-sale" *ngIf="!presenter.error || presenter.error.code === 'IDFF2'; else error">
+  <div class="header-sale">
+    <div class="subtitle">
+      <p>Registra los productos y servicios</p>
+    </div>
+  </div>
+  <div class="sale-content">
+    <div
+      *ngFor="let lineForm of linesForm.controls; index as i"
+      class="sale-item"
+    >
+      <mat-expansion-panel
+        (opened)="expandItem(i)"
+        (closed)="minimizedItem(i)"
+        hideToggle="true"
+        [expanded]="lines[i].expanded"
+        [disabled]="true"
+      >
+        <mat-expansion-panel-header class="sale-header-title">
+          <mat-panel-title>
+            <div class="container">
+              <div class="row">
+                <div class="sale-title-container" style="width: 100%;">
+                  <div class="sale-name">
+                    <h4>
+                      <span *ngIf="lines[i].expanded">
+                        {{ lineName }} {{ isRenoRepo ? '' : i + 1 }}
+                        {{
+                          !isNewLine
+                            ? ' - ' +
+                              (isRenoRepo
+                                ? lines[i].modalityFrom?.label
+                                : lines[i].service?.label) +
+                              ' ' +
+                              lines[i].phone
+                            : ''
+                        }}
+                      </span>
+                      <span *ngIf="!lines[i].expanded!; isRenoRepo">
+                        {{ lineName }} {{ isRenoRepo ? '' : i + 1 }} -
+                        {{
+                          !isNewLine
+                            ? lines[i].modalityTo === null
+                              ? ' ' +
+                                (isRenoRepo
+                                  ? lines[i].modalityFrom?.label
+                                  : lines[i].service?.label) +
+                                ' ' +
+                                lines[i].phone
+                              : lines[i].modalityTo?.label +
+                                ' ' +
+                                (isRenoRepo
+                                  ? lines[i].modalityFrom?.label
+                                  : lines[i].service?.label) +
+                                ' ' +
+                                lines[i].phone
+                            : lines[i].productType?.label
+                        }}
+                      </span>
+                    </h4>
+                  </div>
+
+                  <div class="price-information" *ngIf="!lines[i].expanded">
+                    <span>S/ </span>{{ lines[i].totalPrice }}
+                  </div>
+                  <div class="quick-actions" *ngIf="!lines[i].expanded">
+                    <span class="delete" *ngIf="isNewLine">
+                      <claro-icon-button
+                        styl="icon"
+                        size="xs"
+                        name="delete_outline"
+                        title="Eliminar"
+                        (clicked)="removeItem(i, true)"
+                      ></claro-icon-button>
+                    </span>
+                    <span class="edit">
+                      <claro-icon-button
+                        styl="icon"
+                        size="xs"
+                        name="edit"
+                        title="Editar"
+                        (clicked)="editItem(i, lines[i])"
+                      ></claro-icon-button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-2 mb-4" *ngIf="!lines[i].expanded">
+                <div class="col">
+                  <span>{{ lines[i].option?.label }}</span
+                  ><br />
+                  <span style="font-weight: 100;">
+                    {{ lines[i].iccid?.description }} </span
+                  ><br />
+                  <span style="font-weight: 100;">
+                    {{ lines[i].imei?.description }} </span
+                  ><br />
+                </div>
+                <div class="col">
+                  <span>{{ lines[i].plan?.label }}</span>
+                </div>
+              </div>
+            </div>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="sale-form-container">
+          <form [formGroup]="lineForm" autocomplete="off">
+            <div class="form-section bb-solid">
+              <div class="form-section-title">
+                Ingrese los datos del servicio
+              </div>
+              <div class="form-section-content">
+                <div *ngIf="!isNewLine && !isRenoRepo" class="formElemet">
+                  <label>Modalidad destino:</label><br />
+                  <claro-select
+                    placeholder="Selecciona"
+                    [options]="presenter.modalities"
+                    formControlName="modality"
+                    [value]="lines[i].modalityTo"
+                    (valueChanged)="changeModality(lines[i], $event)"
+                    [isObject]="true"
+                    claroReactiveForm
+                  >
+                  </claro-select>
+                </div>
+                <div *ngIf="isNewLine && !isRenoRepo" class="formElemet">
+                  <label>Tipo de producto:</label><br />
+                  <claro-select
+                    placeholder="Selecciona"
+                    [options]="presenter.productsTypes"
+                    formControlName="productType"
+                    [value]="lines[i].productType"
+                    [disabled]="productTypeDisabled"
+                    (valueChanged)="
+                      changeProductType(i, lines[i], lineForm, $event)
+                    "
+                    [isObject]="true"
+                    claroReactiveForm
+                  >
+                  </claro-select>
+                </div>
+                <div *ngIf="!isRenoRepo && isNewLine" class="formElemet">
+                  <label>Tipo Operación:</label><br />
+                  <claro-select
+                    placeholder="Selecciona"
+                    [options]="presenter.newLineOptions[i]"
+                    formControlName="option"
+                    [value]="lines[i].option"
+                    [autoSelect]="autoSelect[i]"
+                    [isObject]="true"
+                    claroReactiveForm
+                    [disabled]="
+                      (!isNewLine && !lines[i].modalityTo) ||
+                      (isNewLine && !lines[i].productType)
+                    "
+                    (valueChanged)="changeOption(i, lines[i], lineForm, $event)"
+                  >
+                  </claro-select>
+                </div>
+                <div *ngIf="!isRenoRepo && !isNewLine" class="formElemet">
+                  <label>Tipo Operación:</label><br />
+                  <claro-select
+                    placeholder="Selecciona"
+                    [options]="presenter.saleOptions[lines[i].phone]"
+                    formControlName="option"
+                    [value]="lines[i].option"
+                    [autoSelect]="autoSelect[i]"
+                    [isObject]="true"
+                    claroReactiveForm
+                    [disabled]="
+                      (!isNewLine && !lines[i].modalityTo) ||
+                      (isNewLine && !lines[i].productType)
+                    "
+                    (valueChanged)="changeOption(i, lines[i], lineForm, $event)"
+                  >
+                  </claro-select>
+                </div>
+
+                <div
+                  class="special-section materials"
+                  [class.wrap-full]="!showIMEI[i] || !showICCID"
+                >
+                  <div class="content-el-section d-block" *ngIf="showICCID">
+                    <div
+                      *ngIf="isCAC && showICCID && isRenoRepo"
+                      class="formElemet"
+                    >
+                      <label>Descripción del Artículo:</label><br />
+                      <claro-select
+                        placeholder="Selecciona"
+                        [options]="presenter.materialSelectICCID"
+                        formControlName="iccidDescription"
+                        [value]="lines[i].iccid?.code"
+                        [isObject]="false"
+                        claroReactiveForm
+                        [disabled]="
+                          (!lines[i].option && !isRenoRepo) ||
+                          !presenter.materialSelectICCID
+                        "
+                        (valueChanged)="
+                          changeMaterials(
+                            i,
+                            'iccid',
+                            lines[i],
+                            lineForm,
+                            $event
+                          )
+                        "
+                      >
+                      </claro-select>
+                    </div>
+                    <div *ngIf="showICCID && !flagPicking" class="formElemet">
+                      <label>Código ICCID:</label><br />
+                      <claro-input
+                        *ngIf="!isCAC"
+                        placeholder="Ingrese código"
+                        formControlName="iccid"
+                        [value]="lines[i].iccid?.serie"
+                        inputValidation="number"
+                        (valueChanged)="onChangeSerie(i, 'iccid', lines[i])"
+                        icon="search"
+                        maxLength="18"
+                        [class.valid-button]="lineForm.get('iccid').valid"
+                        claroReactiveForm
+                        [disabled]="!lines[i].option && !isRenoRepo"
+                        (enter)="validateDisponibility(i, 'iccid', $event)"
+                      >
+                      </claro-input>
+                      <claro-select
+                        *ngIf="isCAC"
+                        placeholder="Selecciona"
+                        [options]="presenter.selectSerieICCID"
+                        formControlName="iccid"
+                        [value]="lines[i].iccid?.serie"
+                        [isObject]="false"
+                        claroReactiveForm
+                        [disabled]="
+                          (!lines[i].option && !isRenoRepo) ||
+                          !presenter.selectSerieICCID
+                        "
+                        (valueChanged)="
+                          changeSelectSeries(
+                            i,
+                            'iccid',
+                            lines[i],
+                            lineForm,
+                            $event
+                          )
+                        "
+                      >
+                      </claro-select>
+                    </div>
+                    <div
+                      *ngIf="isCAC && showICCID && !isRenoRepo"
+                      class="formElemet"
+                      style="height: 77.5px;"
+                    ></div>
+                    <div
+                      class="formElemet el-full mb-4"
+                      *ngIf="presenter.showSerieInfo[i] && showICCID && !isCAC"
+                    >
+                      <claro-loading
+                        *ngIf="
+                          presenter.showSerieInfo[i] === 'iccid' &&
+                          !lines[i].iccid?.code &&
+                          !presenter.errorSerie[i].iccid
+                        "
+                      >
+                      </claro-loading>
+                      <div *ngIf="lines[i].iccid?.code" class="el-full-content">
+                        <div class="detail-item">
+                          Descripción del Material:
+                          <span>{{ lines[i].iccid.description }}</span>
+                        </div>
+                        <div class="detail-item">
+                          Código del Material:
+                          <span>{{ lines[i].iccid.code }}</span>
+                        </div>
+                        <div class="detail-item" *ngIf="isCAD">
+                          Cód SKU:
+                          <span
+                            *ngIf="
+                              lines[i].price?.chipSku == '';
+                              else skuchipview
+                            "
+                            style="color: red;"
+                          >
+                            El IMEI no tiene configurado un SKU, comuníquese con
+                            el Área de Administración de Cadenas.
+                          </span>
+                          <ng-template #skuchipview>
+                            <span>
+                              {{ lines[i].price?.chipSku }}
+                            </span>
+                          </ng-template>
+                        </div>
+                        <div class="detail-item" *ngIf="isRenoRepo">
+                          <span class="signal">
+                            <crm-svg-image
+                              name="signal-sale-img"
+                            ></crm-svg-image>
+                            <span class="signal-state">Si</span>
+                          </span>
+                        </div>
+                      </div>
+                      <label
+                        *ngIf="presenter.errorSerie[i].iccid"
+                        class="error-message error-message--visible pt-4"
+                      >
+                        <claro-icon name="info" class="icon-error"></claro-icon>
+                        {{ presenter.errorSerie[i].iccid }}
+                      </label>
+                    </div>
+                    <div
+                      class="formElemet el-full mb-4"
+                      *ngIf="presenter.showSerieInfo[i] && showICCID && isCAC"
+                    >
+                      <div *ngIf="lines[i].iccid?.code" class="el-full-content">
+                        <div class="detail-item" *ngIf="!isRenoRepo">
+                          Descripción del Material:
+                          <span>{{ lines[i].iccid.description }}</span>
+                        </div>
+                        <div class="detail-item">
+                          Cód. del Material:
+                          <span>{{ lines[i].iccid.code }}</span>
+                        </div>
+                        <div class="detail-item" *ngIf="isRenoRepo">
+                          <span class="signal">
+                            <crm-svg-image
+                              name="signal-sale-img"
+                            ></crm-svg-image>
+                            <span class="signal-state">Si</span>
+                          </span>
+                        </div>
+                      </div>
+                      <label
+                        *ngIf="presenter.errorSerie[i].iccid"
+                        class="error-message error-message--visible pt-4"
+                      >
+                        <claro-icon name="info" class="icon-error"></claro-icon>
+                        {{ presenter.errorSerie[i].iccid }}
+                      </label>
+                    </div>
+                  </div>
+                  <div class="content-el-section d-block" *ngIf="showIMEI[i]">
+                    <div *ngIf="isCAC && showIMEI[i]" class="formElemet">
+                      <label>Descripción Equipo:</label><br />
+                      <claro-select
+                        placeholder="Selecciona"
+                        [options]="presenter.materialSelectIMEI"
+                        formControlName="imeiDescription"
+                        [value]="lines[i].imei?.code"
+                        [isObject]="false"
+                        claroReactiveForm
+                        (valueChanged)="
+                          changeMaterials(i, 'imei', lines[i], lineForm, $event)
+                        "
+                      >
+                      </claro-select>
+                    </div>
+                    <div *ngIf="showIMEI[i] && !flagPicking" class="formElemet">
+                      <label>Código IMEI:</label><br />
+                      <claro-input
+                        *ngIf="!isCAC"
+                        placeholder="Ingrese código"
+                        formControlName="imei"
+                        [value]="lines[i].imei?.serie"
+                        inputValidation="number"
+                        (valueChanged)="onChangeSerie(i, 'imei', lines[i])"
+                        icon="search"
+                        maxLength="18"
+                        [class.valid-button]="lineForm.get('imei').valid"
+                        claroReactiveForm
+                        (enter)="validateDisponibility(i, 'imei', $event)"
+                        [disabled]="!lines[i].iccid?.code && showICCID"
+                      ></claro-input>
+                      <claro-select
+                      *ngIf="isCAC"
+                      placeholder="Selecciona"
+                      [options]="presenter.selectSerieIMEI"
+                      formControlName="imei"
+                      [value]="lines[i].imei?.serie"
+                      [isObject]="false"
+                      claroReactiveForm
+                      [disabled]="!presenter.selectSerieIMEI || presenter.selectSerieIMEI.length > 1"
+                      (valueChanged)="
+                        changeSelectSeries(
+                          i,
+                          'imei',
+                          lines[i],
+                          lineForm,
+                          $event
+                        )
+                      "
+                    >
+                    </claro-select>
+                    </div>
+                    <div
+                      class="formElemet el-full mb-4"
+                      *ngIf="
+                        presenter.showSerieInfo[i] && showIMEI[i] && !isCAC
+                      "
+                    >
+                      <claro-loading
+                        *ngIf="
+                          presenter.showSerieInfo[i] === 'imei' &&
+                          !lines[i].imei?.code &&
+                          !presenter.errorSerie[i].imei
+                        "
+                      >
+                      </claro-loading>
+                      <div *ngIf="lines[i].imei?.code" class="el-full-content">
+                        <div class="detail-item">
+                          Descripción del Material:
+                          <span>{{ lines[i].imei.description }}</span>
+                        </div>
+                        <div class="detail-item">
+                          Código del Material:
+                          <span>{{ lines[i].imei.code }}</span>
+                        </div>
+                        <div class="detail-item" *ngIf="isCAD">
+                          Cód SKU:
+                          <span
+                            *ngIf="
+                              lines[i].price?.equipmentSku == '';
+                              else skuequipmentview
+                            "
+                            style="color: red;"
+                          >
+                            El IMEI no tiene configurado un SKU, comuníquese con
+                            el Área de Administración de Cadenas.
+                          </span>
+                          <ng-template #skuequipmentview>
+                            <span>{{ lines[i].price?.equipmentSku }} </span>
+                          </ng-template>
+                        </div>
+                      </div>
+                      <label
+                        class="error-message error-message--visible pt-4"
+                        *ngIf="presenter.errorSerie[i].imei"
+                      >
+                        <claro-icon name="info" class="icon-error"></claro-icon>
+                        {{ presenter.errorSerie[i].imei }}
+                      </label>
+                    </div>
+                    <div
+                      class="formElemet el-full"
+                      *ngIf="presenter.showSerieInfo[i] && showIMEI[i] && isCAC"
+                    >
+                      <div *ngIf="lines[i].imei?.code" class="el-full-content">
+                        <div class="detail-item">
+                          Cód. del Material:
+                          <span>{{ lines[i].imei.code }}</span>
+                        </div>
+                      </div>
+                      <label
+                        *ngIf="presenter.errorSerie[i].iccid"
+                        class="error-message error-message--visible pt-4"
+                      >
+                        <claro-icon name="info" class="icon-error"></claro-icon>
+                        {{ presenter.errorSerie[i].iccid }}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="special-section">
+                  <div class="form-elements">
+                    <div class="formElemet">
+                      <label>Campañas:</label><br />
+                      <claro-select
+                        placeholder="Selecciona"
+                        [options]="presenter.campaigns[i]"
+                        [value]="lines[i].campaign"
+                        formControlName="campaign"
+                        [isObject]="true"
+                        claroReactiveForm
+                        [disabled]="
+                          isUpdatePlans
+                        "
+                        (valueChanged)="changeCampaign(i, lines[i], $event)"
+                      >
+                      </claro-select>
+                    </div>
+                    <div class="formElemet">
+                      <label>Lista de precios:</label><br />
+                      <claro-select
+                        placeholder="Selecciona"
+                        [options]="presenter.prices[i]"
+                        [value]="lines[i].price"
+                        formControlName="price"
+                        [isObject]="true"
+                        claroReactiveForm
+                        [disabled]="
+                          isUpdatePlans
+                        "
+                        (valueChanged)="changePrice(i, lines[i], $event)"
+                      >
+                      </claro-select>
+                    </div>
+                    <div class="formElemet" *ngIf="isCAD">
+                      <div class="update-sku">
+                        <claro-button
+                          styl="flat"
+                          size="sm"
+                          text="Actualizar SKU"
+                          [disabled]="
+                            (this.saleOperationType !== '03' &&
+                              (showIMEI[i] &&
+                                (lines[i].price?.chipSku == '' ||
+                                  lines[i].price?.equipmentSku == ''))) ||
+                            (!showIMEI[i] && lines[i].price?.chipSku == '') ||
+                            ((this.saleOperationType === '03' &&
+                              (showICCID &&
+                                (lines[i].price?.chipSku === '' ||
+                                  lines[i].price?.equipmentSku === ''))) ||
+                              (!showICCID &&
+                                lines[i].price?.equipmentSku === ''))
+                              ? false
+                              : true
+                          "
+                          (clicked)="refreshPrices(i, lines[i])"
+                        ></claro-button>
+                      </div>
+                    </div>
+                    <div class="formElemet">
+                      <label>Plan:</label><br />
+                      <claro-select
+                        placeholder="Selecciona"
+                        [options]="presenter.plans[i]"
+                        [value]="lines[i].plan"
+                        formControlName="plan"
+                        [isObject]="true"
+                        claroReactiveForm
+                        [disabled]="
+                          isUpdatePlans || isRenoRepo
+                        "
+                        (valueChanged)="changePlan(i, lines[i], $event)"
+                      >
+                      </claro-select>
+                    </div>
+                  </div>
+                  <div class="form-information">
+                    <div
+                      class="card-proce"
+                      [class.no-show-children]="!lines[i].price"
+                    >
+                      <div class="image-icon">
+                        <crm-svg-image name="line-checked"></crm-svg-image>
+                      </div>
+                      <div class="proce-desc">
+                        <div *ngIf="lines[i].option?.value !== isChip">
+                          <div
+                            class="price-item"
+                            *ngIf="lines[i].price && showICCID"
+                          >
+                            <span>Chip: </span>
+                            {{ lines[i].price.chipTotalPrice }}
+                          </div>
+                          <div
+                            *ngIf="lines[i].price && showICCID"
+                            class="price-item"
+                          >
+                            <span>Equipo: </span
+                            >{{ lines[i].price.equipmentTotalPrice }}
+                          </div>
+                        </div>
+                        <div class="price-item">
+                          <span>Precio con IGV</span>
+                          <h2>
+                            S/ <span>{{ lines[i].totalPrice }}</span>
+                          </h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="sale-hr" *ngIf="!isRenoRepo" />
+            <div class="form-section" *ngIf="!isRenoRepo">
+              <div class="form-section-title">Verifica la cobertura</div>
+              <div class="form-section-content">
+                <div class="special-section">
+                  <div class="form-elements">
+                    <div class="formElemet">
+                      <label>Departamento:</label><br />
+                      <claro-select
+                        placeholder="Selecciona"
+                        [options]="presenter.departments"
+                        [value]="lines[i].department"
+                        formControlName="department"
+                        [isObject]="true"
+                        claroReactiveForm
+                        (valueChanged)="changeDepartment(i, lines[i], $event)"
+                      >
+                      </claro-select>
+                    </div>
+                    <div class="formElemet">
+                      <label>Provincia / Distrito:</label><br />
+                      <claro-select
+                        placeholder="Selecciona"
+                        [options]="presenter.ubigeos[i]"
+                        [value]="lines[i].ubigeo"
+                        formControlName="ubigeo"
+                        [isObject]="true"
+                        claroReactiveForm
+                        [disabled]="
+                          presenter.ubigeos[i] &&
+                          presenter.ubigeos[i].length === 0
+                        "
+                        (valueChanged)="changeUbigeo(i, lines[i], $event)"
+                      >
+                      </claro-select>
+                    </div>
+                    <div class="formElemet">
+                      <label>Centro Poblado:</label><br />
+                      <claro-select
+                        placeholder="Selecciona"
+                        [options]="presenter.populatedCenters[i]"
+                        [value]="lines[i].populatedCenter"
+                        formControlName="populatedCenter"
+                        [isObject]="true"
+                        claroReactiveForm
+                        [disabled]="
+                          presenter.populatedCenters[i] &&
+                          presenter.populatedCenters[i].length === 0
+                        "
+                        (valueChanged)="
+                          changePopulatedCenter(i, lines[i], $event)
+                        "
+                      >
+                      </claro-select>
+                    </div>
+                  </div>
+                  <div class="form-information">
+                    <div
+                      class="card-proce"
+                      [class.no-show-children]="!lines[i].populatedCenter"
+                    >
+                      <div
+                        class="image-icon mr-3"
+                        *ngIf="
+                          lines[i].populatedCenter &&
+                          lines[i].populatedCenter.value == 'SI'
+                        "
+                      >
+                        <crm-svg-image
+                          name="coverage-green-img"
+                        ></crm-svg-image>
+                      </div>
+                      <div
+                        class="image-icon mr-3"
+                        *ngIf="
+                          lines[i].populatedCenter &&
+                          lines[i].populatedCenter.value == 'NO'
+                        "
+                      >
+                        <crm-svg-image name="coverage-red-img"></crm-svg-image>
+                      </div>
+                      <div
+                        class="image-icon mr-3"
+                        *ngIf="
+                          lines[i].populatedCenter &&
+                          lines[i].populatedCenter.value == 'NC'
+                        "
+                      >
+                        <crm-svg-image
+                          name="coverage-yellow-img"
+                        ></crm-svg-image>
+                      </div>
+                      <div
+                        *ngIf="
+                          lines[i].populatedCenter &&
+                          lines[i].populatedCenter.value === 'SI'
+                        "
+                        class="proce-desc"
+                      >
+                        <h3>Si tiene cobertura.</h3>
+                        <p>informa a tu cliente y continua la venta</p>
+                        <label class="label-check">
+                          <input
+                            type="checkbox"
+                            formControlName="acceptCoverage"
+                            (change)="changeAcceptCoverage(i, lines[i], $event)"
+                          />
+                          <span class="checkmark"></span>
+                          Acepta la cobertura
+                        </label>
+                      </div>
+                      <div
+                        *ngIf="
+                          lines[i].populatedCenter &&
+                          lines[i].populatedCenter.value !== 'SI'
+                        "
+                        class="proce-desc"
+                      >
+                        <h3>
+                          {{
+                            lines[i].populatedCenter.value === 'NO'
+                              ? 'No tiene cobertura'
+                              : 'No conoce'
+                          }}.
+                        </h3>
+                        <p>
+                          informa a tu cliente si desea continuar la venta
+                        </p>
+                        <label class="label-check">
+                          <input
+                            type="checkbox"
+                            formControlName="acceptCoverage"
+                            (change)="changeAcceptCoverage(i, lines[i], $event)"
+                          />
+                          <span class="checkmark"></span>
+                          {{
+                            lines[i].populatedCenter.value === 'NO'
+                              ? 'Acepta la NO cobertura'
+                              : 'Acepta que se considere como centro poblado frecuente ' +
+                                lines[i].ubigeo?.districtDescription
+                          }}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions">
+              <div *ngIf="isNewLine && !isRenoRepo" class="action-item">
+                <claro-button
+                  styl="flat"
+                  size="sm"
+                  text="Eliminar"
+                  (clicked)="removeItem(i, false)"
+                ></claro-button>
+              </div>
+              <div class="action-item">
+                <claro-button
+                  styl="flat"
+                  size="sm"
+                  text="Limpiar"
+                  (clicked)="reset(i, lines[i])"
+                ></claro-button>
+              </div>
+              <div *ngIf="!isRenoRepo" class="action-item">
+                <claro-button
+                  styl="flat"
+                  size="sm"
+                  text="Añadir"
+                  [disabled]="!isValidForm[i]"
+                  (clicked)="addItem(lines[i])"
+                ></claro-button>
+              </div>
+              <div *ngIf="isRenoRepo" class="action-item">
+                <claro-button
+                  styl="flat"
+                  size="sm"
+                  text="Guardar"
+                  [disabled]="!isValidForm[i]"
+                  (clicked)="saveItem(lines[i])"
+                ></claro-button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </mat-expansion-panel>
+       <div *ngIf="isNewLine && isValidForm[i] && i == linesForm.controls.length-1" class="action-item col-">
+        <claro-icon-button
+          class="btn-add-line"
+          size="sm"
+          styl="basic"
+          name="add_circle_outline"
+          text="Agregar una línea"
+          (click)="addLine()"
+          *ngIf="!isLimitLine()"
+          
+        >
+        </claro-icon-button>
+      </div>
+    </div>
+    <!---other item-->
+    <br />
+    <div *ngIf="linesForm.controls.length == 0" class="action-item col-">
+      <claro-icon-button
+        class="btn-add-line"
+        size="sm"
+        styl="basic"
+        name="add_circle_outline"
+        text="Agregar una línea"
+        (click)="addLine()"
+        *ngIf="!isLimitLine()"
+        
+      >
+      </claro-icon-button>
+    </div>
+  </div>
+</div>
+<!--"!linesConfig || (linesConfig && lines.length === 0)"-->
+<ng-template #error>
+  <claro-collapse class="my-3" expanded="true">
+    <app-sale-error
+      [error]="presenter.error"
+      [disabled]= "false" 
+      (clicked)="again()"
+    >
+    </app-sale-error>
+  </claro-collapse>
+</ng-template>

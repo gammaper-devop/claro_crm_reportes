@@ -1,0 +1,50 @@
+@mixin paddings() {
+
+  @for $i from 1 through 9 {
+    .pb-#{$i} {
+      padding-bottom: #{$i}px;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    .pb-#{$i*10} {
+      padding-bottom: #{$i*10}px;
+    }
+  }
+
+  @for $i from 1 through 9 {
+    .pt-#{$i} {
+      padding-top: #{$i}px;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    .pt-#{$i*10} {
+      padding-top: #{$i*10}px;
+    }
+  }
+
+  @for $i from 1 through 9 {
+    .pl-#{$i} {
+      padding-left: #{$i}px;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    .pl-#{$i*10} {
+      padding-left: #{$i*10}px;
+    }
+  }
+
+  @for $i from 1 through 9 {
+    .pr-#{$i} {
+      padding-right: #{$i}px;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    .pr-#{$i*10} {
+      padding-right: #{$i*10}px;
+    }
+  }
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "secNumber": "5ec338cdca38c90fb9845012",
+    "date": "26/10/2020",
+    "documentSap": "8010760712",
+    "documentSynergy": "8010760712",
+    "typeDocument": "POR",
+    "amount": 7196.91
+  },
+  {
+    "secNumber": "5ec338cd2f524d2379502afd",
+    "date": "25/10/2020",
+    "documentSap": "1439803106",
+    "documentSynergy": "1439803106",
+    "typeDocument": "ALT",
+    "amount": 3962.02
+  },
+  {
+    "secNumber": "5ec338cde3b6ae3aeb316d5f",
+    "date": "24/10/2020",
+    "documentSap": "6308020628",
+    "documentSynergy": "6308020628",
+    "typeDocument": "POR",
+    "amount": 9426.19
+  },
+  {
+    "secNumber": "5ec338cd896a04e1db6bb86f",
+    "date": "23/10/2020",
+    "documentSap": "7892209076",
+    "documentSynergy": "7892209076",
+    "typeDocument": "ALT",
+    "amount": 6539.93
+  },
+  {
+    "secNumber": "5ec338cd6811bb8946108401",
+    "date": "22/10/2020",
+    "documentSap": "5250857671",
+    "documentSynergy": "5250857671",
+    "typeDocument": "POR",
+    "amount": 2096.80
+  },
+  {
+    "secNumber": "5ec338cd49689ec3118e69e4",
+    "date": "21/10/2020",
+    "documentSap": "6619807377",
+    "documentSynergy": "6619807377",
+    "typeDocument": "ALT",
+    "amount": 674.10
+  },
+  {
+    "secNumber": "5ec338cd30672b1bf1825763",
+    "date": "20/10/2020",
+    "documentSap": "8301980107",
+    "documentSynergy": "8301980107",
+    "typeDocument": "POR",
+    "amount": 5837.56
+  },
+  {
+    "secNumber": "5ec338cd3a9a75f275cbc404",
+    "date": "19/10/2020",
+    "documentSap": "8303961505",
+    "documentSynergy": "8303961505",
+    "typeDocument": "ALT",
+    "amount": 1480.89
+  },
+  {
+    "secNumber": "5ec338cd2d051991db2322bb",
+    "date": "18/10/2020",
+    "documentSap": "4066714510",
+    "documentSynergy": "4066714510",
+    "typeDocument": "POR",
+    "amount": 9373.77
+  },
+  {
+    "secNumber": "5ec338cd1c90b50586857b6d",
+    "date": "17/10/2020",
+    "documentSap": "3921650732",
+    "documentSynergy": "3921650732",
+    "typeDocument": "ALT",
+    "amount": 5558.64
+  },
+  {
+    "secNumber": "5ec338cd652561956bf8e38b",
+    "date": "16/10/2020",
+    "documentSap": "6685912009",
+    "documentSynergy": "6685912009",
+    "typeDocument": "POR",
+    "amount": 4209.55
+  }
+]

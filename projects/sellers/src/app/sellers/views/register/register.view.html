@@ -1,0 +1,383 @@
+<div class="py-4">
+  <crm-page-title
+    label="Registro de vendedor"
+    [back]="true"
+    (handleBack)="goBack()"
+  >
+  </crm-page-title>
+</div>
+<div class="form-card-content" *ngIf="onViewError">
+  <div class="form-title-container m-3">
+    <h2>Ingresa la información del vendedor</h2>
+  </div>
+  <div class="card-content">
+    <form [formGroup]="sellersForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <div class="mb-3">
+        <claro-card class="card-content">
+          <div class="form-container">
+            <div class="form-content">
+              <div class="form-section sectin-personal-info">
+                <div class="form-section-title">
+                  <h3>Datos del vendedor</h3>
+                </div>
+                <div class="form-section-content">
+                  <div class="formElemet">
+                    <label for="documentNumber">Punto de venta</label><br />
+                    <claro-input
+                      placeholder="Ingrese punto de venta"
+                      formControlName="pointSeller"
+                      [disabled]="'true'"
+                      [value]="user.officeDescription"
+                      claroReactiveForm
+                    ></claro-input>
+                    <label
+                      class="error-message"
+                      [class.error-message--visible]="
+                        !sellersForm.controls.pointSeller.valid &&
+                        sellersForm.controls.pointSeller.touched
+                      "
+                    >
+                      <claro-icon name="info" class="icon-error"></claro-icon>
+                      {{ messageRequiredItem }}
+                    </label>
+                  </div>
+                  <div class="formElemet">
+                    <label for="documentNumber">Cuenta de red</label><br />
+                    <claro-select
+                      placeholder="Selecciona"
+                      [options]="presenter.accounts"
+                      formControlName="account"
+                      [disabled]="editUser || scanSuccess"
+                      [value]="sellersForm.get('account').value"
+                      claroReactiveForm
+                    >
+                    </claro-select>
+                    <label
+                      class="error-message"
+                      [class.error-message--visible]="
+                        !sellersForm.controls.account.valid &&
+                        sellersForm.controls.account.touched
+                      "
+                    >
+                      <claro-icon name="info" class="icon-error"></claro-icon>
+                      {{ messageRequiredItem }}
+                    </label>
+                  </div>
+                  <div class="formElemet">
+                    <label for="documentNumber">Tipo de documento</label><br />
+                    <claro-select
+                      placeholder="Selecciona"
+                      [options]="presenter.documentTypes$ | async"
+                      (valueChanged)="changeDocType($event)"
+                      formControlName="documentType"
+                      [disabled]="editUser || scanSuccess"
+                      [value]="sellersForm.get('documentType').value"
+                      claroReactiveForm
+                    >
+                    </claro-select>
+                    <label
+                      class="error-message"
+                      [class.error-message--visible]="
+                        !sellersForm.controls.documentType.valid &&
+                        sellersForm.controls.documentType.touched
+                      "
+                    >
+                      <claro-icon name="info" class="icon-error"></claro-icon>
+                      {{ messageRequiredItem }}
+                    </label>
+                  </div>
+                  <div class="formElemet">
+                    <label for="documentNumber">Número de documento</label><br />
+                    <claro-input
+                      placeholder="Ingrese número de documento"
+                      formControlName="documentNumber"
+                      [maxLength]="maxLength"
+                      [inputValidation]="inputType"
+                      [value]="sellersForm.get('documentNumber').value"
+                      [disabled]="editUser || scanSuccess || inactiveCreate"
+                      (valueChanged)="changeDocumentNumber($event)"
+                      claroReactiveForm
+                    ></claro-input>
+                    <label
+                      class="error-message"
+                      [class.error-message--visible]="
+                        !sellersForm.controls.documentNumber.valid &&
+                        sellersForm.controls.documentNumber.touched
+                      "
+                    >
+                      <claro-icon name="info" class="icon-error"></claro-icon>
+                      {{ messageRequiredItem }}
+                    </label>
+                  </div>
+                  <div class="formElemet">
+                    <label for="documentNumber">Estado</label><br />
+                    <claro-select
+                      placeholder="Selecciona"
+                      [options]="optionsStatus"
+                      [value]="sellersForm.get('status').value"
+                      [disabled]="!editUser"
+                      formControlName="status"
+                      claroReactiveForm
+                    >
+                    </claro-select>
+                    <label
+                      class="error-message"
+                      [class.error-message--visible]="
+                        !sellersForm.controls.status.valid &&
+                        sellersForm.controls.status.touched
+                      "
+                    >
+                      <claro-icon name="info" class="icon-error"></claro-icon>
+                      {{ messageRequiredItem }}
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </claro-card>
+      </div>
+      <claro-card
+        class="card-content"
+        *ngIf="
+          scanBiometric &&
+          configurationDocType?.biometric &&
+          sellersForm.controls.documentNumber.valid &&
+          !scanSuccess && !IDTError && presenter.biometricConfig.biometricFlag
+        "
+      >
+        <div class="form-container">
+          <div class="form-content">
+            <div class="form-section sectin-personal-info">
+              <div class="form-section-title">
+                <h3>Validación del vendedor</h3>
+              </div>
+              <crm-biometric-validation
+                [body]="biometricBody"
+                [biometricConfig]="presenter.biometricConfig"
+                [biometricType]="biometricType"
+                (biometricScanEmit)="biometricScanEmit($event)"
+                (isSellersNoBiometricEmit)="isSellersNoBiometricReceived($event)"
+                (leaveEmit)="leaveReceived()"
+                (errorEmit)="errorReceived($event)"
+              >
+              </crm-biometric-validation>
+            </div>
+          </div>
+        </div>
+      </claro-card>
+
+      <div
+        class="my-2"
+        *ngIf="!scanBiometric || !configurationDocType?.biometric || scanSuccess || (presenter.noMoreAttempts && scanSuccess && (this.configurationDocType.pin || this.configurationDocType.account)) || IDTError || !presenter.biometricConfig.biometricFlag"
+      >
+        <claro-card class="card-content">
+          <div class="form-container">
+            <div class="form-content">
+              <div class="form-section sectin-personal-info">
+                <div class="form-section-title">
+                  <h3>Información personal</h3>
+                </div>
+                <div class="form-section-content">
+                  <div class="formElemet">
+                    <label for="documentNumber">Nombres</label><br />
+                    <claro-input
+                      placeholder="Ingrese sus nombres"
+                      formControlName="names"
+                      [value]="sellersForm.get('names').value || ''"
+                      inputValidation="text"
+                      [disabled]="!isSellersNoBiometric && (editUser || disablesInputScan || inactiveCreate)"
+                      claroReactiveForm
+                    ></claro-input>
+                    <label
+                      class="error-message"
+                      [class.error-message--visible]="
+                        !sellersForm.controls.names.valid &&
+                        sellersForm.controls.names.touched
+                      "
+                    >
+                      <claro-icon name="info" class="icon-error"></claro-icon>
+                      {{ messageRequiredItem }}
+                    </label>
+                  </div>
+                  <div class="formElemet">
+                    <label for="documentNumber">Apellido Paterno</label><br />
+                    <claro-input
+                      placeholder="Ingrese apellido paterno"
+                      formControlName="lastName"
+                      [value]="sellersForm.get('lastName').value || ''"
+                      inputValidation="text"
+                      [disabled]="!isSellersNoBiometric && (editUser || disablesInputScan || inactiveCreate)"
+                      claroReactiveForm
+                    ></claro-input>
+                    <label
+                      class="error-message"
+                      [class.error-message--visible]="
+                        !sellersForm.controls.lastName.valid &&
+                        sellersForm.controls.lastName.touched
+                      "
+                    >
+                      <claro-icon name="info" class="icon-error"></claro-icon>
+                      {{ messageRequiredItem }}
+                    </label>
+                  </div>
+                  <div class="formElemet">
+                    <label for="documentNumber">Apellido Materno</label><br />
+                    <claro-input
+                      placeholder="Ingrese apellido materno"
+                      formControlName="motherLastName"
+                      [value]="sellersForm.get('motherLastName').value || ''"
+                      inputValidation="text"
+                      [disabled]="!isSellersNoBiometric && (editUser || disablesInputScan || inactiveCreate)"
+                      claroReactiveForm
+                    ></claro-input>
+                    <label
+                      class="error-message"
+                      [class.error-message--visible]="
+                        !sellersForm.controls.motherLastName.valid &&
+                        sellersForm.controls.motherLastName.touched
+                      "
+                    >
+                      <claro-icon name="info" class="icon-error"></claro-icon>
+                      {{ messageRequiredItem }}
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </claro-card>
+      </div>
+
+      <div
+        class="mt-3"
+        *ngIf="!scanBiometric || !configurationDocType?.biometric || scanSuccess || (presenter.noMoreAttempts && scanSuccess && (this.configurationDocType.pin || this.configurationDocType.account)) || IDTError || !presenter.biometricConfig.biometricFlag"
+      >
+        <claro-card class="card-content">
+          <div class="form-container">
+            <div class="form-content">
+              <div class="form-section sectin-personal-info">
+                <div class="form-section-title">
+                  <h3>Contacto</h3>
+                </div>
+                <div class="form-section-content">
+                  <div class="formElemet">
+                    <label for="documentNumber">Correo electrónico</label><br />
+                    <claro-input
+                      placeholder="Ingrese su correo electrónico"
+                      formControlName="email"
+                      [value]="sellersForm.get('email').value"
+                      [paste]="false"
+                      [disabled]="inactiveCreate"
+                      claroReactiveForm
+                    ></claro-input>
+                    <label
+                      class="error-message"
+                      [class.error-message--visible]="
+                        !sellersForm.controls.email.valid &&
+                        sellersForm.controls.email.touched
+                      "
+                    >
+                      <claro-icon name="info" class="icon-error"></claro-icon>
+                      {{ messageRequiredEmail }}
+                    </label>
+                  </div>
+                  <div class="formElemet">
+                    <label for="documentNumber"
+                      >Confirmar correo electrónico</label
+                    ><br />
+                    <claro-input
+                      placeholder="Ingrese nuevamente su email"
+                      formControlName="emailConfirm"
+                      [value]="sellersForm.get('emailConfirm').value"
+                      [paste]="false"
+                      [disabled]="inactiveCreate"
+                      claroReactiveForm
+                    ></claro-input>
+                    <label
+                      class="error-message"
+                      [class.error-message--visible]="
+                        !sellersForm.controls.emailConfirm.valid &&
+                        sellersForm.controls.emailConfirm.touched
+                      "
+                    >
+                      <claro-icon name="info" class="icon-error"></claro-icon>
+                      {{ messageRequiredItem }}
+                    </label>
+                  </div>
+                  <div class="formElemet">
+                    <label for="documentNumber">Número de línea*</label><br />
+                    <claro-input
+                      placeholder="Ingrese número de línea"
+                      formControlName="phone"
+                      [value]="formControlPhone.value"
+                      inputValidation="number"
+                      [maxLength]="9"
+                      (valueChanged)="changePhoneNumber()"
+                      (input)="handleEnterForInput()"
+                      [disabled]="inactiveCreate"
+                      claroReactiveForm
+                    ></claro-input>
+                    <label
+                      class="error-message"
+                      [class.error-message--visible]="
+                        !sellersForm.controls.phone.valid &&
+                        sellersForm.controls.phone.touched &&
+                        !messageRequiredNumber
+                      "
+                    >
+                      <claro-icon name="info" class="icon-error"></claro-icon>
+                      {{ messageRequiredItem }}
+                    </label>
+                    <label
+                      class="error-message"
+                      [class.error-message--visible]="
+                        messageRequiredNumber.length > 0
+                      "
+                    >
+                      <claro-icon name="info" class="icon-error"></claro-icon>
+                      {{ messageRequiredNumber }}
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </claro-card>
+      </div>
+    </form>
+  </div>
+  <div class="form-actions my-4">
+    <claro-button
+      styl="flat"
+      [text]="btnLabel"
+      [disabled]="(!isValidPhoneService && inactiveCreateButton) || !sellersForm.valid"
+      (clicked)="onSubmit()"
+    ></claro-button>
+  </div>
+</div>
+<div *ngIf="!onViewError && onMessage">
+  <crm-page-success>
+    <div class="text-center">
+      <div class="title">¡Creación Exitosa!</div>
+      <p>
+        Se le enviara un PIN a la linea {{ phone }} para el ingreso a la web.
+      </p>
+      <claro-button text="Regresar a búsqueda" (click)="search()">
+      </claro-button>
+    </div>
+  </crm-page-success>
+</div>
+
+<div *ngIf="!onViewError && !onMessage">
+  <crm-page-error>
+    <div class="search-error text-center">
+      <div class="error">¡Error!</div>
+      <p>
+        {{presenter.errorPostPut}}
+      </p>
+      <claro-button text="Ingresar un nuevo vendedor" (click)="register()">
+      </claro-button>
+    </div>
+  </crm-page-error>
+</div>

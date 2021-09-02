@@ -1,0 +1,562 @@
+<div class="form-card-content">
+  <div class="form-title-container">
+    <h2>Ingrese la informacion del cliente</h2>
+  </div>
+  <claro-card class="card-content">
+    <div class="form-container">
+      <form
+        [formGroup]="customerForm"
+        (ngSubmit)="onSubmit()"
+        autocomplete="off"
+      >
+        <div class="form-content">
+          <div class="form-section sectin-personal-info">
+            <div class="form-section-title">
+              <h3>Información personal.</h3>
+            </div>
+            <div class="form-section-content">
+              <div class="formElemet">
+                <label for="documentNumber">Nombre:</label><br />
+                <claro-input
+                  placeholder="Ingrese Nombres"
+                  formControlName="name"
+                  inputValidation="text"
+                  claroReactiveForm
+                ></claro-input>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.name.valid &&
+                    customerForm.controls.name.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div class="formElemet">
+                <label for="documentNumber">Apellido paterno:</label><br />
+                <claro-input
+                  placeholder="Ingrese apellido parterno"
+                  formControlName="paternalLastName"
+                  inputValidation="text"
+                  claroReactiveForm
+                ></claro-input>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.paternalLastName.valid &&
+                    customerForm.controls.paternalLastName.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div class="formElemet">
+                <label for="documentNumber">Apellido materno:</label><br />
+                <claro-input
+                  placeholder="Ingrese apellido materno"
+                  formControlName="maternalLastName"
+                  inputValidation="text"
+                  claroReactiveForm
+                ></claro-input>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.maternalLastName.valid &&
+                    customerForm.controls.maternalLastName.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div class="formElemet">
+                <label for="documentNumber">Tipo de Documento:</label><br />
+                <mat-form-field class="w-100" floatLabel="never">
+                  <input 
+                    type="text"
+                    placeholder="Selecciona"
+                    formControlName="documentType"
+                    [matAutocomplete]="documentType"
+                    [readOnly]="documentTypeDisable"
+                    (blur)="blurDocumentType()"
+                    (keydown.enter)="enterDocumentType($event)"
+                    matInput>
+                  <mat-autocomplete 
+                    #documentType="matAutocomplete" 
+                    [displayWith]="displayFn">
+                    <mat-option 
+                      *ngFor="let documentType of filteredDocuments | async" 
+                      [value]="documentType">
+                      {{ documentType.label }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <!-- <claro-select
+                  placeholder="Selecciona"
+                  [options]="documentTypes"
+                  (valueChanged)="changeDocType($event)"
+                  formControlName="documentType"
+                  [value]="selectValue"
+                  [disabled]="selectValue.length > 0"
+                  claroReactiveForm
+                >
+                </claro-select> -->
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.documentType.valid &&
+                    customerForm.controls.documentType.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div class="formElemet">
+                <label for="documentNumber">Número de Documento:</label><br />
+                <claro-input
+                  placeholder="Ingrese documento"
+                  formControlName="documentNumber"
+                  [maxLength]="maxLength"
+                  [inputValidation]="inputType"
+                  [value]="customerForm.get('documentNumber').value"
+                  [disabled]="selectValue.length > 0"
+                  claroReactiveForm
+                ></claro-input>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.documentNumber.valid &&
+                    customerForm.controls.documentNumber.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  Ingrese un número de documento correcto
+                </label>
+              </div>
+              <div
+                class="formElemet"
+                [ngStyle]="{ display: isPeruvian ? 'none' : 'block' }"
+              >
+                <label for="documentNumber">Estado civil:</label><br />
+                <mat-form-field class="w-100" floatLabel="never">
+                  <input 
+                      type="text"
+                      placeholder="Selecciona"
+                      formControlName="maritalStatus"
+                      [matAutocomplete]="maritalStatus"
+                      (blur)="blurMaritalStatus()"
+                      (keydown.enter)="enterMaritalStatus($event)"
+                      matInput>
+                  <mat-autocomplete 
+                    #maritalStatus="matAutocomplete" 
+                    [displayWith]="displayFn">
+                    <mat-option 
+                      *ngFor="let maritalStatus of filteredMaritalStatus | async" 
+                      [value]="maritalStatus">
+                      {{ maritalStatus.label }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <!-- <label for="documentNumber">Estado civil:</label><br />
+                <claro-select
+                  placeholder="Selecciona"
+                  [options]="maritalStatus"
+                  formControlName="maritalStatus"
+                  claroReactiveForm
+                >
+                </claro-select> -->
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.maritalStatus.valid &&
+                    customerForm.controls.maritalStatus.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div class="formElemet">
+                <label for="documentNumber">Nacionalidad:</label><br />
+                <mat-form-field class="w-100" floatLabel="never">
+                  <input 
+                    type="text"
+                    placeholder="Selecciona"
+                    formControlName="nationality"
+                    [matAutocomplete]="nationality"
+                    [readOnly]="nationalityDisable"
+                    (blur)="blurNationality()"
+                    matInput>
+                  <mat-autocomplete 
+                    #nationality="matAutocomplete" 
+                    [displayWith]="displayFn">
+                    <mat-option 
+                      *ngFor="let nationality of filteredNationalities | async" 
+                      [value]="nationality">
+                      {{ nationality.label }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.nationality.valid &&
+                    customerForm.controls.nationality.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div
+                class="formElemet"
+                [ngStyle]="{ display: isPeruvian ? 'none' : 'block' }"
+              >
+                <label for="documentNumber">Sexo:</label><br />
+                <mat-form-field class="w-100" floatLabel="never">
+                  <input 
+                      type="text"
+                      placeholder="Selecciona"
+                      formControlName="sex"
+                      [matAutocomplete]="sex"
+                      (blur)="blurSex()"
+                      (keydown.enter)="enterSex($event)"
+                      matInput>
+                  <mat-autocomplete 
+                    #sex="matAutocomplete" 
+                    [displayWith]="displayFn">
+                    <mat-option 
+                      *ngFor="let genders of filteredGenders | async" 
+                      [value]="genders">
+                      {{ genders.label }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <!-- <claro-select
+                  placeholder="Selecciona"
+                  [options]="genders"
+                  formControlName="sex"
+                  claroReactiveForm
+                >
+                </claro-select> -->
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.sex.valid &&
+                    customerForm.controls.sex.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div
+                class="formElemet"
+                [ngStyle]="{ display: isPeruvian ? 'none' : 'block' }"
+              >
+                <label for="documentNumber">Fecha de nacimiento:</label><br />
+                <claro-datepicker
+                  placeholder="dd/mm/yyyy"
+                  formControlName="birthdate"
+                  [minDate]="minDate"
+                  [maxDate]="maxDate"
+                  [disabled]="false"
+                  (valueChanged)="valueChanged($event)"
+                  claroReactiveForm
+                ></claro-datepicker>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.birthdate.valid &&
+                    customerForm.controls.birthdate.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredDate }}
+                </label>
+              </div>
+              <div
+                class="formElemet"
+                [ngStyle]="{ display: isPeruvian ? 'none' : 'block' }"
+              >
+                <label for="documentNumber">Lugar de nacimiento:</label><br />
+                <claro-input
+                  placeholder="Ingrese lugar"
+                  formControlName="birthplace"
+                  inputValidation="text"
+                  claroReactiveForm
+                ></claro-input>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.birthplace.valid &&
+                    customerForm.controls.birthplace.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-section sectin-contact">
+            <div class="form-section-title">
+              <h3>Contacto.</h3>
+            </div>
+            <div class="form-section-content">
+              <div class="formElemet">
+                <label for="documentNumber">Número de contacto:</label><br />
+                <claro-input
+                  placeholder="Ingrese celular"
+                  formControlName="contactNumber"
+                  inputValidation="number"
+                  [maxLength]="9"
+                  claroReactiveForm
+                ></claro-input>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.contactNumber.valid &&
+                    customerForm.controls.contactNumber.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div class="formElemet">
+                <label for="documentNumber">Email:</label><br />
+                <claro-input
+                  placeholder="Ingrese correo electrónico"
+                  formControlName="email"
+                  [paste]="false"
+                  claroReactiveForm
+                ></claro-input>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.email.valid &&
+                    customerForm.controls.email.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredEmail }}
+                </label>
+              </div>
+              <div class="formElemet">
+                <label for="documentNumber">Confirmar email:</label><br />
+                <claro-input
+                  placeholder="Confirme correo electrónico"
+                  formControlName="emailConfirm"
+                  [paste]="false"
+                  claroReactiveForm
+                ></claro-input>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.emailConfirm.valid &&
+                    customerForm.controls.emailConfirm.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  El correo no coincide
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="form-section sectin-address"
+            [ngStyle]="{ display: isPeruvian ? 'none' : 'block' }"
+          >
+            <div class="form-section-title">
+              <h3>Dirección.</h3>
+            </div>
+            <div class="form-section-content">
+              <div class="formElemet">
+                <label for="documentNumber">Departamento:</label><br />
+                <mat-form-field class="w-100" floatLabel="never">
+                  <input 
+                    type="text"
+                    placeholder="Selecciona"
+                    formControlName="department"
+                    [matAutocomplete]="department"
+                    (input)="inputDepartment()"
+                    (blur)="blurDepartment()"
+                    matInput>
+                  <mat-autocomplete 
+                    #department="matAutocomplete" 
+                    [displayWith]="displayFn" 
+                    (optionSelected)="departmentSelected($event.option.value)">
+                    <mat-option 
+                      *ngFor="let department of filteredDepartments | async" 
+                      [value]="department">
+                      {{ department.label }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.department.valid &&
+                    customerForm.controls.department.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div class="formElemet">
+                <label for="documentNumber">Provincia:</label><br />
+                <mat-form-field class="w-100" floatLabel="never">
+                  <input 
+                    type="text"
+                    placeholder="Selecciona"
+                    formControlName="province"
+                    [matAutocomplete]="province"
+                    (input)="inputProvince()"
+                    (blur)="blurProvince()"
+                    matInput>
+                  <mat-autocomplete 
+                    #province="matAutocomplete" 
+                    [displayWith]="displayFn" 
+                    (optionSelected)="provinceSelected($event.option.value)">
+                    <mat-option 
+                      *ngFor="let province of filteredProvinces | async" 
+                      [value]="province">
+                      {{ province.label }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.province.valid &&
+                    customerForm.controls.province.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div class="formElemet">
+                <label for="documentNumber">Distrito:</label><br />
+                <mat-form-field class="w-100" floatLabel="never">
+                  <input 
+                    type="text"
+                    placeholder="Selecciona"
+                    formControlName="district"
+                    [matAutocomplete]="district"
+                    (blur)="blurDistrict()"
+                    matInput>
+                  <mat-autocomplete 
+                    #district="matAutocomplete" 
+                    [displayWith]="displayFn">
+                    <mat-option 
+                      *ngFor="let district of filteredDistricts | async" 
+                      [value]="district">
+                      {{ district.label }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.district.valid &&
+                    customerForm.controls.district.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div class="formElemet">
+                <label for="documentNumber">Urbanización:</label><br />
+                <claro-input
+                  placeholder="Ingrese urbanizacion"
+                  formControlName="urbanization"
+                  claroReactiveForm
+                ></claro-input>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.urbanization.valid &&
+                    customerForm.controls.urbanization.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div class="formElemet el-x2">
+                <label for="documentNumber">Dirección:</label><br />
+                <claro-input
+                  placeholder="Ingrese direccion"
+                  formControlName="address"
+                  claroReactiveForm
+                ></claro-input>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.address.valid &&
+                    customerForm.controls.address.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div class="formElemet">
+                <label for="documentNumber">Código postal:</label><br />
+                <claro-input
+                  placeholder="Ingrese codigo postal"
+                  formControlName="postalCode"
+                  inputValidation="number"
+                  claroReactiveForm
+                ></claro-input>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.postalCode.valid &&
+                    customerForm.controls.postalCode.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+              <div class="formElemet el-x2">
+                <label for="documentNumber">Referencias:</label><br />
+                <claro-input
+                  placeholder="Ingrese referencias"
+                  formControlName="references"
+                  claroReactiveForm
+                ></claro-input>
+                <label
+                  class="error-message"
+                  [class.error-message--visible]="
+                    !customerForm.controls.references.valid &&
+                    customerForm.controls.references.touched
+                  "
+                >
+                  <claro-icon name="info" class="icon-error"></claro-icon>
+                  {{ messageRequiredItem }}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-actions">
+          <claro-button
+            styl="flat"
+            text="Crear cliente"
+            (clicked)="onSubmit()"
+          ></claro-button>
+        </div>
+      </form>
+    </div>
+  </claro-card>
+</div>

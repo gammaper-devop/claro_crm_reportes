@@ -1,0 +1,193 @@
+<div class="form-biometric-container">
+  <div class="biometric-auth">
+    <div class="form-container">
+      <div *ngIf="
+          presenter.errorBiometric?.code !== 'CRM-904';
+          else errorGetBestFingerprint
+        ">
+        <form [formGroup]="form" autocomplete="off" *ngIf="!presenter.successfulBiometric && !noBiometric"
+          class="w-100">
+          <div class="form-content">
+            <div class="row">
+              <div class="col-12 title-form-biometric">
+                <p class="color-dark font-16 text-center" [innerHTML]="scanMessage"></p>
+              </div>
+            </div>
+            <div class="d-block d-lg-flex justify-content-around">
+              <div class="col-12 container-biometric-info col-lg-6 col-xl-4">
+                <div class="formElemet col-12 p-0 scan-info-biometric">
+                  <div class="biometric-reader d-flex align-items-center justify-content-center">
+                    <div class="biometric-border biometric-border__left"></div>
+                    <div class="biometric-hands" *ngIf="!presenter.isScanning && !presenter.islicensing; else loading">
+                      <div class="biometric-hand biometric-hand__left d-flex align-items-center justify-content-center"
+                        [ngStyle]="{ 'background-image': leftHand }">
+                        <claro-icon *ngIf="presenter.errorBiometric" [name]="scanIcon" class="biometric-hand__status"
+                          [ngClass]="'biometric-hand__status-' + scanIcon">
+                        </claro-icon>
+                      </div>
+                      <div class="biometric-hand biometric-hand__right d-flex align-items-center justify-content-center"
+                        [ngStyle]="{ 'background-image': rightHand }">
+                        <claro-icon *ngIf="presenter.errorBiometric" [name]="scanIcon" class="biometric-hand__status"
+                          [ngClass]="'biometric-hand__status-' + scanIcon">
+                        </claro-icon>
+                      </div>
+                    </div>
+                    <ng-template #loading>
+                      <claro-loading></claro-loading>
+                    </ng-template>
+                    <div class="biometric-border biometric-border__right"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6 col-xl-4 d-none" [class.d-block]="presenter.errorBiometric">
+                <div class="row">
+                  <div class="col-12 text-center presenter.error-validation-biometric">
+                    <div *ngIf="presenter.errorBiometric">
+                      <p class="color-red font-18 font-weight-bold">
+                        {{ presenter.errorBiometric.description }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div *ngIf="noBiometric && !presenter.successfulBiometric" class="col-12 d-flex justify-content-center px-0">
+          <div *ngIf="
+              !presenter.error || !presenter.questionsError;
+              else errorGetSecurityQuestions
+            " class="col-12 col-md-10 col-lg-8 px-0" style="max-width: 650px;">
+            <div class="profile-head__photo text-center">
+              <div class="photo-border">
+                <crm-svg-image name="user"></crm-svg-image>
+              </div>
+            </div>
+            <p class="mt-3 mb-4">
+              Junto al cliente marca las respuestas correctas y valida su
+              identidad.
+            </p>
+            <form [formGroup]="noBiometricForm" (ngSubmit)="submitQuestions()">
+              <div formArrayName="questions">
+                <div *ngFor="
+                    let question of getQuestions().controls;
+                    let i = index
+                  ">
+                  <div [formGroupName]="i" class="my-3">
+                    <p class="mb-0">{{ presenter.questions[i]?.question }}</p>
+                    <div class="alternatives row row-cols-3 pt-2">
+                      <div class="alternative col" *ngFor="
+                          let opt of presenter.questions[i]?.listOption;
+                          let j = index
+                        ">
+                        <claro-radio name="{{ presenter.questions[i].question }}" attrId="{{ opt.option }}"
+                          value="{{ opt.optionNumber }}" text="{{ replaceAll(opt.option, '.', ' - ') }}"
+                          formControlName="optionNumber" claroReactiveForm>
+                        </claro-radio>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-2 d-flex justify-content-center">
+                <claro-button [disabled]="
+                    !noBiometricForm.valid || noBiometricAttempts === 0
+                  " type="submit" class="btn-action" size="sm" styl="flat" text="Validar"></claro-button>
+              </div>
+            </form>
+            <div class="text-center color-gray">
+              <p class="mt-1" *ngIf="noBiometricAttempts > 0">
+                Solo tienes {{ noBiometricAttempts }}
+                {{ noBiometricAttempts === 1 ? 'intento' : 'intentos' }}
+              </p>
+              <p class="mt-1" *ngIf="noBiometricAttempts === 0">
+                No te quedan m&aacute;s intentos.
+              </p>
+            </div>
+          </div>
+          <ng-template #errorGetSecurityQuestions>
+            <div class="mt-5 mb-5">
+              <crm-app-error [error]="presenter.error" (clicked)="getSecurityQuestions()">
+              </crm-app-error>
+            </div>
+          </ng-template>
+        </div>
+        <div class="container" *ngIf="presenter.successfulBiometric">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="icon mx-auto">
+                <crm-svg-image width="300" height="250" name="line-checked">
+                </crm-svg-image>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 d-flex align-items-center">
+              <div class="w-100">
+                <p class="color-green font-18 font-weight-500">
+                  ¡Validación Exitosa!
+                </p>
+                <p class="color-gray mb-2" *ngIf="!isSellersNoBiometric">Nombres:</p>
+                <p class="color-dark" *ngIf="!isSellersNoBiometric">{{ body.person.name }}</p>
+                <div class="row" *ngIf="!isSellersNoBiometric">
+                  <div class="col-12 col-md-6">
+                    <p class="color-gray mb-2">Apellido Paterno:</p>
+                    <p class="color-dark">{{ body.person.firstName }}</p>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <p class="color-gray mb-2">Apellido Materno:</p>
+                    <p class="color-dark">{{ body.person.secondName }}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <p class="color-gray mb-2">
+                      Nº {{ body.person.documentTypeDescription }}
+                    </p>
+                    <p class="color-dark">{{ body.person.documentNumber }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #errorGetBestFingerprint>
+        <div class="mt-5 mb-5">
+          <crm-app-error [error]="presenter.errorBiometric" (clicked)="getBestFingerprint()">
+          </crm-app-error>
+        </div>
+      </ng-template>
+    </div>
+    <div class="form-container d-flex justify-content-end mt-3 color-blue m-0 p-0">
+
+      <div class="physical-disability">
+        <div *ngIf="!presenter.successfulBiometric && biometricConfig.inabilityFlag">
+          <claro-toggle-switch  [text]="biometricConfig?.inabilityButton" position="after" [checked]="noBiometric"
+            [disabled]="presenter.errorBiometric?.code === 'CRM-904' || disableToogle" (valueChanged)="changeSwitch($event)">
+          </claro-toggle-switch>
+        </div>
+        <div class="form-actions">
+          <div class="action-item" *ngIf="!noBiometric ">
+            <claro-button
+              styl="flat"
+              size="sm"
+              [text]="retryScanning ? 'Volver a Escanear' : 'Capturar Huella'"
+              (clicked)="scanFingers()"
+              [disabled]="(presenter.errorBiometric!==null && presenter.errorBiometric?.code === 'CRM-977') || !enableButtonInLicensing"
+            ></claro-button>
+          </div>
+          <div class="action-item" *ngIf="biometricConfig?.omissionFlag && presenter.errorBiometric==null && !presenter.successfulBiometric">
+            <claro-button
+              styl="flat"
+              size="sm"
+              [text]="biometricConfig?.omissionButton"
+              color="outline"
+              (clicked)="biometricOmission()"
+            ></claro-button>
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

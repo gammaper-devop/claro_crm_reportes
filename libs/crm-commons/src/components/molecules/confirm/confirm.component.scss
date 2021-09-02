@@ -1,0 +1,45 @@
+@import '_colors';
+.crm-confirm {
+  &__title {
+    color: #313131;
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh;
+    overflow-x: hidden;
+  }
+
+  &__icon {
+    color: var(--crm-blue);
+    color: $crm-blue;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0px;
+    padding: 0px !important;
+  }
+
+  &__close {
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 16px;
+    min-width: 16px;
+    padding: 5px;
+    position: absolute;
+    right: 2px;
+    top: 0;
+    text-shadow: 0 0 3px #000;
+    .mat-icon {
+      height: 16px;
+      font-size: 16px;
+      width: 16px;
+    }
+  }
+}

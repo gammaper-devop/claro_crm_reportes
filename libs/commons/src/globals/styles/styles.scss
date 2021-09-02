@@ -1,0 +1,25 @@
+@import './colors.scss';
+@import './fonts.scss';
+$xs-size: 575.98px;
+$sm-size: 767.98px;
+$lg-size: 991.98px;
+$xl-size: 1199.98px;
+
+::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $ibk-lightgray !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $ibk-mediumdarkgray !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $ibk-darkgray !important;
+}

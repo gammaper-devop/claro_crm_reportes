@@ -1,0 +1,23 @@
+<mat-expansion-panel
+  [ngClass]="classes"
+  [expanded]="expanded"
+  [hideToggle]="hideToggle"
+  [disabled]="disabled"
+  (opened)="onOpened()"
+  (closed)="onClosed()"
+>
+  <mat-expansion-panel-header *ngIf="text">
+    <mat-panel-title>
+      {{ text }}
+      <claro-icon-button
+        *ngIf="iconName"
+        class="icon-button"
+        styl="icon"
+        size="xs"
+        [name]="iconName"
+        (clicked)="onIconClicked($event)"
+      ></claro-icon-button>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <ng-content></ng-content>
+</mat-expansion-panel>

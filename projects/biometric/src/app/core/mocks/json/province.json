@@ -1,0 +1,46 @@
+[
+  {
+    "provinceCode": "127",
+    "provinceDescription": "LIMA"
+  },
+  {
+    "provinceCode": "128",
+    "provinceDescription": "CALLAO"
+  },
+  {
+    "provinceCode": "129",
+    "provinceDescription": "BARRANCA"
+  },
+  {
+    "provinceCode": "130",
+    "provinceDescription": "CAJATAMBO"
+  },
+  {
+    "provinceCode": "131",
+    "provinceDescription": "CAÑETE"
+  },
+  {
+    "provinceCode": "132",
+    "provinceDescription": "CANTA"
+  },
+  {
+    "provinceCode": "133",
+    "provinceDescription": "HUARAL"
+  },
+  {
+    "provinceCode": "134",
+    "provinceDescription": "HUAROCHIRI"
+  },
+  {
+    "provinceCode": "135",
+    "provinceDescription": "HUAURA"
+  },
+  {
+    "provinceCode": "136",
+    "provinceDescription": "OYON"
+  },
+  {
+    "provinceCode": "137",
+    "provinceDescription": "YAUYOS"
+  }
+]

@@ -1,0 +1,27 @@
+@import '_colors';
+::ng-deep .mat-snack-bar-container {
+  color: $crm-white;
+  font-weight: 500;
+  padding: 20px 40px;
+  text-align: center;
+  max-width: 50vw;
+  &.success-snackbar {
+    background: $crm-green;
+  }
+  &.error-snackbar {
+    background: $crm-red;
+  }
+  &.warning-snackbar {
+    background: $crm-yellow;
+  }
+  &.info-snackbar {
+    background: $crm-blue;
+  }
+}
+
+.crm-snackbar__close {
+  cursor: pointer;
+  position: absolute;
+  right: -3px;
+  top: -3px;
+}

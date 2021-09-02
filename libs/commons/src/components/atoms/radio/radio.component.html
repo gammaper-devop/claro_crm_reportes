@@ -1,0 +1,9 @@
+<input
+  type="radio"
+  [name]="name"
+  [attr.id]="attrId"
+  [value]="value"
+  [disabled]="disabled"
+  (change)="onChanged($event)"
+/>
+<label [for]="attrId">{{ text }}</label>

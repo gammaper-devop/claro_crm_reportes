@@ -1,0 +1,36 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es5",
+    "types": ["node"],
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@claro/core": ["libs/core/src"],
+      "@claro/commons": ["libs/commons/src"],
+      "@claro/commons/*": ["libs/commons/*"],
+      "@claro/crm/commons": ["libs/crm-commons/src"],
+      "@shell/*": ["projects/shell/src/*"],
+      "@login/*": ["projects/login/src/*"],
+      "@dashboard/*": ["projects/dashboard/src/*"],
+      "@customers/*": ["projects/customers/src/*"],
+      "@contracts/*": ["projects/contracts/src/*"],
+      "@biometric/*": ["projects/biometric/src/*"],
+      "@reports/*": ["projects/reports/src/*"],
+      "@sellers/*": ["projects/sellers/src/*"]
+
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
+}

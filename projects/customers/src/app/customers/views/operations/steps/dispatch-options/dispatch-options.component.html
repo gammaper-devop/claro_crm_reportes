@@ -1,0 +1,21 @@
+<form [formGroup]="dispatchOptionsForm" autocomplete="off">
+  <div class="dispatch-options-container">
+    <p>Elige el tipo de entrega del material</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for="dispatchOptions" class="dispatch-options-container__label">Tipo de entrega</label><br/>
+          <claro-select
+            placeholder="Selecciona un tipo de entrega"
+            [options]="presenter.dispatchOptions$ | async"
+            [value]="dispatchOptionsForm.get('dispatchOptions').value"
+            formControlName="dispatchOptions"
+            [isObject]="true"
+            claroReactiveForm
+            (valueChanged)="changeDispatchOptions($event)">
+          </claro-select>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

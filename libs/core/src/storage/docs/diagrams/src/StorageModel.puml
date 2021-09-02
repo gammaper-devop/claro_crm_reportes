@@ -1,0 +1,82 @@
+@startuml StorageModel
+
+enum EStorageType {
+  LOCAL = 'local',
+  SESSION = 'session',
+  MEMORY = 'memory',
+}
+
+interface IStorage {
+  set(key: string, value: any): void
+  get(key: string): any
+  remove(key: string): void
+  clear(): void
+}
+
+interface IStorageConfig {
+  secretKey: string
+  storageType?: EStorageType
+  i18nLang?: string
+}
+
+interface IMessages {
+  invalid_storage_type: string
+  key_not_found: string
+  secret_key_not_found: string
+}
+
+abstract class BrowserStorageManager implements IStorage {
+  + config: IStorageConfig
+  # encryptor: EncryptionManager
+  # messages: IMessages
+  # windowStorage?: Storage
+
+  + constructor(config: IStorageConfig)
+  + get(key: string): string
+  + set(key: string, value: any): void
+  + clear(): void
+  + remove(key: string): void
+}
+
+abstract class MemoryStorageManager implements IStorage {
+  + config: IStorageConfig
+  # encryptor: EncryptionManager
+  # memoryStorage = new Map()
+  # messages: IMessages
+
+  + constructor(config: IStorageConfig)
+  + get(key: string): any
+  + set(key: string, value: any): void
+  + clear()
+  + remove(key: string): void
+}
+
+class LocalStorage extends BrowserStorageManager {
+  + windowStorage: Storage = window.localStorage;
+}
+
+class MemoryStorage extends MemoryStorageManager {
+  + memoryStorage = new Map<string, string>();
+}
+
+class SessionStorage extends BrowserStorageManager {
+  + windowStorage: Storage = window.sessionStorage;
+}
+
+class StorageFactory {
+  + StorageFactory(config: IStorageConfig): IStorage;
+}
+
+class StorageBuilder {
+  + constructor(storage: IStorage, config: IStorageConfig) {}
+  + getStorage(): IStorage
+}
+
+LocalStorage <---o StorageBuilder : <<To LocalStorages>>
+SessionStorage <---o StorageBuilder : <<To SessionStorages>>
+
+StorageFactory ..> StorageBuilder : <<use>>
+StorageFactory ..> MemoryStorage : <<use>>
+
+
+@enduml

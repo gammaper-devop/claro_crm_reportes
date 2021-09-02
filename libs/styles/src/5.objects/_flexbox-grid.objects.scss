@@ -1,0 +1,232 @@
+$base-unit: 8px;
+
+.grid {
+  display: flex;
+  flex: 0 1 auto;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 0 ($base-unit * -1) 0 ($base-unit * -1);
+
+  //Use this modifier to remove gutters
+  &.grid-nogutter {
+    margin: 0;
+    & > .col {
+      padding: 0;
+    }
+  }
+}
+
+.col {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  -ms-flex-preferred-size: 0;
+  -webkit-flex-basis: 0;
+  flex-basis: 0;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0 $base-unit 0 $base-unit;
+}
+
+//Column Vertical Alignment Classes
+.col-align-top {
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.col-align-bottom {
+  align-self: flex-end;
+}
+
+.col-align-middle {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+//Column Content Alignment Classes
+.col-top {
+  justify-content: flex-start !important; // sass-lint:disable-line no-important
+  flex-direction: column;
+  display: flex;
+}
+
+.col-bottom {
+  justify-content: flex-end !important; // sass-lint:disable-line no-important
+  flex-direction: column;
+  display: flex;
+}
+
+.col-middle {
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+
+//Horizontal Grid Alignment
+.grid-start {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.grid-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.grid-end {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+//Column Distribution
+.grid-around {
+  justify-content: space-around;
+}
+
+.grid-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+//Reordering Columns
+.col-first {
+  -webkit-box-ordinal-group: 0;
+  -ms-flex-order: -1;
+  order: -1;
+}
+
+.col-last {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+.grid-reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+//Fixed Column Class
+.col-fixed {
+  flex: none;
+}
+
+.col {
+
+  &-column {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex; 
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; 
+  }
+
+  &-row {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex; 
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row; 
+  }
+  
+  &-row-reverse {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex; 
+    -webkit-flex-direction: row-reverse;
+    -moz-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse; 
+  }
+  
+  &-end {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex; 
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    justify-content: flex-end; 
+  }
+
+  &-center {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex; 
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center; 
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center; 
+  }
+}
+
+@media only screen and (max-width: $screen-xs) {
+  .col-xs {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: $screen-sm) {
+  .col-sm {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: $screen-md) {
+  .col-md {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: $screen-lg) {
+  .col-lg {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: $screen-xl) {
+  .col-xl {
+    flex: 100%;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "code": "01",
+    "description": "Plan TUN Nacional 1",
+    "productOfferId": "001"
+  },
+  {
+    "code": "02",
+    "description": "Plan TUN Nacional 2",
+    "productOfferId": "002"
+  },
+  {
+    "code": "03",
+    "description": "Plan TUN Nacional 3",
+    "productOfferId": "003"
+  }
+]

@@ -1,0 +1,103 @@
+<div class="summary-delivery-container">
+  <div class="summary-delivery-content">
+    <div class="summary-item-section">
+      <h2 class="summary-item-section-title">Contacto</h2>
+      <div class="sumary-item-section-contailner">
+        <div class="sumary-item-section-content">
+          <label for="">Nombre</label>
+          <p>{{ deliveryRequest.contactParameters.name }}</p>
+        </div>
+        <div class="sumary-item-section-content">
+          <label for="">Teléfono Referencia</label>
+          <p>{{ deliveryRequest.contactParameters.contactNumber }}</p>
+        </div>
+        <div class="sumary-item-section-content">
+          <label for="">Correo</label>
+          <p>{{ deliveryRequest.contactParameters.email }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="summary-item-section">
+      <h2 class="summary-item-section-title">Dirección</h2>
+      <div class="sumary-item-section-contailner">
+        <div class="sumary-item-section-content">
+          <label for="">Av/Calle/Jr</label>
+          <p>{{ deliveryRequest.addressParameters.addressIdentifier.label }}</p>
+        </div>
+        <div class="sumary-item-section-content">
+          <label for="">Nombre de Av/Calle/Jr</label>
+          <p>{{ deliveryRequest.addressParameters.addressName }}</p>
+        </div>
+        <div class="sumary-item-section-content">
+          <label for="">Número</label>
+          <p>{{ deliveryRequest.addressParameters.addressNumber }}</p>
+        </div>
+        <div
+          class="sumary-item-section-content"
+          *ngIf="deliveryRequest.addressParameters.addressWithoutNumberCheck"
+        >
+          <label for="">Mz/Bloque/Edif</label>
+          <p>{{ deliveryRequest.addressParameters.addressType.label }}</p>
+        </div>
+        <div
+          class="sumary-item-section-content"
+          *ngIf="deliveryRequest.addressParameters.addressWithoutNumberCheck"
+        >
+          <label for="">Número/Mz/Bq</label>
+          <p>{{ deliveryRequest.addressParameters.addressTypeName }}</p>
+        </div>
+        <div
+          class="sumary-item-section-content"
+          *ngIf="deliveryRequest.addressParameters.addressWithoutNumberCheck"
+        >
+          <label for="">Lote</label>
+          <p>{{ deliveryRequest.addressParameters.addressLt }}</p>
+        </div>
+        <div class="sumary-item-section-content-full">
+          <label for="">Dirección de entrega</label>
+          <p>{{ deliveryRequest.addressParameters.addressFull }}</p>
+        </div>
+        <div class="sumary-item-section-content-full">
+          <label for="">Referencia</label>
+          <p>{{ deliveryRequest.addressParameters.addressReference }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="summary-item-section">
+      <h2 class="summary-item-section-title">Fecha</h2>
+      <div class="sumary-item-section-contailner">
+        <div class="sumary-item-section-content">
+          <label for="">Fecha de Entrega</label>
+          <p>{{ date }}</p>
+        </div>
+        <div class="sumary-item-section-content">
+          <label for="">Rango de Horario</label>
+          <p>{{ deliveryRequest.datesParameters.deliveryTimeRange.label }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="summary-item-section">
+      <h2 class="summary-item-section-title">Pago</h2>
+      <div class="sumary-item-section-contailner">
+        <div class="sumary-item-section-content">
+          <label for="">Tipo de Pago</label>
+          <p>{{ deliveryRequest.paymentParameters.paymentType.label }}</p>
+        </div>
+        <div
+          class="sumary-item-section-content"
+          *ngIf="deliveryRequest.paymentParameters.paymentMode.label"
+        >
+          <label for="">Modo de Pago</label>
+          <p>{{ deliveryRequest.paymentParameters.paymentMode.label }}</p>
+        </div>
+        <div
+          class="sumary-item-section-content"
+          *ngIf="deliveryRequest.paymentParameters.paymentId"
+        >
+          <label for="">ID Único</label>
+          <p>{{ deliveryRequest.paymentParameters.paymentId }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

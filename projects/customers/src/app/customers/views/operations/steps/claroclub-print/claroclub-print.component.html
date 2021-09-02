@@ -1,0 +1,97 @@
+<div class="change-points-container">
+  <div class="action-buttons">
+    <div class="buttons-content">
+      <button (click)="print()">Imprimir</button>
+    </div>
+  </div>
+  <div>
+    <div class="change-points-content">
+      <div class="title-section">
+        <h3>Solicitud de Canje de Puntos ó Servicios - ClaroClub</h3>
+        <div class="logo">
+          <div class="circle">
+            <img src="{{ cdn }}/img/logo-white.png" alt="claro-logo">
+          </div>
+        </div>
+      </div>
+      <div class="info-section">
+        <div class="info-half-content">
+          <div class="prop-content">
+            <label>Centro Atención:</label>
+            <label>Titular:</label>
+            <label>Representante Legal:</label>
+            <label>Tipo Doc. Identidad:</label>
+            <label>Nro Doc:</label>
+          </div>
+          <div class="val-content">
+            <label>{{claroclub.officeAttention}}</label>
+            <label>{{claroclub.customer}}</label>
+            <label></label>
+            <label>{{claroclub.documentType}}</label>
+            <label>{{claroclub.documentNumber}}</label>
+          </div>
+        </div>
+        <div class="info-half-content">
+            <div class="prop-content">
+            <label>Fecha (dd/mm/yyyy):</label>
+            <label>Caso/Interacción:</label>
+            <label>Nro. Claro:</label>
+            <label></label>
+            <label></label>
+          </div>
+          <div class="val-content">
+            <label>{{claroclub.date}}</label>
+            <label>{{claroclub.interaction}}</label>
+            <label>{{claroclub.lineNmber}}</label>
+            <label></label>
+            <label></label>
+          </div>
+        </div>
+      </div>
+      <div class="detail-section">
+        <div class="table-content">
+        <table>
+          <thead>
+            <tr>
+              <th>Descripción</th>
+              <th>Puntos</th>
+              <th>Cantidad</th>
+              <th>Descuento S/.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{claroclub.description}}</td>
+              <td>{{claroclub.points}}</td>
+              <td>{{claroclub.quantity}}</td>
+              <td>{{claroclub.discount}}</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="note-content">
+          <span>Notas:</span>
+        </div>
+      </div>
+      <div class="product-info-section">
+        <span>Productos Comprados: </span> <span>{{claroclub.pointsRedeemed}}</span>
+      </div>
+      <div class="message-section">
+        <p>Por la presente doy fe que los datos personales antes consignados son verdaderos. Autorizo a Américan Móvil Perú SAC, en adelante Claro
+          a verificar los mismos para la ejecución de la presente solicitud. En caso que alguno de los datos proporcionados no sean válidos o no 
+          coincidan con los registros oficiales que Claro mantiene se dará por inválida esta solicitud.
+        </p>
+      </div>
+      <div class="signature-section">
+        <div class="customer-signature">
+          <div class="signature"></div>
+          <span class="name">Firma del Cliente</span>
+        </div>
+        <div class="adviser-signatura">
+          <div class="signature"></div>
+          <span class="name">Firma del Asesor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+@mixin label-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+}
+
+@mixin label-control {
+  font-size: 14px;
+  color: #a5a6a7;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  span {
+    color: #444;
+  }
+}
+
+:host {
+  .payments {
+    &-head {
+      display: flex;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 2em;
+    }
+
+    hr {
+      border-top: 1px solid #e1e1e1;
+      margin: 1em 0;
+    }
+
+    &-content {
+      .payment-row {
+        @include label-wrapper;
+
+        .payment-date {
+          color: #0fd299;
+          font-weight: 500;
+          font-size: 14px;
+          margin-bottom: .5em;
+        }
+
+        &__group {
+          display: flex;
+          align-items: flex-end;
+          flex-grow: 1;
+          flex-shrink: 1;
+          padding: 0 2px;
+          box-sizing: border-box;
+
+          .control-info {
+            @include label-control;
+          }
+
+          &.icon-content {
+            justify-content: flex-end;
+
+            claro-icon-button {
+              color: #a5a6a7;
+              line-height: 1;
+            }
+          }
+        }
+      }
+
+      .btn-pay {
+        margin-top: 10px;
+        display: block;
+        text-align: right;
+        max-width: 180px;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+.payment-content-info {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 5px 0;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.error-message {
+  color: #da272c;
+  display: block;
+  font-family: Roboto;
+  font-size: 12px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  min-height: 50px;
+  letter-spacing: normal;
+  line-height: normal;
+  padding: 5px;
+  text-align: center;
+  visibility: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+
+  &--visible {
+    visibility: visible;
+  }
+
+  .icon-error {
+    margin-right: 5px;
+    vertical-align: middle;
+    zoom: 0.75;
+  }
+}

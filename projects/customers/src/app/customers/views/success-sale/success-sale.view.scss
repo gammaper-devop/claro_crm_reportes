@@ -1,0 +1,65 @@
+@import 'breakpoints';
+
+.success-notification-container {
+  transition: all 0.5s ease;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  box-sizing: border-box;
+  .success-notification-contet {
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 800px;
+    padding-bottom: 3rem;
+    box-sizing: border-box;
+    text-align: center;
+    .success-notification {
+      display: flex;
+      flex-flow: row nowrap;
+      align-self: center;
+      justify-content: space-between;
+      .image-notification {
+        padding: 25px;
+      }
+      .message-notifications {
+        padding: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        .message-notification-content {
+          h2 {
+            color: #0fd299;
+            font-weight: 500;
+          }
+          p {
+            span {
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+    .success-actions {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+@media (max-width: $screen-md) {
+  .success-notification {
+    transition: all 0.5s ease;
+    flex-flow: row wrap !important;
+    justify-content: center !important;
+    .message-notifications {
+      justify-content: center !important;
+    }
+    h1,
+    p {
+      text-align: center !important;
+    }
+  }
+}

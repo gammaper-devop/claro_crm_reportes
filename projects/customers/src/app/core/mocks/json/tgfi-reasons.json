@@ -1,0 +1,22 @@
+[
+  {
+    "description": "Chip averiado",
+    "code": "01"
+  },
+  {
+    "description": "Desistimiento de compra",
+    "code": "02"
+  },
+  {
+    "description": "Equipo averiado",
+    "code": "03"
+  },
+  {
+    "description": "Error de cajero",
+    "code": "04"
+  },
+  {
+    "description": "Error de asesor",
+    "code": "05"
+  }
+]

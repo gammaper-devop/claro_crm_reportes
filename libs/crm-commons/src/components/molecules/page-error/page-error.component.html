@@ -1,0 +1,19 @@
+<div class="page-error" [class.full-screen]="fullscreen" [class.top]="top">
+  <div class="page-error__content">
+    <div class="page-error__image">
+      <crm-svg-image name="page-error"></crm-svg-image>
+    </div>
+    <div #inputContent>
+      <ng-content></ng-content>
+    </div>
+    <div *ngIf="showDefaultContent || error" class="page-error__info">
+      <p *ngIf="!error">
+        Lo sentimos, <br />
+        no hemos podido cargar <br />
+        correctamente la información. <br />
+      </p>
+      <p *ngIf="error" [innerHTML]="error.description"></p>
+      <a href="javascript: void(0)" (click)="refreshPage()">Actualizar</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="pt-4">
+  <crm-page-title [label]="'Búsqueda Personalizada'"></crm-page-title>
+
+  <p class="title-view">Buscar cliente</p>
+
+  <div class="container container-custom">
+    <app-search-bar
+      class="search-bar-custom"
+      [options]="presenter.options$ | async"
+      (search)="onSubmit($event)"
+      (searchChanged)="searchChanged()"
+    ></app-search-bar>
+  </div>
+
+  <div class="customers-result container px-4">
+    <crm-page-error
+      *ngIf="presenter.customers?.length === 0 && !presenter.error"
+    >
+      <div class="search-error">
+        <p>
+          Lo sentimos, no hemos <br />
+          encontrado al cliente
+        </p>
+        <claro-button
+          text="Crear Cliente Nuevo"
+          (click)="onRegister()"
+        >
+        </claro-button>
+      </div>
+    </crm-page-error>
+    <crm-page-error *ngIf="presenter.error"></crm-page-error>
+    <ng-container *ngIf="!presenter.error">
+      <app-customer-card
+        class="client-card-custom"
+        *ngFor="let customer of presenter.customers"
+        (click)="selectCustomer(customer)"
+        [customer]="customer"
+      ></app-customer-card>
+    </ng-container>
+  </div>
+</div>
+
+<!-- error in loading required services -->
+<crm-page-error *ngIf="presenter.responseError" [fullscreen]="true">
+</crm-page-error>

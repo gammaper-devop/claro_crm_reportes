@@ -1,0 +1,242 @@
+[
+  {
+    "description": "LIMA - ANCON",
+    "provinceCode": "127",
+    "districtCode": "1237",
+    "departmentCode": "01",
+    "ubigeoCode": "150102",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "ANCON"
+  },
+  {
+    "description": "LIMA - ATE",
+    "provinceCode": "127",
+    "districtCode": "1238",
+    "departmentCode": "01",
+    "ubigeoCode": "150103",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "ATE"
+  },
+  {
+    "description": "LIMA - BARRANCO",
+    "provinceCode": "127",
+    "districtCode": "1239",
+    "departmentCode": "01",
+    "ubigeoCode": "150104",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "BARRANCO"
+  },
+  {
+    "description": "LIMA - BREÑA",
+    "provinceCode": "127",
+    "districtCode": "1240",
+    "departmentCode": "01",
+    "ubigeoCode": "150105",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "BREÑA"
+  },
+  {
+    "description": "LIMA - CARABAYLLO",
+    "provinceCode": "127",
+    "districtCode": "1241",
+    "departmentCode": "01",
+    "ubigeoCode": "150106",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "CARABAYLLO"
+  },
+  {
+    "description": "LIMA - COMAS",
+    "provinceCode": "127",
+    "districtCode": "1242",
+    "departmentCode": "01",
+    "ubigeoCode": "150110",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "COMAS"
+  },
+  {
+    "description": "LIMA - CHACLACAYO",
+    "provinceCode": "127",
+    "districtCode": "1243",
+    "departmentCode": "01",
+    "ubigeoCode": "150107",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "CHACLACAYO"
+  },
+  {
+    "description": "LIMA - CHORRILLOS",
+    "provinceCode": "127",
+    "districtCode": "1244",
+    "departmentCode": "01",
+    "ubigeoCode": "150108",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "CHORRILLOS"
+  },
+  {
+    "description": "LIMA - EL AGUSTINO",
+    "provinceCode": "127",
+    "districtCode": "1245",
+    "departmentCode": "01",
+    "ubigeoCode": "150111",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "EL AGUSTINO"
+  },
+  {
+    "description": "LIMA - LA MOLINA",
+    "provinceCode": "127",
+    "districtCode": "1247",
+    "departmentCode": "01",
+    "ubigeoCode": "150114",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "LA MOLINA"
+  },
+  {
+    "description": "LIMA - LA VICTORIA",
+    "provinceCode": "127",
+    "districtCode": "1248",
+    "departmentCode": "01",
+    "ubigeoCode": "150115",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "LA VICTORIA"
+  },
+  {
+    "description": "LIMA - LINCE",
+    "provinceCode": "127",
+    "districtCode": "1249",
+    "departmentCode": "01",
+    "ubigeoCode": "150116",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "LINCE"
+  },
+  {
+    "description": "LIMA - LURIGANCHO",
+    "provinceCode": "127",
+    "districtCode": "1250",
+    "departmentCode": "01",
+    "ubigeoCode": "150118",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "LURIGANCHO"
+  },
+  {
+    "description": "LIMA - LURIN",
+    "provinceCode": "127",
+    "districtCode": "1251",
+    "departmentCode": "01",
+    "ubigeoCode": "150119",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "LURIN"
+  },
+  {
+    "description": "LIMA - MAGDALENA DEL MAR",
+    "provinceCode": "127",
+    "districtCode": "1252",
+    "departmentCode": "01",
+    "ubigeoCode": "150120",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "MAGDALENA DEL MAR"
+  },
+  {
+    "description": "LIMA - MIRAFLORES",
+    "provinceCode": "127",
+    "districtCode": "1253",
+    "departmentCode": "01",
+    "ubigeoCode": "150122",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "MIRAFLORES"
+  },
+  {
+    "description": "LIMA - PACHACAMAC",
+    "provinceCode": "127",
+    "districtCode": "1254",
+    "departmentCode": "01",
+    "ubigeoCode": "150123",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "PACHACAMAC"
+  },
+  {
+    "description": "LIMA - PUCUSANA",
+    "provinceCode": "127",
+    "districtCode": "1255",
+    "departmentCode": "01",
+    "ubigeoCode": "150124",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "PUCUSANA"
+  },
+  {
+    "description": "LIMA - PUEBLO LIBRE",
+    "provinceCode": "127",
+    "districtCode": "1256",
+    "departmentCode": "01",
+    "ubigeoCode": "150121",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "PUEBLO LIBRE"
+  },
+  {
+    "description": "LIMA - PUENTE PIEDRA",
+    "provinceCode": "127",
+    "districtCode": "1257",
+    "departmentCode": "01",
+    "ubigeoCode": "150125",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "PUENTE PIEDRA"
+  },
+  {
+    "description": "LIMA - PUNTA HERMOSA",
+    "provinceCode": "127",
+    "districtCode": "1259",
+    "departmentCode": "01",
+    "ubigeoCode": "150126",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "PUNTA HERMOSA"
+  },
+  {
+    "description": "LIMA - RIMAC",
+    "provinceCode": "127",
+    "districtCode": "1260",
+    "departmentCode": "01",
+    "ubigeoCode": "150128",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "RIMAC"
+  },
+  {
+    "description": "LIMA - SAN BARTOLO",
+    "provinceCode": "127",
+    "districtCode": "1261",
+    "departmentCode": "01",
+    "ubigeoCode": "150129",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "SAN BARTOLO"
+  },
+  {
+    "description": "LIMA - SAN ISIDRO",
+    "provinceCode": "127",
+    "districtCode": "1262",
+    "departmentCode": "01",
+    "ubigeoCode": "150131",
+    "registerCode": null,
+    "provincieDescription": "LIMA",
+    "districtDescription": "SAN ISIDRO"
+  }
+]

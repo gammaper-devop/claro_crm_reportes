@@ -1,0 +1,14 @@
+[
+  {
+    "code": "1",
+    "description": "Pago en Línea"
+  },
+  {
+    "code": "2",
+    "description": "Cargo en recibo"
+  },
+  {
+    "code": "3",
+    "description": "Contra entrega"
+  }
+]

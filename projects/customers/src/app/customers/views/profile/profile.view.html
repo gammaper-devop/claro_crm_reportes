@@ -1,0 +1,51 @@
+<section *ngIf="isInitRoute === false">
+  <div class="py-4">
+    <crm-page-title
+      label="Perfil de Cliente"
+      [back]="true"
+      (handleBack)="goBack()"
+    >
+    </crm-page-title>
+  </div>
+  <div class="container container__profile mb-4">
+    <section class="profile-card-section">
+      <app-profile-card
+        class="profile-card-custom mb-4"
+        [user]="presenter.user"
+        [customer]="presenter.customer"
+      >
+      </app-profile-card>
+      <br />
+    </section>
+    <section class="payment-card-section">
+      <div class="payments-card-content">
+        <app-payments-card
+          *ngIf="!isCac"
+          class="payments-card-custom"
+          [user]="presenter.user"
+          [payments]="presenter.payments"
+          [error]="presenter.error"
+          [customer]="presenter.customer"
+        >
+        </app-payments-card>
+        <div *ngIf="presenter.payments?.length > 0 && !isCac">
+          <claro-button
+            routerLink="/clientes/operaciones"
+            size="lg"
+            text="¡Vamos a la Venta!"
+          >
+          </claro-button>
+        </div>
+
+        <div class="footer" *ngIf="presenter.payments?.length === 0 || isCac">
+          <claro-button
+            routerLink="/clientes/operaciones"
+            size="lg"
+            text="¡Vamos a la Venta!"
+          >
+          </claro-button>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

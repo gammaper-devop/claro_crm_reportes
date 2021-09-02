@@ -1,0 +1,32 @@
+<form [formGroup]="reasonsForm" autocomplete="off">
+    <div class="form-content">
+        <p>Detalla la razón de la reposición</p>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-4">
+                <label for="customerReason">Motivo cliente</label><br>
+                <claro-select
+                    placeholder="Selecciona Motivo"
+                    [options]="presenter.customersReasons$ | async"
+                    [value]="reasonsForm.get('customerReason').value"
+                    formControlName="customerReason"
+                    [isObject]="true"
+                    claroReactiveForm
+                    (valueChanged)="changeReason($event)">
+                </claro-select>
+            </div>
+            <div class="col-12 col-md-4" *ngIf="isOperationTypeRepo">
+                <label for="password">TG - Chip (opcional)</label><br>
+                <claro-select-tgchip
+                    placeholder="Selecciona"
+                    [options]="presenter.tgfiReasonsParameter"
+                    [value]="reasonsForm.get('tgfiReason').value"
+                    formControlName="tgfiReason"
+                    [isObject]="true"
+                    [disabled]="disabledTgChips"
+                    claroReactiveForm
+                    (valueChanged)="changeTgfiReason($event)">
+                </claro-select-tgchip>
+            </div>
+        </div>
+    </div>
+</form>

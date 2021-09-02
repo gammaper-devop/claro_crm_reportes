@@ -1,0 +1,83 @@
+.crm-dialog {
+  color: #444;
+  position: relative;
+  width: 600px;
+
+  &__title {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  &__content {
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    display: flex !important;
+    flex-direction: column;
+    overflow: hidden !important;
+    padding: 1em 2em !important;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0px;
+    padding: 0 0 2em !important;
+  }
+
+  &__footer-text {
+    padding: 1em 6em;
+  }
+
+  &__close {
+    color: #000;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 16px;
+    min-width: 16px;
+    padding: 5px;
+    position: absolute;
+    right: -16px;
+    top: -16px;
+    text-shadow: 0 0 3px #000;
+    .mat-icon {
+      height: 16px;
+      font-size: 16px;
+      width: 16px;
+    }
+  }
+}
+
+.mat-dialog-container {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: $screen-md) {
+  .crm-dialog {
+    font-size: 14px;
+    width: 100%;
+
+    &__title {
+      font-size: 16px;
+      margin: 0 !important;
+    }
+
+    &__content {
+      padding: 0.5em 0 !important;
+    }
+
+    &__actions {
+      padding: 0 0 0.5em !important;
+    }
+
+    &__footer-text {
+      padding: 0.5em;
+    }
+  }
+
+  .mat-dialog-container {
+    padding: 16px;
+  }
+}

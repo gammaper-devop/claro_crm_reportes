@@ -1,0 +1,3 @@
+@function z-index($name: "modal") {
+  @return map-get($map: $z-indexes, $key: $name);
+}

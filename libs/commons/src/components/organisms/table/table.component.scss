@@ -1,0 +1,152 @@
+@import '../../../scss/breakpoints';
+.container-table-list {
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-bottom: 6rem !important;
+ 
+  .p-row.p-row--header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 0.25em .5em 3.4em;
+    color: #878787;
+    font-size: 0.9rem;
+    .head-col {
+      width: 10%;
+    }
+    .p-col-copy {
+       -ms-flex: 4;
+       flex: 4;
+    }
+  }
+  .p-row.p-row--body {
+    display: flex;
+    flex-flow: column;
+    margin: 0.5em 0;
+    .p-col-copy {
+      -ms-flex: 4;
+      flex: 4;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      .value-item {
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+.card-item {
+  padding: 0.6em;
+  border-radius: 13px;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+  font-size: 0.9rem;
+  .content-card {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    .mat-radio-button {
+      width: 100%;
+    }
+  }
+
+  .item-row-content {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding-left: 0.8em;
+    .p-col {
+      display: flex;
+      flex-flow: column wrap;
+      padding: 0 0.2em;
+      justify-content: center;
+      span {
+        line-height: 1.2;
+        min-width: 50px;
+        &:nth-child(1) {
+          color: #878787;
+        }
+      }
+      .hidden-name-item {
+        display: none;
+      }
+    }
+  }
+}
+::ng-deep .mat-radio-label {
+  margin-bottom: 0 !important;
+  .mat-radio-label-content {
+    width: 100%;
+  }
+  .mat-radio-outer-circle {
+    border-color: #00aacf !important;
+  }
+  .mat-radio-inner-circle {
+    background-color: #00aacf !important;
+  }
+}
+@media (max-width: $screen-md) {
+  .p-row.p-row--header {
+    display: none !important;
+  }
+  .item-row-content {
+    justify-content: flex-start !important;
+    flex-flow: row wrap !important;
+    .p-col {
+      display: inline-grid !important;
+      padding: 0.2em 1em !important;
+      box-sizing: border-box;
+      flex: none !important;
+      span {
+        min-width: 132px !important;
+      }
+    }
+  }
+
+  .hidden-name-item {
+    display: block !important;
+  }
+}
+
+.action-button-section {
+  position: fixed;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  box-sizing: border-box;
+  .action-container {
+    display: flex;
+    border-radius: 45px;
+    background-color: #fff;
+    padding: 0.8em;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.3),
+      0 5px 15px rgba(0, 0, 0, 0.07) !important;
+    .contracts-actions {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0.5em;
+      box-sizing: border-box;
+    }
+    .action-button {
+      width: 32px;
+      height: 32px;
+      border-radius: 45px;
+      background: #00aacf;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

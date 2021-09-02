@@ -1,0 +1,282 @@
+@import 'environment';
+
+.form-biometric-container {
+  .biometric-auth {
+    > div {
+      margin-bottom: 20px;
+    }
+    .form-container {
+      @media (max-width: 768px) {
+        .alternatives {
+          display: block;
+          .alternative {
+            max-width: 100%;
+          }
+        }
+      }
+      align-items: center !important;
+      flex-flow: column nowrap !important;
+      width: 100%;
+      .physical-disability {
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+      }
+
+      .form-content {
+        .title-form-biometric {
+          padding: 15px;
+        }
+        .formElemet {
+          .biometric-reader {
+            align-items: center;
+            display: flex;
+            flex-flow: row nowrap;
+            height: 132px;
+            justify-content: space-between !important;
+            margin: auto;
+            width: 258px;
+
+            .biometric-border {
+              height: 132px;
+              width: 16px;
+
+              &__left {
+                background-image: url($cdn + '/img/login/biometric-border.svg');
+                transform: rotateY(180deg);
+              }
+
+              &__right {
+                background-image: url($cdn + '/img/login/biometric-border.svg');
+              }
+            }
+
+            .biometric-hands {
+              display: flex;
+            }
+
+            .biometric-hand {
+              height: 117px;
+              margin: 0 6px;
+              width: 101px;
+
+              &__status {
+                margin: 40px 0 0 12px;
+                zoom: 1.2;
+
+                &-done {
+                  color: #00aacf;
+                }
+
+                &-close {
+                  color: #da272c;
+                }
+              }
+
+              &__left {
+                background-image: url($cdn + '/img/login/biometric-hand.svg');
+                transform: rotateY(180deg);
+
+                .biometric-hand__status {
+                  transform: rotateY(180deg);
+                }
+              }
+
+              &__right {
+                background-image: url($cdn + '/img/login/biometric-hand.svg');
+              }
+            }
+          }
+          .text-info-biometric {
+            display: flex;
+            justify-content: center;
+            p {
+              margin-top: 0.5em !important;
+              text-align: center;
+            }
+          }
+        }
+
+        .fingerprint-message {
+          line-height: 1.43;
+          color: #a5a6a7;
+          max-width: 300px;
+          display: inline-block;
+        }
+
+        .scan-fingerprint {
+          cursor: pointer;
+          text-decoration: none;
+          font-weight: 500;
+          letter-spacing: 0.5px;
+          text-align: right;
+          color: #00aacf;
+          margin: 10px 0;
+          visibility: hidden;
+
+          &--visible {
+            visibility: visible;
+          }
+
+          .icon-scan {
+            margin-right: 5px;
+            vertical-align: middle;
+            zoom: 0.75;
+          }
+        }
+      }
+      .form-actions {
+        width: 100%;
+        display: flex;
+        flex-flow: row-reverse wrap;
+        .action-item {
+          padding: 6px;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+}
+
+.profile-head {
+  display: flex;
+  margin-bottom: 2em;
+  &__photo {
+    margin: 0 1em;
+    .photo-border {
+      border: solid 2px #0fd299;
+      background-color: #ffffff;
+      display: inline-block;
+      border-radius: 50%;
+      padding: 1px;
+      img {
+        width: 100%;
+        min-width: 80px;
+      }
+    }
+  }
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}
+
+.color-blue {
+  color: #00aacf;
+}
+
+.icon {
+  width: 250px;
+}
+
+.color-dark {
+  color: #444444;
+}
+
+.color-gray {
+  color: #b8c0ca;
+}
+
+.color-red {
+  color: #da272c;
+}
+
+.color-green {
+  color: #0fd299;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.visibility {
+  visibility: hidden;
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+.error-message {
+  font-size: 12px;
+  min-height: 50px;
+  padding: 5px;
+  text-align: center;
+  visibility: hidden;
+
+  &--visible {
+    visibility: visible;
+  }
+
+  .icon-error {
+    margin-right: 5px;
+    vertical-align: middle;
+    zoom: 0.75;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 17px;
+  width: 17px;
+  left: 7px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #00aacf;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #00aacf;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

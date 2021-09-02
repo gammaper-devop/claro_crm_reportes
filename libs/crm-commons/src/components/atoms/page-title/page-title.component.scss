@@ -1,0 +1,45 @@
+:host {
+  .page-title {
+    position: relative;
+    &__button {
+      color: #999999;
+      left: 0;
+      position: absolute;
+      top: 3px;
+    }
+    &__label {
+      height: 50px;
+      box-sizing: border-box;
+      min-width: 160px;
+      text-align: center;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      white-space: nowrap;
+      position: relative;
+      margin-left: 20px;
+      div {
+        font-weight: bold;
+        color: #444444;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+      }
+    }
+    &__bar {
+      position: absolute;
+      box-sizing: border-box;
+      width: 100%;
+      border: 2.5px solid #da272c;
+      border-radius: 2.5px;
+      bottom: 0;
+      margin: 0;
+      left: 0;
+    }
+  }
+  hr {
+    border-top: 1px solid #e1e1e1;
+    margin-top: -3px;
+  }
+}

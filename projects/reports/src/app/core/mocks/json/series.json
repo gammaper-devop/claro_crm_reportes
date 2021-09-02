@@ -1,0 +1,26 @@
+[
+  {
+    "code": "01",
+    "description": "Movil coliving 1",
+    "serie": "123123123123123123",
+    "materialType": "PS"
+  },
+  {
+    "code": "02",
+    "description": "Movil coliving 2",
+    "serie": "234234234234234234",
+    "materialType": "PS"
+  },
+  {
+    "code": "03",
+    "description": "Samsung Galaxy S10",
+    "serie": "456456456456456456",
+    "materialType": "PV"
+  },
+  {
+    "code": "04",
+    "description": "Samsung Galaxy S20",
+    "serie": "567567567567567567",
+    "materialType": "PV"
+  }
+]

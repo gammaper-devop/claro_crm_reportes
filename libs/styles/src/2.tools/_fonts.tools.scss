@@ -1,0 +1,38 @@
+$fonts-base-url: 'fonts/';
+
+@mixin font-face($fonts-base-url, $fonts) {
+  @each $font-family in map-keys($fonts) {
+    @each $font-family-type in map-values(map-get($fonts, $font-family)) {
+      @font-face {
+        font-family: '#{$font-family-type}';
+        src: url('#{$fonts-base-url}#{$font-family-type}.woff') format('woff'),
+        url('#{$fonts-base-url}#{$font-family-type}.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+      }
+    }
+  }
+}
+
+@function get-font($family: "geometria", $weight: "regular") {
+  @return map-get(map-get($fonts, $family), $weight);
+}
+
+@function get-montserrat($weight: "regular") {
+  @return get-font("montserrat", $weight);
+}
+
+@function get-geometria($weight: "regular") {
+  @return get-font("geometria", $weight);
+}
+
+$geometria-light: get-geometria("light");
+$geometria-regular: get-geometria("regular");
+$geometria-medium: get-geometria("medium");
+$geometria-bold: get-geometria("bold");
+
+$montserrat-light : get-montserrat("light");
+$montserrat-regular : get-montserrat("regular");
+$montserrat-medium : get-montserrat("medium");
+$montserrat-bold : get-montserrat("bold");
+$montserrat-semibold : get-montserrat("semibold");

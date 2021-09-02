@@ -1,0 +1,1187 @@
+[
+  {
+    "parameterCode": "C",
+    "description": "Casado",
+    "keyCombo": "CBO_CIVIL_STATUS"
+  },
+  {
+    "parameterCode": "V",
+    "description": "Viudo",
+    "keyCombo": "CBO_CIVIL_STATUS"
+  },
+  {
+    "parameterCode": "D",
+    "description": "Divorciado",
+    "keyCombo": "CBO_CIVIL_STATUS"
+  },
+  {
+    "parameterCode": "S",
+    "description": "Soltero",
+    "keyCombo": "CBO_CIVIL_STATUS"
+  },
+  {
+    "parameterCode": "F",
+    "description": "Hombre",
+    "keyCombo": "CBO_GENDER"
+  },
+  {
+    "parameterCode": "M",
+    "description": "Mujer",
+    "keyCombo": "CBO_GENDER"
+  },
+  {
+    "parameterCode": "15",
+    "description": "Adserbeiyan",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "1",
+    "description": "Afganistan",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "2",
+    "description": "Albania",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "72",
+    "description": "Alemania",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "3",
+    "description": "Algeria",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "5",
+    "description": "Andorra",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "6",
+    "description": "Angola",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "7",
+    "description": "Anguilla",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "8",
+    "description": "Antartica",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "9",
+    "description": "Antigua y Barbuda",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "139",
+    "description": "Antillas Neerlandesas",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "171",
+    "description": "Arabia Saudita",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "10",
+    "description": "Argentina",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "11",
+    "description": "Armenia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "12",
+    "description": "Aruba",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "13",
+    "description": "Australia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "14",
+    "description": "Austria",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "16",
+    "description": "Bahamas",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "17",
+    "description": "Bahrain",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "18",
+    "description": "Bangla Desh",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "19",
+    "description": "Barbados",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "32",
+    "description": "Belarus",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "20",
+    "description": "Belgica",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "21",
+    "description": "Belice",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "22",
+    "description": "Benin",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "23",
+    "description": "Bermuda",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "25",
+    "description": "Bolivia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "223",
+    "description": "Bosnia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "26",
+    "description": "Botswana",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "27",
+    "description": "Brasil",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "28",
+    "description": "Brunei",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "29",
+    "description": "Bulgaria",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "30",
+    "description": "Burkina Faso",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "31",
+    "description": "Burundi",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "24",
+    "description": "Butan",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "36",
+    "description": "Cabo verde",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "33",
+    "description": "Camboya",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "34",
+    "description": "Camerun",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "35",
+    "description": "Canada",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "39",
+    "description": "Chad",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "40",
+    "description": "Chile",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "41",
+    "description": "China",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "50",
+    "description": "Chipre",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "44",
+    "description": "Colombia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "45",
+    "description": "Comores",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "46",
+    "description": "Congo",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "103",
+    "description": "Corea - Republica de",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "102",
+    "description": "Corea - Republica Democratica Popular",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "48",
+    "description": "Costa Rica",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "220",
+    "description": "Croatia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "49",
+    "description": "Cuba",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "52",
+    "description": "Dinamarca",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "54",
+    "description": "Dominica",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "56",
+    "description": "Ecuador",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "57",
+    "description": "Egipto",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "58",
+    "description": "El Salvador",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "203",
+    "description": "Emiratos Arabes Unidos",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "222",
+    "description": "Eritrea",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "176",
+    "description": "Eslovaquia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "180",
+    "description": "España",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "205",
+    "description": "Estados Unidos de America del Norte",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "60",
+    "description": "Estonia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "61",
+    "description": "Etiopia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "162",
+    "description": "Federacion rusa",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "64",
+    "description": "Fiji",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "155",
+    "description": "Filipinas",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "65",
+    "description": "Finlandia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "66",
+    "description": "Francia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "69",
+    "description": "Gabon",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "70",
+    "description": "Gambia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "71",
+    "description": "Georgia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "73",
+    "description": "Ghana",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "74",
+    "description": "Gibraltar",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "77",
+    "description": "Granada",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "75",
+    "description": "Grecia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "76",
+    "description": "Groenlandia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "78",
+    "description": "Guadalupe",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "79",
+    "description": "Guam",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "80",
+    "description": "Guatemala",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "83",
+    "description": "Guayana",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "67",
+    "description": "Guayana francesa",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "81",
+    "description": "Guinea",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "59",
+    "description": "Guinea Ecuatorial",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "82",
+    "description": "Guinea-Bissau",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "84",
+    "description": "Haiti",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "85",
+    "description": "Honduras",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "86",
+    "description": "Hong Kong",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "87",
+    "description": "Hungria",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "89",
+    "description": "India",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "90",
+    "description": "Indonesia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "92",
+    "description": "Irak",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "91",
+    "description": "Iran (Republica Islamica de)",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "93",
+    "description": "Irlanda",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "42",
+    "description": "Isla Navidad",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "146",
+    "description": "Isla Norfolk",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "88",
+    "description": "Islandia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "37",
+    "description": "Islas Cayman",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "43",
+    "description": "Islas Cocos",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "47",
+    "description": "Islas Cook",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "63",
+    "description": "Islas Faroe",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "62",
+    "description": "Islas Malvinas",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "122",
+    "description": "Islas Marshall",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "177",
+    "description": "Islas Salomon",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "173",
+    "description": "Islas Seychelles",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "199",
+    "description": "Islas Turks y Caicos",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "212",
+    "description": "Islas Virgenes (Britanicas)",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "213",
+    "description": "Islas Virgenes (EE UU)",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "214",
+    "description": "Islas Wallis y Futuna",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "94",
+    "description": "Israel",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "95",
+    "description": "Italia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "96",
+    "description": "Jamaica",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "97",
+    "description": "Japon",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "98",
+    "description": "Jordania",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "99",
+    "description": "Kazakistan",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "100",
+    "description": "Kenia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "105",
+    "description": "Kirguizistan",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "101",
+    "description": "Kiribati",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "104",
+    "description": "Kuwait",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "109",
+    "description": "Lesoto",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "107",
+    "description": "Letonia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "108",
+    "description": "Libano",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "110",
+    "description": "Liberia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "111",
+    "description": "Libia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "112",
+    "description": "Liechtenstein",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "113",
+    "description": "Lituania",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "114",
+    "description": "Luxemburgo",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "115",
+    "description": "Macao",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "249",
+    "description": "Macedonia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "116",
+    "description": "Madagascar",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "118",
+    "description": "Malasia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "117",
+    "description": "Malawi",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "119",
+    "description": "Maldivas",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "120",
+    "description": "Mali",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "121",
+    "description": "Malta",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "132",
+    "description": "Marruecos",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "123",
+    "description": "Martinica",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "125",
+    "description": "Mauricio",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "124",
+    "description": "Mauritania",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "126",
+    "description": "Mexico",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "127",
+    "description": "Micronesia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "128",
+    "description": "Moldavia, Republica de",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "129",
+    "description": "Monaco",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "130",
+    "description": "Mongolia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "131",
+    "description": "Montserrat",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "133",
+    "description": "Mozambique",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "134",
+    "description": "Myanmar",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "135",
+    "description": "Namibia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "136",
+    "description": "Nauru",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "137",
+    "description": "Nepal",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "142",
+    "description": "Nicaragua",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "143",
+    "description": "Niger",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "144",
+    "description": "Nigeria",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "145",
+    "description": "Niue",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "147",
+    "description": "Noruega",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "140",
+    "description": "Nueva Caledonia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "141",
+    "description": "Nueva Zelanda",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "148",
+    "description": "Oman",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "138",
+    "description": "Paises Bajos",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "149",
+    "description": "Pakistan",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "150",
+    "description": "Palau",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "151",
+    "description": "Panama",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "152",
+    "description": "Papua Nueva Guinea",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "153",
+    "description": "Paraguay",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "154",
+    "description": "Peru",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "68",
+    "description": "Polinesia francesa",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "156",
+    "description": "Polonia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "157",
+    "description": "Portugal",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "158",
+    "description": "Puerto Rico",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "159",
+    "description": "Qatar",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "204",
+    "description": "Reino Unido",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "187",
+    "description": "Republica Arabe de Siria",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "38",
+    "description": "Republica Centroafricana",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "106",
+    "description": "Republica Democratica Popular de Laos",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "55",
+    "description": "Republica Dominicana",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "51",
+    "description": "Republica Federal Checa y Eslovaca",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "179",
+    "description": "Republica Sudafricana",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "160",
+    "description": "Reunion",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "163",
+    "description": "Ruanda",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "161",
+    "description": "Rumania",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "4",
+    "description": "Samoa americana",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "165",
+    "description": "San Kitts y Nevis",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "169",
+    "description": "San Marino",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "167",
+    "description": "San Pedro y Miquelon",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "168",
+    "description": "San Vicente y las Granadinas",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "164",
+    "description": "Santa Helena",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "166",
+    "description": "Santa Lucia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "170",
+    "description": "Santo Tome y Principe",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "172",
+    "description": "Senegal",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "174",
+    "description": "Sierra Leona",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "175",
+    "description": "Singapur",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "221",
+    "description": "Slovenia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "178",
+    "description": "Somalia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "181",
+    "description": "Sri Lanka",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "182",
+    "description": "Sudan",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "185",
+    "description": "Suecia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "186",
+    "description": "Suiza",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "183",
+    "description": "Surinam",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "184",
+    "description": "Svazilandia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "191",
+    "description": "Tailandia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "188",
+    "description": "Taiwan, Provincia de China",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "190",
+    "description": "Tanzania, Republica Unida de",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "189",
+    "description": "Tayikistan",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "192",
+    "description": "Togo",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "193",
+    "description": "Tokelau",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "194",
+    "description": "Tonga",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "195",
+    "description": "Trinidad y Tobago",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "196",
+    "description": "Tunicia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "198",
+    "description": "Turkmenistan",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "197",
+    "description": "Turquia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "200",
+    "description": "Tuvalu",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "202",
+    "description": "Ucrania",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "201",
+    "description": "Uganda",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "206",
+    "description": "Uruguay",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "207",
+    "description": "Uzbekistan",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "208",
+    "description": "Vanuatu",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "209",
+    "description": "Vaticano",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "210",
+    "description": "Venezuela",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "211",
+    "description": "Vietnam",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "215",
+    "description": "Yemen, Republica de",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "53",
+    "description": "Yibuti",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "216",
+    "description": "Yugoslavia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "217",
+    "description": "Zaire",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "218",
+    "description": "Zambia",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "219",
+    "description": "Zimbabwe",
+    "keyCombo": "CBO_NATIONALITY"
+  },
+  {
+    "parameterCode": "C",
+    "description": "Chip Repuesto",
+    "keyCombo": "CBO_REPO"
+  },
+  {
+    "parameterCode": "P",
+    "description": "Pack",
+    "keyCombo": "CBO_RENO"
+  },
+  {
+    "parameterCode": "E",
+    "description": "Equipo",
+    "keyCombo": "CBO_RENO"
+  },
+  {
+    "parameterCode": "M",
+    "description": "Mañana",
+    "keyCombo": "CBO_DELIVERY_RANGE"
+  },
+  {
+    "parameterCode": "T",
+    "description": "Tarde",
+    "keyCombo": "CBO_DELIVERY_RANGE"
+  },
+  {
+    "parameterCode": "I",
+    "description": "In",
+    "keyCombo": "CBO_INOUT"
+  },
+  {
+    "parameterCode": "O",
+    "description": "Out",
+    "keyCombo": "CBO_INOUT"
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "departamentCode": "02",
+    "departamentDescription": "AMAZONAS"
+  },
+  {
+    "departamentCode": "03",
+    "departamentDescription": "ANCASH"
+  },
+  {
+    "departamentCode": "04",
+    "departamentDescription": "APURIMAC"
+  },
+  {
+    "departamentCode": "05",
+    "departamentDescription": "AREQUIPA"
+  },
+  {
+    "departamentCode": "06",
+    "departamentDescription": "AYACUCHO"
+  },
+  {
+    "departamentCode": "07",
+    "departamentDescription": "CAJAMARCA"
+  },
+  {
+    "departamentCode": "08",
+    "departamentDescription": "CUSCO"
+  },
+  {
+    "departamentCode": "09",
+    "departamentDescription": "HUANCAVELICA"
+  },
+  {
+    "departamentCode": "10",
+    "departamentDescription": "HUANUCO"
+  },
+  {
+    "departamentCode": "11",
+    "departamentDescription": "ICA"
+  },
+  {
+    "departamentCode": "12",
+    "departamentDescription": "JUNIN"
+  },
+  {
+    "departamentCode": "13",
+    "departamentDescription": "LA LIBERTAD"
+  },
+  {
+    "departamentCode": "14",
+    "departamentDescription": "LAMBAYEQUE"
+  },
+  {
+    "departamentCode": "01",
+    "departamentDescription": "LIMA"
+  },
+  {
+    "departamentCode": "15",
+    "departamentDescription": "LORETO"
+  },
+  {
+    "departamentCode": "16",
+    "departamentDescription": "MADRE DE DIOS"
+  },
+  {
+    "departamentCode": "17",
+    "departamentDescription": "MOQUEGUA"
+  },
+  {
+    "departamentCode": "42",
+    "departamentDescription": "NO ESPECIFICADO"
+  },
+  {
+    "departamentCode": "18",
+    "departamentDescription": "PASCO"
+  },
+  {
+    "departamentCode": "19",
+    "departamentDescription": "PIURA"
+  },
+  {
+    "departamentCode": "20",
+    "departamentDescription": "PUNO"
+  },
+  {
+    "departamentCode": "21",
+    "departamentDescription": "SAN MARTIN"
+  },
+  {
+    "departamentCode": "22",
+    "departamentDescription": "TACNA"
+  },
+  {
+    "departamentCode": "23",
+    "departamentDescription": "TUMBES"
+  },
+  {
+    "departamentCode": "24",
+    "departamentDescription": "UCAYALI"
+  }
+]

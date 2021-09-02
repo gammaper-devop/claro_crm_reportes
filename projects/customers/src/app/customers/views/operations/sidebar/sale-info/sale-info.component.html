@@ -1,0 +1,46 @@
+<div *ngIf="lines.length > 0" class="sale-info-container">
+  <div class="containerOne pt-3 px-3">
+    <div *ngIf="flowName === 'portability'" class="title-sale-sidebar-info pb-3">
+      <h5>Portabilidad</h5>
+    </div>
+    <div *ngIf="flowName === 'all'" class="title-sale-sidebar-info pb-3">
+      <h5>Linea Nueva</h5>
+    </div>
+    <div class="lines-sidebar-info">
+      <div *ngFor="let line of lines; index as i" class="item-lines-info">
+        <div class="totle-line-actions">
+          <span class="line">Linea {{ i + 1 }}</span>
+          <span class="price">S/ {{ line.totalPrice }}</span>
+          <span>
+            <claro-icon-button
+              styl="icon"
+              size="xs"
+              name="edit"
+              (clicked)="editItem(i, line.order)"
+            ></claro-icon-button>
+          </span>
+        </div>
+        <div class="equpo-name">
+          <span class="d-table-row">{{ line.iccid?.description }}</span>
+          <span class="d-table-row">{{ line.imei?.description }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="total-sales-sidebar-info py-3"
+    *ngIf="discountPoints > 0 || discountLoyalty > 0"
+  >
+    <span class="total-sales">Descuentos</span>
+    <span class="total-price" *ngIf="discountPoints > 0"
+      >Claro puntos - S/ {{ discountPoints }}</span
+    >
+    <span class="total-price" *ngIf="discountLoyalty > 0"
+      >Fidelización - S/ {{ discountLoyalty }}</span
+    >
+  </div>
+  <div class="total-sales-sidebar-info py-3">
+    <span class="total-sales">Total con IGV</span>
+    <span class="total-price">S/ {{ total }}</span>
+  </div>
+</div>

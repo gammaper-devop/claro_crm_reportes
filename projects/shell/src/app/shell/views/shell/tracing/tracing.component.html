@@ -1,0 +1,20 @@
+<div class="tracing-container" *ngIf="UUID">
+  <mat-menu #tracingMenu="matMenu" [overlapTrigger]="false" class="tracing-content">
+    <span class="tracing-uuid" (click)="$event.stopPropagation()">
+      {{ UUID }}
+    </span>
+    <claro-icon-button
+      class="copy-clipboard"
+      name="content_copy"
+      (clicked)="copyClipboard()"
+    >
+    </claro-icon-button>
+  </mat-menu>
+  <claro-icon-button
+    class="tracing-button"
+    styl="fab"
+    size="lg"
+    name="bug_report"
+    [matMenuTriggerFor]="tracingMenu"
+  ></claro-icon-button>
+</div>

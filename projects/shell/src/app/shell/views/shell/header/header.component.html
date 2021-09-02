@@ -1,0 +1,140 @@
+<header>
+  <div class="container">
+    <mat-toolbar class="shell-toolbar">
+      <div class="shell-toolbar__navbar">
+        <div class="shell-toolbar__menu-icon">
+          <claro-icon-button
+            name="more_vert"
+            (click)="sidenavToggle()"
+            class="d-flex"
+          >
+          </claro-icon-button>
+        </div>
+
+        <a class="shell-toolbar__logo" routerLink="/">
+          <img src="{{ cdn }}/img/logo.png" class="m-1" />
+        </a>
+
+        <div class="shell-toolbar__menu">
+          <div *ngFor="let menu of menus">
+            <a
+              *ngIf="menu.show"
+              mat-button
+              [routerLink]="'/' + menu.url"
+              [ngClass]="{
+                'shell-toolbar__menu-active': activatedRoute === menu.url
+              }"
+            >
+              <span> {{ menu.title }} </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <ng-container *ngIf="user; else loading">
+          <div class="shell-toolbar__user">
+            <nav>
+              <ul class="button-user">
+                <li
+                  [ngStyle]="{ height: isExpanded ? '130px' : '70px' }"
+                  class=""
+                  [ngClass]="{ 'shadow-lg': isExpanded }"
+                  (mouseleave)="hide()"
+                >
+                  <a
+                    (click)="expand()"
+                    href="javascript:void(0)"
+                    class="d-flex align-items-center"
+                    style="height: 70px"
+                  >
+                    <div *ngIf="!isExpanded" class="line-left"></div>
+                    <div class="shell-toolbar__user__button">
+                      <div class="shell-toolbar__user__button__data">
+                        <span>{{ user.name }}</span>
+                        <span>{{ user.officeDescription }}</span>
+                      </div>
+                      <span
+                        *ngIf="!isExpanded"
+                        class="material-icons button-icon-arrow"
+                      >
+                        expand_more
+                      </span>
+                      <span
+                        *ngIf="isExpanded"
+                        class="material-icons button-icon-arrow"
+                      >
+                        expand_less
+                      </span>
+                    </div>
+                  </a>
+                  <ul
+                    *ngIf="isExpanded"
+                    class="shell-toolbar__user__menu"
+                    style="height: 60px;"
+                  >
+                    <li>
+                      <a (click)="handleLogout()" href="javascript:void(0)">
+                        <div class="shell-toolbar__user__menu__data">
+                          <div class="logout">
+                            <span class="log-out-text">Cerrar Sesión</span>
+                            <span class="menu-icon-logout material-icons">
+                              power_settings_new
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div
+            class="shell-toolbar__user-mobile"
+            [matMenuTriggerFor]="userMenu"
+          >
+            <div class="shell-toolbar__user-data text-right">
+              <span>{{ user.name }}</span>
+              <span>{{ user.officeDescription }}</span>
+            </div>
+            <div class="shell-toolbar__user-mobile__icon">
+              <claro-icon
+                *ngIf="!isExpanded"
+                name="expand_more"
+                class="d-flex"
+              ></claro-icon>
+              <claro-icon
+                *ngIf="isExpanded"
+                name="expand_less"
+                class="d-flex"
+              ></claro-icon>
+            </div>
+            <div class="shell-toolbar__user-mobile__menu">
+              <mat-menu class="menu" #userMenu="matMenu" xPosition="before">
+                <div class="menu-data d-sm-none text-center m-3">
+                  <div>{{ user.name }}</div>
+                  <div>{{ user.officeDescription }}</div>
+                </div>
+                <button
+                  class="align-items-center d-flex menu-button"
+                  mat-menu-item
+                  (click)="handleLogout()"
+                >
+                  <span class="menu-button-text">Cerrar Sesión</span>
+                  <span class="menu-button-icon material-icons ">
+                    power_settings_new
+                  </span>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #loading>
+          <claro-loading></claro-loading>
+        </ng-template>
+      </div>
+    </mat-toolbar>
+  </div>
+</header>

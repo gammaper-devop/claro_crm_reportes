@@ -1,0 +1,46 @@
+.info-photo {
+  border: solid 2px #0fd299;
+  background-color: #ffffff;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 1px;
+}
+
+.info-label {
+  font-size: 14px;
+  color: #a5a6a7;
+  margin-bottom: 2px;
+  p {
+    color: #444;
+  }
+}
+
+.info-name {
+  margin-bottom: 0 !important;
+}
+
+.info-status {
+  font-size: 0.9rem;
+}
+
+.active {
+  color: #0fd299;
+  .point {
+    width: 11px;
+    height: 11px;
+    background-color: #0fd299;
+  }
+}
+
+.inactive {
+  color: #c7c7c7;
+  .point {
+    width: 13px;
+    height: 13px;
+    background-color: #c7c7c7;
+  }
+}
+
+.hide {
+  display: none !important;
+}

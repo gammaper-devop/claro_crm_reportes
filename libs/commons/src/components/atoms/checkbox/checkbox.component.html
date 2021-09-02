@@ -1,0 +1,9 @@
+<input
+  type="checkbox"
+  [name]="name"
+  [attr.id]="attrId"
+  [checked]="checked"
+  [disabled]="disabled"
+  (change)="onChanged($event)"
+/>
+<label [for]="attrId">{{ text }}</label>

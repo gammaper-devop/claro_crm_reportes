@@ -1,0 +1,48 @@
+<button
+  *ngIf="styl === 'icon'"
+  [disabled]="disabled"
+  [ngClass]="classes"
+  (click)="onClicked($event)"
+  mat-icon-button
+>
+  <claro-icon [name]="name" class="d-flex justify-content-center"></claro-icon>
+</button>
+<button
+  *ngIf="styl === 'fab'"
+  [disabled]="disabled"
+  [ngClass]="classes"
+  (click)="onClicked($event)"
+  mat-mini-fab
+>
+  <claro-icon [name]="name" class="d-flex justify-content-center"></claro-icon>
+</button>
+<button
+  *ngIf="styl === 'flat'"
+  [type]="type"
+  [disabled]="disabled"
+  [ngClass]="classes"
+  (click)="onClicked($event)"
+  mat-flat-button
+>
+  <claro-icon
+    *ngIf="name"
+    [name]="name"
+    class="d-flex justify-content-center mr-2"
+  ></claro-icon>
+  {{ text }}
+</button>
+<button
+  *ngIf="styl === 'basic'"
+  [type]="type"
+  [disabled]="disabled"
+  [ngClass]="classes"
+  (click)="onClicked($event)"
+  mat-button
+>
+  <claro-icon
+    *ngIf="name"
+    [name]="name"
+    class="d-flex justify-content-center mr-2"
+  ></claro-icon>
+  {{ text }}
+</button>

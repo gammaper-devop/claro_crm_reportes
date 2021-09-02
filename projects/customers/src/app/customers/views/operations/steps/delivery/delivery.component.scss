@@ -1,0 +1,143 @@
+@import '../../../../../../../../../libs/commons/src/scss/mixins/forms';
+
+.label-check {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  user-select: none;
+  bottom: 12px;
+  & input {
+    position: relative;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  & .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 3px;
+    border: 1px solid #ced4da;
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+    }
+  }
+  & input:checked ~ .checkmark {
+    background-color: #00aacf;
+    border-color: #00aacf;
+  }
+  & input:checked ~ .checkmark:after {
+    display: block;
+  }
+}
+/* Style the checkmark/indicator */
+.label-check .checkmark:after {
+  left: 5.5px;
+  top: 0;
+  width: 6px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+}
+
+.text-area {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  border: 2px solid #ececec;
+  line-height: normal;
+  padding: 16px;
+  width: 100%;
+
+  &::placeholder {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #e1e1e1;
+  }
+}
+.text-area:focus {
+  outline: none;
+}
+.text-area:hover {
+  border: 2px solid #00aacf;
+}
+
+.subtitle {
+  font-weight: 500;
+  font-size: inherit;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  margin-top: -3.25em;
+  color: #da272c;
+  font-family: Roboto;
+  font-size: 12px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  margin-top: -1.25em;
+  padding: 5px 15px;
+  visibility: hidden;
+  margin-bottom: 10px;
+  &--visible {
+    visibility: visible;
+  }
+  .icon-error {
+    margin-right: 5px;
+    vertical-align: middle;
+    zoom: 0.75;
+  }
+}
+
+
+/* Input */
+::ng-deep .mat-form-field-type-mat-input {
+  @include base-form-field;
+
+  .mat-form-field-infix {
+    border-top: none;
+    .mat-select-trigger {
+      height: inherit;
+    }
+    .mat-input-element {
+      font-size: 14px;
+      font-weight: bold;
+      padding: 0 15px;
+    }
+    .mat-form-field-label {
+      color: #e1e1e1;
+      padding: 0 15px;
+    }
+  }
+  &.input-icon {
+    .mat-form-field-infix {
+      display: flex !important;
+    }
+  }
+  .mat-icon-button .mat-icon {
+    color: #00aacf !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .label-check {
+    bottom: 0;
+    top: 35%;
+  }
+}

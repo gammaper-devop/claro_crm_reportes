@@ -1,0 +1,86 @@
+@import 'breakpoints';
+
+.declarations-content {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  &__scroll {
+    height: 300px;
+    overflow-y: scroll;
+
+    @media (max-width: $screen-md) {
+      height: 200px;
+    }
+
+    @media (max-height: $screen-sm) {
+      height: 100px;
+    }
+  }
+}
+
+.label-check {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  & input {
+    position: relative;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  & .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 3px;
+    border: 1px solid #ced4da;
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+    }
+  }
+  & input:checked ~ .checkmark {
+    background-color: #00aacf;
+    border-color: #00aacf;
+  }
+  & input:checked ~ .checkmark:after {
+    display: block;
+  }
+}
+/* Style the checkmark/indicator */
+.label-check .checkmark:after {
+  left: 5.5px;
+  top: 0;
+  width: 6px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.disabled .label-check {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.9;
+}
+
+.btn-content {
+  display: flex;
+  justify-content: flex-end;
+}

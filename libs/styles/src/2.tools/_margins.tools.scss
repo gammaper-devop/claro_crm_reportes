@@ -1,0 +1,100 @@
+@mixin margins() {
+
+  // Positive margin
+  @for $i from 1 through 9 {
+    .mb-#{$i} {
+      margin-bottom: #{$i}px;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    .mb-#{$i*10} {
+      margin-bottom: #{$i*10}px;
+    }
+  }
+
+  @for $i from 1 through 9 {
+    .mt-#{$i} {
+      margin-top: #{$i}px;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    .mt-#{$i*10} {
+      margin-top: #{$i*10}px;
+    }
+  }
+
+  @for $i from 1 through 9 {
+    .ml-#{$i} {
+      margin-left: #{$i}px;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    .ml-#{$i*10} {
+      margin-left: #{$i*10}px;
+    }
+  }
+
+  @for $i from 1 through 9 {
+    .mr-#{$i} {
+      margin-right: #{$i}px;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    .mr-#{$i*10} {
+      margin-right: #{$i*10}px;
+    }
+  }
+
+  // Negative margin
+  @for $i from 1 through 9 {
+    .nmb-#{$i} {
+      margin-bottom: -#{$i}px;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    .nmb-#{$i*10} {
+      margin-bottom: #{$i*10}px;
+    }
+  }
+
+  @for $i from 1 through 9 {
+    .nmt-#{$i} {
+      margin-top: -#{$i}px;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    .nmt-#{$i*10} {
+      margin-top: -#{$i*10}px;
+    }
+  }
+
+  @for $i from 1 through 9 {
+    .nml-#{$i} {
+      margin-left: -#{$i}px;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    .nml-#{$i*10} {
+      margin-left: -#{$i*10}px;
+    }
+  }
+
+  @for $i from 1 through 9 {
+    .nmr-#{$i} {
+      margin-right: -#{$i}px;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    .nmr-#{$i*10} {
+      margin-right: -#{$i*10}px;
+    }
+  }
+}

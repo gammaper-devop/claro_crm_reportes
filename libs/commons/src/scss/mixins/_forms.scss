@@ -1,0 +1,20 @@
+@mixin base-form-field {
+  .mat-form-field-flex {
+    height: 40px;
+    align-items: center;
+    background-color: white;
+    line-height: normal;
+    border-radius: 20px;
+    border: solid 2px #ececec;
+    padding: 0 15px;
+    &:hover {
+      border: solid 2px #00aacf;
+    }
+  }
+  .mat-form-field-underline {
+    display: none;
+  }
+  .mat-form-field-infix {
+    width: 100%;
+  }
+}

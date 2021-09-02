@@ -1,0 +1,66 @@
+<div class="form-login-pin-auth-container">
+  <div class="pin-auth">
+    <div class="icon">
+      <img src="{{ cdn }}/img/login/document.png" alt="" />
+    </div>
+    <div class="title">Verificación</div>
+    <div class="description" [class.description--visible]="!isSending">
+      Se ha {{ resend }}enviado un SMS con el PIN de seguridad al celular
+      {{ phone }}.
+    </div>
+    <div class="form-container">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="form-content">
+          <div class="formElemet">
+            <div class="pin-container">
+              <div class="pin-input" *ngIf="!isSending; else loading">
+                <claro-input
+                  placeholder="Ingrese el PIN"
+                  formControlName="phoneNumberCode"
+                  [maxLength]="pinMaxLength"
+                  inputValidation="number"
+                  (valueChanged)="onChangeInput()"
+                  [disabled]="isCountdownOver || maxValidations"
+                  claroReactiveForm
+                ></claro-input>
+                <claro-countdown
+                  *ngIf="!isCountdownOver && !maxValidations"
+                  class="pin-timer info"
+                  [time]="pinTimer"
+                  (completed)="countdownOver()"
+                ></claro-countdown>
+              </div>
+              <ng-template #loading>
+                <claro-loading></claro-loading>
+              </ng-template>
+            </div>
+          </div>
+          <a
+            (click)="sendPin()"
+            class="resend-pin"
+            [class.resend-pin--visible]="!isSending && isCountdownOver"
+          >
+            <claro-icon name="refresh" class="icon-resend"></claro-icon>
+            Reenviar el PIN
+          </a>
+          <label class="error-message" [class.error-message--visible]="error">
+            <claro-icon name="info" class="icon-error"></claro-icon>
+            {{ error?.description }}
+          </label>
+          <div class="form-actions">
+            <button
+              type="submit"
+              [disabled]="!form.valid || isCountdownOver || maxValidations"
+            >
+              Validar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="info">
+      Al iniciar sesión estás de acuerdo con los Términos y Condiciones y
+      Políticas de privacidad.
+    </div>
+  </div>
+</div>

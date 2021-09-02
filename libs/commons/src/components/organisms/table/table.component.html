@@ -1,0 +1,60 @@
+<div class="container-table-list" style="padding: 0;">
+  <div class="thead-container">
+    <div class="p-row p-row--header">
+      <div *ngFor="let hItem of thead; index as i" class="p-col head-col">
+        {{ hItem.label }}
+      </div>
+    </div>
+  </div>
+  <div class="tbody-container">
+    <mat-radio-group>
+      <div class="p-row p-row--body" *ngFor="let bItem of tbody; index as i">
+        <mat-card class="card-item py-4">
+          <div class="content-card">
+            <mat-radio-button [value]="bItem" (change)="onChange($event, i)" color="primary">
+              <div class="item-row-content">
+                <div class="p-col p-col-copy" *ngFor="let hItem of thead; index as y">
+                  <span class="hidden-name-item">{{ hItem.label }}</span>
+                  <span [ngClass]="{ 'value-item': isIE }" [title]="returnRowItem(bItem, y)">{{ returnRowItem(bItem, y) }}</span>
+                </div>
+              </div>
+            </mat-radio-button>
+          </div>
+        </mat-card>
+      </div>
+    </mat-radio-group>
+  </div>
+</div>
+<div class="action-button-section" *ngIf="showActionBar">
+  <div class="action-container">
+    <div class="contracts-actions">
+      <div class="action-button print-button">
+        <claro-icon-button
+          color="white"
+          name="print"
+          title="Imprimir"
+          (click)="actionBarEmit('print')"
+        ></claro-icon-button>
+      </div>
+    </div>
+    <div class="contracts-actions">
+      <div class="action-button delete-button">
+        <claro-icon-button
+          color="white"
+          name="delete"
+          title="Eliminar"
+          (click)="actionBarEmit('delete')"
+        ></claro-icon-button>
+      </div>
+    </div>
+    <div *ngIf="btnPayment === 0 && user.channel !== '01' " class="contracts-actions">
+      <claro-button
+        class="btn-pay"
+        size="sm"
+        color="outline"
+        text="Pagar"
+        (clicked)="actionBarEmit('payment')"
+      ></claro-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<claro-card *ngIf="payments?.length > 0; else loading">
+  <div class="payments">
+    <div class="payments-head">
+      Pagos pendientes
+    </div>
+    <div class="payments-content">
+      <div class="payment-row" *ngFor="let payment of payments; let i = index">
+        <div class="payment-date">
+          {{ payment.date }}
+        </div>
+        <div class="payment-content-info">
+          <div class="payment-row__group">
+            <p class="control-info">
+              Operación:
+              <span>{{ payment.operationType.label }}</span>
+            </p>
+          </div>
+          <div class="payment-row__group">
+            <p class="control-info">
+              Nº de pedido: <span>{{ payment.orderNumber }}</span>
+            </p>
+          </div>
+          <div class="payment-row__group">
+            <p class="control-info">
+              Total: <span>S/ {{ payment.amount }}</span>
+            </p>
+          </div>
+          <div class="payment-row__group icon-content">
+            <claro-icon-button
+              class="icon-button"
+              styl="icon"
+              size="xs"
+              name="print"
+              title="Imprimir"
+              (clicked)="
+                openFiles(
+                  payment.orderNumber,
+                  payment.typeDocument,
+                  payment.date
+                )
+              "
+            ></claro-icon-button>
+
+            <claro-icon-button
+              name="delete_outline"
+              title="Eliminar"
+              (click)="
+                deleteRow(
+                  i,
+                  payment.secNumber,
+                  payment.orderNumber,
+                  payment.documentSynergy
+                )
+              "
+            ></claro-icon-button>
+          </div>
+        </div>
+        <div class="payment-actions">
+          <claro-button
+            class="btn-pay"
+            size="sm"
+            color="outline"
+            text="Pagar"
+            (clicked)="payNav(payment)"
+          ></claro-button>
+        </div>
+        <div class="w-100" *ngIf="i < payments.length - 1">
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>
+    <claro-loading></claro-loading>
+  </ng-template>
+</claro-card>

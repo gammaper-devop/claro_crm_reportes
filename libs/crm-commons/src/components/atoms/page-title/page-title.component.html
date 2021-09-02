@@ -1,0 +1,14 @@
+<div class="page-title container">
+  <claro-icon-button
+    *ngIf="back"
+    name="navigate_before"
+    class="page-title__button"
+    (click)="goBack()"
+  >
+  </claro-icon-button>
+  <div class="page-title__label">
+    <div>{{ label }}</div>
+    <hr class="page-title__bar" />
+  </div>
+</div>
+<hr />

@@ -1,0 +1,100 @@
+@startuml AuthenticationModel
+
+'from ./interfaces'
+interface IAuthentication {
+  authenticate(authRequest: TAuthRequest): Promise<any>
+  getToken(): string
+  isAuthenticated(): boolean
+  isExpired(): boolean
+  clean(): void
+}
+
+interface IAuthConfig {
+  authType: EAuthorizationType
+  config: TAuthConfig
+}
+
+interface IAuthBaseConfig {
+  secretKey: string
+  headerName?: string
+  tokenType?: string
+  responseModel?: TAuthResponseModel
+  responseErrorModel?: TAuthErrorResponseModel
+  storageType?: EStorageType
+  i18nLang?: string
+  interceptor?: boolean
+}
+
+interface IAzureConfig extends IAuthBaseConfig {
+  tenant_id: string
+}
+
+interface IOAuth2Config extends IAuthBaseConfig {
+  grantType: EGrantType
+  authUrl: string
+  client_id?: string
+  client_secret?: string
+  requestType?: ERequestType
+  responseType?: EResponseType
+}
+
+IOAuth2Config ..> IAuthConfig : <<use>>
+IAzureConfig ..> IAuthConfig : <<use>>
+
+
+'from ./authentication.manager'
+class AuthenticationManager implements IAuthentication {
+  + config: TAuthConfig
+  # identity : IPasswordGrantResponse
+  # storage: IStorage
+  # messages: IMessages;
+
+  + constructor(authConfig: TAuthConfig)
+  + authenticate(authRequest: TAuthRequest): Promise<any>
+  + getToken(): string
+  + isAuthenticated(): boolean
+  + isExpired(): boolean
+  + clean(): void
+  # setIdentity(identity: any): void
+  # getIdentity(): any
+}
+
+
+'from './auth-types'
+class AuthorizationCodeGrantManager extends AuthenticationManager {
+  + constructor(authConfig: TAuthConfig)
+}
+
+class ClientCredentialsGrantManager extends AuthenticationManager {
+  + constructor(authConfig: TAuthConfig)
+}
+
+class ImplicitGrantManager extends AuthenticationManager {
+  + constructor(authConfig: TAuthConfig)
+}
+
+class PasswordGrantManager extends AuthenticationManager {
+  + constructor(authConfig: TAuthConfig)
+  + authenticate(authRequest: IPasswordGrantRequest)
+}
+
+
+'from ./authentication.factory'
+class AuthenticationFactory {
+  + authInstance:
+    | AuthorizationCodeGrantManager
+    | ClientCredentialsGrantManager
+    | ImplicitGrantManager
+    | PasswordGrantManager
+  - config: TAuthConfig
+
+  + constructor(authConfig: IAuthConfig): void
+  - configureAzure(): void
+  - configureOAuth2(): void
+}
+
+AuthenticationFactory ..> IAuthConfig : <<references>>
+AuthenticationFactory ..> AuthenticationManager : <<references>>
+
+
+@enduml

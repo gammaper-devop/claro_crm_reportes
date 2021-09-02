@@ -1,0 +1,15 @@
+{
+  "name": "@claro/styles",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "./node_modules/.bin/node-sass ./theme.scss --output= ../../node_modules/@claro/crm/styles/theme.css --output-style=compressed"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.1.2",
+    "@angular/core": "^9.1.2",
+    "tslib": "^1.10.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  }
+}

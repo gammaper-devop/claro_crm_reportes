@@ -1,0 +1,21 @@
+<div class="sale-error">
+  <div class="content-center">
+    <crm-section-message
+      color="wrong"
+      class="sale-error__message"
+      iconName="robot-error"
+      [id]="error?.id"
+      [title]="error?.title"
+      [description]="error?.description"
+    >
+    </crm-section-message>
+    <div class="sale-error__actions">
+      <claro-button
+        (clicked)="handleClick()"
+        [disabled]="disabledButton"
+        size="sm"
+        text="Reintentar"
+      ></claro-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+[
+  {
+    "channel": "01",
+    "officeSalecode": "0001",
+    "officeDescription": "officeDescription01",
+    "productCodeType": "productCodeType01",
+    "officeType": "officeType01",
+    "deparmentCode": "01",
+    "region": "region01",
+    "orgSale": "orgSale01",
+    "warehouseCode": "warehouseCode01",
+    "centerCode": "centerCode01",
+    "interlocutorCode": "interlocutorCode01",
+    "interlocutorCodeFather": "interlocutorCodeFather01",
+    "chainName": "",
+    "virtualOfficeType": ""
+  },
+  {
+    "channel": "01",
+    "officeSalecode": "0002",
+    "officeDescription": "officeDescription02",
+    "productCodeType": "productCodeType02",
+    "officeType": "officeType02",
+    "deparmentCode": "02",
+    "region": "region02",
+    "orgSale": "orgSale02",
+    "warehouseCode": "warehouseCode02",
+    "centerCode": "centerCode02",
+    "interlocutorCode": "interlocutorCode02",
+    "interlocutorCodeFather": "interlocutorCodeFather02",
+    "chainName": "",
+    "virtualOfficeType": ""
+  },
+  {
+    "channel": "01",
+    "officeSalecode": "0003",
+    "officeDescription": "officeDescription03",
+    "productCodeType": "productCodeType03",
+    "officeType": "officeType03",
+    "deparmentCode": "03",
+    "region": "region03",
+    "orgSale": "orgSale03",
+    "warehouseCode": "warehouseCode03",
+    "centerCode": "centerCode03",
+    "interlocutorCode": "interlocutorCode03",
+    "interlocutorCodeFather": "interlocutorCodeFather03",
+    "chainName": "",
+    "virtualOfficeType": ""
+  }
+]

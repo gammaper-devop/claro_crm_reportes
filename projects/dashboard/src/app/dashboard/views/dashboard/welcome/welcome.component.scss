@@ -1,0 +1,36 @@
+:host {
+  display: block;
+  max-width: 400px;
+  .welcome {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    &__title {
+      color: #444444;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    &__description {
+      color: #a5a6a7;
+      font-size: 14px;
+      margin: 0;
+      max-width: 205px;
+    }
+
+    .line {
+      background-color: #ccf6ff;
+      border-color: transparent;
+      border: 1px solid #ccf6ff;
+      margin: 1em 0;
+      height: 2px;
+      width: 40px;
+    }
+  }
+}
+
+::ng-deep app-welcome .card.mat-card {
+  box-shadow: 0 6px 15px 0 #d7dae3;
+}

@@ -1,0 +1,28 @@
+@startuml Interfaces
+
+
+interface ILoggerConfig {
+  level?: ELoggerLevels;
+  secretKey?: string;
+  serverLog?: { url: string; level?: ELoggerLevels; };
+  customLog?: { method: Function; level?: ELoggerLevels; };
+  i18nLang?: string;
+}
+
+interface ILogger {
+  setHeader(accessToken: string, headerName?: string, tokenType?: string): void;
+  info(messageToPrint: string, additionalInfo?: any): void;
+  debug(messageToPrint: string, additionalInfo?: any): void;
+  log(messageToPrint: string, additionalInfo?: any): void;
+  trace(messageToPrint: string, additionalInfo?: any): void;
+  warn(messageToPrint: string, additionalInfo?: any): void;
+  error(messageToPrint: string, additionalInfo?: any): void;
+}
+
+interface IMessages {
+  secret_key_not_found: string;
+  circular_object: string;
+}
+
+
+@enduml

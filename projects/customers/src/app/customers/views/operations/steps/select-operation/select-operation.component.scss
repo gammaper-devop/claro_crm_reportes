@@ -1,0 +1,28 @@
+.error-message {
+  color: #da272c;
+  display: block;
+  font-family: Roboto;
+  font-size: 12px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  padding: 5px;
+  text-align: center;
+  visibility: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  &--visible {
+    visibility: visible;
+  }
+
+  .icon-error {
+    margin-right: 5px;
+    vertical-align: middle;
+    zoom: 0.75;
+  }
+}

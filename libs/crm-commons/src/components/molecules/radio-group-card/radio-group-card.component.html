@@ -1,0 +1,15 @@
+<mat-radio-group class="radio-group-card-custom">
+  <mat-radio-button
+    *ngFor="let option of options"
+    [value]="option.value"
+    [checked]="option.checked"
+    [disabled]="option.disabled"
+    (change)="onChange($event)"
+    (blur)="onTouched()"
+  >
+    <claro-card>
+      <crm-svg-image [name]="option.icon"></crm-svg-image>
+      <p *ngIf="option.label">{{ option.label }}</p>
+    </claro-card>
+  </mat-radio-button>
+</mat-radio-group>

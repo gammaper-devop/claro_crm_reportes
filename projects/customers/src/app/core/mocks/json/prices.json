@@ -1,0 +1,32 @@
+[
+  {
+    "priceCode": "01",
+    "priceDescripcion": "Lista de precios 1",
+    "chipTotalPrice": "5",
+    "equipmentTotalPrice": "2495",
+    "chipSku": "454657679898080",
+    "equipmentSku": "465657688798"
+  },
+  {
+    "priceCode": "02",
+    "priceDescripcion": "Lista de precios 2",
+    "chipTotalPrice": "5",
+    "equipmentTotalPrice": "1995",
+    "chipSku": "454657679898080",
+    "equipmentSku": ""
+  },
+  {
+    "priceCode": "03",
+    "priceDescripcion": "Lista de precios 3",
+    "chipTotalPrice": "5",
+    "chipSku": "454657679898080",
+    "equipmentSku": "465657688798"
+  },
+  {
+    "priceCode": "04",
+    "priceDescripcion": "Lista de precios 4",
+    "equipmentTotalPrice": "1995",
+    "chipSku": "454657679898080",
+    "equipmentSku": "465657688798"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "parameterCode": "A",
+    "description": "Activo",
+    "keyCombo": "CBO_SELLERS_STATUS",
+    "paramRequired": ""
+  },
+  {
+    "parameterCode": "I",
+    "description": "Inactivo",
+    "keyCombo": "CBO_SELLERS_STATUS",
+    "paramRequired": ""
+  }
+]

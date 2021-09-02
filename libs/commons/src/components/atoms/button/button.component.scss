@@ -1,0 +1,110 @@
+@import "../../../scss/breakpoints";
+
+@mixin button-outline($border-color) {
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    border-radius: 23px;
+    border: 2px solid $border-color;
+  }
+}
+
+@mixin disabled-style {
+  &:disabled {
+    cursor: default;
+    color: rgba(0,0,0,.26);
+    background-color: rgba(0,0,0,.12);
+  }
+}
+
+@mixin button-sizes {
+  &.size-lg {
+    height: 46px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  &.size-md {
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: pre;
+  }
+
+  &.size-sm {
+    height: 32px;
+    font-size: 14px;
+    font-weight: normal;
+    white-space: pre;
+  }
+}
+
+:host {
+  .claro-button {
+    width: 100%;
+    &.styl-flat {
+      /* Colors */
+      border-radius: 23px;
+      padding: 0 35px;
+
+      @media (max-width: $screen-md) {
+        padding: 0 15px;
+      }
+
+      &.color-primary {
+        background-color: #00aacf;
+        color: #fff;
+        @include disabled-style
+      }
+
+      &.color-outline {
+        color: #00aacf;
+
+        @include button-outline(#00aacf);
+      }
+
+      /* Size */
+      @include button-sizes;
+    }
+
+    &.styl-basic {
+      /* Colors */
+      border-radius: 23px;
+      padding: 0 35px;
+
+      @media (max-width: $screen-md) {
+        padding: 0 15px;
+      }
+
+      &.color-primary {
+        color: #00aacf;
+      }
+
+      &.color-outline {
+        color: #00aacf;
+
+        @include button-outline(#e5f6fa);
+      }
+
+      /* Size */
+      @include button-sizes;
+    }
+  }
+}
+
+/* ripple color */
+::ng-deep .claro-button.styl-flat {
+  &.color-primary .mat-ripple-element {
+    background-color: rgba(255, 255, 255, .3);
+  }
+
+  &.color-outline .mat-ripple-element {
+    background-color: rgba(0, 170, 207, .1);
+  }
+}

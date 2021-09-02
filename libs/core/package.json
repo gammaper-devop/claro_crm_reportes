@@ -1,0 +1,20 @@
+{
+  "name": "@claro/core",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^9.1.2",
+    "@angular/core": "^9.1.2",
+    "tslib": "^1.10.0"
+  },
+  "dependencies": {
+    "crypto-js": "^4.0.0",
+    "jsencrypt": "^3.0.0-rc.1",
+    "localStorage": "^1.0.4",
+    "rxjs": "~6.5.4",
+    "rxjs-compat": "^6.5.5",
+    "sessionstorage": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.1"
+  }
+}

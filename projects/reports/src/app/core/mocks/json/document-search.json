@@ -1,0 +1,44 @@
+{
+  "criterias": [
+    {
+      "criteriaId": "1",
+      "documentTypeId": "2",
+      "criteriaName": "DNI",
+      "criteriaFormat": "string",
+      "criteriaMaxLength": "number",
+      "criteriaMinLength": "number"
+    },
+    {
+      "criteriaId": "2",
+      "documentTypeId": "",
+      "criteriaName": "Cuenta de red",
+      "criteriaFormat": "string",
+      "criteriaMaxLength": "number",
+      "criteriaMinLength": "number"
+    },
+    {
+      "criteriaId": "1",
+      "documentTypeId": "4",
+      "criteriaName": "Carnet de extranjería",
+      "criteriaFormat": "string",
+      "criteriaMaxLength": "number",
+      "criteriaMinLength": "number"
+    },
+    {
+      "criteriaId": "1",
+      "documentTypeId": "1",
+      "criteriaName": "Pasaporte",
+      "criteriaFormat": "string",
+      "criteriaMaxLength": "number",
+      "criteriaMinLength": "number"
+    },
+    {
+      "criteriaId": "1",
+      "documentTypeId": "9",
+      "criteriaName": "CPP",
+      "criteriaFormat": "string",
+      "criteriaMaxLength": "number",
+      "criteriaMinLength": "number"
+    }
+  ]
+}

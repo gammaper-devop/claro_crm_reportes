@@ -1,0 +1,163 @@
+@mixin button-outline($border-color) {
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    border-radius: 23px;
+    border: 2px solid $border-color;
+  }
+}
+
+@mixin disabled-style($bg-color) {
+  &:disabled {
+    cursor: default;
+    color: rgba(0, 0, 0, 0.26);
+    background-color: $bg-color;
+  }
+}
+
+@mixin disabled-btn-icon($bg-color) {
+  &:disabled {
+    cursor: default;
+    color: rgb(168, 168, 168);
+  }
+}
+
+@mixin button-sizes {
+  &.size-lg {
+    height: 46px;
+    width: 46px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  &.size-md {
+    height: 40px;
+    width: 40px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &.size-sm {
+    height: 32px;
+    width: 32px;
+    font-size: 14px;
+    font-weight: normal;
+  }
+}
+
+/* Sizes */
+:host {
+  .icon-button-custom {
+    line-height: normal;
+
+    &.styl-icon {
+      /* Colors */
+      &.color-primary {
+        color: #00aacf;
+        @include disabled-style(none);
+      }
+
+      /* Colors */
+      &.color-white {
+        color: #ffffff;
+        @include disabled-style(none);
+      }
+      &.color-gray {
+        color: #a5a6a7;
+        @include disabled-style(none);
+      }
+
+      /* Size */
+      @include button-sizes;
+    }
+
+    &.styl-fab {
+      box-shadow: none;
+
+      /* Colors */
+      &.color-primary {
+        background-color: #00aacf;
+        color: #fff;
+        @include disabled-style(rgba(0, 0, 0, 0.12));
+      }
+
+      /* Size */
+      @include button-sizes;
+    }
+  }
+
+  .claro-button {
+    display: flex;
+    flex-direction: row;
+    width: 100% !important;
+
+    &.styl-flat {
+      /* Colors */
+      border-radius: 23px;
+
+      &.color-primary {
+        background-color: #00aacf;
+        color: #fff;
+      }
+
+      &.color-outline {
+        color: #00aacf;
+
+        @include button-outline(#00aacf);
+      }
+
+      /* Size */
+      @include button-sizes;
+    }
+
+    &.styl-basic {
+      /* Colors */
+      border-radius: 23px;
+
+      &.color-primary {
+        color: #00aacf;
+        @include disabled-btn-icon(rgba(0, 0, 0, 0.12));
+      }
+
+      &.color-outline {
+        color: #00aacf;
+
+        @include button-outline(#e5f6fa);
+      }
+
+      /* Size */
+      @include button-sizes;
+    }
+  }
+}
+
+/* ripple color */
+::ng-deep .icon-button-custom.styl-fab,
+::ng-deep .claro-button {
+  &.color-primary .mat-ripple-element {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .mat-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    white-space: pre;
+  }
+}
+::ng-deep .claro-button.styl-flat {
+  &.color-primary .mat-ripple-element {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  &.color-outline .mat-ripple-element {
+    background-color: rgba(0, 170, 207, 0.1);
+  }
+}

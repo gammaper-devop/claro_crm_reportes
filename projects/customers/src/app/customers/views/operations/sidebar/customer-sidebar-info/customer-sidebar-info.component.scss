@@ -1,0 +1,32 @@
+:host {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: column nowrap;
+
+  .info-photo {
+    border: solid 2px #0fd299;
+    background-color: #ffffff;
+    display: inline-block;
+    border-radius: 50%;
+    padding: 1px;
+  }
+
+  .info-info {
+    display: table-row-group;
+  }
+
+  .info-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin: .5em 0;
+  }
+
+  .info-label {
+    font-size: 14px;
+    color: #a5a6a7;
+    margin-bottom: 2px;
+    span {
+      color: #444;
+    }
+  }
+}

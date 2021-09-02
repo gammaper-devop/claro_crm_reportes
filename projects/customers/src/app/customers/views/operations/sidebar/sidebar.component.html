@@ -1,0 +1,43 @@
+<div class="sidebar" [class.active]="isHidden">
+  <div class="is-sidebar-off" (click)="activeIsHidden()">
+    <span>∟</span>
+  </div>
+  <section>
+    <div class="px-3">
+      <claro-icon-button
+        name="navigate_before"
+        class="go-back"
+        (click)="goBack()"
+      >
+      </claro-icon-button>
+      <app-customer-sidebar-info [customer]="customer">
+      </app-customer-sidebar-info>
+      <div class="more-link mb-2" *ngIf="!summary">
+        <a routerLink="/clientes/perfil">Ver Perfil</a>
+      </div>
+      <br />
+      <div *ngIf="secNumber || orderNumber">
+        <div *ngIf="secNumber" class="condition">
+          <div class="d-flex align-items-center">
+            <label class="label-check ldr-form_size d-block">
+              <input type="checkbox" checked disabled />
+              <span class="checkmark"></span>
+            </label>
+            <span class="text-condition">Declaración de conocimiento</span>
+          </div>
+        </div>
+        <div class="sec-number">
+          {{ secNumber ? 'N° de SEC' : '' }}<br />{{ secNumber }}
+          <br />
+          <strong>
+            {{ orderNumber ? 'N° de Pedido' : '' }}<br />{{ orderNumber }}
+          </strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="sale-info">
+      <app-sale-sidebar-info *ngIf="!summary"> </app-sale-sidebar-info>
+    </div>
+  </section>
+</div>

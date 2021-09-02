@@ -1,0 +1,31 @@
+:host {
+  .btn-add-line {
+    max-width: 180px;
+    display: block;
+  }
+
+  .error-message {
+    color: #da272c;
+    font-size: 12px;
+    visibility: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 0;
+
+    &--visible {
+      visibility: visible;
+    }
+
+    .icon-error {
+      margin-right: 10px;
+      vertical-align: middle;
+      zoom: 0.75;
+    }
+  }
+
+  .lines-selected {
+    color: #00aacf;
+  }
+}

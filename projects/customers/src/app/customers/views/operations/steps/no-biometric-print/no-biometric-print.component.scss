@@ -1,0 +1,91 @@
+.dis-flex {
+  display: flex;
+}
+
+.jus-content-center {
+  justify-content: center;
+}
+
+.pad-left-30 {
+  padding-left: 30px;
+}
+
+.pad-left-50 {
+  padding-left: 50px;
+}
+
+.pad-left-right-50 {
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.pad-left-right-100 {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.mar-top-30 {
+  margin-top: 30px;
+}
+
+.mar-top-80 {
+  margin-top: 80px;
+}
+
+.border-1 {
+  border: 1px solid black;
+}
+
+.border-2 {
+  border: 2px solid black;
+}
+
+.border-top-1 {
+  border-top: 1px solid black;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.no-biometric-container {
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.buttons-content {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+  width: 50%;
+}
+
+.print-section {
+  font-size: 14px;
+}
+
+.title-section {
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+}
+
+ol {
+  padding-left: 1em;
+}
+
+ol li {
+  padding-left: 30px;
+  padding-top: 10px;
+}
+
+@media print {
+  body {
+    transform: scale(1);
+  }
+  .buttons-content {
+    display: none;
+  }
+}

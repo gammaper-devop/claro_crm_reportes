@@ -1,0 +1,134 @@
+@import 'breakpoints';
+
+.form-login-net-auth-container {
+  // height: 100%;
+  width: 100%;
+
+  .network-auth {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 280px;
+    margin: 100px auto 0;
+
+    @media (max-width: $screen-sm) {
+      margin: 25px auto 0;
+    }
+
+    > div {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .icon {
+      display: flex;
+      justify-content: center;
+    }
+
+    .title {
+      font-family: Roboto;
+      font-size: 36px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #0fd299;
+      display: flex;
+      justify-content: center;
+    }
+
+    .description {
+      font-family: Roboto;
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      text-align: center;
+      color: #444444;
+    }
+
+    .form-container {
+      width: 100%;
+
+      .form-content {
+        width: 100%;
+
+        .formElemet {
+          padding: 10px 0 30px;
+
+          input {
+            border-radius: 38px;
+            border: solid 2px #ececec;
+            width: 100%;
+            height: 40px;
+            outline: none;
+            text-decoration: none;
+            padding: 0 20px;
+            box-sizing: border-box;
+          }
+
+          label {
+            font-family: Roboto;
+            font-size: 12px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #444444;
+          }
+
+          .error-message {
+            font-family: Roboto;
+            font-size: 12px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #da272c;
+          }
+        }
+
+        .form-actions {
+          button {
+            height: 46px;
+            border-radius: 38px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            outline: none;
+            border-style: none;
+            background-color: #00aacf;
+            color: #ffffff;
+
+            &:disabled {
+              background-color: #d2d9e1;
+              color: #b8c0ca;
+            }
+          }
+        }
+      }
+    }
+
+    .info {
+      color: #a5a6a7;
+      font-family: Roboto;
+      font-size: 14px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      padding: 0 24px;
+      text-align: center;
+    }
+  }
+}

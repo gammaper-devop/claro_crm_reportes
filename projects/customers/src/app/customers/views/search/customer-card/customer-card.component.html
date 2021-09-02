@@ -1,0 +1,8 @@
+<claro-card class="client-card">
+  <div class="card-content" *ngIf="customer; else loading">
+    <app-customer-card-info [customer]="customer"></app-customer-card-info>
+  </div>
+  <ng-template #loading>
+    <claro-loading></claro-loading>
+  </ng-template>
+</claro-card>

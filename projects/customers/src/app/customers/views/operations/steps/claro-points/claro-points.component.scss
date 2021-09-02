@@ -1,0 +1,69 @@
+.el-full {
+  align-items: center;
+  background: #f1f1f1;
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  margin-right: 1.5rem;
+  padding: 15px 30px;
+
+  .title {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+}
+.point-content {
+  display: flex;
+  align-items: flex-start;
+
+  .content-btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .line-right {
+    border-right: #e0e0e0 solid 0.5px;
+  }
+
+  @media (max-width: 992px) {
+    .line-right {
+      border-right: none;
+      padding: 0px;
+    }
+  }
+
+  .poitns-form-container {
+    margin-left: 1.5rem;
+  }
+
+  .change {
+    color: #0fd299;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  margin-top: -3.25em;
+  color: #da272c;
+  font-family: Roboto;
+  font-size: 12px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  margin-top: -1.25em;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  .icon-error {
+    margin-right: 5px;
+    vertical-align: middle;
+    zoom: 0.75;
+  }
+}

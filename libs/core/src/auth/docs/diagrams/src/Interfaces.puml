@@ -1,0 +1,104 @@
+@startuml Interfaces
+
+'from ./enums'
+enum EGrantType {
+  AUTHORIZATION_CODE = 'authorization_code',
+  CLIENT_CREDENTIALS = 'client_credentials',
+  IMPLICIT = 'implicit',
+  PASSWORD = 'password',
+}
+
+enum EAuthorizationType {
+  OAUTH2 = 'oauth2',
+  AZURE = 'azure',
+  AWS = 'awsCognito',
+  ALTEMISTA = 'altemista',
+}
+
+enum EAuthorizationProvider {
+  GOOGLE = 'google',
+  FACEBOOK = 'facebook',
+  TWITTER = 'twitter',
+}
+
+enum EErrorResponseType {
+  INVALID_REQUEST = 'invalid_request',
+  INVALID_GRANT = 'invalid_grant',
+  UNAUTHORIZED_CLIENT = 'unauthorized_client',
+  UNSUPPORTED_GRANT_TYPE = 'unsupported_grant_type',
+  INVALID_SCOPE = 'invalid_scope',
+}
+
+enum EStorageType {
+  LOCAL = 'local',
+  SESSION = 'session',
+  MEMORY = 'memory',
+}
+
+enum ERequestType {
+  JSON = 'application/json',
+  FORM = 'application/x-www-form-urlencoded',
+}
+
+enum EResponseType {
+  JSON = 'application/json',
+  XML = 'application/xml',
+  TEXT = 'text/plain',
+}
+
+
+'from ./interfaces'
+enum TAuthConfig {
+  IAzureConfig,
+  IOAuth2Config
+}
+
+enum TAuthRequest {
+  IPasswordGrantRequest
+}
+
+enum TAuthResponseModel {
+  IPasswordGrantModel
+}
+
+enum TAuthResponse {
+  IPasswordGrantResponse
+}
+
+
+interface IPasswordGrantModel {
+  access_token?: string
+  token_type?: string
+  expires_in?: string
+  refresh_token?: string
+  [key: string]: any
+}
+
+interface IBaseRequest {
+  grant_type?: string
+}
+
+interface IPasswordGrantRequest extends IBaseRequest {
+  username: string
+  password: string
+  scope?: string
+  client_id?: string
+  client_secret?: string
+}
+
+interface IPasswordGrantResponse {
+  access_token: string
+  token_type: string
+  expires_in?: number
+  refresh_token?: string
+  scope?: string
+  [key: string]: any
+}
+
+interface IErrorResponse {
+  error: EErrorResponseType
+  error_description?: string
+  error_uri?: string
+}
+
+@enduml

@@ -1,0 +1,92 @@
+<div class="row row-validate-portability" *ngIf="isValid === undefined">
+  <div class="validate-text">
+    Informa al cliente que se validarán todas las líneas para efectuar el
+    proceso
+  </div>
+  <claro-button
+    class="validate-button"
+    size="sm"
+    styl="flat"
+    text="Enviar Solicitud de Portabilidad"
+    [disabled]="error"
+    (clicked)="validatePortability()"
+  ></claro-button>
+</div>
+
+<div class="row row-validate-incorrect" *ngIf="isValid === false">
+  <div class="content-center col-md-6">
+    <crm-section-message
+      class="section-error-custom mb-5"
+      color="wrong"
+      [iconName]="loading ? 'robot-error' : 'section-error'"
+      [id]="presenter.error?.id"
+      [title]="loading ? 'Validando Portabilidad' : 'Portabilidad No Realizada'"
+      [description]="
+        loading
+          ? 'Pendiente de mensaje del ABDCP.'
+          : requestPortability
+          ? requestPortability.messageGeneral
+          : presenter.error.description
+      "
+    ></crm-section-message>
+    <claro-progressbar
+      *ngIf="loading"
+      [value]="progressbarValue"
+      show="true"
+      mode="determinate"
+    ></claro-progressbar>
+    <hr />
+    <div *ngIf="!loading && requestPortability">
+      <div
+        class="numbers-content"
+        *ngFor="let number of requestPortability.phoneNumbers"
+      >
+        <div
+          class="title"
+          [ngClass]="{
+            valid: number.type === 'OK',
+            invalid: number.type === 'ERROR'
+          }"
+        >
+          <claro-icon
+            class="title__icon"
+            [name]="number.type === 'OK' ? 'check' : 'close'"
+          ></claro-icon>
+          <div class="title__label">
+            {{ number.type === 'OK' ? 'Aprobado' : 'Rechazado' }}
+          </div>
+        </div>
+        <p class="number">
+          <strong>{{ number.phoneNumber }}</strong> {{ number.message }}
+        </p>
+        <!-- <p class="description">{{ number.motive }}</p> -->
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row row-validate-success" *ngIf="isValid === true">
+  <div class="success-content">
+    <crm-section-message
+      color="success"
+      iconName="line-checked"
+      title="¡Portabilidad Exitosa!"
+    ></crm-section-message>
+  </div>
+  <div class="px-2"></div>
+  <div class="numbers-content">
+    <div class="title valid">
+      <claro-icon class="title__icon" name="check"></claro-icon>
+      <div class="title__label">Aprobado</div>
+    </div>
+    <div class="number" *ngFor="let number of requestPortability.phoneNumbers">
+      <div class="number">
+      <strong>{{ number.phoneNumber }}</strong> {{ number.message }}
+        <p *ngIf="validateCAD">
+          Antigüedad de línea: <strong>{{ number.days }} días</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

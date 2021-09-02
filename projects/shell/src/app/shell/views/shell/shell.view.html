@@ -1,0 +1,47 @@
+<ng-container *ngIf="(router.url !== '/clientes/nobiometria-impresion') && (router.url !== '/clientes/claroclub-impresion')">
+  <app-header
+  *ngIf="presenter.isLoggedIn$ | async"
+  [user]="presenter.user$ | async"
+  [(opened)]="opened"
+  [menus]="presenter.menus"
+  [activatedRoute]="presenter.currentModule"
+  (logout)="presenter.logout()"
+  ></app-header>
+</ng-container>
+
+
+<mat-sidenav-container
+  class="shell-container"
+  [class.shell-container__is-loggedin]="presenter.isLoggedIn$ | async"
+>
+  <mat-sidenav
+    mode="over"
+    class="shell-sidenav"
+    [opened]="opened"
+    (closedStart)="opened = false"
+  >
+    <div class="shell-sidenav__menu">
+      <div *ngFor="let menu of presenter.menus">
+        <a
+          *ngIf="menu.show"
+          mat-button
+          [routerLink]="'/' + menu.url"
+          [ngClass]="{
+            'shell-sidenav__menu-active': presenter.currentModule === menu.url
+          }"
+          (click)="selectOptionMenu()"
+        >
+          <span> {{ menu.title }} </span>
+        </a>
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content #scrollMe class="shell-content">
+    <div [class.container]="presenter.isLoggedIn$ | async" [ngClass]="{'width-contracts': (router.url === '/contratos')}">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<app-tracing></app-tracing>

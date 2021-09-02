@@ -1,0 +1,87 @@
+:host {
+    .btn-content {
+      display: flex;
+      justify-content: flex-end;
+      .btn-action {
+        margin-left: 1em;
+      }
+    }
+    .hide-item {
+      display: none;
+    }
+  }
+  
+  .form-actions {
+    width: 226px;
+    height: 46px;
+  
+    button {
+      height: 46px;
+      border-radius: 38px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      outline: none;
+      border-style: none;
+      background-color: #00aacf;
+      align-items: center;
+      color: #ffffff;
+  
+      &:disabled {
+        background-color: #d2d9e1;
+        color: #b8c0ca;
+  
+        &:hover {
+          background-color: #d2d9e1;
+          color: #b8c0ca;
+          border: solid 2px #b8c0ca;
+        }
+      }
+  
+      &:hover {
+        border: solid 2px #00aacf;
+        background-color: #ffffff;
+        color: #00aacf;
+      }
+  
+      &:active {
+        color: #ffffff;
+        background-color: #007a92;
+      }
+    }
+  }
+
+.error-message {
+    color: #da272c;
+    display: block;
+    font-family: Roboto;
+    font-size: 12px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    min-height: 50px;
+    letter-spacing: normal;
+    line-height: normal;
+    padding: 5px;
+    text-align: center;
+    visibility: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    &--visible {
+        visibility: visible;
+    }
+
+    .icon-error {
+        margin-right: 5px;
+        vertical-align: middle;
+        zoom: 0.75;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-fluid {
+        padding: 0 !important;
+    }
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "idTradeAgreement": "5ec338cd8586dac0bf3fa984",
+    "tradeAgreementDesc": "Aceptar uso de datos personales  (Ley 29733)",
+    "file": "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf",
+    "isEnable": true,
+    "isRequired": false
+  },
+  {
+    "idTradeAgreement": "5ec338cd8586dac0bf3rd562",
+    "tradeAgreementDesc": "Aceptar filtro web (Ley 28493)",
+    "file": "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf",
+    "isEnable": true,
+    "isRequired": false
+  },
+  {
+    "idTradeAgreement": "5ec338cd8586dac0bf3pe896",
+    "tradeAgreementDesc": "Recibir información publicitaria  (Ley 28493)",
+    "file": "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf",
+    "isEnable": true,
+    "isRequired": false
+  },
+  {
+    "idTradeAgreement": "5ec338cd8586dac0bf3li712",
+    "tradeAgreementDesc": "**Valida identidad y aceptación de los términos y condiciones de la contratación",
+    "file": "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf",
+    "isEnable": true,
+    "isRequired": true
+  }
+]

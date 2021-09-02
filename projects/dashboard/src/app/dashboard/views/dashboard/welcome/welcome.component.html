@@ -1,0 +1,19 @@
+<claro-card>
+  <div class="welcome" *ngIf="user; else loading">
+    <div>
+      <h3 class="welcome__title">Bienvenida(o) {{ user.name }}</h3>
+      <!-- <hr /> -->
+      <div class="line"></div>
+      <p class="welcome__description">
+        Aquí encontrarás toda la información para brindar la mejor experiencia a
+        los clientes.
+      </p>
+    </div>
+    <div>
+      <img src="{{ cdn }}/img/icon/happy.svg" />
+    </div>
+  </div>
+  <ng-template #loading>
+    <claro-loading></claro-loading>
+  </ng-template>
+</claro-card>

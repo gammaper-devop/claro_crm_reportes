@@ -1,0 +1,74 @@
+@mixin label-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+}
+@mixin label-control {
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #a5a6a7;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  span {
+    color: #444;
+  }
+}
+
+:host {
+  .profile {
+    .profile-head {
+      display: flex;
+      margin-bottom: 2em;
+      &__photo {
+        margin: 0 1em;
+        .photo-border {
+          border: solid 2px #0fd299;
+          background-color: #ffffff;
+          display: inline-block;
+          border-radius: 50%;
+          padding: 1px;
+          img {
+            width: 100%;
+            min-width: 80px;
+          }
+        }
+      }
+      &__name {
+        font-weight: 700;
+        font-size: 18px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 1em;
+      }
+    }
+    hr {
+      border-top: 1px solid #e1e1e1;
+      margin: 1em 0;
+    }
+    .profile-info {
+      @include label-wrapper;
+      &__group {
+        max-width: 240px;
+        padding: 0 14px;
+        box-sizing: border-box;
+        .control-info {
+          @include label-control;
+        }
+      }
+    }
+    .profile-more {
+      @include label-wrapper;
+      &__group {
+        max-width: 240px;
+        padding: 0 14px;
+        box-sizing: border-box;
+        .control-info {
+          @include label-control;
+        }
+      }
+    }
+  }
+}

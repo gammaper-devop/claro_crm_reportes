@@ -1,0 +1,86 @@
+:host {
+  .btn-content {
+    display: flex;
+    justify-content: flex-end;
+    .btn-action {
+      margin-left: 1em;
+    }
+  }
+  .hide-item {
+    display: none;
+  }
+}
+
+.crm-dialog {
+  &__title {
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  &__subtitle {
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  &__label {
+    font-size: 14px;
+  }
+
+  &__dialog-body {
+    overflow: hidden;
+    padding: 1em 5em;
+  }
+  
+  &__radio-label {
+    display: inline;
+  }
+}
+
+.modal-width {
+  width: 400px;
+}
+
+.modal-width-lg {
+  min-width: 400px;
+}
+
+.error-message {
+  color: #da272c;
+  display: block;
+  font-family: Roboto;
+  font-size: 12px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  min-height: 50px;
+  letter-spacing: normal;
+  line-height: normal;
+  padding: 5px;
+  text-align: center;
+  visibility: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  &--visible {
+    visibility: visible;
+  }
+
+  .icon-error {
+    margin-right: 5px;
+    vertical-align: middle;
+    zoom: 0.75;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-fluid {
+    padding: 0 !important;
+  }
+
+  .crm-dialog {
+    &__dialog-body {
+      overflow-y: scroll;
+    }
+  }
+}

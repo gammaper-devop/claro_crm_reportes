@@ -1,0 +1,50 @@
+<div class="crm-confirm">
+  <mat-dialog-content class="crm-confirm__content">
+    <claro-icon
+      *ngIf="confirm.icon !== 'notification_important'"
+      id="crm-confirm__icon"
+      class="crm-confirm__icon"
+      [name]="confirm.icon"
+      size="md"
+    ></claro-icon>
+    <svg
+      *ngIf="confirm.icon === 'notification_important'"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="#00aacf"
+      width="48px"
+      height="48px"
+    >
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path
+        d="M18 16v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-5 0h-2v-2h2v2zm0-4h-2V8h2v4zm-1 10c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2z"
+      />
+    </svg>
+    <span class="crm-confirm__title py-3">{{ confirm.title }}</span>
+  </mat-dialog-content>
+  <mat-dialog-actions class="crm-confirm__actions">
+    <claro-button
+      id="crm-confirm__cancel"
+      text="Cancelar"
+      size="sm"
+      color="outline"
+      (click)="cancel()"
+    >
+    </claro-button>
+    <claro-button
+      id="crm-confirm__submit"
+      [text]="confirm.submit"
+      size="sm"
+      (click)="submit()"
+    >
+    </claro-button>
+  </mat-dialog-actions>
+  <claro-icon-button
+    id="crm-confirm__close"
+    class="crm-confirm__close"
+    name="close"
+    color="white"
+    (click)="close()"
+  >
+  </claro-icon-button>
+</div>

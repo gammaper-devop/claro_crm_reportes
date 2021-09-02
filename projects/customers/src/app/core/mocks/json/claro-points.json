@@ -1,0 +1,18 @@
+{
+  "factorClaroClub": "0.0474",
+  "currentPoints": "800",
+  "promotionalDiscounts": [
+    {
+      "customerType": "2",
+      "totalBalance": "21.85",
+      "discountFactor": "1",
+      "points": "461"
+    },
+    {
+      "customerType": "7",
+      "totalBalance": "16.07",
+      "discountFactor": "1",
+      "points": "339"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+<section *ngIf="isInitRoute === false">
+  <div class="py-4">
+    <crm-page-title
+      label="Perfil de Cliente"
+      [back]="true"
+      (handleBack)="goBack()"
+    >
+    </crm-page-title>
+  </div>
+  <div class="container container__profile mb-4">
+    <section class="profile-card-section">
+      <app-profile-card
+        class="profile-card-custom mb-4"
+        [user]="presenter.user"
+        [customer]="presenter.customer"
+      >
+      </app-profile-card>
+      <br />
+    </section>
+
+    <div class="footer" >
+      <claro-button
+       
+        size="lg"
+        (clicked)="navegaBiometria()"
+        text="¡Vamos a biometria!"
+      >
+      </claro-button>
+    </div>
+
+  </div>
+</section>

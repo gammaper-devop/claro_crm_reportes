@@ -1,0 +1,17 @@
+{
+  "flagMultipoint": "1",
+  "listMultipoint": [
+    {
+      "codigo": "0001",
+      "descripcion": "Oficina 01"
+    },
+    {
+      "codigo": "0002",
+      "descripcion": "Oficina 02"
+    },
+    {
+      "codigo": "0003",
+      "descripcion": "Oficina 03"
+    }
+  ]
+}

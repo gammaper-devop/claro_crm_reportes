@@ -1,0 +1,12 @@
+[
+  { "value": "0101", "label": "Meñique Derecho" },
+  { "value": "0102", "label": "Anular Derecho " },
+  { "value": "0103", "label": "Medio Derecho " },
+  { "value": "0104", "label": "Índice Derecho " },
+  { "value": "0105", "label": "Pulgar Derecho" },
+  { "value": "0201", "label": "Meñique Izquierdo " },
+  { "value": "0202", "label": "Anular Izquierdo " },
+  { "value": "0203", "label": "Medio Izquierdo " },
+  { "value": "0204", "label": "Índice Izquierdo " },
+  { "value": "0205", "label": "Pulgar Izquierdo" }
+]

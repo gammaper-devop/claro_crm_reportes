@@ -1,0 +1,14 @@
+[
+  {
+    "promotionCode": "01",
+    "promotionDescription": "Promoción 1"
+  },
+  {
+    "promotionCode": "02",
+    "promotionDescription": "Promoción 2"
+  },
+  {
+    "promotionCode": "03",
+    "promotionDescription": "Promoción 3"
+  }
+]

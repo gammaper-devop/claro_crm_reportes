@@ -1,0 +1,59 @@
+@import 'breakpoints';
+
+.title-view {
+  font-size: 18px;
+  text-align: center;
+  margin: 2rem 0 1rem;
+  padding: 0 1.5rem;
+}
+
+.container-custom {
+  display: block;
+  padding: 0 1.5rem;
+  max-width: 740px;
+  width: 100%;
+}
+
+.btn-new-content {
+  min-height: 32px;
+  margin-bottom: 1.5em;
+}
+
+.customers-result {
+  margin-top: 1.25em;
+  display: flex;
+
+  .client-card-custom {
+    &:nth-child(n) {
+      margin: 0 1em;
+      max-width: 226px;
+    }
+  }
+
+  .search-error {
+    margin-top: 1.5em;
+    width: 100%;
+    max-width: 240px;
+    color: #a5a6a7;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+@media (min-width: $screen-sm) {
+  .customers-result {
+    .search-error {
+      margin-top: 0;
+      margin-left: 30px;
+    }
+  }
+  .btn-new-content {
+    margin-top: 1.5em;
+    max-width: 180px;
+    margin-left: auto;
+  }
+  .title-view {
+    font-size: 24px;
+    margin: 3rem 0 1rem;
+  }
+}

@@ -1,0 +1,24 @@
+<mat-form-field
+  [ngClass]="classes"
+  floatLabel="never"
+  [class.input-icon]="icon"
+>
+  <input
+    #input
+    matInput
+    [type]="type"
+    [disabled]="disabled"
+    [value]="value"
+    [placeholder]="placeholder"
+    [maxLength]="maxInputLength"
+    (input)="onChange($event.target)"
+    (blur)="onBlur($event.target)"
+    (keyup.enter)="onEnter($event, false)"
+    (paste)="onPaste($event)"
+  />
+  <claro-icon
+    *ngIf="icon"
+    [name]="icon"
+    (click)="onEnter($event, input.value)"
+  ></claro-icon>
+</mat-form-field>

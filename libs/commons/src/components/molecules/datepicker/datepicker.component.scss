@@ -1,0 +1,49 @@
+@import '../../../scss/mixins/forms';
+
+/* Input */
+::ng-deep .mat-form-field-type-mat-input {
+  @include base-form-field;
+
+  .mat-form-field-infix {
+    border-top: none;
+    .mat-select-trigger {
+      height: inherit;
+    }
+    .mat-input-element {
+      font-size: 14px;
+      font-weight: bold;
+      padding: 0 15px;
+    }
+    .mat-form-field-label {
+      color: #e1e1e1;
+      padding: 0 15px;
+    }
+  }
+  &.input-icon {
+    .mat-form-field-infix {
+      display: flex !important;
+    }
+  }
+  .mat-icon-button .mat-icon {
+    color: #00aacf !important;
+  }
+}
+
+/* Sizes */
+::ng-deep .mat-form-field-type-mat-input {
+  &.size-md {
+    .mat-form-field-flex {
+      height: 40px;
+    }
+  }
+  &.size-sm {
+    .mat-form-field-flex {
+      height: 32px;
+    }
+  }
+  &.mat-form-field-disabled {
+    .mat-form-field-flex {
+      border: dotted 2px #ececec;
+    }
+  }
+}

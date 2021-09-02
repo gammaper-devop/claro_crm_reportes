@@ -1,0 +1,102 @@
+@import 'breakpoints';
+
+:host {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  .shell-container {
+    background-color: #f2f2f2;
+    flex: 1;
+    height: 100%;
+
+    .shell-content .container {
+      position: relative;
+      display: block;
+      min-height: 100%;
+    }
+
+    &__is-loggedin {
+      height: calc(100% - 70px);
+      @media (max-width: $screen-md) {
+        flex: 1 0 auto;
+        margin-top: 70px;
+      }
+    }
+  }
+
+  .shell-sidenav {
+    &__menu {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+
+      a {
+        align-items: center;
+        border-radius: 0;
+        color: #444;
+        display: flex;
+        justify-content: flex-start;
+        text-decoration: none;
+        width: 100%;
+
+        &:hover {
+          color: #444;
+        }
+
+        &.shell-sidenav__menu-active {
+          background-color: #da272c;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+// @media (max-width: 700px) {
+//   .app-sidebar {
+//     position: absolute;
+//     z-index: 999;
+//     width: 250px !important;
+//     margin-left: -250px !important;
+//     transition: all 0.5s ease;
+//   }
+//   .isHiddenActive {
+//     margin-left: 0 !important;
+//     transition: all 0.5s ease;
+//   }
+// }
+// @media (min-width: 768px) {
+//   .container-md,
+//   .container-sm,
+//   .container {
+//     max-width: 720px;
+//   }
+// }
+
+// @media (min-width: 576px) {
+//   .container-sm,
+//   .container {
+//     max-width: 100%;
+//   }
+// }
+@media (max-width: 992px) {
+  .container-sm,
+  .container {
+    max-width: 100% !important;
+  }
+}
+
+@media print {
+  .mat-drawer-content {
+    height: 100vh;
+  }
+}
+
+.width-contracts {
+  max-width: 100%;
+}

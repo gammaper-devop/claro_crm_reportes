@@ -1,0 +1,207 @@
+/* ==========================================================================
+   #COMPONENTS (): En este directorio se colocarán las clases que afecten a los 
+   diferentes componentes.
+  =========================================================================== */
+
+/* DEPENDENCIES ============================================================= */
+
+/* IMPORTS ================================================================== */
+
+%strong-word-medium {
+  font-family: $geometria-medium;
+  font-weight: 500;   
+}
+
+%strong-word-bold {
+  font-family: $geometria-bold;
+  font-weight: 700;   
+}
+
+@mixin tipography($font, $size, $line, $spacing, $weight: normal) {
+  font-family: $font;
+  font-weight: $weight;
+  font-size: $size*1px;
+  line-height: $line*1px;
+  @if(type-of($spacing) == number) {
+    letter-spacing: $spacing*1px;
+  }
+  @if(type-of($spacing) == string) {
+    letter-spacing: $spacing;
+  }
+}
+
+/* Titles */
+.maintitle-2 {
+  @include tipography($geometria-medium, 60, 60, -3);
+}
+
+.maintitle-3 {
+  @include tipography($geometria-medium, 52, 52, -3);
+}
+
+.sectitle-1 {
+  @include tipography($geometria-light, 40, 44, -3, 300);
+  span { 
+    @extend %strong-word-medium;
+  }
+}
+
+.sectitle-2 {
+  @include tipography($geometria-medium, 40, 44, -3, 500);
+  span { 
+    @extend %strong-word-medium;
+  }
+}
+
+.thirdtitle-1 {
+  @include tipography($geometria-light, 32, 36, -1, 300);
+}
+.thirdtitle-1-medium {
+  @include tipography($geometria-medium, 32, 36, -1, 500);
+}
+
+.thirdtitle-2 {
+  @include tipography($geometria-light, 28, 32, -1, 300);
+  span { 
+    @extend %strong-word-medium;  
+  }
+}
+
+.thirdtitle-2-medium {
+  @include tipography($geometria-medium 28, 32, -1, 500);
+  span { 
+    @extend %strong-word-medium;  
+  }
+}
+
+/* Subtitles */
+.sub-1,
+.commontitle-1 {
+  @include tipography($geometria-light, 20, 24, -0.5, 300);
+  span { 
+    @extend %strong-word-medium;
+  }
+}
+
+.sub-1-medium,
+.commontitle-1-medium {
+  @include tipography($geometria-medium, 20, 24, -0.5, 500);
+  span { 
+    @extend %strong-word-medium;
+  }
+}
+
+.commontitle-2 {
+  @include tipography($geometria-medium, 16, 20, -0.5, 500);
+  span { 
+    @extend %strong-word-bold;
+  }
+}
+
+.commontitle-2-bold {
+  @include tipography($geometria-bold, 16, 20, -0.5, 700);
+  span { 
+    @extend %strong-word-bold;
+  }
+}
+
+/* Paragraph */
+
+.p1 {
+  @include tipography($montserrat-semibold, 18, 28, -0.1);
+}
+
+.p2 {
+  @include tipography($montserrat-semibold, 16, 24, -0.1);
+}
+
+.p3 {
+  @include tipography($montserrat-semibold, 14, 22, -0.1);
+}
+
+.p3-semibold {
+  @include tipography($montserrat-semibold, 14, 22, -0.1, 600);
+}
+
+/// Peso de la fuente ligero
+/// @type Font
+.text-light {
+  font-weight: 300;
+}
+
+/// Peso de la fuente ligero
+/// @type Font
+.text-normal { 
+  font-weight: 400;
+}
+
+/// Peso de la fuente mediano
+/// @type Font
+.text-medium {
+  font-weight: 500;
+}
+
+/// Peso de la fuente semi oscuro
+/// @type Font
+.text-semibold {
+  font-weight: 600;
+}
+
+/// Peso de la fuente obscuro
+/// @type Font
+.text-bold {
+  font-weight: 700;
+}
+
+/* Buttons */
+
+%tipography-button-primary-l,
+%tipography-button-primary-m {
+  @include tipography($geometria-bold, 16, 20, -0.2, 500);
+}
+
+%tipography-button-primary-s,
+%tipography-button-secondary-s {
+  @include tipography($geometria-bold, 14, 18, 0.1, 500);
+}
+
+%tipography-button-secondary-l,
+%tipography-button-secondary-m {
+  @include tipography($geometria-bold, 16, 20, -0.1, );
+}
+
+/* Form */
+
+%tipography-input-label {
+  @include tipography($geometria-regular, 16, 16, -0.1, 500);
+}
+
+%tipography-input {
+  @include tipography($geometria-medium, 16, 20, 0.1, 500);
+}
+
+%tipography-list { 
+  @include tipography($montserrat-regular, 16, 20, -0.1, normal);
+}
+
+%tipography-label { 
+  @include tipography($geometria-medium, 16, 20, -0.1, normal);
+}
+
+%tipography-error { 
+  @include tipography($montserrat-semibold, 12, 12, 1, 600);
+}
+
+/* */
+
+%tipography-table-title1 {
+  @include tipography($montserrat-regular, 14, 15, 0, normal);
+}
+
+%tipography-table-title2 {
+  @include tipography($geometria-light, 16, 16, 0, 300);
+}
+
+%tipography-blog-text1 {
+  @include tipography($montserrat-medium, 14, 16, -0.1, 500);
+}

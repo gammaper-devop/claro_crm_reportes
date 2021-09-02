@@ -1,0 +1,50 @@
+[
+  {
+    "criteriaId": "1",
+    "documentTypeId": "2",
+    "criteriaName": "DNI",
+    "criteriaFormat": "ALFANUMERIC",
+    "criteriaMaxLength": 8,
+    "criteriaMinLength": 8
+  },
+  {
+    "criteriaId": "1",
+    "documentTypeId": "5",
+    "criteriaName": "CIP",
+    "criteriaFormat": "ALFANUMERIC",
+    "criteriaMaxLength": 10,
+    "criteriaMinLength": 10
+  },
+  {
+    "criteriaId": "1",
+    "documentTypeId": "4",
+    "criteriaName": "Carnet Extranjeria",
+    "criteriaFormat": "ALFANUMERIC",
+    "criteriaMaxLength": 12,
+    "criteriaMinLength": 12
+  },
+  {
+    "criteriaId": "1",
+    "documentTypeId": "1",
+    "criteriaName": "Pasaporte",
+    "criteriaFormat": "ALFANUMERIC",
+    "criteriaMaxLength": 12,
+    "criteriaMinLength": 12
+  },
+  {
+    "criteriaId": "4",
+    "documentTypeId": "",
+    "criteriaName": "Telefono",
+    "criteriaFormat": "ALFANUMERIC",
+    "criteriaMaxLength": 12,
+    "criteriaMinLength": 6
+  },
+  {
+    "criteriaId": "1",
+    "documentTypeId": "9",
+    "criteriaName": "CPP",
+    "criteriaFormat": "ALFANUMERIC",
+    "criteriaMaxLength": 21,
+    "criteriaMinLength": 21
+  }
+]

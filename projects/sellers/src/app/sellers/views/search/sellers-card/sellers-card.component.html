@@ -1,0 +1,195 @@
+<div *ngFor="let item of listSellers; let i = index" class="container my-4">
+  <claro-card class="card-content">
+    <div class="d-block d-lg-flex justify-content-between my-2 mx-0">
+      <div (click)="showHistory(i)" class="data-seller col-lg-9 col-12">
+        <div
+          [ngClass]="{
+            hide: (showList && position === i) || listType !== ENetworkAccount
+          }"
+          class="d-block d-lg-flex col-12 p-0"
+        >
+          <div class="seller d-flex">
+            <div class="photo">
+              <div class="info-photo">
+                <crm-svg-image name="user"></crm-svg-image>
+              </div>
+            </div>
+            <div class="ml-4">
+              <h4 class="info-name mb-1">{{ item.names }}</h4>
+              <h4 class="info-name">
+                {{ item.lastName }} {{ item.motherLastName }}
+              </h4>
+              <div
+                [ngClass]="{
+                  active: item.status === EActive,
+                  inactive: item.status === EInactive
+                }"
+                class="d-flex align-items-baseline"
+              >
+                <p class="point rounded-circle mr-2 mb-0"></p>
+                <p class="info-status mt-1 mb-0">
+                  {{ item.statusDescription }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="info-info d-sm-flex justify-content-around mt-4 mt-lg-0 mb-lg-0 mb-4 ml-lg-3"
+          >
+            <div class="info-label ml-lg-5">
+              Tipo doc:
+              <p>{{ item.documentTypeDescription }}</p>
+            </div>
+            <div class="info-label ml-lg-5">
+              N° doc:
+              <p>{{ item.documentNumber }}</p>
+            </div>
+            <div class="info-label ml-lg-5">
+              Fecha ingreso:
+              <p>{{ registerDate[i] }}</p>
+            </div>
+          </div>
+        </div>
+        <div
+          *ngIf="(showList && position === i) || listType !== ENetworkAccount"
+          class="col-12 p-0"
+        >
+          <div class="seller d-flex">
+            <div class="photo">
+              <div class="info-photo">
+                <crm-svg-image name="user"></crm-svg-image>
+              </div>
+            </div>
+            <div class="ml-4">
+              <h4 class="info-name mb-1">{{ item.names }}</h4>
+              <h4 class="info-name">
+                {{ item.lastName }} {{ item.motherLastName }}
+              </h4>
+              <div
+                [ngClass]="{
+                  active: item.status === EActive,
+                  inactive: item.status === EInactive
+                }"
+                class="d-flex align-items-baseline"
+              >
+                <p class="point rounded-circle mr-2 mb-0"></p>
+                <p class="info-status mt-1 mb-0">
+                  {{ item.statusDescription }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="info-info d-block d-md-flex justify-content-between mt-4 mb-4 mb-lg-0"
+          >
+            <div class="info-label">
+              Tipo doc:
+              <p class="mb-lg-0">{{ item.documentTypeDescription }}</p>
+            </div>
+            <div class="info-label">
+              N° doc:
+              <p class="mb-lg-0">{{ item.documentNumber }}</p>
+            </div>
+            <div class="info-label">
+              Punto de venta:
+              <p class="mb-lg-0">{{ item.pointSale }}</p>
+            </div>
+            <div class="info-label">
+              Fecha ingreso:
+              <p class="mb-lg-0">{{ registerDate[i] }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="buttons d-flex col-lg-3 justify-content-end"
+        [ngClass]="{
+          hide: (showList && position === i) || listType !== ENetworkAccount
+        }"
+      >
+        <claro-icon-button
+          *ngIf="item.status === EActive"
+          class="mr-3"
+          styl="fab"
+          size="sm"
+          name="edit"
+          (clicked)="edit(i)"
+          [disabled]="item.pointSaleCode !== presenter.user.office"
+        >
+        </claro-icon-button>
+        <claro-button
+          *ngIf="item.status === EActive"
+          size="sm"
+          (clicked)="openDialog(i)"
+          text="Dar de baja"
+          [disabled]="item.pointSaleCode !== presenter.user.office"
+        >
+        </claro-button>
+        <claro-button
+          *ngIf="item.status === EInactive"
+          size="sm"
+          (clicked)="sellerCreateInactive(i)"
+          text="Dar de alta"
+        >
+        </claro-button>
+      </div>
+      <div
+        class="buttons d-flex col-lg-auto justify-content-lg-between justify-content-end"
+        [ngClass]="{ 'flex-lg-column-reverse': item.status === EActive }"
+        *ngIf="(showList && position === i) || listType !== ENetworkAccount"
+      >
+        <claro-icon-button
+          *ngIf="item.status === EActive"
+          class="text-right mr-3 mr-lg-0"
+          styl="fab"
+          size="sm"
+          name="edit"
+          (clicked)="edit(i)"
+          [disabled]="item.pointSaleCode !== presenter.user.office"
+        >
+        </claro-icon-button>
+        <claro-button
+          *ngIf="item.status === EActive"
+          size="sm"
+          (clicked)="openDialog(i)"
+          text="Dar de baja"
+          [disabled]="item.pointSaleCode !== presenter.user.office"
+        >
+        </claro-button>
+        <claro-button
+          *ngIf="item.status === EInactive"
+          size="sm"
+          (clicked)="sellerCreateInactive(i)"
+          text="Dar de alta"
+        >
+        </claro-button>
+      </div>
+    </div>
+  </claro-card>
+  <div
+    *ngIf="
+      showList &&
+      position === i &&
+      listType === ENetworkAccount &&
+      ((item?.records.length > 0 && !isAccountNetwork) ||
+        (item?.records[0]?.records.length > 0 && isAccountNetwork))
+    "
+    class="mt-4"
+  >
+    <claro-card class="card-content">
+      <app-sellers-history [itemHistory]="item.records"></app-sellers-history>
+    </claro-card>
+  </div>
+  <div
+    *ngIf="
+      listType !== ENetworkAccount &&
+      ((item?.records.length > 0 && !isAccountNetwork) ||
+        (item?.records[0]?.records.length > 0 && isAccountNetwork))
+    "
+    class="mt-4"
+  >
+    <claro-card class="card-content">
+      <app-sellers-history [itemHistory]="item.records"></app-sellers-history>
+    </claro-card>
+  </div>
+</div>

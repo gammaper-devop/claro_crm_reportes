@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  .mat-expansion-panel-body {
+    padding: 0;
+  }
+
+  .mat-expansion-panel:not([class*="mat-elevation-z"]) {
+    box-shadow: none;
+  }
+
+  .mat-expansion-panel {
+    .mat-expansion-panel-header {
+      height: 5em !important;
+    }
+
+    .mat-expansion-panel-header[aria-disabled="true"] {
+      color: black;
+    }
+    .mat-expansion-panel-header-title {
+      align-items: center;
+      font-weight: 500;
+    }
+
+    &:not(.mat-expanded) {
+      .mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
+        background: #fff !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .mat-expansion-panel-header-title {
+    margin-right: 0 !important;
+  }
+}
+
+// ::ng-deep {
+//   .mat-expansion-indicator::after {
+//     border-width: 6px 6px 0 6px;
+//     padding: 0;
+//     transform: rotate(0deg);
+//     border-left-color: transparent;
+//     border-right-color: transparent;
+//     border-top-color: #00aacf;
+//   }
+
+//   &.without-title {
+//     .mat-expansion-panel-content .mat-expansion-panel-body {
+//       padding: 16px 24px;
+//     }
+//   }
+// }

@@ -1,0 +1,22 @@
+[
+  {
+    "code": "1234",
+    "description": "Avenida",
+    "abbreviation" : "Av"
+  },
+  {
+    "code": "2345",
+    "description": "Calle",
+    "abbreviation" : "Cl"
+  },
+  {
+    "code": "3456",
+    "description": "Jirón",
+    "abbreviation" : "Jr"
+  },
+  {
+    "code": "4567",
+    "description": "Asentamiento Humano",
+    "abbreviation" : "AH"
+  }
+]

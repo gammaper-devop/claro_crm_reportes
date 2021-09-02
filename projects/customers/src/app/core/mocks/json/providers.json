@@ -1,0 +1,22 @@
+[
+  {
+    "code": "01",
+    "description": "Call Center Chorillos"
+  },
+  {
+    "code": "01",
+    "description": "Call Center San Isidro"
+  },
+  {
+    "code": "03",
+    "description": "Call Center Miraflores"
+  },
+  {
+    "code": "04",
+    "description": "Call Center San Juan de Miraflores"
+  },
+  {
+    "code": "05",
+    "description": "Call Center Santiago de Surco"
+  }
+]

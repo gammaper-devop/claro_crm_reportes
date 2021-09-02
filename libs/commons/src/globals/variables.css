@@ -1,0 +1,25 @@
+:root {
+  --xs-size: 575.98px;
+  --sm-size: 767.98px;
+  --lg-size: 991.98px;
+  --xl-size: 1199.98px;
+  --claro-primary: #ff9600;
+  --claro-primary-hover: #ffa513;
+  --claro-secondary: #55aced;
+  --claro-secondary-hover: #63b9f0;
+  --claro-green: #00a94f;
+  --claro-green-hover: #00b555;
+  --claro-white: #fff;
+  --claro-lightgray: #fafafa;
+  --claro-gray: #f0f0f0;
+  --claro-mediumgray: #e5e5e5;
+  --claro-mediumdarkgray: #9c9c9c;
+  --claro-darkgray: #333;
+  --claro-error: #f14649;
+  --omnes: Omnes;
+  --omnes-semibold: Omnes Semibold;
+  --omnes-light: Omnes Light;
+  --omnes-medium: Omnes Medium;
+  --helvetica-neue-bold: Helvetica Neue Bold;
+  --helvetica-neue: Helvetica Neue Regulars;
+}

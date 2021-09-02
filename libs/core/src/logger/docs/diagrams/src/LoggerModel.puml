@@ -1,0 +1,37 @@
+@startuml LoggerModel
+
+interface IMessages {
+  secret_key_not_found: string
+  circular_object: string
+}
+
+interface ILogger {
+  setHeader(accessToken: string, headerName?: string, tokenType?: string): void
+  info(messageToPrint: string, additionalInfo?: any): void
+  debug(messageToPrint: string, additionalInfo?: any): void
+  log(messageToPrint: string, additionalInfo?: any): void
+  trace(messageToPrint: string, additionalInfo?: any): void
+  warn(messageToPrint: string, additionalInfo?: any): void
+  error(messageToPrint: string, additionalInfo?: any): void
+}
+
+class Logger implements ILogger {
+  #storage = {} as IStorage
+  - headers: any
+  - messages: IMessages
+
+  + constructor(config: ILoggerConfig)
+  + setHeader(accessToken: string, headerName: string, tokenType: string): void
+  + trace(message: string, additionalInfo: any): void
+  + debug(message: string, additionalInfo: any): void
+  + info(message: string, additionalInfo: any): void
+  + log(message: string, additionalInfo: any): void
+  + warn(message: string, additionalInfo: any): void
+  + error(message: string, additionalInfo: any): void
+  #getHeaders()
+  - _log(logLevel: ELoggerLevels, messageToPrint: string, additional: any): void
+  - _serverLog(level: ELoggerLevels, message: string, additional: any): void
+  - _customLog(level: ELoggerLevels, message: string, additional: any): void
+}
+
+@enduml

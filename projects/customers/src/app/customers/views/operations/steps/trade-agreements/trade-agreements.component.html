@@ -1,0 +1,26 @@
+<div class="row" *ngIf="presenter.options || presenter.error">
+  <div class="col-12">
+    <p>Comunicale al cliente los acuerdos a aceptar</p>
+  </div>
+
+  <form
+    [formGroup]="presenter.tradeAgreementsForm"
+    class="col-12 container-input"
+  >
+    <div *ngFor="let elm of presenter.options; let index = index">
+      <div formArrayName="tradeAgreementsList" class="d-flex">
+        <label [formGroupName]="index" class="label-check ldr-form_size d-block">
+          <span
+            [ngClass]="{'font-weight-bold' : elm.isRequired}"
+            >{{ elm.description }}</span>
+          <input type="checkbox" formControlName="tradeAgreementValue">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+  </form>
+
+  <div class="col-12 text-left text-md-right">
+    <small class="font-weight-bold">**Campos obligatorios</small>
+  </div>
+</div>

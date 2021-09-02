@@ -1,0 +1,531 @@
+<div class="container-fluid mb-5" *ngIf="!isLoading">
+  <claro-collapse
+    *ngIf="stepCheck(1, 3, 'all')"
+    class="mt-4 mb-3"
+    text="¿Qué desea hacer el cliente?"
+    [expanded]="expandedCheck(1)"
+  >
+    <app-select-operation
+      [user]="user"
+      [customer]="customer"
+      (hideNextBtn)="hideNextBtn()"
+      (resolveStep)="setStep($event)"
+      (operationType)="setOperationType($event)"
+      (hideReasonsCard)="hideReasonsCard()"
+    >
+    </app-select-operation>
+  </claro-collapse>
+  <div
+    *ngIf="
+      viewMultipoints &&
+      (stepCheck(2, 3, 'newline') ||
+        stepCheck(2, 3, 'replacement') ||
+        stepCheck(2, 3, 'renewal'))
+    "
+  >
+    <app-multipoints
+      [channels]="presenter.channelsFromListMultipoints"
+      (viewMultipoints)="viewMultipointsValue($event)"
+      (channelUpdate)="viewChannelValue($event)"
+      (multipointsSelects)="multipointsValue($event)"
+    ></app-multipoints>
+  </div>
+  <div
+    *ngIf="
+      viewLogin &&
+      (stepCheck(2, 3, 'portability') ||
+        stepCheck(3, 3, 'newline') ||
+        stepCheck(2, 3, 'replacement') ||
+        stepCheck(2, 3, 'renewal'))
+    "
+  >
+    <app-login
+      (viewLogin)="viewLoginValue($event)"
+      (userUpdate)="viewUserValue($event)"
+    >
+    </app-login>
+  </div>
+  <div
+    *ngIf="
+      stepCheck(2, 3, 'portability') &&
+      scanBiometric !== undefined &&
+      !viewLogin &&
+      viewMultipoints === false
+    "
+  >
+    <claro-collapse
+      class="my-3"
+      text="Portabilidad"
+      [expanded]="expandedCheck(2)"
+    >
+      <app-portability
+        [user]="user"
+        [isCAC]="isCAC"
+        [customer]="customer"
+        [error]="presenter.error"
+        [withBiometric]="withBiometric"
+        [biometricConfig]="presenter.biometricConfig"
+        [saleOperationType]="presenter.saleOperationType"
+        [virtualOfficeTypeFlag]="virtualOfficeTypeFlag"
+        (resolveStep)="navStep($event)"
+        (linesSec)="setLines($event)"
+        (secNumber)="presenter.setSecNumber($event)"
+        (maxLinesService)="getTotalLines($event)"
+        #portabilityComponent
+      >
+      </app-portability>
+    </claro-collapse>
+    <div class="btn-content" *ngIf="!presenter.secNumber">
+      <claro-button
+        class="btn-action"
+        size="lg"
+        styl="flat"
+        text="Generar Evaluación"
+        [disabled]="portabilityComponent.unreadyToSec()"
+        (clicked)="portabilityComponent.generateSec()"
+      >
+      </claro-button>
+    </div>
+  </div>
+  <div
+    *ngIf="
+      stepCheck(2, 3, 'replacement') && !viewLogin && viewMultipoints === false
+    "
+  >
+    <claro-collapse
+      class="my-3"
+      text="Reposición"
+      [expanded]="expandedCheck(2) && !showReasons"
+    >
+      <app-replacement
+        [user]="user"
+        [customer]="customer"
+        [error]="presenter.error"
+        [saleOperationType]="presenter.saleOperationType"
+        [showNextBtn]="showNextBtn"
+        (resolveStep)="navStep($event)"
+        (linesSec)="setLines($event)"
+        (nextBtn)="nextBtn($event)"
+        (showReasonsCard)="showReasonsCard()"
+        #replacementComponent
+      >
+      </app-replacement>
+    </claro-collapse>
+    <div class="btn-content" *ngIf="showNextBtn">
+      <claro-button
+        class="btn-action"
+        size="lg"
+        styl="flat"
+        text="Continuar"
+        [disabled]="replacementComponent.unreadyToContinue()"
+        (clicked)="replacementComponent.continueNextStep()"
+      >
+      </claro-button>
+    </div>
+  </div>
+  <div
+    *ngIf="
+      stepCheck(2, 3, 'renewal') && !viewLogin && viewMultipoints === false
+    "
+  >
+    <claro-collapse
+      class="my-3"
+      text="Renovación"
+      [expanded]="expandedCheck(2) && !showReasons"
+    >
+      <app-renewal
+        [user]="user"
+        [customer]="customer"
+        [error]="presenter.error"
+        [saleOperationType]="presenter.saleOperationType"
+        [showNextBtn]="showNextBtn"
+        (resolveStep)="navStep($event)"
+        (linesSec)="setLines($event)"
+        (nextBtn)="nextBtn($event)"
+        (showReasonsCard)="showReasonsCard()"
+        #renewalComponent
+      >
+      </app-renewal>
+    </claro-collapse>
+    <div class="btn-content" *ngIf="showNextBtn">
+      <claro-button
+        class="btn-action"
+        size="lg"
+        styl="flat"
+        text="Continuar"
+        [disabled]="renewalComponent.unreadyToContinue()"
+        (clicked)="renewalComponent.continueNextStep()"
+      >
+      </claro-button>
+    </div>
+  </div>
+  <div
+    *ngIf="
+      showReasons &&
+      (stepCheck(2, 3, 'replacement') || stepCheck(2, 3, 'renewal'))
+    "
+  >
+    <claro-collapse class="my-3" text="Motivo" [expanded]="showReasons">
+      <app-reason
+        [lines]="lines"
+        [step]="step"
+        [user]="user"
+        [saleOperationType]="presenter.saleOperationType"
+        (resolveStep)="navStep($event)"
+        (hideLoyaltyCard)="hideLoyaltyCard($event)"
+        (hiddenFide)="hiddenFide($event)"
+        [disableTgChipIn]="disableTGChipInside"
+      >
+      </app-reason>
+    </claro-collapse>
+  </div>
+  <div
+    *ngIf="
+      stepCheck(3, 3, 'all') &&
+      scanBiometric !== undefined &&
+      !viewLogin &&
+      viewMultipoints === false
+    "
+  >
+    <claro-collapse
+      class="my-3"
+      text="¿Qué desea llevar el cliente?"
+      [expanded]="expandedCheck(3)"
+    >
+      <app-sale
+        (sendSaleOption)="sendSaleOptionSteps($event)"
+        [user]="user"
+        [customer]="customer"
+        [error]="presenter.error"
+        [withBiometric]="withBiometric"
+        [biometricConfig]="presenter.biometricConfig"
+        [saleOperationType]="presenter.saleOperationType"
+        [isNewLine]="presenter.isNewLine"
+        [isRenoRepo]="presenter.isRenoRepo"
+        [lines]="lines"
+        [secNumber]="presenter.secNumber"
+        [flagPicking]="flagPicking"
+        [multipointsSelects]="multipointsSelects"
+        (sendLines)="setLines($event)"
+        (getBiometricConfig)="getBiometricConfig($event)"
+        (maxLinesService)="getTotalLines($event)"
+        (dispatchOptionsCard)="dispatchOptionsCard($event)"
+        (changeDisplayLoyalty)="changeDisplayLoyalty($event)"
+        (disableTGChipsEmitter)="disableTGChipsEmitter($event)"
+        #appSale
+      >
+      </app-sale>
+    </claro-collapse>
+    <claro-collapse
+      class="my-3"
+      text="Claro Puntos"
+      [expanded]="false"
+      *ngIf="
+        !isCAD &&
+        ((isOptionPack && presenter.isShowClaroPoints) || presenter.isReno)
+      "
+    >
+      <app-claro-points
+        [lines]="lines"
+        (inputValueEmit)="setPoints($event)"
+        [user]="user"
+        [customer]="customer"
+      ></app-claro-points>
+    </claro-collapse>
+    <div *ngIf="isCAC && !hideLoyalty && !vhiddenFide && (presenter.isRenoRepo ||presenter.flagDisplayLoyaltyDisccount)">
+      <claro-collapse
+        class="my-3"
+        text="Fidelización (opcional)"
+        [expanded]="false"
+      >
+        <app-loyalty
+          (sendLoyaltyDiscountAmount)="receiveLoyaltyDiscountAmount($event)"
+          [saleOperationType]="presenter.saleOperationType"
+          [lines]="lines"
+        >
+        </app-loyalty>
+      </claro-collapse>
+    </div>
+    <div *ngIf="multipointsSelects && showDispatchOptionsCard">
+      <claro-collapse class="my-3" text="Entrega" [expanded]="true">
+        <app-dispatch-options
+          (dispatchOptionsSelected)="dispatchOptionsSelected($event)"
+          [lines]="lines"
+        >
+        </app-dispatch-options>
+      </claro-collapse>
+    </div>
+    <div class="btn-content">
+      <claro-button
+        class="btn-action"
+        size="lg"
+        styl="flat"
+        text="Continuar"
+        [disabled]="appSale.unreadyToContinue()"
+        (clicked)="nextStep(true)"
+      >
+      </claro-button>
+    </div>
+  </div>
+  <claro-collapse
+    *ngIf="stepCheck(4, 8, 'all')"
+    class="my-3"
+    [iconName]="
+      !flagPicking &&
+      ((presenter.signatureType === 'manual-signature' &&
+        presenter.saleSuccess) ||
+        presenter.summaryPaymentPending)
+        ? 'print'
+        : ''
+    "
+    [text]="presenter.saleSuccess ? 'Resumen de pago' : 'Resumen de la venta'"
+    (iconClicked)="savePDF()"
+    expanded="true"
+  >
+    <app-summary-sale
+      [user]="user"
+      [customer]="customer"
+      [saleOperationType]="presenter.saleOperationType"
+      [isNewLine]="presenter.isNewLine"
+      [lines]="lines"
+      [isRenoRepo]="presenter.isRenoRepo"
+      [isAlt]="presenter.isAlt"
+      [linesAdditional]="linesAdditional"
+      [flowType]="presenter.flowType"
+      [secNumber]="presenter.secNumber"
+      [flagPicking]="flagPicking"
+      [loyaltyDiscountAmount]="loyaltyDiscountAmount"
+    >
+    </app-summary-sale>
+  </claro-collapse>
+  <claro-collapse
+    *ngIf="stepCheck(4, 7, 'all') && isCAC && flagDelivery && flagSelectCheckedTypeEmit"
+    class="my-3"
+    text="Datos de Delivery"
+    [expanded]="!showDocumentsSign"
+  >
+    <app-delivery
+      [showDocumentsSign]="showDocumentsSign"
+      [virtualOfficeTypeFlag]="virtualOfficeTypeFlag"
+      (sendDeliveryRequest)="sendDeliveryRequest($event)"
+    >
+    </app-delivery>
+  </claro-collapse>
+  <claro-collapse
+    *ngIf="stepCheck(8, 8, 'all') && isCAC && flagDelivery"
+    class="my-3"
+    text="Resumen Delivery"
+    expanded="true"
+  >
+    <app-summary-delivery [deliveryRequest]="deliveryRequest">
+    </app-summary-delivery>
+  </claro-collapse>
+  <claro-collapse
+    *ngIf="
+      (!multipointsSelects || flagDocumentsSign) &&
+      ((stepCheck(4, 6, 'all') && !isCAC) ||
+        (isCAC &&
+          (scanBiometric || flagDocumentsSign) &&
+          ((!flagDelivery && stepCheck(4, 6, 'all')) ||
+            (flagDelivery && showDocumentsSign && !stepCheck(8, 8, 'all')))))
+    "
+    class="my-3"
+    text="Documentos a Firmar"
+    [expanded]="expandedCheck(5)"
+  >
+    <app-documents-sign
+      [customer]="customer"
+      [disabled]="presenter.noMoreAttempts || startSaveSale"
+      [scanBiometric]="scanBiometric"
+      [stepIndex]="step.index"
+      [user]="user"
+      [echannelCAC]="echannelCAC"
+      [isRenoRepo]="presenter.isRenoRepo"
+      [flagPicking]="flagDocumentsSign"
+      [flagDelivery]="flagDelivery"
+      (setEmail)="presenter.setEmail($event)"
+      (resolveNavStep)="navStep($event)"
+      (signatureType)="presenter.setSignatureType($event)"
+      (checkDocumentSign)="catchDocumentSign($event)"
+    >
+    </app-documents-sign>
+  </claro-collapse>
+
+  <claro-collapse
+    *ngIf="(stepCheck(5, 6, 'all') || !flagSelectCheckedTypeEmit) && !temporal"
+    class="my-3"
+    text="Acuerdos Comerciales"
+    [expanded]="!presenter.noMoreAttempts && !startSaveSale"
+  >
+    <app-trade-agreements
+      [customer]="customer"
+      [error]="presenter.error"
+      [noMoreAttempts]="presenter.noMoreAttempts || startSaveSale"
+      [echannelCAC]="echannelCAC"
+      [isRenoRepo]="presenter.isRenoRepo"
+      (listTradeAgreements)="presenter.getListTradeAgreements($event)"
+      (resolveStep)="setStep($event)"
+      (scannerFingers)="scanFingers()"
+      #tradeAgreementsComponent
+    >
+    </app-trade-agreements>
+  </claro-collapse>
+
+  <claro-collapse
+    *ngIf="(stepCheck(6, 6, 'all') && scanBiometric) || flagBio"
+    class="my-3"
+    text="Validación del Cliente"
+    [expanded]="presenter.saleSuccess === undefined || flagValidateTradeAgreements"
+  >
+    <crm-biometric-validation
+      [body]="body"
+      [biometricConfig]="presenter.biometricConfig"
+      [biometricType]="biometricType"
+      (biometricScanEmit)="biometricScanEmit($event)"
+      (questionsAnswer)="questionsAnswer($event)"
+      (leaveEmit)="leaveReceived()"
+      (scanFingers)="scanFingers()"
+    >
+    </crm-biometric-validation>
+  </claro-collapse>
+  <claro-collapse
+    *ngIf="stepCheck(6, 6, 'all') && presenter.saleSuccess === false"
+    class="my-3"
+    expanded="true"
+    hideToggle="true"
+  >
+    <app-sale-error
+      [error]="presenter.errorSale"
+      (clicked)="saveSale()"
+      [sale]="true"
+      [saleAttemptsNumber]="saleAttemptsNumber"
+    >
+    </app-sale-error>
+  </claro-collapse>
+  <ng-container>
+    <div
+      *ngIf="
+        (presenter.saleSuccess &&
+          !presenter.isNewLine &&
+          !presenter.isRenoRepo &&
+          !wasOmitted &&
+          !flagBio) ||
+        (flagBio &&
+          successfulBiometric &&
+          !presenter.isNewLine &&
+          !presenter.isRenoRepo)
+      "
+    >
+      <div>
+        <claro-collapse
+          class="my-3"
+          text="Validación Portabilidad"
+          expanded="true"
+        >
+          <app-validate-portability
+            [user]="user"
+            [orderNumber]="presenter.orderNumber"
+            [secNumber]="presenter.secNumber"
+            [autoFirePortability]="autoFirePortability"
+            (portabilityIsValid)="resolvePortabilityValidation($event)"
+            [error]="presenter.error"
+            #validatePortabilityComponent
+          >
+          </app-validate-portability>
+        </claro-collapse>
+        <div class="btn-content" *ngIf="presenter.portabilityIsValid === false">
+          <claro-button
+            *ngIf="!isCAC && validatePortabilityComponent.checkCancel()"
+            size="lg"
+            color="outline"
+            styl="flat"
+            text="Anular"
+            (clicked)="cancelPayment()"
+          >
+          </claro-button>
+          <claro-button
+            *ngIf="validatePortabilityComponent.checkTryAgain()"
+            class="btn-action"
+            size="lg"
+            styl="flat"
+            text="Actualizar estado"
+            (clicked)="validatePortabilityComponent.validatePortability()"
+          >
+          </claro-button>
+        </div>
+      </div>
+    </div>
+    <div
+      *ngIf="
+        (presenter.saleSuccess &&
+          stepCheck(8, 8, 'all') &&
+          !isCAC &&
+          !wasOmitted &&
+          !flagBio) ||
+        (stepCheck(8, 8, 'all') && !isCAC && flagBio && successfulBiometric)
+      "
+    >
+      <claro-collapse class="my-3" text="Documentación de Pago" expanded="true">
+        <app-payment-documentation
+          [user]="user"
+          [customer]="customer"
+          [orderNumber]="presenter.orderNumber"
+          [secNumber]="presenter.secNumber"
+          [orderNumberSynergi]="presenter.orderNumberSynergi"
+          [saleOperationType]="presenter.saleOperationType"
+          [totalPrice]="presenter.totalPrice"
+          [lines]="lines"
+          [linesAdditional]="linesAdditional"
+          [digitalFlag]="digitalFlag"
+          [productType]="presenter.productType"
+          [email]="
+            presenter.signatureType === 'digital-signature' || linesAdditional
+              ? presenter.email
+              : ''
+          "
+          #paymentDocComponent
+        >
+        </app-payment-documentation>
+      </claro-collapse>
+      <div class="btn-content">
+        <claro-button
+          *ngIf="!isCAC"
+          size="lg"
+          color="outline"
+          styl="flat"
+          text="Anular"
+          (clicked)="cancelPayment()"
+        >
+        </claro-button>
+        <claro-button
+          class="btn-action"
+          size="lg"
+          styl="flat"
+          text="Confirmar Pago"
+          [disabled]="paymentDocComponent.unreadyToConfirm()"
+          (clicked)="paymentDocComponent.executePayment()"
+        >
+        </claro-button>
+      </div>
+    </div>
+    <div *ngIf="presenter.saleSuccess && stepCheck(8, 8, 'all') && (isCAC || wasOmitted)">
+      <div class="btn-content">
+        <claro-button
+          size="lg"
+          color="outline"
+          styl="flat"
+          text="Anular"
+          (clicked)="cancelPayment()"
+        >
+        </claro-button>
+        <claro-button
+          class="btn-action"
+          size="lg"
+          styl="flat"
+          [text]="'Continuar'"
+          (clicked)="finishSaleCac()"
+        ></claro-button>
+      </div>
+    </div>
+  </ng-container>
+</div>

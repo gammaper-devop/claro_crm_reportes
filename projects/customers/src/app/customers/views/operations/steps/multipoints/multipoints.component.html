@@ -1,0 +1,59 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+  <claro-collapse
+    class="mt-4 mb-3"
+    text="Ingreso Multipuntos"
+    [expanded]="true"
+  >
+    <div class="form-content">
+      <p>Selecciona una ubicación para iniciar operaciones</p>
+      <div class="col-12 row">
+        <div class="formElemet pr-4">
+          <label>Canal</label><br>
+          <claro-select
+            placeholder="Selecciona"
+            [options]="channels"
+            formControlName="selectChannel"
+            [value]="selectChannel"
+            (valueChanged)="changeChannel($event)"
+            [isObject]="true"
+            claroReactiveForm
+          >
+          </claro-select>
+        </div>
+        <div class="formElemet pr-4">
+          <label>Punto de Venta</label><br>
+          <claro-select
+            placeholder="Selecciona"
+            [options]="presenter.pointSale"
+            formControlName="selectPointSale"
+            [value]="selectPointSale"
+            (valueChanged)="changePointSale($event)"
+            [isObject]="true"
+            claroReactiveForm
+          >
+          </claro-select>
+        </div>
+        <div class="formElemet pr-4">
+          <label>Vendedores</label><br>
+          <claro-select
+            placeholder="Selecciona"
+            [options]="presenter.sellers$ | async"
+            formControlName="selectSellers"
+            [value]="selectSellers"
+            (valueChanged)="changeSeller()"
+            [isObject]="true"
+            claroReactiveForm
+          >
+          </claro-select>
+        </div>
+      </div>
+    </div>
+  </claro-collapse>
+  <div class="pt-2 pr-5 d-flex justify-content-end">
+    <div class="form-actions">
+      <button type="submit" [disabled]="!valid">
+        Continuar
+      </button>
+    </div>
+  </div>
+</form>

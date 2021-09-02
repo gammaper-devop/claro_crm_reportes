@@ -1,0 +1,21 @@
+<div class="crm-confirm">
+  <mat-dialog-content class="crm-confirm__content">
+    <claro-icon
+      id="crm-confirm__icon"
+      class="crm-confirm__icon"
+      name="notifications_active"
+      size="lg"
+    ></claro-icon>
+    <span class="crm-confirm__title">{{ message }}</span>
+  </mat-dialog-content>
+  <mat-dialog-actions class="crm-confirm__actions">
+    <claro-button
+      id="crm-confirm__cancel"
+      text="¡Entendido!"
+      size="sm"
+      color="primary"
+      (click)="closeDialog()"
+    >
+    </claro-button>
+  </mat-dialog-actions>
+</div>

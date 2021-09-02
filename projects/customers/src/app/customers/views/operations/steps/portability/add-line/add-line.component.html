@@ -1,0 +1,305 @@
+<div *ngIf="!pinValid || (pinValid && pinValidLoading); else lineChecked">
+  <div class="p-row p-row--header" *ngIf="index === 0">
+    <div>
+      <label *ngIf="isCAC && showHeadOmission && !virtualOfficeTypeFlag" class="label-check d-block">
+        <input
+          [disabled]="formLine.invalid || totalFormsMinLength !== 0"
+          [checked]="showCheckparent"
+          type="checkbox"
+          (change)="selectedAllCheck($event)"
+        />
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="p-col">Servicio</div>
+    <div class="p-col">Op. Cedente</div>
+    <div class="p-col">Modalidad Origen</div>
+    <div class="p-col">Número</div>
+    <div class="p-col"></div>
+  </div>
+  <form class="add-line-form" [formGroup]="formLine" autocomplete="off">
+    <div class="p-row p-row--line">
+      <label *ngIf="isCAC && showHeadOmission && !virtualOfficeTypeFlag" class="label-check d-block mt-2">
+        <input
+          [disabled]="formLine.invalid"
+          [checked]="formLine.value.check"
+          type="checkbox"
+          (change)="selectedCheck($event)"
+        />
+        <span class="checkmark"></span>
+      </label>
+      <div class="index-indicator">
+        <div class="p-col">
+          <div class="index">{{ index + 1 }}</div>
+        </div>
+      </div>
+      <div class="form-content">
+        <div class="p-col">
+          <ng-container *ngIf="index === 0">
+            <span class="hiden-title-control">Servicio</span>
+            <claro-select
+              size="sm"
+              [options]="selectOptions?.cboServices"
+              [value]="selectValues?.cboService"
+              (valueChanged)="onChangeService($event)"
+              formControlName="cboService"
+              [isObject]="true"
+              [disabled]="portabilityValid"
+              claroReactiveForm
+            ></claro-select>
+          </ng-container>
+          <ng-container *ngIf="index > 0">
+            <span class="hiden-title-control">Servicio</span>
+            <claro-select
+              size="sm"
+              [options]="selectOptions?.cboServices"
+              [value]="selectValues?.cboService"
+              formControlName="cboService"
+              [isObject]="true"
+              claroReactiveForm
+              disabled="true"
+            ></claro-select>
+          </ng-container>
+        </div>
+        <div class="p-col">
+          <ng-container *ngIf="index === 0">
+            <span class="hiden-title-control">Op. Cedente</span>
+            <claro-select
+              size="sm"
+              [options]="selectOptions?.cboOperators"
+              [value]="selectValues?.cboOperator"
+              (valueChanged)="onChangeOperator($event)"
+              formControlName="cboOperator"
+              [isObject]="true"
+              [disabled]="portabilityValid || !selectValues?.cboService"
+              claroReactiveForm
+            ></claro-select>
+          </ng-container>
+          <ng-container *ngIf="index > 0">
+            <span class="hiden-title-control">Op. Cedente</span>
+            <claro-select
+              size="sm"
+              [options]="selectOptions?.cboOperators"
+              [value]="selectValues?.cboOperator"
+              formControlName="cboOperator"
+              [isObject]="true"
+              claroReactiveForm
+              disabled="true"
+            ></claro-select>
+          </ng-container>
+        </div>
+        <div class="p-col">
+          <span class="hiden-title-control">Modalidad Origen</span>
+          <claro-select
+            size="sm"
+            [options]="selectOptions.cboModOrigins"
+            [value]="formLine.get('cboModOrigin').value"
+            formControlName="cboModOrigin"
+            [isObject]="true"
+            [disabled]="portabilityValid"
+            claroReactiveForm
+          ></claro-select>
+        </div>
+        <div class="p-col">
+          <span class="hiden-title-control">Número</span>
+          <claro-input
+            size="sm"
+            [value]="formLine.get('phoneNumber').value"
+            formControlName="phoneNumber"
+            (valueChanged)="onChangeNumber()"
+            inputValidation="number"
+            [disabled]="portabilityValid"
+            maxLength="9"
+            claroReactiveForm
+          ></claro-input>
+        </div>
+      </div>
+      <div class="btn-actions">
+        <claro-icon-button
+          styl="fab"
+          size="sm"
+          name="edit"
+          title="Editar"
+          [disabled]="
+            formLine.invalid || pinValidLoading || formLine.value.ready
+          "
+          (clicked)="resetLine()"
+        ></claro-icon-button>
+        <claro-icon-button
+          styl="fab"
+          size="sm"
+          name="delete_outline"
+          title="Eliminar"
+          [disabled]="pinValidLoading"
+          (clicked)="removeLine(index)"
+        ></claro-icon-button>
+      </div>
+    </div>
+  </form>
+  <div
+    class="add-line-form p-row p-row--line pt-0 pb-1"
+    *ngIf="!countOver && !presenter.maxValidations && !presenter.maxAttempts"
+  >
+    <div class="p-col"></div>
+    <div class="p-col-3" [class.gray-bg]="sendPinValid && !pinValidLoading">
+      <div class="pin-container" *ngIf="sendPinValid && !pinValidLoading">
+        <claro-icon name="schedule"></claro-icon>
+        Te quedan
+        <claro-countdown
+          class="pin-timer"
+          [time]="pinTimer"
+          (completed)="countdownOver()"
+        ></claro-countdown>
+        <claro-input
+          size="sm"
+          placeholder="Ingrese el PIN"
+          [formControl]="pin"
+          inputValidation="number"
+          [maxLength]="pinMaxLength"
+          autocomplete="off"
+          claroReactiveForm
+        ></claro-input>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center">
+      <claro-button
+        *ngIf="!sendPinValid && !countOver && presenter.pinAttemptsNumber === 0"
+        [disabled]="formLine.invalid"
+        text="Enviar PIN"
+        size="sm"
+        (clicked)="validateAndSendPIN()"
+      ></claro-button>
+      <claro-button
+        *ngIf="sendPinValid && presenter.pinAttemptsNumber > 0"
+        [disabled]="pin.invalid || pinValidLoading"
+        text="Validar PIN"
+        size="sm"
+        (clicked)="validateSendPIN()"
+      ></claro-button>
+    </div>
+    <div class="p-col loading-content">
+      <claro-loading
+        *ngIf="pinValidLoading"
+        class="loading-mb-0"
+      ></claro-loading>
+    </div>
+  </div>
+  <div
+    *ngIf="presenter.error"
+    class="add-line-form p-row p-row--line pt-0 pb-1 d-flex justify-content-center align-items-center"
+  >
+    <div class="p-col"></div>
+    <div class="p-col-3">
+      <div class="error-container" *ngIf="presenter.error">
+        <label
+          class="error-message"
+          [class.error-message--visible]="presenter.error"
+        >
+          <claro-icon name="info" class="icon-error"></claro-icon>
+          {{ presenter.error.description }}
+        </label>
+      </div>
+    </div>
+    <div class="d-flex align-items-center pr-5 mr-4 justify-content-center">
+      <claro-button
+        *ngIf="
+          !sendPinValid &&
+          resendPin &&
+          presenter.pinAttemptsNumber > 0 &&
+          !presenter.maxAttempts
+        "
+        [disabled]="formLine.invalid"
+        text="Reenviar PIN"
+        size="sm"
+        (clicked)="validateAndSendPIN()"
+      ></claro-button>
+    </div>
+  </div>
+
+  <div *ngIf="index + 1 < totalLines" class="w-100">
+    <hr />
+  </div>
+</div>
+<ng-template #lineChecked>
+  <div class="p-row p-row--line">
+    <div class="p-col">
+      <div class="index">{{ index + 1 }}</div>
+    </div>
+    <div class="p-col align-items-center">
+      <crm-svg-image
+        *ngIf="formLine.value.ready"
+        name="line-checked"
+      ></crm-svg-image>
+      <crm-svg-image
+        *ngIf="!formLine.value.ready"
+        name="robot-error"
+      ></crm-svg-image>
+    </div>
+    <div class="p-col-3 justify-content-start">
+      <div class="result-container">
+        <p>
+          {{ formLine.value.cboService.label }}
+          {{ formLine.value.cboOperator.label }}
+          <strong> {{ formLine.value.phoneNumber }}</strong>
+        </p>
+        <ng-container *ngIf="formLine.value.ready; else portabilityError">
+          <p style="color: darkgray;">
+            Modalidad Origen:
+            <strong style="color: black;">{{
+              formLine.value.cboModOrigin.label
+            }}</strong>
+          </p>
+          <p style="color: darkgray;" *ngIf="formLine.value.activationDate">
+            Fecha de activación CP:
+            <strong style="color: black;">{{
+              formLine.value.activationDate
+            }}</strong>
+          </p>
+          <p class="ready-text">
+            ¡Listo!
+          </p>
+          <p class="reason-text">{{ formLine.value.due }}</p>
+        </ng-container>
+        <ng-template #portabilityError>
+          <p class="error-title">{{ presenter.error?.title }}</p>
+          <p>{{ presenter.error?.description }}</p>
+          <claro-progressbar
+            *ngIf="presenter.error?.title === 'Validando'"
+            [value]="presenter.progressbarValue"
+            [show]="'true'"
+            [mode]="'determinate'"
+          ></claro-progressbar>
+        </ng-template>
+      </div>
+    </div>
+    <div class="p-col">
+      <div class="btn-actions" *ngIf="!secValid">
+        <claro-icon-button
+          styl="fab"
+          size="sm"
+          name="edit"
+          title="Editar"
+          [disabled]="
+            formLine.invalid ||
+            formLine.value.ready ||
+            (presenter.error && presenter.error.title === 'Rechazado') ||
+            presenter.error.title === 'Validando'
+          "
+          (clicked)="resetLine()"
+        ></claro-icon-button>
+        <claro-icon-button
+          styl="fab"
+          size="sm"
+          name="delete_outline"
+          title="Eliminar"
+          [disabled]="presenter.error && presenter.error.title === 'Validando'"
+          (clicked)="removeLine(index)"
+        ></claro-icon-button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="index + 1 < totalLines" class="w-100">
+    <hr />
+  </div>
+</ng-template>

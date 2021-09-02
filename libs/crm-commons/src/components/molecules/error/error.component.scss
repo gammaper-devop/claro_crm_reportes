@@ -1,0 +1,22 @@
+@import 'breakpoints';
+
+:host .sale-error {
+  &__actions {
+    display: flex;
+    margin-top: 1em;
+    justify-content: center;
+  }
+  .content-center {
+    max-width: 510px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: $screen-sm) {
+  :host .sale-error {
+    &__actions {
+      justify-content: flex-end;
+    }
+  }
+}

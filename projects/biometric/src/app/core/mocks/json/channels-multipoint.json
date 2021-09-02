@@ -1,0 +1,17 @@
+{
+  "flagMultipoint": "0",
+  "listMultipoint": [
+    {
+      "codigo": "01",
+      "descripcion": "CAC"
+    },
+    {
+      "codigo": "02",
+      "descripcion": "DAC"
+    },
+    {
+      "codigo": "03",
+      "descripcion": "CAD"
+    }
+  ]
+}

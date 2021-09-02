@@ -1,0 +1,14 @@
+<div class="claro-section-message">
+  <div class="message-icon">
+    <crm-svg-image [name]="iconName"></crm-svg-image>
+  </div>
+  <div class="message-content">
+    <div class="message-content__title" [ngClass]="color">{{ title }}</div>
+    <div class="message-content__description" *ngIf="description">
+      {{ description }}
+    </div>
+    <!-- <div class="message-content__id" *ngIf="id">
+      Transacción ID: {{ id }}
+    </div> -->
+  </div>
+</div>

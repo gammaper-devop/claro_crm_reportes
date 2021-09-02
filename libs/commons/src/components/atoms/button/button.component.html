@@ -1,0 +1,20 @@
+<button
+  *ngIf="styl === 'flat'"
+  [type]="type"
+  [disabled]="disabled"
+  [ngClass]="classes"
+  (click)="onClicked()"
+  mat-flat-button
+>
+  {{ text }}
+</button>
+<button
+  *ngIf="styl === 'basic'"
+  [type]="type"
+  [disabled]="disabled"
+  [ngClass]="classes"
+  (click)="onClicked()"
+  mat-button
+>
+  {{ text }}
+</button>

@@ -1,0 +1,30 @@
+<section *ngIf="isInitRoute === false">
+  <div class="new-client-container">
+    <div class="py-4">
+      <crm-page-title
+        label="Cliente Nuevo"
+        [back]="true"
+        (handleBack)="presenter.goBack()"
+      >
+      </crm-page-title>
+    </div>
+    <div class="form-card-container">
+      <app-customeradd
+        [documentTypes]="presenter.documentTypes$ | async"
+        [error]="presenter.error"
+        [nationalities]="presenter.nationalities"
+        [maritalStatus]="presenter.maritalStatus"
+        [genders]="presenter.genders"
+        (sendCustomer)="presenter.sendCustomer($event)"
+      >
+      </app-customeradd>
+    </div>
+  </div>
+  <crm-page-error
+    *ngIf="presenter.showPageError"
+    [error]="presenter.error"
+    [fullscreen]="true"
+    [top]="true"
+  >
+  </crm-page-error>
+</section>

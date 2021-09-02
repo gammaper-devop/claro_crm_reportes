@@ -1,0 +1,16 @@
+<div class="info-photo">
+  <crm-svg-image *ngIf="!isCompany" name="user"></crm-svg-image>
+  <crm-svg-image *ngIf="isCompany" name="company"></crm-svg-image>
+</div>
+<div class="info-info">
+  <div class="info-name">{{ customer.fullName }}</div>
+  <p class="info-label">
+    Documento: <span>{{ customer.documentTypeDescription | uppercase }}</span>
+  </p>
+  <p class="info-label">
+    N° Doc: <span>{{ customer.documentNumber }}</span>
+  </p>
+  <p *ngIf="!isCompany" class="info-label">
+    Nacionalidad: <span>{{ customer.nationalityDescription }}</span>
+  </p>
+</div>

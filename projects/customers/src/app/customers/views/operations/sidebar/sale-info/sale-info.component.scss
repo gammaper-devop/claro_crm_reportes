@@ -1,0 +1,64 @@
+.lines-sidebar-info {
+  font-size: 0.83em;
+  padding: 10px 0;
+  .item-lines-info {
+    padding: 10px 0;
+    .totle-line-actions {
+      display: flex;
+      flex-flow: row nowrap;
+      height: 34px;
+      background-color: #e0f5fa;
+      align-items: center;
+      border-radius: 10px;
+      justify-content: space-between;
+      span.edit {
+        background: #00aed7;
+        padding: 5px;
+        border-radius: 40px;
+        box-sizing: border-box;
+        color: #ffff;
+      }
+      span.line {
+        font-weight: 500;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 8px 5px;
+        box-sizing: border-box;
+        background: #ccf6ff;
+        border-radius: 4px;
+      }
+      span.price {
+        height: 100%;
+        display: flex;
+        padding: 8px 5px;
+        box-sizing: border-box;
+      }
+    }
+  }
+  .equpo-name {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+}
+.total-sales-sidebar-info {
+  font-size: 0.83em;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  box-sizing: border-box;
+  border-bottom: 2px solid #f0f0f0;
+  background-color: #fff;
+}
+
+.containerOne {
+  background-color: #f6f6f6;
+  border-bottom: 2px solid #f0f0f0;
+  border-top: 2px solid #f0f0f0;
+}

@@ -1,0 +1,30 @@
+:host {
+  .info-group {
+    font-size: 14px;
+    color: #a5a6a7;
+    .info {
+      color: #444;
+    }
+  }
+  label {
+    color: #a5a6a7;
+  }
+  .total {
+    font-size: 18px;
+    font-weight: 500;
+    span {
+      margin-left: 2em;
+    }
+  }
+  .col-min-width {
+    min-width: 290px;
+  }
+}
+
+::ng-deep {
+  .custom-dac-group {
+    .mat-form-field-type-mat-input .mat-form-field-infix .mat-input-element {
+      padding: 0;
+    }
+  }
+}

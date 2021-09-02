@@ -1,0 +1,23 @@
+[
+  {
+    "campaingCode": "01",
+    "campaingDescription": "Campaña 01",
+    "promotion": "",
+    "sapCode": "001",
+    "type": ""
+  },
+  {
+    "campaingCode": "02",
+    "campaingDescription": "Campaña 02",
+    "promotion": "",
+    "sapCode": "002",
+    "type": ""
+  },
+  {
+    "campaingCode": "03",
+    "campaingDescription": "Campaña 03",
+    "promotion": "",
+    "sapCode": "003",
+    "type": ""
+  }
+]

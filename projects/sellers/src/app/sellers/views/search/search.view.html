@@ -1,0 +1,60 @@
+<div class="pt-4">
+  <p class="title-view text-center">
+    ¿A quién vas a buscar en el empadronamiento?
+  </p>
+  <div class="container container-custom">
+    <app-search-bar
+      class="search-bar-custom"
+      (listSellersEmit)="listSellersReceived($event)"
+    ></app-search-bar>
+  </div>
+  <div class="container container-custom d-flex justify-content-end mt-3">
+    <claro-button
+      *ngIf="showCreateSeller"
+      color="outline"
+      size="lg"
+      text="Crear vendedor nuevo"
+      (click)="register()"
+    >
+    </claro-button>
+  </div>
+  <crm-page-error *ngIf="showError" class="mt-4">
+    <div class="search-error text-center">
+      <h3>
+        Lo sentimos, no hemos <br />
+        encontrado al vendedor
+      </h3>
+      <p>
+        Por favor, verifica que los <br />
+        datos son correctos
+      </p>
+      <claro-button
+        text="Crear vendedor nuevo"
+        size="lg"
+        (clicked)="register()"
+      ></claro-button>
+    </div>
+  </crm-page-error>
+  <crm-page-error class="d-none mt-4">
+    <div class="search-error text-center">
+      <h3>
+        Lo sentimos, el vendedor no se encuentra en este punto <br />
+        de venta, comunícate con tu coordinador.
+      </h3>
+      <!-- <claro-button styl="basic" text="Volver a intentar"> </claro-button> -->
+    </div>
+  </crm-page-error>
+  <app-sellers-card
+    *ngIf="!showError"
+    [listSellers]="listSellers"
+    [listType]="listType"
+    [registerDate]="registerDate"
+  ></app-sellers-card>
+  <div class="form-actions my-4 d-none">
+    <claro-button
+      size="lg"
+      text="Crear vendedor nuevo"
+      (clicked)="register()"
+    ></claro-button>
+  </div>
+</div>

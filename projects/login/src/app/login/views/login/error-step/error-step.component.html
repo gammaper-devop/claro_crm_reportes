@@ -1,0 +1,13 @@
+<div class="login-container">
+  <div class="login-container__content">
+    <div class="login-container__image">
+      <img src="{{ cdn }}/img/error.svg" alt="" />
+    </div>
+    <div class="login-container__title">{{ title }}</div>
+    <div class="login-container__description">{{ description }}</div>
+    <a class="login-container__refresh" (click)="refresh()">
+      <claro-icon name="refresh" class="icon"></claro-icon>
+      Vuelve a intentarlo
+    </a>
+  </div>
+</div>

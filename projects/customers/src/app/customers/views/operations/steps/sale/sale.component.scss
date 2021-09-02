@@ -1,0 +1,365 @@
+.container-detail-sale {
+  background: #ffff;
+  border-radius: 15px;
+  // padding: 14px 24px 16px;
+  .header-sale {
+    .title {
+      display: flex;
+      // padding: 10px 5px;
+      border-radius: 10px;
+      justify-content: space-between;
+      cursor: pointer;
+      &:hover {
+        background-color: #f2f2f233;
+      }
+      span {
+        transform: rotate(-45deg);
+        color: #00aacf;
+        font-weight: 600;
+      }
+    }
+  }
+  .sale-content {
+    .sale-title-container {
+      transition: all 2s;
+      display: flex;
+      flex-flow: row nowrap;
+      .sale-name {
+        width: 100%;
+        height: 40px;
+        border-radius: 3px;
+        background-color: #bcf2f6;
+        padding: 8px 15px;
+        box-sizing: border-box;
+        transition: width 5s;
+      }
+      .price-information {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        flex-flow: row nowrap;
+        padding: 5px 15px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: #e2fdff;
+        box-sizing: border-box;
+        height: 40px;
+      }
+      .quick-actions {
+        display: flex;
+        flex-flow: row nowrap;
+        height: 40px;
+        flex-basis: 80px;
+        flex-shrink: 0;
+        align-items: center;
+        span {
+          margin: 0 5px;
+          height: 38px;
+          width: 38px;
+          flex-basis: 38px;
+          flex-shrink: 0;
+          border-radius: 20px;
+          border: solid 1px #00aacf;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #00aacf;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .sale-form-container {
+      padding: 10px 10px 24px;
+      box-sizing: border-box;
+      .sale-hr {
+        border: solid 1px #6c757d47;
+        margin-bottom: 1em;
+      }
+      .form-section {
+        margin-bottom: 24px;
+        .form-section-title {
+          padding: 10px;
+          box-sizing: border-box;
+        }
+        .form-section-content {
+          display: flex;
+          flex-flow: row wrap;
+          padding: 10px;
+          box-sizing: border-box;
+          .formElemet {
+            width: 50%;
+            padding: 0 10px;
+            min-width: 240px;
+            box-sizing: border-box;
+            .update-sku {
+              max-width: 200px;
+              padding: 1em;
+              margin: auto;
+            }
+            label {
+              margin-bottom: 0;
+              padding-left: 10px;
+            }
+            &.el-full {
+              margin-bottom: 20px;
+              .el-full-content {
+                width: 100%;
+                padding: 1em;
+                background: #f1f1f1;
+                border-radius: 8px;
+                margin: 0 2px;
+              }
+              .detail-item {
+                .signal {
+                  padding: 0.8em 0;
+                  color: #0fd299;
+                  display: flex;
+                  flex-flow: row nowrap;
+                  align-items: center;
+                  span.signal-state {
+                    margin-left: 0.3em;
+                  }
+                }
+                color: #c1c1c1;
+                span {
+                  color: black;
+                }
+              }
+            }
+          }
+          .error-message {
+            display: flex;
+            align-items: center;
+            margin-top: -3.25em;
+            color: #da272c;
+            font-family: Roboto;
+            font-size: 12px;
+            font-stretch: normal;
+            font-style: normal;
+            font-weight: normal;
+            letter-spacing: normal;
+            line-height: normal;
+            margin-top: -1.25em;
+            padding: 5px 15px;
+            visibility: hidden;
+            margin-bottom: 10px;
+            &--visible {
+              visibility: visible;
+            }
+            .icon-error {
+              vertical-align: middle;
+              zoom: 0.75;
+            }
+          }
+          .special-section {
+            display: flex;
+            flex-flow: row;
+            width: 100%;
+            .form-elements {
+              width: 50%;
+              min-width: 240px;
+              .formElemet {
+                width: 100%;
+                padding: 0 10px;
+                box-sizing: border-box;
+              }
+            }
+            .form-information {
+              width: 50%;
+              padding: 35px 5px;
+              .card-proce {
+                align-items: center;
+                background: #f1f1f1;
+                border-radius: 8px;
+                display: flex;
+                justify-content: space-around;
+                min-height: 150px;
+                padding: 25px 15px;
+                .price-item {
+                  padding: 0.3em 0;
+                }
+              }
+            }
+            .content-el-section {
+              width: 100%;
+              display: flex;
+              flex-flow: row wrap;
+              .formElemet {
+                width: 100%;
+              }
+            }
+            &.wrap-full {
+              .content-el-section {
+                flex-flow: row wrap !important;
+                .formElemet {
+                  width: 50% !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .form-actions {
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-end;
+      .action-item {
+        padding: 6px;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+.persist {
+  display: flex !important;
+  transition: all 1s;
+}
+.collapse {
+  display: none !important;
+  transition: all 1s;
+}
+.collapsible {
+  max-height: 90px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  transition: all 1s;
+}
+
+.no-show-children {
+  > * {
+    display: none;
+  }
+}
+
+.btn-add-line {
+  max-width: 180px;
+  display: block;
+}
+
+::ng-deep claro-input .mat-icon {
+  color: var(--crm-black);
+}
+::ng-deep claro-input.valid-button .mat-icon {
+  color: var(--crm-blue);
+}
+
+:host {
+  .mat-expansion-panel {
+    .mat-expansion-panel-header.sale-header-title {
+      height: auto !important;
+    }
+  }
+}
+
+.label-check {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  input {
+    position: relative;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  input:checked ~ .checkmark {
+    background-color: #00aacf;
+    border-color: #00aacf;
+  }
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 3px;
+    border: 1px solid #ced4da;
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+      left: 5.5px;
+      top: 0;
+      width: 6px;
+      height: 13px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+    }
+  }
+}
+
+@media (max-width: 845px) {
+  .special-section {
+    flex-wrap: wrap !important;
+    &.material {
+      flex-wrap: wrap;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .formElemet {
+    width: 100% !important;
+  }
+  .form-elements {
+    width: 100% !important;
+    .formElemet {
+      width: 100% !important;
+    }
+  }
+  .form-information {
+    width: 100% !important;
+  }
+  .form-actions {
+    justify-content: space-between !important;
+  }
+  .form-section-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .sale-form-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .mat-expansion-panel {
+    .mat-expansion-panel-header.sale-header-title {
+      padding: 0 !important;
+    }
+  }    
+  
+  .sale-title-container {
+    .sale-name {
+      padding: 8px 3px !important;
+    }
+
+    .sale-name h4 { 
+      font-size: 0.8rem !important;
+    }
+
+    .quick-actions {
+      .delete, .edit {
+        margin: 0px 0px !important;
+      }
+    }
+    
+    .price-information {
+      width: auto !important;
+      padding: 5px 5px !important;
+      font-size: 0.8rem !important;
+    }
+  }
+}

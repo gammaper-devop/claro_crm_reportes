@@ -1,0 +1,32 @@
+<form [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+  <div class="search-bar">
+    <claro-select-bar
+      class="search-bar__criteria"
+      formControlName="documentType"
+      [options]="presenter.options"
+      [value]="getDocumentType.value"
+      [disabled]="selectValue.length > 0"
+      (valueChanged)="changeDocType($event)"
+      claroReactiveForm
+    ></claro-select-bar>
+    <claro-input
+      class="search-bar__input"
+      formControlName="documentValue"
+      [value]="inputValue"
+      [maxLength]="maxLength"
+      [value]="getDocumentValue.value"
+      [inputValidation]="inputType"
+      [disabled]="selectValue.length > 0"
+      [(ngModel)]="form.value.documentValue"
+      claroReactiveForm
+    ></claro-input>
+    <button
+      type="submit"
+      class="search-bar__button"
+      [ngClass]="{'disabled-search': getDocumentValue.value < 2}"
+      [disabled]="getDocumentValue.value < 2"
+    >
+      <claro-icon name="search"></claro-icon>
+    </button>
+  </div>
+</form>

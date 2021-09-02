@@ -1,0 +1,10 @@
+[
+  {
+    "paymentDocument": "boleta",
+    "paymentDocumentDescription": "Boleta"
+  },
+  {
+    "paymentDocument": "factura",
+    "paymentDocumentDescription": "Factura"
+  }
+]

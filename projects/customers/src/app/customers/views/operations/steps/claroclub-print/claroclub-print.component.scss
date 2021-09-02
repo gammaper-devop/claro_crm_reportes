@@ -1,0 +1,154 @@
+.change-points-container {
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+  position: relative;
+  font-size: 0.8rem !important;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons-content {
+  border: solid 2px #5b5d5b;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+  width: 50%;
+}
+
+.change-points-content {
+  border: solid 2px #5b5d5b;
+}
+
+.title-section {
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+}
+h3 {
+  flex: 5;
+  text-align: center;
+  align-items: center;
+}
+
+.logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .circle {
+    align-items: center;
+    background-color: black;
+    border-radius: 40px;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    width: 50px;
+  }
+
+  .circle img {
+    margin-bottom: 6px;
+    width: 42px;
+  }
+}
+
+.info-section,
+.detail-section,
+.product-info-section,
+.message-section,
+.signature-section {
+  padding: 0.5em 1em;
+  display: flex;
+  border-top: solid 2px #5b5d5b;
+}
+
+.info-half-content {
+  padding: 0 3px;
+  display: flex;
+}
+
+.info-half-content:nth-child(1) {
+  width: 60%;
+}
+.info-half-content:nth-child(2) {
+  width: 40%;
+}
+
+.prop-content,
+.val-content {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.prop-content > label,
+.val-content > label {
+  height: 24px;
+  margin: 0;
+}
+
+.val-content {
+  margin-left: 5%;
+}
+
+.detail-section {
+  display: flex;
+  flex-flow: column nowrap;
+
+  .table-content {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+
+  .table-content table tr th,
+  td {
+    border: solid 2px #5b5d5b;
+    text-align: center;
+  }
+}
+
+table {
+  width: 90%;
+}
+
+.signature-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.customer-signature,
+.adviser-signatura {
+  height: 100px;
+  width: 200px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.signature {
+  height: 75%;
+  border-bottom: solid 2px #5b5d5b;
+}
+
+.name {
+  margin: auto;
+}
+
+@media print {
+  body {
+    transform: scale(1);
+  }
+  .circle {
+    background-color: #000000 !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .buttons-content {
+    display: none;
+  }
+}

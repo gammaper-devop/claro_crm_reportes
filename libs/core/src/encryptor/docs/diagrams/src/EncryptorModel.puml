@@ -1,0 +1,27 @@
+@startuml EncryptorModel
+
+interface IEncryptor {
+  encrypt(value: string | number | string[] | number[] | object | object[]): string
+  unEncrypt(value: string): any
+}
+
+enum TypeEncryptor {
+  browser = 'browser',
+  traffic = 'traffic',
+}
+
+
+class BrowserEncryptor implements IEncryptor {
+  +constructor(pubKey: string)
+  +encrypt<T>(value: T | any): string
+  +unEncrypt(value: string)
+  #getKey(key: string, salt: any)
+}
+
+class EncryptionManager {
+  +getEncryptor(type: TypeEncryptor): IEncryptor
+}
+
+BrowserEncryptor <.. EncryptionManager : <<references>>
+
+@enduml

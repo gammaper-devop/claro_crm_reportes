@@ -1,0 +1,30 @@
+<div>
+  <p>
+    Ingresa los datos solicitados para iniciar la consulta:
+  </p>
+  <div [formGroup]="renewalForm">
+    <app-renew-entrance-form
+      *ngFor="let form of lines.controls; let i = index"
+      [user]="user"
+      [saleOperationType]="saleOperationType"
+      [selectOptions]="selectOptions"
+      [selectValues]="selectValues"
+      [customer]="customer"
+      [parentForm]="lines"
+      [formLine]="form"
+      [showNextBtn]="showNextBtn"
+      (displayNextBtn)="displayNextBtn($event)"
+      (prevStep)="prevStep()">
+    </app-renew-entrance-form>
+  </div>
+  <p class="error-container ml-3" *ngIf="presenter.error">
+    <label
+      class="error-message"
+      [class.error-message--visible]="presenter.error"
+    >
+      <claro-icon name="info" class="icon-error"></claro-icon>
+      {{ presenter.error.description }}
+    </label>
+  </p>
+</div>
+

@@ -1,0 +1,21 @@
+export interface ListSellersReport{
+    employeeId: string,
+    documentType: string,
+    documentNumber: string,
+    employeeUser: string,
+    pointSaleCode: string,
+    names: string,
+    lastname: string,
+    firstname: string,
+    employeePhone: string,
+    employeeEmail: string,
+    employeeStatus: string,
+    registerDate: string,
+    registerUser: string,
+    authentication: string,
+    lowDateSeller: string,
+    modifyDate: string,
+    modifyUser: string,
+    inability: string,
+    lockDate: string
+}

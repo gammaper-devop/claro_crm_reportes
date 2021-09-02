@@ -1,0 +1,875 @@
+[
+  {
+    "redUserCode": "E760001",
+    "password": "E760001",
+    "userCode": "1",
+    "profileCode": "01",
+    "chainProfile": "chain01",
+    "channelCode": "01",
+    "channelDescription": "SP",
+    "tgChip": "0",
+	"flagTgChipActive":"0",
+    "officeData": {
+      "channel": "01",
+      "officeSalecode": "0001",
+      "officeDescription": "officeDescription01",
+      "productCodeType": "productCodeType01",
+      "officeType": "officeType01",
+      "deparmentCode": "01",
+      "region": "region01",
+      "orgSale": "orgSale01",
+      "warehouseCode": "warehouseCode01",
+      "centerCode": "centerCode01",
+      "interlocutorCode": "interlocutorCode01",
+      "interlocutorCodeFather": "interlocutorCodeFather01",
+      "chainName": "",
+      "virtualOfficeType": "virtualOfficeType01"
+    },
+    "officeSale": "0001",
+    "officeSaleDescription": "San Miguel",
+    "documentType": "01",
+    "documentNumber": "12345681",
+    "pin": "01",
+    "fullName": "Username 1",
+    "vendorCode": "1",
+    "phoneNumber": "912345681",
+    "flagBiometric": true,
+    "flagPin": false,
+    "paymentNumber": {
+      "position": "8",
+      "prefix": "ABC",
+      "character": "*",
+      "minimumSize": "6",
+      "maximumSize": "10"
+    },
+    "seller": {
+      "profileCode": "profileCode",
+      "profilesAllowed": "profilesAllowed",
+      "configurations": {
+        "biometricAttemptsNumber": "1",
+        "documentTypeValidations": [
+          {
+            "documentType": "2",
+            "phoneNumber": true,
+            "biometric": false,
+            "pin": false,
+            "account": false
+          },
+          {
+            "documentType": "5",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "4",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "1",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": false,
+            "account": true
+          },
+          {
+            "documentType": "9",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": false,
+            "account": false
+          }
+        ]
+      }
+    },
+    "picking": {
+      "flagPicking": "0",
+      "flagDelivery": "0",
+      "flagPayOnline": "0",
+      "iccid": "100100100000000999",
+      "imei": "888100100000000999"
+    },
+    "controls": [
+      { "value": "profileShowPhone", "flagSystem": "1" },
+      { "value": "profileShowEmail", "flagSystem": "1" },
+      { "value": "profileShow", "flagSystem": "1" },
+      { "value": "profileShowAddress", "flagSystem": "1" }
+    ],
+    "finalMessages": {
+      "msgRenoEquipo": "¡Renovaste tu Equipo prepago!",
+      "msgRenoPack": "¡Renovaste tu Equipo y Chip prepago!",
+      "msgRepo": "¡Reactivaste tu chip prepago!",
+      "msgAlta": "¡Activaste tu línea prepago!|El número|está activo.|Ya puedes disfrutar de los beneficios que trae tu línea Claro.",
+      "msgAltaM1": "¡Activaste tus líneas prepago!|Los números|están activos.|Ya puedes disfrutar de los beneficios que traen tus líneas Claro.",
+      "msgPorta": "¡Tu portabilidad prepago se realizó con éxito!|El número|se activará a más tardar el|Y podrás disfrutar de los beneficios que trae tu línea Claro.",
+      "msgPortaM1": "¡Tu portabilidad prepago se realizó con éxito!|Los números|se activarán a más tardar el|Y podrás disfrutar de los beneficios que traen tus líneas Claro."
+    }
+  },
+  {
+    "redUserCode": "E760002",
+    "password": "E760002",
+    "userCode": "2",
+    "profileCode": "02",
+    "chainProfile": "chain02",
+    "channelCode": "02",
+    "channelDescription": "SP",
+    "tgChip": "0",
+    "officeData": {
+      "channel": "01",
+      "officeSalecode": "0001",
+      "officeDescription": "officeDescription01",
+      "productCodeType": "productCodeType01",
+      "officeType": "officeType01",
+      "deparmentCode": "01",
+      "region": "region01",
+      "orgSale": "orgSale01",
+      "warehouseCode": "warehouseCode01",
+      "centerCode": "centerCode01",
+      "interlocutorCode": "interlocutorCode01",
+      "interlocutorCodeFather": "interlocutorCodeFather01",
+      "chainName": "",
+      "virtualOfficeType": "virtualOfficeType01"
+    },
+    "officeSale": "0002",
+    "officeSaleDescription": "NET AXXES MALVINAS",
+    "documentType": "01",
+    "documentNumber": "12345682",
+    "pin": "02",
+    "fullName": "",
+    "vendorCode": "2",
+    "phoneNumber": null,
+    "flagBiometric": false,
+    "flagPin": false,
+    "paymentNumber": {
+      "position": "8",
+      "prefix": "ABC",
+      "character": "*",
+      "minimumSize": "6",
+      "maximumSize": "10"
+    },
+    "seller": {
+      "profileCode": "profileCode",
+      "profilesAllowed": "profilesAllowed",
+      "configurations": {
+        "biometricAttemptsNumber": "3",
+        "documentTypeValidations": [
+          {
+            "documentType": "2",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "5",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "4",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "1",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "9",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          }
+        ]
+      }
+    },
+    "picking": {
+      "flagPicking": "0",
+      "flagDelivery": "0",
+      "flagPayOnline": "0",
+      "iccid": "100100100000000999",
+      "imei": "888100100000000999"
+    },
+    "controls": [
+      { "value": "profileShowPhone", "flagSystem": "1" },
+      { "value": "profileShowEmail", "flagSystem": "1" },
+      { "value": "profileShow", "flagSystem": "1" },
+      { "value": "profileShowAddress", "flagSystem": "1" }
+    ],
+    "finalMessages": {
+      "msgRenoEquipo": "¡Renovaste tu Equipo prepago!",
+      "msgRenoPack": "¡Renovaste tu Equipo y Chip prepago!",
+      "msgRepo": "¡Reactivaste tu chip prepago!",
+      "msgAlta": "¡Activaste tu línea prepago!|El número|está activo.|Ya puedes disfrutar de los beneficios que trae tu línea Claro.",
+      "msgAltaM1": "¡Activaste tus líneas prepago!|Los números|están activos.|Ya puedes disfrutar de los beneficios que traen tus líneas Claro.",
+      "msgPorta": "¡Tu portabilidad prepago se realizó con éxito!|El número|se activará a más tardar el|Y podrás disfrutar de los beneficios que trae tu línea Claro.",
+      "msgPortaM1": "¡Tu portabilidad prepago se realizó con éxito!|Los números|se activarán a más tardar el|Y podrás disfrutar de los beneficios que traen tus líneas Claro."
+    }
+  },
+  {
+    "redUserCode": "E760003",
+    "password": "E760003",
+    "userCode": "3",
+    "profileCode": "03",
+    "chainProfile": "chain03",
+    "channelCode": "03",
+    "channelDescription": "SP",
+    "tgChip": "0",
+    "officeData": {
+      "channel": "01",
+      "officeSalecode": "0001",
+      "officeDescription": "officeDescription01",
+      "productCodeType": "productCodeType01",
+      "officeType": "officeType01",
+      "deparmentCode": "01",
+      "region": "region01",
+      "orgSale": "orgSale01",
+      "warehouseCode": "warehouseCode01",
+      "centerCode": "centerCode01",
+      "interlocutorCode": "interlocutorCode01",
+      "interlocutorCodeFather": "interlocutorCodeFather01",
+      "chainName": "",
+      "virtualOfficeType": "virtualOfficeType01"
+    },
+    "officeSale": "0003",
+    "officeSaleDescription": "Salaverry",
+    "documentType": "01",
+    "documentNumber": "12345683",
+    "pin": "03",
+    "fullName": "Username 3",
+    "vendorCode": "3",
+    "phoneNumber": "912345683",
+    "flagBiometric": true,
+    "flagPin": true,
+    "paymentNumber": {
+      "position": "8",
+      "prefix": "ABC",
+      "character": "*",
+      "minimumSize": "6",
+      "maximumSize": "10"
+    },
+    "seller": {
+      "profileCode": "03",
+      "profilesAllowed": "profilesAllowed",
+      "configurations": {
+        "biometricAttemptsNumber": "3",
+        "documentTypeValidations": [
+          {
+            "documentType": "2",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "5",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "4",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "1",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "9",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          }
+        ]
+      }
+    },
+    "picking": {
+      "flagPicking": "0",
+      "flagDelivery": "0",
+      "flagPayOnline": "0",
+      "iccid": "100100100000000999",
+      "imei": "888100100000000999"
+    },
+    "controls": [
+      { "value": "profileShowPhone", "flagSystem": "1" },
+      { "value": "profileShowEmail", "flagSystem": "1" },
+      { "value": "profileShow", "flagSystem": "1" },
+      { "value": "profileShowAddress", "flagSystem": "1" }
+    ],
+    "finalMessages": {
+      "msgRenoEquipo": "¡Renovaste tu Equipo prepago!",
+      "msgRenoPack": "¡Renovaste tu Equipo y Chip prepago!",
+      "msgRepo": "¡Reactivaste tu chip prepago!",
+      "msgAlta": "¡Activaste tu línea prepago!|El número|está activo.|Ya puedes disfrutar de los beneficios que trae tu línea Claro.",
+      "msgAltaM1": "¡Activaste tus líneas prepago!|Los números|están activos.|Ya puedes disfrutar de los beneficios que traen tus líneas Claro.",
+      "msgPorta": "¡Tu portabilidad prepago se realizó con éxito!|El número|se activará a más tardar el|Y podrás disfrutar de los beneficios que trae tu línea Claro.",
+      "msgPortaM1": "¡Tu portabilidad prepago se realizó con éxito!|Los números|se activarán a más tardar el|Y podrás disfrutar de los beneficios que traen tus líneas Claro."
+    }
+  },
+  {
+    "redUserCode": "E760004",
+    "password": "E760004",
+    "userCode": "4",
+    "profileCode": "04",
+    "chainProfile": "chain04",
+    "channelCode": "01",
+    "channelDescription": "SP",
+    "tgChip": "0",
+    "officeData": {
+      "channel": "01",
+      "officeSalecode": "0001",
+      "officeDescription": "officeDescription01",
+      "productCodeType": "productCodeType01",
+      "officeType": "officeType01",
+      "deparmentCode": "01",
+      "region": "region01",
+      "orgSale": "orgSale01",
+      "warehouseCode": "warehouseCode01",
+      "centerCode": "centerCode01",
+      "interlocutorCode": "interlocutorCode01",
+      "interlocutorCodeFather": "interlocutorCodeFather01",
+      "chainName": "",
+      "virtualOfficeType": "virtualOfficeType01"
+    },
+    "officeSale": "0001",
+    "officeSaleDescription": "San Miguel",
+    "documentType": "04",
+    "documentNumber": "12345684",
+    "pin": "04",
+    "fullName": "Username 4",
+    "vendorCode": "4",
+    "phoneNumber": "912345684",
+    "flagBiometric": false,
+    "flagPin": true,
+    "paymentNumber": {
+      "position": "8",
+      "prefix": "ABC",
+      "character": "*",
+      "minimumSize": "6",
+      "maximumSize": "10"
+    },
+    "seller": {
+      "profileCode": "profileCode",
+      "profilesAllowed": "profilesAllowed",
+      "configurations": {
+        "biometricAttemptsNumber": "3",
+        "documentTypeValidations": [
+          {
+            "documentType": "2",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "5",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "4",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "1",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "9",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          }
+        ]
+      }
+    },
+    "picking": {
+      "flagPicking": "1",
+      "flagDelivery": "1",
+      "flagPayOnline": "0",
+      "iccid": "100100100000000999",
+      "imei": "888100100000000999"
+    },
+    "controls": [
+      { "value": "profileShowPhone", "flagSystem": "1" },
+      { "value": "profileShowEmail", "flagSystem": "1" },
+      { "value": "profileShow", "flagSystem": "1" },
+      { "value": "profileShowAddress", "flagSystem": "1" }
+    ],
+    "finalMessages": {
+      "msgRenoEquipo": "¡Renovaste tu Equipo prepago!",
+      "msgRenoPack": "¡Renovaste tu Equipo y Chip prepago!",
+      "msgRepo": "¡Reactivaste tu chip prepago!",
+      "msgAlta": "¡Activaste tu línea prepago!|El número|está activo.|Ya puedes disfrutar de los beneficios que trae tu línea Claro.",
+      "msgAltaM1": "¡Activaste tus líneas prepago!|Los números|están activos.|Ya puedes disfrutar de los beneficios que traen tus líneas Claro.",
+      "msgPorta": "¡Tu portabilidad prepago se realizó con éxito!|El número|se activará a más tardar el|Y podrás disfrutar de los beneficios que trae tu línea Claro.",
+      "msgPortaM1": "¡Tu portabilidad prepago se realizó con éxito!|Los números|se activarán a más tardar el|Y podrás disfrutar de los beneficios que traen tus líneas Claro."
+    }
+  },
+  {
+    "redUserCode": "E760005",
+    "password": "E760005",
+    "userCode": "5",
+    "profileCode": "05",
+    "chainProfile": "chain05",
+    "channelCode": "02",
+    "channelDescription": "SP",
+    "tgChip": "0",
+    "officeData": {
+      "channel": "01",
+      "officeSalecode": "0001",
+      "officeDescription": "officeDescription01",
+      "productCodeType": "productCodeType01",
+      "officeType": "officeType01",
+      "deparmentCode": "01",
+      "region": "region01",
+      "orgSale": "orgSale01",
+      "warehouseCode": "warehouseCode01",
+      "centerCode": "centerCode01",
+      "interlocutorCode": "interlocutorCode01",
+      "interlocutorCodeFather": "interlocutorCodeFather01",
+      "chainName": "",
+      "virtualOfficeType": "virtualOfficeType01"
+    },
+    "officeSale": "0002",
+    "officeSaleDescription": "Angamos",
+    "documentType": "04",
+    "documentNumber": "12345685",
+    "pin": "05",
+    "fullName": "",
+    "vendorCode": "5",
+    "phoneNumber": "912345685",
+    "flagBiometric": false,
+    "flagPin": true,
+    "paymentNumber": {
+      "position": "8",
+      "prefix": "ABC",
+      "character": "*",
+      "minimumSize": "6",
+      "maximumSize": "10"
+    },
+    "seller": {
+      "profileCode": "profileCode",
+      "profilesAllowed": "profilesAllowed",
+      "configurations": {
+        "biometricAttemptsNumber": "3",
+        "documentTypeValidations": [
+          {
+            "documentType": "2",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "5",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "4",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "1",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "9",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          }
+        ]
+      }
+    },
+    "picking": {
+      "flagPicking": "1",
+      "flagDelivery": "1",
+      "flagPayOnline": "0",
+      "iccid": "100100100000000999",
+      "imei": "888100100000000999"
+    },
+    "controls": [
+      { "value": "profileShowPhone", "flagSystem": "1" },
+      { "value": "profileShowEmail", "flagSystem": "1" },
+      { "value": "profileShow", "flagSystem": "1" },
+      { "value": "profileShowAddress", "flagSystem": "1" }
+    ],
+    "finalMessages": {
+      "msgRenoEquipo": "¡Renovaste tu Equipo prepago!",
+      "msgRenoPack": "¡Renovaste tu Equipo y Chip prepago!",
+      "msgRepo": "¡Reactivaste tu chip prepago!",
+      "msgAlta": "¡Activaste tu línea prepago!|El número|está activo.|Ya puedes disfrutar de los beneficios que trae tu línea Claro.",
+      "msgAltaM1": "¡Activaste tus líneas prepago!|Los números|están activos.|Ya puedes disfrutar de los beneficios que traen tus líneas Claro.",
+      "msgPorta": "¡Tu portabilidad prepago se realizó con éxito!|El número|se activará a más tardar el|Y podrás disfrutar de los beneficios que trae tu línea Claro.",
+      "msgPortaM1": "¡Tu portabilidad prepago se realizó con éxito!|Los números|se activarán a más tardar el|Y podrás disfrutar de los beneficios que traen tus líneas Claro."
+    }
+  },
+  {
+    "redUserCode": "E760006",
+    "password": "E760006",
+    "userCode": "6",
+    "profileCode": "06",
+    "chainProfile": "chain06",
+    "channelCode": "03",
+    "channelDescription": "SP",
+    "tgChip": "0",
+    "officeData": {
+      "channel": "01",
+      "officeSalecode": "0001",
+      "officeDescription": "officeDescription01",
+      "productCodeType": "productCodeType01",
+      "officeType": "officeType01",
+      "deparmentCode": "01",
+      "region": "region01",
+      "orgSale": "orgSale01",
+      "warehouseCode": "warehouseCode01",
+      "centerCode": "centerCode01",
+      "interlocutorCode": "interlocutorCode01",
+      "interlocutorCodeFather": "interlocutorCodeFather01",
+      "chainName": "",
+      "virtualOfficeType": "virtualOfficeType01"
+    },
+    "officeSale": "0003",
+    "officeSaleDescription": "Salaverry",
+    "documentType": "04",
+    "documentNumber": "12345686",
+    "pin": "06",
+    "fullName": "Username 6",
+    "vendorCode": "6",
+    "phoneNumber": "912345686",
+    "flagBiometric": false,
+    "flagPin": true,
+    "paymentNumber": {
+      "position": "8",
+      "prefix": "ABC",
+      "character": "*",
+      "minimumSize": "6",
+      "maximumSize": "10"
+    },
+    "seller": {
+      "profileCode": "profileCode",
+      "profilesAllowed": "profilesAllowed",
+      "configurations": {
+        "biometricAttemptsNumber": "3",
+        "documentTypeValidations": [
+          {
+            "documentType": "2",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "5",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "4",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "1",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "9",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          }
+        ]
+      }
+    },
+    "picking": {
+      "flagPicking": "1",
+      "flagDelivery": "1",
+      "flagPayOnline": "0",
+      "iccid": "100100100000000999",
+      "imei": "888100100000000999"
+    },
+    "controls": [
+      { "value": "profileShowPhone", "flagSystem": "1" },
+      { "value": "profileShowEmail", "flagSystem": "1" },
+      { "value": "profileShow", "flagSystem": "1" },
+      { "value": "profileShowAddress", "flagSystem": "1" }
+    ],
+    "finalMessages": {
+      "msgRenoEquipo": "¡Renovaste tu Equipo prepago!",
+      "msgRenoPack": "¡Renovaste tu Equipo y Chip prepago!",
+      "msgRepo": "¡Reactivaste tu chip prepago!",
+      "msgAlta": "¡Activaste tu línea prepago!|El número|está activo.|Ya puedes disfrutar de los beneficios que trae tu línea Claro.",
+      "msgAltaM1": "¡Activaste tus líneas prepago!|Los números|están activos.|Ya puedes disfrutar de los beneficios que traen tus líneas Claro.",
+      "msgPorta": "¡Tu portabilidad prepago se realizó con éxito!|El número|se activará a más tardar el|Y podrás disfrutar de los beneficios que trae tu línea Claro.",
+      "msgPortaM1": "¡Tu portabilidad prepago se realizó con éxito!|Los números|se activarán a más tardar el|Y podrás disfrutar de los beneficios que traen tus líneas Claro."
+    }
+  },
+  {
+    "redUserCode": "E760007",
+    "password": "E760007",
+    "userCode": "7",
+    "profileCode": "07",
+    "chainProfile": "chain07",
+    "channelCode": "02",
+    "channelDescription": "SP",
+    "tgChip": "0",
+    "officeData": {
+      "channel": "01",
+      "officeSalecode": "0001",
+      "officeDescription": "officeDescription01",
+      "productCodeType": "productCodeType01",
+      "officeType": "officeType01",
+      "deparmentCode": "01",
+      "region": "region01",
+      "orgSale": "orgSale01",
+      "warehouseCode": "warehouseCode01",
+      "centerCode": "centerCode01",
+      "interlocutorCode": "interlocutorCode01",
+      "interlocutorCodeFather": "interlocutorCodeFather01",
+      "chainName": "",
+      "virtualOfficeType": "virtualOfficeType01"
+    },
+    "officeSale": "0002",
+    "officeSaleDescription": "Angamos",
+    "documentType": "01",
+    "documentNumber": "12345687",
+    "pin": "07",
+    "fullName": "",
+    "vendorCode": "7",
+    "phoneNumber": "912345687",
+    "flagBiometric": false,
+    "flagPin": false,
+    "paymentNumber": {
+      "position": "8",
+      "prefix": "ABC",
+      "character": "*",
+      "minimumSize": "6",
+      "maximumSize": "10"
+    },
+    "seller": {
+      "profileCode": "profileCode",
+      "profilesAllowed": "profilesAllowed",
+      "configurations": {
+        "biometricAttemptsNumber": "3",
+        "documentTypeValidations": [
+          {
+            "documentType": "2",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "5",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "4",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "1",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "9",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          }
+        ]
+      }
+    },
+    "picking": {
+      "flagPicking": "1",
+      "flagDelivery": "1",
+      "flagPayOnline": "0",
+      "iccid": "100100100000000999",
+      "imei": "888100100000000999"
+    },
+    "controls": [
+      { "value": "profileShowPhone", "flagSystem": "1" },
+      { "value": "profileShowEmail", "flagSystem": "1" },
+      { "value": "profileShow", "flagSystem": "1" },
+      { "value": "profileShowAddress", "flagSystem": "1" }
+    ],
+    "finalMessages": {
+      "msgRenoEquipo": "¡Renovaste tu Equipo prepago!",
+      "msgRenoPack": "¡Renovaste tu Equipo y Chip prepago!",
+      "msgRepo": "¡Reactivaste tu chip prepago!",
+      "msgAlta": "¡Activaste tu línea prepago!|El número|está activo.|Ya puedes disfrutar de los beneficios que trae tu línea Claro.",
+      "msgAltaM1": "¡Activaste tus líneas prepago!|Los números|están activos.|Ya puedes disfrutar de los beneficios que traen tus líneas Claro.",
+      "msgPorta": "¡Tu portabilidad prepago se realizó con éxito!|El número|se activará a más tardar el|Y podrás disfrutar de los beneficios que trae tu línea Claro.",
+      "msgPortaM1": "¡Tu portabilidad prepago se realizó con éxito!|Los números|se activarán a más tardar el|Y podrás disfrutar de los beneficios que traen tus líneas Claro."
+    }
+  },
+  {
+    "redUserCode": "E760008",
+    "password": "E760008",
+    "userCode": "8",
+    "profileCode": "08",
+    "chainProfile": "chain08",
+    "channelCode": "02",
+    "channelDescription": "SP",
+    "tgChip": "0",
+    "officeData": {
+      "channel": "01",
+      "officeSalecode": "0001",
+      "officeDescription": "officeDescription01",
+      "productCodeType": "productCodeType01",
+      "officeType": "officeType01",
+      "deparmentCode": "01",
+      "region": "region01",
+      "orgSale": "orgSale01",
+      "warehouseCode": "warehouseCode01",
+      "centerCode": "centerCode01",
+      "interlocutorCode": "interlocutorCode01",
+      "interlocutorCodeFather": "interlocutorCodeFather01",
+      "chainName": "",
+      "virtualOfficeType": "virtualOfficeType01"
+    },
+    "officeSale": "0002",
+    "officeSaleDescription": "Angamos",
+    "documentType": "04",
+    "documentNumber": "12345688",
+    "pin": "08",
+    "fullName": "",
+    "vendorCode": "8",
+    "phoneNumber": "912345688",
+    "flagBiometric": false,
+    "flagPin": false,
+    "paymentNumber": {
+      "position": "8",
+      "prefix": "ABC",
+      "character": "*",
+      "minimumSize": "6",
+      "maximumSize": "10"
+    },
+    "seller": {
+      "profileCode": "profileCode",
+      "profilesAllowed": "profilesAllowed",
+      "configurations": {
+        "biometricAttemptsNumber": "3",
+        "documentTypeValidations": [
+          {
+            "documentType": "2",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "5",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "4",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "1",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          },
+          {
+            "documentType": "9",
+            "phoneNumber": true,
+            "biometric": true,
+            "pin": true,
+            "account": true
+          }
+        ]
+      }
+    },
+    "picking": {
+      "flagPicking": "1",
+      "flagDelivery": "1",
+      "flagPayOnline": "0",
+      "iccid": "100100100000000999",
+      "imei": "888100100000000999"
+    },
+    "controls": [
+      { "value": "profileShowPhone", "flagSystem": "1" },
+      { "value": "profileShowEmail", "flagSystem": "1" },
+      { "value": "profileShow", "flagSystem": "1" },
+      { "value": "profileShowAddress", "flagSystem": "1" }
+    ],
+    "finalMessages": {
+      "msgRenoEquipo": "¡Renovaste tu Equipo prepago!",
+      "msgRenoPack": "¡Renovaste tu Equipo y Chip prepago!",
+      "msgRepo": "¡Reactivaste tu chip prepago!",
+      "msgAlta": "¡Activaste tu línea prepago!|El número|está activo.|Ya puedes disfrutar de los beneficios que trae tu línea Claro.",
+      "msgAltaM1": "¡Activaste tus líneas prepago!|Los números|están activos.|Ya puedes disfrutar de los beneficios que traen tus líneas Claro.",
+      "msgPorta": "¡Tu portabilidad prepago se realizó con éxito!|El número|se activará a más tardar el|Y podrás disfrutar de los beneficios que trae tu línea Claro.",
+      "msgPortaM1": "¡Tu portabilidad prepago se realizó con éxito!|Los números|se activarán a más tardar el|Y podrás disfrutar de los beneficios que traen tus líneas Claro."
+    }
+  }
+]
