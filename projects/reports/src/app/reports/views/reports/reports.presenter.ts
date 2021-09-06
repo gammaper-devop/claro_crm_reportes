@@ -3,7 +3,6 @@ import { CRMErrorService, CRMGenericsService, ErrorResponse, DocumentType } from
 import { ListSellersReport } from '@reports/app/core/models/sellers-report.models';
 import { CRMReportsService } from '@reports/app/core/services/reports.service';
 import { PortabilityParam } from '@sellers/app/core';
-import { SellersService } from '@sellers/app/core';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -17,14 +16,11 @@ export class ReportsPresenter {
 
   documentTypes$: Observable<DocumentType[]>;
 
-  statusType: PortabilityParam[];
-
   listSeller: ListSellersReport[];
 
   constructor(
     private genericsService: CRMGenericsService,
     private reportsService: CRMReportsService,
-    //private sellersService: SellersService,
     private errorService: CRMErrorService
   ) {
     this.listDocumentsTypes();
@@ -33,17 +29,27 @@ export class ReportsPresenter {
    async listSellers(){
     this.listSeller = await this.reportsService.getSellerList();
 
-    for (let i = 0; i < this.listSeller.length; i++){
+    this.listSeller.map(
+        response => {
+            if(response.employeeStatus === 'A'){
+              response.employeeStatus = 'Activo'
+            } 
+            else if (response.employeeStatus === 'I'){
+              response.employeeStatus = 'Inactivo'
+            }
+        }
+      );
+      
+    return this.listSeller;
+  }
+    /* for (let i = 0; i < this.listSeller.length; i++){
       if (this.listSeller[i].employeeStatus == 'A'){
         this.listSeller[i].employeeStatus = 'Activo';
       }
       else if (this.listSeller[i].employeeStatus == 'I'){
         this.listSeller[i].employeeStatus = 'Inactivo';
       }
-    }
-
-    return this.listSeller;
-   }
+    } */
 
    listDocumentsTypes() {
     this.documentTypes$ = this.genericsService.getUserDocuments('PAG_CLI').pipe(
@@ -53,21 +59,6 @@ export class ReportsPresenter {
         return throwError(error);
       }),
     );
-
-    // this.statusType = [
-    //   {
-    //     label: "Activo",
-    //     value: "A",
-    //     cboKey: "CBO_SELLERS_STATUS",
-    //     paramRequired: ""
-    //   },
-    //   {
-    //     label: "Inactivo",
-    //     value: "I",
-    //     cboKey: "CBO_SELLERS_STATUS",
-    //     paramRequired: ""
-    //   }
-    // ]
   }  
 
   async getCboSellers() {
