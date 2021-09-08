@@ -3,9 +3,23 @@
     text="¿Qué reporte desea visualizar?"
     [expanded]="true"
   >
-    <app-select-operation
-      
-    >
-    </app-select-operation>
+
+  <!-- <mat-radio-group class="radio-group-card-custom">
+    <mat-radio-button>
+      <claro-card>
+        <crm-svg-image [name]="company"></crm-svg-image>
+        <p>Distribuidores</p>
+      </claro-card>
+    </mat-radio-button>
+  </mat-radio-group> -->
+  <!-- <claro-card>
+    <crm-svg-image [name]="company"></crm-svg-image>
+    <p (click)='onSellerReport()'>Distribuidores</p>
+  </claro-card> -->
+    <!-- <button mat-raised-button 
+            (click)='onSellerReport()'
+            ><mat-icon>mic</mat-icon>Distribuidores
+    </button> -->
+    <app-select-operation></app-select-operation>
   </claro-collapse>
 <!-- <p>Operations works</p> -->

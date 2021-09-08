@@ -1,30 +1,26 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { EInputValidation } from '@claro/commons';
-import { ITHead } from '@claro/commons/src/components/organisms/table-report/table-report.interface';
-import { ECustomerDocument, SnackbarService } from '@claro/crm/commons';
+
 import { ListSellersReport } from '@reports/app/core/models/sellers-report.models';
 import { PortabilityParam } from '@sellers/app/core';
-import { User } from '@shell/app/core';
-import { ReportsPresenter } from '../reports/reports.presenter';
-
+import { SellersPresenter } from './sellers.presenter';
 
 @Component({
-  selector: 'app-reports',
-  templateUrl: './reports.view.html',
-  styleUrls: ['./reports.view.scss'],
-  providers: [ReportsPresenter],
+  selector: 'app-sellers',
+  templateUrl: './sellers.component.html',
+  styleUrls: ['./sellers.component.scss'],
+  providers: [SellersPresenter]
 })
-export class ReportsComponent implements OnInit{
+export class SellersComponent implements OnInit {
 
-  //@Input() documentTypes: DocumentType[];
   reportsForm: FormGroup;
 
   selectValue = '';
   maxLength = 8;
   inputType: EInputValidation;
   type: string;
-  user: User;
   inactiveCreate: boolean;
   inactiveCreateButton: boolean;
   isValidPhoneService = false;
@@ -66,9 +62,9 @@ export class ReportsComponent implements OnInit{
   // ];
   
   constructor(
-    public presenter: ReportsPresenter,
+    public presenter: SellersPresenter,
     private fb: FormBuilder,
-    private snackbar: SnackbarService
+    private router: Router
   ) {}
 
   createForm() {
@@ -85,6 +81,7 @@ export class ReportsComponent implements OnInit{
   }
 
   async ngOnInit() {
+    console.log("Vendedores del Reports");
     this.createForm();
     this.getCboSellers();
   }
@@ -110,6 +107,10 @@ export class ReportsComponent implements OnInit{
       //   }
       //}
     });
+  }
+
+  goBack(){
+    this.router.navigate(['/reportes/operaciones']);
   }
 
   changeDocType(e){

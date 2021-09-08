@@ -44,7 +44,6 @@ export class ShellPresenter implements OnDestroy {
         ) {
           window.location.reload();
         }
-
         this.currentModule = urls[0];
       }
     });
@@ -74,6 +73,7 @@ export class ShellPresenter implements OnDestroy {
   }
 
   navigate(route: string) {
+    console.log(route);
     this.router.navigate([route]);
   }
 

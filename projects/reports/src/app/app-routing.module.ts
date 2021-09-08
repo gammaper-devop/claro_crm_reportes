@@ -3,21 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { EmptyComponent } from '@claro/commons';
 import { OperationsComponent } from './reports/views/operations/operations.component';
-import { ReportsComponent } from './reports/views/reports/reports.view';
-
-// const routes: Routes = [
-//   { path: 'reportes', component: ReportsComponent },
-//   { path: 'reportes/operaciones', component: OperationsComponent },
-//   { path: '**', component: EmptyComponent },
-// ];
+import { SellersComponent } from './reports/views/sellers/sellers.component';
 
 const routes: Routes = [
-  { path: 'reportes', component: OperationsComponent,
+  { path: 'reportes', 
     children: [
-        { 
-          path: 'operaciones', 
-          component: OperationsComponent
-        },
+        { path: '', redirectTo: 'operaciones', pathMatch: 'full' },
+        { path: 'operaciones', component: OperationsComponent },
+        { path: 'distribuidores',  component: SellersComponent }
     ]
   },
   { path: '**', component: EmptyComponent },

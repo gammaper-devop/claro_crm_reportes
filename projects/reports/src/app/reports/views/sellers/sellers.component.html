@@ -1,5 +1,13 @@
 <div class="pt-4">
-  <crm-page-title [label]="'Búsqueda Personalizada'"></crm-page-title>
+  <!-- <crm-page-title [label]="'Búsqueda Personalizada'"></crm-page-title> -->
+  <div class="py-4">
+    <crm-page-title
+      label="Reporte de Distribuidores"
+      [back]="true"
+      (handleBack)="goBack()"
+    >
+    </crm-page-title>
+  </div>
 </div>
 <div class="form-card-content">
   <claro-card class="card-content">

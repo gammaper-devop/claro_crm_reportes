@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectOperationPresenter } from './select-operation.presenter.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select-operation',
@@ -13,27 +14,38 @@ export class SelectOperationComponent implements OnInit {
 
   constructor(
     public presenter: SelectOperationPresenter,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.operations = [
       {
         label: 'Vendedores',
-        value: 1
+        value: 1,
+        icon: "operation-01"
       },
       {
         label: 'Clientes',
-        value: 2
+        value: 2, 
+        icon: "operation-02"
+      },
+      {
+        label: 'Contratos',
+        value: 3, 
+        icon: "operation-03"
       }
     ]
   }
 
   valueChanged(value: string) {
-
+    if (value = '1'){
+      this.router.navigate(['/reportes/distribuidores']);
+    }
   }
 }
 
 export interface Operations{
   label: string,
-  value: number
+  value: number,
+  icon: string
 }

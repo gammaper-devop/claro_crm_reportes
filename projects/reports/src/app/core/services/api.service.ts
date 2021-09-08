@@ -68,5 +68,5 @@ export class ApiService extends CRMApiService {
     paymentTypes = environment.api + '/renovaciones/tipospagos';
     dispatchOptions = environment.api + '/portabilidades/entregatipos';
     stockValidation = environment.api + '/portabilidades/stocks';
-    sellerLists = environment.api + '/reportes/vendedores';
+    sellerLists = environment.api + '/vendedores/listas';
 }

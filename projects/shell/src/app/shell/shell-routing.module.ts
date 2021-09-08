@@ -57,7 +57,13 @@ const routes: Routes = [
         component: MicroAppLoaderComponent,
         canActivate: [AuthGuard],
         data: { microName: 'crm-reports' }
-      }
+      },
+      {
+        path: 'reportes/:route',
+        component: MicroAppLoaderComponent,
+        canActivate: [AuthGuard],
+        data: { microName: 'crm-reports' }
+      },
     ]
   }
 ];
