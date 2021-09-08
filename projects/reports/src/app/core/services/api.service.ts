@@ -5,6 +5,10 @@ import { environment } from '@shell/environments/environment';
 
 @Injectable()
 export class ApiService extends CRMApiService {
+    getUserDocuments = environment.api + '/busquedas/criterios';
+    sellerLists = environment.api + '/vendedores/listas';
+    portabilityParams = environment.api + '/portabilidades/parametros';
+
     pending = environment.api + '/pagosclientes/listas';
     paid = environment.api + '/contratos/pagados';
     paymentRollback = environment.api + '/anulaciones/pagos';
@@ -22,7 +26,6 @@ export class ApiService extends CRMApiService {
     cancelPayment = environment.api + '/anulaciones/pagos';
     operations = environment.api + '/operaciones/tipos';
     maxlines = environment.api + '/portabilidades/cantidades';
-    portabilityParams = environment.api + '/portabilidades/parametros';
     portabilityValidate = environment.api + '/portabilidades/lineas';
     registerConsult = environment.api + '/portabilidades/registrosconsultas';
     previewConsult = environment.api + '/portabilidades/consultas';
@@ -68,5 +71,4 @@ export class ApiService extends CRMApiService {
     paymentTypes = environment.api + '/renovaciones/tipospagos';
     dispatchOptions = environment.api + '/portabilidades/entregatipos';
     stockValidation = environment.api + '/portabilidades/stocks';
-    sellerLists = environment.api + '/vendedores/listas';
 }
