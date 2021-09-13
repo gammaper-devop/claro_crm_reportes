@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { EInputValidation } from '@claro/commons';
 
 import { ListSellersReport } from '@reports/app/core/models/sellers-report.models';
-import { PortabilityParam } from '@sellers/app/core';
+import { PortabilityParam } from '@reports/app/core/models/portability.model';
 import { SellersPresenter } from './sellers.presenter';
 
 @Component({
@@ -17,13 +17,17 @@ export class SellersComponent implements OnInit {
 
   reportsForm: FormGroup;
 
+  valueDate: Date;
+
   selectValue = '';
-  maxLength = 8;
+  maxLength = 11;
   inputType: EInputValidation;
   type: string;
   inactiveCreate: boolean;
   inactiveCreateButton: boolean;
   isValidPhoneService = false;
+
+  body: any;
 
   displayedColumns =
    [
@@ -39,7 +43,7 @@ export class SellersComponent implements OnInit {
     'tipo_validacion'
    ];
   
-  optionsStatus: PortabilityParam[];
+  optionStatus: PortabilityParam[];
 
   enableReport: boolean = false;
 
@@ -65,7 +69,11 @@ export class SellersComponent implements OnInit {
     public presenter: SellersPresenter,
     private fb: FormBuilder,
     private router: Router
-  ) {}
+  ) {
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+    const currentDay = new Date().getDate();
+   }
 
   createForm() {
     this.reportsForm = this.fb.group({
@@ -81,14 +89,28 @@ export class SellersComponent implements OnInit {
   }
 
   async ngOnInit() {
-    console.log("Vendedores del Reports");
-    this.createForm();
     this.getCboSellers();
+    this.createForm();
+    
   }
 
   async onSearch(){
     this.enableReport = true;
-    const response = await this.presenter.listSellers();
+
+    this.body = {
+      documentType: this.reportsForm.get('documentType').value,
+      documentNumber: this.reportsForm.get('documentNumber').value,
+      accountNet:"",
+      registrationDate: this.reportsForm.get('startDate').value,
+      lowDate: this.reportsForm.get('endDate').value, 
+      dealerCode: "",
+      regionDes: "",
+      pointSaleCode: "",
+      typeSearch: this.reportsForm.get('status').value
+    };
+
+    //console.log("Datos Body", JSON.stringify(this.body));
+    const response = await this.presenter.listSellers(this.body);
 
     this.dataSourceSellers = response;
     
@@ -97,15 +119,7 @@ export class SellersComponent implements OnInit {
 
   getCboSellers() {
     this.presenter.getCboSellers().then((options: PortabilityParam[]) => {
-      this.optionsStatus = options;
-      // if (this.optionsStatus && this.optionsStatus.length) {
-      //   const defaultStatus = this.optionsStatus.find(
-      //     element => element.label === 'Activo',
-      //   );
-      //   if (defaultStatus) {
-      //     this.reportsForm.get('status').setValue(defaultStatus.value);
-      //   }
-      //}
+      this.optionStatus = options;
     });
   }
 

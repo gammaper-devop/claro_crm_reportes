@@ -2,7 +2,7 @@
   <!-- <crm-page-title [label]="'Búsqueda Personalizada'"></crm-page-title> -->
   <div class="py-4">
     <crm-page-title
-      label="Reporte de Distribuidores"
+      label="Reporte de Vendedores"
       [back]="true"
       (handleBack)="goBack()"
     >
@@ -41,10 +41,10 @@
                 <claro-datepicker
                   placeholder="dd/mm/yyyy"
                   formControlName="startDate"
-                  [minDate]="minDate"
-                  [maxDate]="maxDate"
+                  [minDate]="null"
+                  [maxDate]="null"
                   [disabled]="false"
-                  (valueChanged)="valueChanged($event)"
+                  [value]="valueDate"
                   claroReactiveForm
                 ></claro-datepicker>
               </div>
@@ -66,10 +66,10 @@
                 <claro-datepicker
                   placeholder="dd/mm/yyyy"
                   formControlName="endDate"
-                  [minDate]="minDate"
-                  [maxDate]="maxDate"
+                  [minDate]="null"
+                  [maxDate]="null"
                   [disabled]="false"
-                  (valueChanged)="valueChanged($event)"
+                  [value]="valueDate"
                   claroReactiveForm
                 ></claro-datepicker>
               </div>
@@ -78,7 +78,7 @@
                 <label>Estado:</label><br />
                 <claro-select
                     placeholder="Selecciona"
-                    [options]="optionsStatus"
+                    [options]="optionStatus"
                     (valueChanged)="changeState($event)"
                     formControlName="status"
                     [value]="reportsForm.get('status').value"
@@ -115,14 +115,15 @@
 
               <div class="formElemet">
                 <label>Descripción del PDV:</label><br />
-                <claro-input
-                  placeholder="Ingrese descripción"
+                <claro-select
+                  placeholder="Selecciona"
+                  [options]=""
+                  (valueChanged)="changeRegion($event)"
                   formControlName="descriptionPdv"
-                  [maxLength]="maxLength"
-                  [inputValidation]="inputType"
+                  [value]="selectValue"
                   [disabled]="selectValue.length > 0"
                   claroReactiveForm
-                ></claro-input>
+                ></claro-select>
               </div>
 
             </div>
@@ -206,22 +207,3 @@
     </table>
   </div>
 </claro-card>
-<!-- <div>
-  <claro-table-report
-    [thead] = "tableHeader"
-    [tbody] = ""
-  >
-
-  </claro-table-report>
-</div> -->
-<!-- <div>
-    <claro-table
-      (selected)="tSelectValue($event)"
-      [thead]="tableHeader"
-      [tbody]="presenter.contracts"
-      [user]="presenter.user"
-      [btnPayment]="indexTab"
-      [showActionBar]="showActionBar"
-      #claroTable
-    ></claro-table>
-</div> -->

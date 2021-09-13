@@ -12,18 +12,11 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 import { UTILS } from '@claro/commons';
 import { ErrorResponse, EErrorType, ErrorCodes } from '@claro/crm/commons';
 import { environment } from '@shell/environments/environment';
-import { DeclarationKnowledgeResponse } from '@customers/app/core/models/declaration-knowledge.model';
-import { GenerateDocumentResponse } from '@customers/app/core/models/generate-documents.models';
-import { PortabilityRequestResponse } from '@customers/app/core/models/portability-request.model';
-import { ECriteriaType } from '../enums';
-import {
-  CustomerResponse,
-  TradeAgreementsResponse,
-} from '../models';
 import { ApiService } from '../services';
 import { UserResponse } from '@shell/app/core';
 //import { MultipointResponse } from '../models/multipoint.model';
 import { Options } from '@claro/commons/src/models/options';
+import { ConstantPool } from '@angular/compiler';
 
 @Injectable()
 export class MocksInterceptor implements HttpInterceptor {
@@ -39,10 +32,11 @@ export class MocksInterceptor implements HttpInterceptor {
     if (sleepList.indexOf(request.url) >= 0) {
       sleepTime = 2000;
     }
-
     return of(null)
       .pipe(
         mergeMap(() => {
+          
+         
           if (!environment.mock) {
             return next.handle(request);
           }
@@ -53,8 +47,7 @@ export class MocksInterceptor implements HttpInterceptor {
               : request.body;
           const params = request.params;
           const isServerOk = Math.random() > 0;
-
-          if (
+           if (
             request.url.match(this.apiService.validateIdentification) &&
             request.method === 'POST'
           ) {
@@ -135,30 +128,6 @@ export class MocksInterceptor implements HttpInterceptor {
           }
 
           if (
-            request.url.match(this.apiService.search) &&
-            request.method === 'GET'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-
-            const customers: CustomerResponse[] = require('./json/customers.json');
-            let customersFound: CustomerResponse[];
-
-            if (params.get('criteriaId') === ECriteriaType.PHONE) {
-              customersFound = customers.filter(
-                customer => customer.phoneNumber === params.get('searchText'),
-              );
-            } else {
-              customersFound = customers.filter(
-                customer =>
-                  customer.documentNumber === params.get('searchText'),
-              );
-            }
-            return this.response({ clientList: customersFound });
-          }
-
-          if (
             request.url.match(this.apiService.departments) &&
             request.method === 'GET'
           ) {
@@ -178,20 +147,6 @@ export class MocksInterceptor implements HttpInterceptor {
             }
 
             return this.response(require('./json/district.json'));
-          }
-
-          if (
-            request.url.match(this.apiService.customerAdd) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-
-            const customers: CustomerResponse[] = require('./json/customers.json');
-            return this.response(
-              customers[UTILS.randomNumber(0, customers.length - 1)],
-            );
           }
 
           if (
@@ -224,7 +179,7 @@ export class MocksInterceptor implements HttpInterceptor {
 
           if (
             request.url.match(this.apiService.sellerLists) &&
-            request.method === 'GET'
+            request.method === 'POST'
           ) {
             if (!isServerOk) {
               return this.serverDown();
@@ -234,25 +189,33 @@ export class MocksInterceptor implements HttpInterceptor {
             return this.response(resportSellerList);
           }
 
-          // if (
-          //   request.url.match(this.apiService.portabilityParams) &&
-          //   request.method === 'GET'
-          // ) {
-            
-          //   if (!isServerOk) {
-          //     return this.serverDown();
-          //   }
+          console.log("URL1: ", request.url);
+          console.log("Entro Api1: ", this.apiService.criteria);
+          console.log("Request1: ", request.method);
 
-          //   const portabilityParams: any[] = require('./json/status.json');
-          //   return this.response(portabilityParams);
-          // }
           if (
-            request.url.match(this.apiService.portabilityParams) &&
-            request.method === 'GET'
+            request.url.match(this.apiService.criteria) &&
+            request.method === 'POST'
           ) {
+            if (!isServerOk) {
+              return this.serverDown();
+            }
+            return this.response({
+              criterias: require('./json/criterias.json'),
+            });
+          }
+          console.log("URL2: ", request.url);
+          console.log("Entro Api2: ", this.apiService.generics);
+          console.log("Request2: ", request.method);
+          if (
+            request.url.match(this.apiService.generics) && request.method === 'GET' 
+          ) {
+            console.log("33333333333333333");
             const portabilityParams: any[] = require('./json/status.json');
+            console.log("Portabiliy", portabilityParams);
             const urlParts = request.url.split('/');
             const cboKey = urlParts[urlParts.length - 1];
+            console.log("CboKey", cboKey);
             const paramRequired = params.get('idService')
               ? params.get('idService')
               : '';
@@ -266,6 +229,7 @@ export class MocksInterceptor implements HttpInterceptor {
                 generic.keyCombo === String(cboKey) &&
                 generic.paramRequired === String(paramRequired),
             );
+            console.log("ParamList", paramsList);
             return this.response(paramsList);
           }
 

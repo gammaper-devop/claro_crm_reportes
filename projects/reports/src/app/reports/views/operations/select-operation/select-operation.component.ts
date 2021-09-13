@@ -24,7 +24,7 @@ export class SelectOperationComponent implements OnInit {
         value: 1,
         icon: "operation-01"
       },
-      {
+      /* {
         label: 'Clientes',
         value: 2, 
         icon: "operation-02"
@@ -33,7 +33,7 @@ export class SelectOperationComponent implements OnInit {
         label: 'Contratos',
         value: 3, 
         icon: "operation-03"
-      }
+      }*/
     ]
   }
 

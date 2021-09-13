@@ -1,8 +1,10 @@
 export * from './api.service';
-export * from './customer.service';
+export * from './reports.service';
+//export * from './customer.service';
+
 
 import { ApiService } from './api.service';
-import { CustomerService } from './customer.service';
+import { CRMReportsService } from './reports.service';
 
 
-export const Services = [ApiService, CustomerService];
+export const Services = [ApiService, CRMReportsService];

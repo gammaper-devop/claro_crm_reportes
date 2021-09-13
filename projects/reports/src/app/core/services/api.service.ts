@@ -5,9 +5,10 @@ import { environment } from '@shell/environments/environment';
 
 @Injectable()
 export class ApiService extends CRMApiService {
-    getUserDocuments = environment.api + '/busquedas/criterios';
+    criteria = environment.api + '/busquedas/criterios';
     sellerLists = environment.api + '/vendedores/listas';
-    portabilityParams = environment.api + '/portabilidades/parametros';
+    generics = environment.api + '/datosgenericos/combos';
+    //portabilityParams = environment.api + '/portabilidades/parametros';
 
     pending = environment.api + '/pagosclientes/listas';
     paid = environment.api + '/contratos/pagados';
@@ -16,7 +17,6 @@ export class ApiService extends CRMApiService {
     paymentDetail = environment.api + '/pagosclientes/detalles';
     generateDocuments = environment.api + '/acuerdos/documentos';
     search = environment.api + '/crmclientes/busquedas';
-    criteria = environment.api + '/busquedas/criterios';
     profile = environment.api + '/profile';
     customerAdd = environment.api + '/crmclientes/registros';
     departments = environment.api + '/ubigeos/departamentos';
