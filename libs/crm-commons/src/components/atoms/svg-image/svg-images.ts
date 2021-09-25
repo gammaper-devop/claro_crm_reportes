@@ -4,9 +4,8 @@ export function getSvgImage(props: ISvgImageProps): string {
   let svgImage: string;
   switch (props.name) {
     case 'user':
-      svgImage = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${
-        props.width ? props.width : '45'
-      }" height="${props.height ? props.height : '45'}" viewBox="0 0 45 46">
+      svgImage = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${props.width ? props.width : '45'
+        }" height="${props.height ? props.height : '45'}" viewBox="0 0 45 46">
         <defs>
           <ellipse id="prefix__a" cx="22.459" cy="22.917" rx="22.459" ry="22.917"/>
         </defs>
@@ -27,9 +26,8 @@ export function getSvgImage(props: ISvgImageProps): string {
       </svg>`;
       break;
     case 'company':
-      svgImage = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${
-        props.width ? props.width : '45'
-      }" height="${props.height ? props.height : '45'}" viewBox="0 0 46 46">
+      svgImage = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${props.width ? props.width : '45'
+        }" height="${props.height ? props.height : '45'}" viewBox="0 0 46 46">
         <defs>
           <ellipse id="prefix__a" cx="22.918" cy="22.917" rx="22.918" ry="22.917"/>
         </defs>
@@ -60,9 +58,8 @@ export function getSvgImage(props: ISvgImageProps): string {
       svgImage = `<svg version="1.1" id="Layer_1" width="43" height="42" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 43 42" style="enable-background:new 0 0 43 42;" xml:space="preserve"> <style type="text/css"> .st0{fill:none;} .st1{fill:#00AACE;} </style> <g> <path class="st0" d="M30.5,1.5H13h0c-0.7,0-1.3,0.6-1.3,1.3v3.1h20.2V2.8C31.9,2.1,31.3,1.5,30.5,1.5z M17.9,4.4L17.9,4.4 c-0.1,0-0.2,0-0.3-0.1c-0.1-0.1-0.1-0.2-0.1-0.3c0-0.1,0-0.2,0.1-0.3c0.1-0.1,0.2-0.1,0.3-0.1c0.1,0,0.2,0,0.3,0.1 c0.1,0.1,0.1,0.2,0.1,0.3C18.4,4.2,18.2,4.4,17.9,4.4z M25.6,4.4h-6.1v0c-0.2,0-0.4-0.2-0.4-0.4s0.2-0.4,0.4-0.4h6.1 C25.9,3.6,26,3.8,26,4C26,4.2,25.8,4.4,25.6,4.4z"/> <path class="st0" d="M21.8,36.7c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3c0.7,0,1.3-0.6,1.3-1.3c0,0,0,0,0,0 C23.1,37.3,22.5,36.7,21.8,36.7z"/> <path class="st0" d="M11.7,35.2v4c0,0.7,0.6,1.3,1.3,1.3h17.6l0,0c0.7,0,1.3-0.6,1.3-1.3v-4H11.7z M21.9,40.1 c-1.2,0-2.2-0.9-2.2-2.1s0.9-2.2,2.1-2.2l0,0c1.2,0,2.2,1,2.2,2.2C24,39.1,23.1,40.1,21.9,40.1z"/> <path class="st1" d="M23.5,20.6l-2.2-2.4c-0.2-0.3-0.2-0.7,0-0.9c0.2-0.2,0.6-0.2,0.8,0c0,0,0,0,0,0l2.2,2.4l1.8,2 c0.1,0.1,0.2,0.3,0.2,0.5c0,0.1,0,0.2,0,0.3c0,0.1-0.1,0.2-0.1,0.2l-1.8,2l-2.2,2.4c-0.2,0.2-0.6,0.3-0.8,0.1c0,0,0,0-0.1-0.1 c-0.2-0.3-0.2-0.7,0-0.9l2.2-2.4l0.8-0.9h-6.4c-0.3,0-0.6-0.3-0.6-0.7v0c0-0.3,0.3-0.6,0.6-0.7h6.3L23.5,20.6z"/> <path class="st1" d="M30.5,0.2H13c-1.5,0-2.7,1.2-2.7,2.6v36.3c0,1.5,1.2,2.6,2.7,2.6h17.5c1.5,0,2.7-1.2,2.7-2.6V2.8 C33.2,1.4,32,0.2,30.5,0.2z M31.9,39.2c0,0.7-0.6,1.3-1.3,1.3l0,0H13c-0.7,0-1.3-0.6-1.3-1.3v-4h20.2V39.2z M31.9,34.3H11.7V6.8 h20.2V34.3z M31.9,5.9H11.7V2.8c0-0.7,0.6-1.3,1.3-1.3h0h17.5c0.7,0,1.3,0.6,1.3,1.3V5.9z"/> <path class="st1" d="M21.8,39.3C21.8,39.3,21.8,39.3,21.8,39.3C21.8,39.3,21.8,39.3,21.8,39.3L21.8,39.3z"/> <path class="st1" d="M21.8,35.8L21.8,35.8c-1.2,0-2.2,1-2.1,2.2s1,2.1,2.2,2.1c1.1,0,2.1-1,2.1-2.1C24,36.8,23,35.8,21.8,35.8z M21.8,39.3C21.8,39.3,21.8,39.3,21.8,39.3L21.8,39.3L21.8,39.3L21.8,39.3C21.8,39.3,21.8,39.3,21.8,39.3c-0.7,0-1.3-0.6-1.3-1.3 c0-0.7,0.6-1.3,1.3-1.3s1.3,0.6,1.3,1.3c0,0,0,0,0,0C23.1,38.7,22.5,39.3,21.8,39.3z"/> <path class="st1" d="M25.6,3.6h-6.1c-0.2,0-0.4,0.2-0.4,0.4s0.2,0.4,0.4,0.4v0h6.1C25.8,4.4,26,4.2,26,4C26,3.8,25.9,3.6,25.6,3.6z "/> <path class="st1" d="M17.9,3.6c-0.1,0-0.2,0-0.3,0.1c-0.1,0.1-0.1,0.2-0.1,0.3c0,0.1,0,0.2,0.1,0.3c0.1,0.1,0.2,0.1,0.3,0.1v0 c0.2,0,0.4-0.2,0.4-0.4c0-0.1,0-0.2-0.1-0.3C18.2,3.6,18.1,3.6,17.9,3.6z"/> <path class="st1" d="M17.3,22.1L17.3,22.1c0,0.4,0.3,0.7,0.6,0.7h6.4l-0.8,0.9L21.3,26c-0.2,0.3-0.2,0.7,0,0.9c0,0,0,0,0.1,0.1 c0.2,0.2,0.6,0.2,0.8-0.1l2.2-2.4l1.8-2c0.1-0.1,0.1-0.1,0.1-0.2c0-0.1,0-0.2,0-0.3c0-0.2-0.1-0.3-0.2-0.5l-1.8-2l-2.2-2.4 c0,0,0,0,0,0c-0.2-0.2-0.6-0.2-0.8,0c-0.2,0.3-0.2,0.7,0,0.9l2.2,2.4l0.8,0.9h-6.3C17.6,21.4,17.3,21.7,17.3,22.1z"/> </g> </svg>`;
       break;
     case 'line-checked':
-      svgImage = `<svg xmlns="http://www.w3.org/2000/svg" width="${
-        props.width ? props.width : '100'
-      }" height="${props.height ? props.height : '96'}" viewBox="0 0 100 96">
+      svgImage = `<svg xmlns="http://www.w3.org/2000/svg" width="${props.width ? props.width : '100'
+        }" height="${props.height ? props.height : '96'}" viewBox="0 0 100 96">
         <g fill="none" fill-rule="evenodd">
           <g>
             <g fill="#0FD299">
@@ -698,6 +695,26 @@ export function getSvgImage(props: ISvgImageProps): string {
           </g>
         </g>
       </svg>`;
+    case 'reports-1':
+      svgImage = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 505 505" style="enable-background:new 0 0 505 505;" xml:space="preserve" width="43" height="42">
+      <circle style="fill:#324A5E;" cx="252.5" cy="252.5" r="252.5" />
+      <polygon style="fill:#FFFFFF;" points="325.6,86.1 325.6,139.7 379.1,139.7 379.1,418.9 125.9,418.9 125.9,86.1 " />
+      <polygon style="fill:#E6E9EE;" points="325.6,86.1 379.1,139.7 325.6,139.7 " />
+      <path style="fill:#54C0EB;" d="M203.3,240h-47.8v-47.8h47.8V240z M160.3,235.3h38.4v-38.4h-38.4L160.3,235.3L160.3,235.3z" />
+      <polygon style="fill:#FF7058;" points="182.7,230.5 165.1,212.9 173.4,204.6 182.7,213.9 208.4,188.1 216.7,196.4 " />
+      <path style="fill:#54C0EB;" d="M203.3,311.5h-47.8v-47.8h47.8V311.5z M160.3,306.8h38.4v-38.3h-38.4L160.3,306.8L160.3,306.8z" />
+      <polygon style="fill:#FF7058;" points="182.7,302 165.1,284.4 173.4,276.1 182.7,285.4 208.4,259.6 216.7,267.9 " />
+      <path style="fill:#54C0EB;" d="M203.3,383h-47.8v-47.8h47.8V383z M160.3,378.3h38.4v-38.4h-38.4L160.3,378.3L160.3,378.3z" />
+      <polygon style="fill:#FF7058;" points="182.7,373.5 165.1,355.9 173.4,347.6 182.7,356.9 208.4,331.1 216.7,339.4 " />
+      <g>
+        <rect x="229.9" y="205.9" style="fill:#E6E9EE;" width="111.4" height="10.5" />
+        <rect x="229.9" y="229.5" style="fill:#E6E9EE;" width="55.5" height="10.5" />
+        <rect x="229.9" y="277.4" style="fill:#E6E9EE;" width="111.4" height="10.5" />
+        <rect x="229.9" y="301" style="fill:#E6E9EE;" width="55.5" height="10.5" />
+        <rect x="229.9" y="348.9" style="fill:#E6E9EE;" width="111.4" height="10.5" />
+        <rect x="229.9" y="372.5" style="fill:#E6E9EE;" width="55.5" height="10.5" />
+      </g>
+    </svg>`;
       break;
   }
 

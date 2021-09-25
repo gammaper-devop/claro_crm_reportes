@@ -1,26 +1,54 @@
 import { Injectable } from '@angular/core';
-import { LocalStorage } from '@claro/commons/storage';
+import { LocalStorage, SessionStorage } from '@claro/commons/storage';
 import { ListSellersReport } from '../models/sellers-report.models';
 import { ApiService } from './api.service';
 import { PortabilityParam, PortabilityParamResponse } from '../models/portability.model';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Criteria,  CriteriaResponse, } from '../models/criteria.model';
+import { Criteria, CriteriaResponse, } from '../models/criteria.model';
+import { Router } from '@angular/router';
+import { ChildDealer, ChildDealerParam, DealersResponse, MainDealer, MainDealerParam } from '../models/dealers.model';
 
+const stateInitRoute = "reportsInit";
 @Injectable({
   providedIn: 'root',
 })
+
 export class CRMReportsService {
 
   stateCriteria = 'claro-customerSearchCriteria';
+
+
   status: PortabilityParam[];
 
-  constructor(private storage: LocalStorage,private apiService: ApiService) {}
+  constructor(private storage: LocalStorage,
+    private router: Router,
+    private apiService: ApiService,
+    private session: SessionStorage) { }
+
+  isInitRoute(): boolean {
+    return !!this.session.get(stateInitRoute);
+  }
+
+
+  validateInitRoute() {
+    if (this.isInitRoute()) {
+      this.router.navigate(['reportes', 'operaciones']);
+    }
+  }
+
+  removeInitRoute() {
+    if (this.isInitRoute()) {
+      this.session.remove(stateInitRoute);
+    }
+  }
+
+
 
   getSellerList(body: any): Promise<ListSellersReport[]> {
     return this.apiService.post(
-        this.apiService.sellerLists, body
-      )
+      this.apiService.sellerLists, body
+    )
       .toPromise();
   }
 
@@ -42,37 +70,43 @@ export class CRMReportsService {
       );
     }
   }
-  //.get(`${this.apiService.portabilityParams}/${cboKey}`, params);
+
+  postDealersReports(body: any): Observable<MainDealerParam[]> {
+    return this.apiService.post(this.apiService.dealers, body).pipe(
+      map(res =>
+        res.listMainDealer.map(
+          (mDealer: MainDealer) => new MainDealerParam(mDealer)
+        )
+      )
+    );
+  }
+
+  postDealersReportSelected(body: any) : Observable<ChildDealerParam[]> {
+    return this.apiService.post(this.apiService.dealers, body).pipe(
+      map(response =>
+        response.listDealersChild.map(
+          (mDealer: ChildDealer) => new ChildDealerParam(mDealer)
+        )
+      )
+    );
+  }
 
   getPortabilityParam(
     cboKey: string,
     params?: any,
-  ): Promise<PortabilityParam[]> {
-    // this.status = [
-    //   {
-    //     label: 'Activo',
-    //     value: 'A',
-    //     cboKey: 'CBO_EST_VEN',
-    //     paramRequired: ''
-    //   },
-    //   {
-    //     label: 'Inactivo',
-    //     value: 'I',
-    //     cboKey: 'CBO_EST_VEN',
-    //     paramRequired: ''
-    //   },
-    // ]   
-
-   // return Promise.all(this.status);
-    console.log("Ingresa al servicio: ", cboKey);
+  ): Observable<PortabilityParam[]> {
+    const urlSearch = `${this.apiService.generics}/${cboKey}`;
     return this.apiService
-      .get(`${this.apiService.generics}/${cboKey}`)
+      .get(urlSearch)
       .pipe(
-        map(response =>
-          response.map(
+        map(response => {
+         return response.map(
             (param: PortabilityParamResponse) => new PortabilityParam(param),
-          ),
+          );
+        },
+
         ),
-      ).toPromise();
+      );
   }
+
 }

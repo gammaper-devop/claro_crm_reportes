@@ -1,0 +1,18 @@
+{
+    "listMainDealer": [
+      {
+        "mainDealerCode": "0004073878",
+        "descriptionMainDealer": "A & B ENLACES SERVICES E.I.R.L."
+      }
+    ],
+    "listDealersChild": [
+      {
+        "dealerCodeChild": "0004859807",
+        "dealerDescriptionChild": "FFVV EMP AYB ENLACES"
+      },
+      {
+        "dealerCodeChild": "0004073878",
+        "dealerDescriptionChild": "A & B ENLACES SERVICES E.I.R.L."
+      }
+    ]
+  }

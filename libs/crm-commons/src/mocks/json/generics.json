@@ -1180,8 +1180,38 @@
     "keyCombo": "CBO_INOUT"
   },
   {
-    "parameterCode": "O",
-    "description": "Out",
-    "keyCombo": "CBO_INOUT"
+    "parameterCode": "A",
+    "description": "Activo",
+    "keyCombo": "CBO_EST_VEN"
+  },
+  {
+    "parameterCode": "I",
+    "description": "Inactivo",
+    "keyCombo": "CBO_EST_VEN"
+  },
+  {
+    "parameterCode": "21",
+    "description": "NO ESPECIFICADO",
+    "keyCombo": "CBO_RGN"
+  },
+  {
+    "parameterCode": "2",
+    "description": "Centro",
+    "keyCombo": "CBO_RGN"
+  },
+  {
+    "parameterCode": "1",
+    "description": "Lima",
+    "keyCombo": "CBO_RGN"
+  },
+  {
+    "parameterCode": "4",
+    "description": "Sur",
+    "keyCombo": "CBO_RGN"
+  },
+  {
+    "parameterCode": "3",
+    "description": "Norte",
+    "keyCombo": "CBO_RGN"
   }
 ]

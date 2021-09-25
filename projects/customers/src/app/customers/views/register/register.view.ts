@@ -18,9 +18,12 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log("ngOnInit() RegisterComponent");
     this.isInitRoute = this.customerService.isInitRoute();
+    console.log("ngOnInit() RegisterComponent isInitRoute: "+ this.isInitRoute);
     this.customerService.validateInitRoute();
     if (this.isInitRoute) {
+      console.log("ngOnInit() return: ");
       return;
     }
   }

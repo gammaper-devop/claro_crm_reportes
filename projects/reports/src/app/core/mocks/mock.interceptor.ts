@@ -17,6 +17,7 @@ import { UserResponse } from '@shell/app/core';
 //import { MultipointResponse } from '../models/multipoint.model';
 import { Options } from '@claro/commons/src/models/options';
 import { ConstantPool } from '@angular/compiler';
+import { PortabilityParamResponse } from '../models';
 
 @Injectable()
 export class MocksInterceptor implements HttpInterceptor {
@@ -28,15 +29,16 @@ export class MocksInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     let sleepTime = 500;
     const sleepList = [];
+    console.log("MocksInterceptor Reports: ", request.url)
     // sleepList.push(this.apiService.registerConsult);
     if (sleepList.indexOf(request.url) >= 0) {
       sleepTime = 2000;
     }
+
     return of(null)
       .pipe(
         mergeMap(() => {
-          
-         
+
           if (!environment.mock) {
             return next.handle(request);
           }
@@ -47,7 +49,7 @@ export class MocksInterceptor implements HttpInterceptor {
               : request.body;
           const params = request.params;
           const isServerOk = Math.random() > 0;
-           if (
+          if (
             request.url.match(this.apiService.validateIdentification) &&
             request.method === 'POST'
           ) {
@@ -116,18 +118,6 @@ export class MocksInterceptor implements HttpInterceptor {
           }
 
           if (
-            request.url.match(this.apiService.sellerQuery) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-
-            const sellerQuery: Options[] = require('./json/sellers.json');
-            return this.response(sellerQuery);
-          }
-
-          if (
             request.url.match(this.apiService.departments) &&
             request.method === 'GET'
           ) {
@@ -149,17 +139,7 @@ export class MocksInterceptor implements HttpInterceptor {
             return this.response(require('./json/district.json'));
           }
 
-          if (
-            request.url.match(this.apiService.portabilityValidate) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-
-            return this.response({ success: true });
-          }
-
+          
           if (
             request.url.match(this.apiService.registerConsult) &&
             request.method === 'POST'
@@ -186,13 +166,12 @@ export class MocksInterceptor implements HttpInterceptor {
             }
 
             const resportSellerList: any[] = require('./json/sellers-list.json');
-            return this.response(resportSellerList);
+            const resportSellerMax = UTILS.randomNumber(2, 4);
+            const resportSellerFound = resportSellerList.filter(
+              (operation, i) => i < resportSellerMax,
+            );
+            return this.response(resportSellerFound);
           }
-
-          console.log("URL1: ", request.url);
-          console.log("Entro Api1: ", this.apiService.criteria);
-          console.log("Request1: ", request.method);
-
           if (
             request.url.match(this.apiService.criteria) &&
             request.method === 'POST'
@@ -204,36 +183,34 @@ export class MocksInterceptor implements HttpInterceptor {
               criterias: require('./json/criterias.json'),
             });
           }
-          console.log("URL2: ", request.url);
-          console.log("Entro Api2: ", this.apiService.generics);
-          console.log("Request2: ", request.method);
-          if (
-            request.url.match(this.apiService.generics) && request.method === 'GET' 
-          ) {
-            console.log("33333333333333333");
-            const portabilityParams: any[] = require('./json/status.json');
-            console.log("Portabiliy", portabilityParams);
-            const urlParts = request.url.split('/');
-            const cboKey = urlParts[urlParts.length - 1];
-            console.log("CboKey", cboKey);
-            const paramRequired = params.get('idService')
-              ? params.get('idService')
-              : '';
 
+          
+          if (
+            request.url.match(this.apiService.generics) &&
+            request.method === 'GET'
+          ) {
+            console.log("MocksInterceptor Reports LLego Generics Test")
             if (!isServerOk) {
               return this.serverDown();
             }
 
-            const paramsList = portabilityParams.filter(
-              generic =>
-                generic.keyCombo === String(cboKey) &&
-                generic.paramRequired === String(paramRequired),
-            );
-            console.log("ParamList", paramsList);
-            return this.response(paramsList);
+            let generics: PortabilityParamResponse[] = require('./json/status.json');
+            const urlParts = request.url.split('/');
+            console.log("urlParts: ", urlParts);
+            const cboKey = urlParts[urlParts.length - 1];
+            console.log("cboKey: ", cboKey);
+            if (String(cboKey) !== 'CBO_ALL' && String(cboKey) !== 'CBO_DELIVERY') {
+              console.log("Dentro: ");
+              generics = generics.filter(
+                generic => generic.keyCombo === String(cboKey),
+              );
+              console.log("generics final:  ", generics);
+            }
+            
+            return this.response(generics);
           }
 
-          if ( 
+          if (
             request.url.match(this.apiService.getUserDocuments) &&
             request.method === 'GET'
           ) {
@@ -243,204 +220,6 @@ export class MocksInterceptor implements HttpInterceptor {
 
             const declarations: any[] = require('./json/document-search.json');
             return this.response(declarations);
-          }
-
-          if (
-            request.url.match(this.apiService.generateSec) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-
-            return this.response({ secNumber: '2021' });
-          }
-
-          if (
-            request.url.match(this.apiService.modalities) &&
-            request.method === 'GET'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-
-            return this.response([
-              {
-                modalityDestinationCode: '01',
-                modalityDestinationDescription: 'Prepago',
-              },
-            ]);
-          }
-
-          if (
-            request.url.match(this.apiService.validateDisponibility) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-
-            const series = require('./json/series.json');
-            const serieFound = series.find(
-              serie => serie.serie === body.serieNumber,
-            );
-            if (serieFound) {
-              return this.response(serieFound);
-            } else {
-              return this.responseError('Número de serie inválido.');
-            }
-          }
-
-          if (
-            request.url.match(this.apiService.validateDisponibilityRepo) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-
-            const series = require('./json/series.json');
-            const serieFound = series.find(
-              serie => serie.serie === body.serieNumber,
-            );
-            if (serieFound) {
-              return this.response(serieFound);
-            } else {
-              return this.responseError('Número de serie inválido.');
-            }
-          }
-
-          if (
-            request.url.match(this.apiService.searchlines) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-
-            if (Math.random() > 0.3) {
-              return this.response(require('./json/searchlines.json')[0]);
-            } else {
-              return this.responseError('Número inválido.');
-            }
-          }
-
-          if (
-            request.url.match(this.apiService.ubigeos) &&
-            request.method === 'GET'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-
-            return this.response(require('./json/ubigeos.json'));
-          }
-
-          if (
-            request.url.match(this.apiService.addItem) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-
-            if (Math.random() > 0.3) {
-              return this.response({ success: true });
-            } else {
-              return this.responseError('Cobertura incorrecta.');
-            }
-          }
-
-          if (
-            request.url.match(this.apiService.saveSales) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-
-            if (Math.random() > 0.1) {
-              return this.response({
-                orderNumber: '8010760712',
-                orderNumberSynergi: '8010760712',
-                orderMessage: 'success',
-              });
-            } else {
-              return this.responseError('Error al grabar.');
-            }
-          }
-          if (
-            request.url.match(this.apiService.saveSalesRenoRepo) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-
-            if (Math.random() > 0.1) {
-              return this.response({
-                orderNumber: '8010760712',
-                orderMessage: 'success',
-                orderTicket: '8010760712',
-                saleNumber: '546565656',
-              });
-            } else {
-              return this.responseError('Error al grabar.');
-            }
-          }
-
-          if (
-            request.url.match(this.apiService.executePaymentPorta) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-            return this.response({
-              /*success: 'true',
-              date: '10/11/2020',*/
-              
-                "phones":[
-                  {
-                    "phone":"921099796",
-                    "date":"2021-05-27T00:00:01.000-05:00"
-                  },
-                  {
-                    "phone":"921099797",
-                    "date":"2021-05-27T00:00:01.000-05:00"
-                  },
-                  {
-                    "phone":"921099798",
-                    "date":"2021-05-27T00:00:01.000-05:00"
-                  }
-                ]
-              
-            });
-          }
-
-          if (
-            request.url.match(this.apiService.executePaymentAlta) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-            return this.response({
-              success: 'true',
-              phoneNumber: '912345678',
-            });
-          }
-
-          if (
-            request.url.match(this.apiService.executePayment) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
-            }
-            return this.response({
-              success: 'true',
-            });
           }
 
           if (
@@ -456,29 +235,22 @@ export class MocksInterceptor implements HttpInterceptor {
           }
 
           if (
-            (request.url.match(this.apiService.series) ||
-              request.url.match(this.apiService.seriesPorta)) &&
+            (request.url.match(this.apiService.dealers)) &&
             request.method === 'POST'
           ) {
             if (!isServerOk) {
               return this.serverDown();
             }
-            const chipDescriptions = require('./json/series.json');
-            return this.response(chipDescriptions);
-          }
 
-          if (
-            request.url.match(this.apiService.availableDates) &&
-            request.method === 'POST'
-          ) {
-            if (!isServerOk) {
-              return this.serverDown();
+            const dealerSelect = body.dealerCodeSalePoint;
+            const dealersMain = require('./json/dealers-main.json');
+            const dealersMainSelected = require('./json/dealers-selected.json');
+
+            if (dealerSelect.length > 0) {
+
+              return this.response(dealersMainSelected);
             }
-            if (Math.random() > 0.3) {
-              return this.response({ success: true });
-            } else {
-              return this.responseError('Fecha no disponible');
-            }
+            return this.response(dealersMain);
           }
 
           // end!

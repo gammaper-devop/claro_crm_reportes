@@ -1074,7 +1074,8 @@
           "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "reports:build",
-            "disableHostCheck": true
+            "disableHostCheck": true,
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -1093,8 +1094,7 @@
           "options": {
             "tsConfig": [
               "projects/reports/tsconfig.app.json",
-              "projects/reports/tsconfig.spec.json",
-              "projects/reports/e2e/tsconfig.json"
+              "projects/reports/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

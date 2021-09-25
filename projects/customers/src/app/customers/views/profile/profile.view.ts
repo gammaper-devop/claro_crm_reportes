@@ -31,9 +31,12 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("ngOnInit() ProfileComponent");
     this.isInitRoute = this.customerService.isInitRoute();
+    console.log("ngOnInit() ProfileComponent isInitRoute: "+ this.isInitRoute);
     this.customerService.validateInitRoute();
     if (this.isInitRoute) {
+      console.log("ngOnInit() ProfileComponent return: ");
       return;
     }
     this.presenter.payments = this.memory.get('payments');

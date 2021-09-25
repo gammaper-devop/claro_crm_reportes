@@ -58,6 +58,9 @@ export class ShellPresenter implements OnDestroy {
         if (user.allowedModules.includes('customers')) {
           this.session.set('customersInit', true);
         }
+        if (user.allowedModules.includes('reports')) {
+          this.session.set('reportsInit', true);
+        }
         if (this.isLogin) {
           this.router.navigate([
             `/${this.menus.filter(menu => menu.show)[0].url}`,

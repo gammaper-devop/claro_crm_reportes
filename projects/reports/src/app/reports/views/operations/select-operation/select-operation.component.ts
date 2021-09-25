@@ -1,28 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { SelectOperationPresenter } from './select-operation.presenter.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MemoryStorage } from '@claro/commons/storage';
+import { CRMReportsService, PortabilityParam } from '@reports/app/core';
+import { SellersPresenter } from '../../sellers/sellers.presenter';
 
 @Component({
   selector: 'app-select-operation',
   templateUrl: './select-operation.component.html',
   styleUrls: ['./select-operation.component.scss'],
-  providers: [SelectOperationPresenter],
 })
-export class SelectOperationComponent implements OnInit {
-
+export class SelectOperationComponent implements OnInit, OnDestroy {
+  isInitRoute: boolean;
   operations: Operations[];
-
+  reportStatus: PortabilityParam[];
   constructor(
-    public presenter: SelectOperationPresenter,
-    private router: Router
+    private router: Router,
+    private memory: MemoryStorage,
+    private reportsService: CRMReportsService
   ) {}
+  ngOnDestroy(): void {
+    this.reportsService.removeInitRoute();
+  }
 
   ngOnInit() {
     this.operations = [
       {
         label: 'Vendedores',
         value: 1,
-        icon: "operation-01"
+        icon: "reports-1"
       },
       /* {
         label: 'Clientes',
@@ -43,6 +48,7 @@ export class SelectOperationComponent implements OnInit {
     }
   }
 }
+
 
 export interface Operations{
   label: string,

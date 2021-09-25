@@ -2,13 +2,11 @@
   {
     "parameterCode": "A",
     "description": "Activo",
-    "keyCombo": "CBO_EST_VEN",
-    "paramRequired": ""
+    "keyCombo": "CBO_EST_VEN"
   },
   {
     "parameterCode": "I",
     "description": "Inactivo",
-    "keyCombo": "CBO_EST_VEN",
-    "paramRequired": ""
+    "keyCombo": "CBO_EST_VEN"
   }
 ]
